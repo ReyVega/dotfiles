@@ -82,5 +82,9 @@ keys = [
     # File Manager
     Key([mod], "f", lazy.spawn("pcmanfm"), desc="Starts file manager"),
 
+    # Discord
+    Key([mod], "d", lazy.spawn("discord"), desc="Starts discord"),
 
+    # VS Code
+    Key([mod], "c", lazy.spawn("code"), desc="Starts vs-code"),
 ]
