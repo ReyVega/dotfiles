@@ -1,26 +1,27 @@
 from os import path
 import subprocess
 import json
-from .path import qtile_path
+from .paths import qtile_path
 
 def load_theme():
-    theme = "dark-grey"
+    theme = "nord"
 
-    config = path.join(qtile_path, "config.json")
-    if path.isfile(config):
-        with open(config) as f:
+    theme_config = path.join(qtile_path, "theme.json")
+
+    if path.isfile(theme_config):
+        with open(theme_config, 'r') as f:
             theme = json.load(f)["theme"]
     else:
-        with open(config, "w") as f:
-            f.write(f'{{"theme": "{theme}"}}\n')
+        with open(theme_config, "w") as f:
+            f.write(f'{{"theme": "{theme}"}}')
 
 
     theme_file = path.join(qtile_path, "themes", f'{theme}.json')
+
     if not path.isfile(theme_file):
         raise Exception(f'"{theme_file}" does not exist')
 
-    with open(path.join(theme_file)) as f:
+    with open(theme_file, 'r') as f:
         return json.load(f)
 
-if __name__ == "settings.theme":
-    colors = load_theme()
+colors = load_theme()

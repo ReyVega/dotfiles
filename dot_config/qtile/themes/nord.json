@@ -1,50 +1,19 @@
 {
-    "dark": [
-        "#212121",
-        "#212121"
-    ],
-    "grey": [
-        "#ABB2BF",
-        "#ABB2BF"
-    ],
-    "light": [
-        "#ffffff",
-        "#ffffff"
-    ],
-    "text": [
-        "#212121",
-        "#212121"
-    ],
-    "focus": [
-        "#81a1c1",
-        "#81a1c1"
-    ],
-    "active": [
-        "#f1ffff",
-        "#f1ffff"
-    ],
-    "inactive": [
-        "#4c566a",
-        "#4c566a"
-    ],
-    "urgent": [
-        "#b48ead",
-        "#b48ead"
-    ],
-    "color1": [
-        "#81a1c1",
-        "#81a1c1"
-    ],
-    "color2": [
-        "#88c0d0",
-        "#88c0d0"
-    ],
-    "color3": [
-        "#a3be8c",
-        "#a3be8c"
-    ],
-    "color4": [
-        "#ebcb8b",
-        "#ebcb8b"
-    ]
+    "dark": "#212121",
+    "aurora1": "#BF616A",
+    "aurora2": "#D08770",
+    "aurora3": "#EBCB8B",
+    "aurora4": "#A3BE8C",
+    "aurora5": "#B48EAD",
+    "frost1": "#8FBCBB",
+    "frost2": "#88C0D0",
+    "frost3": "#81A1C1",
+    "frost4": "#5E81AC",
+    "polar1": "#2E3440",
+    "polar2": "#3B4252",
+    "polar3": "#434C5E",
+    "polar4": "#4C566A",
+    "snowstorm1": "#D8DEE9",
+    "snowstorm2": "#E5E9F0",
+    "snowstorm3": "#ECEFF4"
 }

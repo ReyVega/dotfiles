@@ -1,11 +1,10 @@
-
 from libqtile.config import Key, Group
 from libqtile.command import lazy
 from .keys import mod, keys
 
 # Create groups
 group_names = ["1","2","3","4","5","6","7","8","9"]
-group_labels = ["   ", "   ", "   ", "   ", "  ", "   ", "   ", "   ", "   "]
+group_labels = ["", "ﭮ","", "", "", "", "ﰆ", "", ""]
 group_layouts = ["max","max","max","max","max","max","max","max","max"]
 
 groups = [Group(name=group_names[i], label=group_labels[i], layout=group_layouts[i]) for i in range(len(group_names))]

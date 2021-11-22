@@ -1,122 +1,105 @@
 from libqtile import widget
+from libqtile import qtile
 from .theme import colors
+from .paths import widgets_path
+from os import path
+import subprocess
 
-def base(fg='text', bg='dark'): 
+
+def base(fg='dark', bg='dark'): 
     return {
         'foreground': colors[fg],
         'background': colors[bg]
     }
 
-
 def separator():
-    return widget.Sep(**base(), linewidth=0, padding=5)
-
-
-def icon(fg='text', bg='dark', fontsize=14, text="?"):
-    return widget.TextBox(
-        **base(fg, bg),
-        fontsize=fontsize,
-        text=text,
-        padding=3
-    )
-
-
-def powerline(fg="light", bg="dark"):
-    return widget.TextBox(
-        **base(fg, bg),
-        text="", # Icon: nf-oct-triangle_left
-        fontsize=37,
-        padding=-4
-    )
-
+    return widget.Sep(**base(), linewidth=12)
 
 def workspaces(): 
     return [
         widget.GroupBox(
-            **base(fg='light'),
+            **base(fg='snowstorm1'),
             font='Hack Nerd Font',
-            fontsize=19,
-            margin_y=3,
-            margin_x=0,
-            padding_y=8,
-            padding_x=5,
-            borderwidth=1,
-            active=colors['active'],
-            inactive=colors['inactive'],
-            rounded=False,
+            fontsize=20,
+            padding_x=18,
+            disable_drag=True,
+            active=colors['snowstorm3'],
+            inactive=colors['polar4'],
             highlight_method='block',
+            this_current_screen_border=colors['frost3'],
+            this_screen_border=colors['frost3'],
             urgent_alert_method='block',
-            urgent_border=colors['urgent'],
-            this_current_screen_border=colors['focus'],
-            this_screen_border=colors['grey'],
-            other_current_screen_border=colors['dark'],
-            other_screen_border=colors['dark'],
-            disable_drag=True
+            urgent_border=colors['aurora5'],
+            other_current_screen_border=colors['frost3'],
+            other_screen_border=colors['frost3'],
         ),
-        widget.WindowName(**base(fg='focus'), fontsize=14, padding=5),
+        widget.WindowName(**base(fg='frost3'), fontsize=14, padding=5),
     ]
 
 
 primary_widgets = [
     *workspaces(),
 
-    powerline('color4', 'dark'),
-    
-    widget.CheckUpdates(
-        **base(bg='color4'),
-        colour_have_updates=colors['text'],
-        colour_no_updates=colors['text'],
-        no_update_string='0',
-        display_format='{updates}',
-        fmt=' {}',
-        update_interval=1800,
-        custom_command='checkupdates',
-        execute='alacritty -e sudo pacman -Syu'
+    separator(),
+
+    widget.GenPollText(
+        **base(fg='aurora2'),
+        func=lambda: subprocess.check_output(widgets_path + "/arch-updates.sh").decode(),
+        mouse_callbacks={
+            'Button1': lambda:qtile.cmd_spawn(widgets_path + "/arch-updates.sh upgrade"),
+        },
+        update_interval=0.1
     ),
 
-    powerline('color3', 'color4'),
+    separator(),
 
-    widget.Backlight(
-        **base(bg='color3'),
-        backlight_name='amdgpu_bl0',
-        fmt="盛 {}",
+    widget.GenPollText(
+        **base(fg='aurora3'),
+        func=lambda: subprocess.check_output(widgets_path + "/brightness.sh").decode(),
+        mouse_callbacks={
+            'Button4': lambda:qtile.cmd_spawn(widgets_path + "/brightness.sh down"),
+            'Button5': lambda:qtile.cmd_spawn(widgets_path + "/brightness.sh up"),
+        },
+        update_interval=0.1,
     ),
 
-    powerline('color2', 'color3'),
+    separator(),
 
-    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
+    widget.GenPollText(
+        **base(fg='aurora4'),
+        func=lambda: subprocess.check_output(widgets_path + "/volume.sh").decode(),
+        mouse_callbacks={
+            'Button1': lambda:qtile.cmd_spawn(widgets_path + "/volume.sh mute"),
+            'Button4': lambda:qtile.cmd_spawn(widgets_path + "/volume.sh down"),
+            'Button5': lambda:qtile.cmd_spawn(widgets_path + "/volume.sh up"),
+        },
+        update_interval=0.1,
+    ),
 
-    widget.CurrentLayout(**base(bg='color2'), padding=5),
+    separator(),
 
-    powerline('color1', 'color2'),
+    widget.CurrentLayout(
+        **base(fg='aurora1'), 
+        padding=1,
+    ),
 
-    widget.Clock(**base(bg='color1'), format=' %m-%d-%Y - %H:%M '),
+    widget.CurrentLayoutIcon(
+        **base(fg='aurora2'), 
+        scale=0.58,
+    ),
 
-    powerline('dark', 'color1'),
+    separator(),
 
-    widget.Systray(background=colors['dark'], padding=5),
-
-    # powerline('color3', 'color4'),
-
-    # icon(bg="color3", text=' '),  # Icon: nf-fa-feed
+    widget.GenPollText(
+        **base(fg='frost4'),
+        func=lambda: subprocess.check_output(widgets_path + "/calendar.sh").decode(),
+        update_interval=0.1,
+    ),
     
-    # widget.Net(**base(bg='color3'), interface='kk'),
-
-    # powerline('color2', 'color3'),
-
-    # widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
-
-    # widget.CurrentLayout(**base(bg='color2'), padding=5),
-
-    # powerline('color1', 'color2'),
-
-    # icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
-
-    # widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
-
-    # powerline('dark', 'color1'),
-
-    # widget.Systray(background=colors['dark'], padding=5),
+    widget.Systray(
+        background=colors['dark'], 
+        padding=5,
+    ),
 ]
 
 secondary_widgets = [
@@ -124,17 +107,11 @@ secondary_widgets = [
 
     separator(),
 
-    powerline('color1', 'dark'),
+    widget.CurrentLayoutIcon(**base(bg='aurora1'), scale=0.65),
 
-    widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
+    widget.CurrentLayout(**base(bg='aurora1'), padding=5),
 
-    widget.CurrentLayout(**base(bg='color1'), padding=5),
-
-    powerline('color2', 'color1'),
-
-    widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M '),
-
-    powerline('dark', 'color2'),
+    widget.Clock(**base(bg='aurora2'), format='%d/%m/%Y - %H:%M '),
 ]
 
 widget_defaults = {
