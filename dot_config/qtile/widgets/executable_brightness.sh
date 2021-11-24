@@ -1,5 +1,5 @@
 #!/bin/bash
-icon=~/.local/share/icons/Tela-dark/16/actions/brightnesssettings.svg
+icon="~/.config/qtile/icons/brightnesssettings.svg"
 notify_id=5555
 timeout=1500
 icon_bar=""

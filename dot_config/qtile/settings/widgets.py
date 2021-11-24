@@ -2,7 +2,6 @@ from libqtile import widget
 from libqtile import qtile
 from .theme import colors
 from .paths import widgets_path
-from os import path
 import subprocess
 
 def base(fg='dark', bg='dark'): 
@@ -47,7 +46,7 @@ primary_widgets = [
         mouse_callbacks={
             'Button1': lambda:qtile.cmd_spawn(widgets_path + "/arch-updates.sh upgrade"),
         },
-        update_interval=0.1
+        update_interval=0.2,
     ),
 
     separator(),
@@ -59,7 +58,7 @@ primary_widgets = [
             'Button4': lambda:qtile.cmd_spawn(widgets_path + "/brightness.sh down"),
             'Button5': lambda:qtile.cmd_spawn(widgets_path + "/brightness.sh up"),
         },
-        update_interval=0.1,
+        update_interval=0.2,
     ),
 
     separator(),
@@ -73,7 +72,7 @@ primary_widgets = [
             'Button5': lambda:qtile.cmd_spawn(widgets_path + "/volume.sh up"),
             'Button3': lambda:qtile.cmd_spawn(widgets_path + "/volume.sh app"),
         },
-        update_interval=0.1,
+        update_interval=0.2,
     ),
 
     separator(),
@@ -93,13 +92,17 @@ primary_widgets = [
     widget.GenPollText(
         **base(fg='frost4'),
         func=lambda: subprocess.check_output(widgets_path + "/calendar.sh").decode(),
-        update_interval=0.1,
+        update_interval=0.2,
     ),
     
-    widget.Systray(
-        background=colors['dark'], 
-        padding=5,
+    separator(),
+    
+    widget.GenPollText(
+        **base(fg='snowstorm1'),
+        func=lambda: subprocess.check_output(widgets_path + "/battery.sh").decode(),
+        update_interval=0.2,
     ),
+    separator(),
 ]
 
 secondary_widgets = [

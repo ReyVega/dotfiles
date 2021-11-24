@@ -1,5 +1,5 @@
 #!/bin/bash
-icon_path=~/.local/share/icons/Tela-dark/symbolic/status/
+icon_path="~/.config/qtile/icons/"
 notify_id=5556
 timeout=1500
 
@@ -47,7 +47,7 @@ function mute_notification {
     if [ $muted = 1 ]
     then
         brightnessctl -d 'hda::mute' s 100%
-        dunstify -t $timeout -r $notify_id -u normal "Muted" -i "${icon_path}audio-volume-muted-symbolic.svg"
+        dunstify -t $timeout -r $notify_id -u normal "Muted" -i "${icon_path}audio-volume-muted-blocking-symbolic.svg"
     else
         brightnessctl -d 'hda::mute' s 0%
         volume=`get_volume`
@@ -57,11 +57,11 @@ function mute_notification {
 
 case $1 in
     up)
-        pulsemixer --max-volume 100 --change-volume +5
+        pulsemixer --max-volume 100 --change-volume +2
         volume_notification
         ;;
     down)
-        pulsemixer --max-volume 100 --change-volume -5
+        pulsemixer --max-volume 100 --change-volume -2
         volume_notification
 	    ;;
     mute)

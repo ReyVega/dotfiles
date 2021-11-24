@@ -4,18 +4,47 @@ from .theme import colors
 
 layout_conf = {
     'border_focus': colors['frost3'],
-    'border_width': 1,
+    'border_width': 3,
     'margin': 8
 }
 
 layouts = [
-    layout.Max(**layout_conf),
-    layout.MonadTall(**layout_conf),
-    layout.Stack(num_stacks=2, **layout_conf),
-    layout.RatioTile(**layout_conf),
-    layout.Matrix(columns=2, **layout_conf),
-    layout.TreeTab(**layout_conf),
-    layout.Floating(**layout_conf),
+    layout.Max(
+        **layout_conf,
+    ),
+    layout.MonadTall(
+        **layout_conf,
+    ),
+    layout.Stack(
+        **layout_conf,
+        num_stacks=2,
+    ),
+    layout.RatioTile(
+        **layout_conf,
+    ),
+    layout.Matrix(
+        **layout_conf,
+        columns=2,
+    ),
+    layout.TreeTab(
+        sections=['TreeTab'],
+        section_fontsize=14,
+        section_left=8,
+        fontsize=14,
+        vspace=5,
+        section_top=10,
+        section_padding=10,
+        padding_x=-4,
+        padding_y=5,
+        panel_width=140,
+        active_bg=colors['polar4'],
+        inactive_bg=colors['polar1'],
+        active_fg=colors['snowstorm3'],
+        inactive_fg=colors['polar4'],
+    ),
+    layout.Floating(
+        **layout_conf,
+    ),
     # layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
     # Try more layouts by unleashing below layouts.
     # layout.Bsp(),
@@ -35,5 +64,6 @@ floating_layout = layout.Floating(
         Match(title='branchdialog'),
         Match(title='pinentry'),
     ],
-    border_focus=colors["aurora4"]
+    border_focus=colors["aurora4"],
+    border_width= 3,
 )
