@@ -15,19 +15,8 @@ layouts = [
     layout.MonadTall(
         **layout_conf,
     ),
-    layout.Stack(
-        **layout_conf,
-        num_stacks=2,
-    ),
-    layout.RatioTile(
-        **layout_conf,
-    ),
-    layout.Matrix(
-        **layout_conf,
-        columns=2,
-    ),
     layout.TreeTab(
-        sections=['TreeTab'],
+        sections=['Browser', 'Video', 'Programming'],
         section_fontsize=14,
         section_left=8,
         fontsize=14,
@@ -42,12 +31,20 @@ layouts = [
         active_fg=colors['snowstorm3'],
         inactive_fg=colors['polar4'],
     ),
+    layout.Stack(
+        **layout_conf,
+        num_stacks=2,
+    ),
+    layout.RatioTile(
+        **layout_conf,
+    ),
     layout.Floating(
         **layout_conf,
     ),
     # layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
     # Try more layouts by unleashing below layouts.
     # layout.Bsp(),
+    # layout.Matrix(),
     # layout.MonadWide(),
     # layout.Tile(),
     # layout.VerticalTile(),

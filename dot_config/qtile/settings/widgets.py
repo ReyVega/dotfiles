@@ -79,11 +79,17 @@ primary_widgets = [
 
     widget.CurrentLayout(
         **base(fg='aurora1'), 
+        mouse_callbacks={
+            'Button3': lambda:qtile.cmd_prev_layout()
+        }, 
         padding=1,
     ),
 
     widget.CurrentLayoutIcon(
-        **base(fg='aurora2'), 
+        **base(fg='aurora2'),
+        mouse_callbacks={
+            'Button3': lambda:qtile.cmd_prev_layout()
+        }, 
         scale=0.58,
     ),
 
