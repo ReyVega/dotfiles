@@ -1,0 +1,10 @@
+brave-bin
+fnm-bin
+lightdm-webkit2-theme-glorious
+mugshot
+nerd-fonts-hack
+paru
+picom-git
+stacer
+visual-studio-code-bin
+zoom
