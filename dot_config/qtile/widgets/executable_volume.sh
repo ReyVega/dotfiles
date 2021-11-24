@@ -50,8 +50,7 @@ function mute_notification {
         dunstify -t $timeout -r $notify_id -u normal "Muted" -i "${icon_path}audio-volume-muted-blocking-symbolic.svg"
     else
         brightnessctl -d 'hda::mute' s 0%
-        volume=`get_volume`
-        dunstify -t $timeout -r $notify_id -u normal "`get_bar $volume` $volume %" -i "${icon_path}`get_volume_icon $volume`"
+        volume_notification
     fi
 }
 
