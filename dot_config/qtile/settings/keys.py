@@ -109,17 +109,33 @@ keys = [
         desc="Flip mondatall main pane and rotate stacks"
     ),
     
+    # Floating 
+    Key([mod, "shift"], "i",
+        lazy.window.toggle_minimize(),
+        lazy.group.next_window(),
+        lazy.window.bring_to_front(),
+        desc="Minimize and Maximize windows"
+    ),
+    
     # Toggles
+     Key(
+        [mod], "f",
+        lazy.hide_show_bar(),
+        lazy.window.toggle_fullscreen(),
+        desc='toggle fullscreen'
+    ),
+     
     Key(
         [mod, "shift"], "f",
         lazy.window.toggle_floating(),
         desc='toggle floating'
     ),
-
+    
+    # Hide bar
     Key(
-        [mod], "f",
-        lazy.window.toggle_fullscreen(),
-        desc='toggle fullscreen'
+        [mod], "u",
+        lazy.hide_show_bar(),
+        desc='Hides bar'
     ),
     
     # ------------ Screens Config ------------

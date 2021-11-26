@@ -39,14 +39,18 @@ primary_widgets = [
     *workspaces(),
 
     separator(),
-
-    widget.GenPollText(
-        **base(fg='aurora2'),
-        func=lambda: subprocess.check_output(widgets_path + "/arch-updates.sh").decode(),
-        mouse_callbacks={
-            'Button1': lambda:qtile.cmd_spawn(widgets_path + "/arch-updates.sh upgrade"),
-        },
-        update_interval=0.2,
+    
+    widget.CheckUpdates(
+        **base(),
+        update_interval=1800,
+        colour_have_updates=colors['aurora2'],
+        colour_no_updates=colors['aurora2'],
+        distro='Arch_paru',
+        custom_command='checkupdates;paru -Qua',
+        display_format='{updates}',
+        no_update_string='0',
+        fmt=' {}',
+        execute='alacritty -e paru',
     ),
 
     separator(),

@@ -1,5 +1,5 @@
 # dotfiles
-<img src="screenshot.png"></img>
+<img src="screenshots/screenshot.png"></img>
 
 ---
 <h2>Software Details</h2>
