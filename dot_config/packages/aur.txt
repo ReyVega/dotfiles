@@ -3,6 +3,7 @@ fnm-bin
 lightdm-webkit2-theme-glorious
 mugshot
 nerd-fonts-hack
+nvim-packer-git
 paru
 picom-git
 stacer
