@@ -34,7 +34,7 @@ set.smartcase = true                     -- ignore lowercase for the whole patte
 set.linebreak = true                     -- wrap on word boundary
 set.cmdheight = 2                        -- more space for displaying messages
 set.signcolumn = 'number'                -- type of sign column
-set.cursorline = false                   -- enable highlighting of the current line
+set.cursorline = true                    -- enable highlighting of the current line
 set.guifont = 'Hack Nerd Font:h12'       -- font and size
 --set.shortmess = append 'c'
 
@@ -64,7 +64,6 @@ set.smarttab = true       -- tab new lines
 -----------------------------------------------------------
 set.termguicolors = true      -- enable 24-bit RGB colors
 cmd [[colorscheme nord]]
-
 
 -----------------------------------------------------------
 -- Autocompletion

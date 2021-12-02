@@ -1,5 +1,54 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
+local g = vim.g
+local cmd = vim.cmd
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+
+g.nvim_tree_indent_markers = 1
+g.nvim_tree_root_folder_modifier = ':~'
+g.nvim_tree_width_allow_resize = 1
+g.nvim_tree_git_hl = 1
+g.nvim_tree_highlight_opened_files = 1
+g.nvim_tree_add_trailing = 0
+g.nvim_tree_group_empty = 0
+g.nvim_tree_disable_window_picker = 1
+g.nvim_tree_icon_padding = ' '
+
+g.nvim_tree_show_icons = {
+    git = 1,
+    folders = 1,
+    files = 1,
+    folder_arrows = 1,
+}
+
+g.nvim_tree_icons = {
+    default = '',
+    symlink = '',
+    git = {
+        unstaged = "✗",
+        staged = "✓",
+        unmerged = "",
+        renamed = "➜",
+        untracked = "★",
+        deleted = "",
+        ignored = "◌"
+    },
+    folder = {
+       arrow_open = "",
+       arrow_closed = "",
+       default = "",
+       open = "",
+       empty = "",
+       empty_open = "",
+       symlink = "",
+       symlink_open = "",
+    },
+    lsp = { 
+        hint = ' ', 
+        info = ' ', 
+        warning = ' ', 
+        error = ' ', 
+    },
+}
 
 -- default mappings
 local keys = {
@@ -21,6 +70,7 @@ local keys = {
   { key = "R",                            cb = tree_cb("refresh") },
   { key = "a",                            cb = tree_cb("create") },
   { key = "d",                            cb = tree_cb("remove") },
+  { key = "D",                            cb = tree_cb("trash") },
   { key = "r",                            cb = tree_cb("rename") },
   { key = "<C-r>",                        cb = tree_cb("full_rename") },
   { key = "x",                            cb = tree_cb("cut") },
@@ -43,8 +93,8 @@ require'nvim-tree'.setup {
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
   auto_close          = false,
-  open_on_tab         = false,
-  hijack_cursor       = false,
+  open_on_tab         = true,
+  hijack_cursor       = true,
   update_cwd          = false,
   update_to_buf_dir   = {
     enable = true,
@@ -82,11 +132,18 @@ require'nvim-tree'.setup {
     height = 30,
     hide_root_folder = false,
     side = 'left',
-    auto_resize = false,
+    auto_resize = true,
     mappings = {
       custom_only = true,
       list = keys
-    }
+    },
+    number = false,
+    relativenumber = false
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true
   }
 }
 
+cmd [[highlight NvimTreeFolderIcon guibg=blue]]
