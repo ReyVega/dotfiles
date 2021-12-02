@@ -1,3 +1,4 @@
+betterlockscreen
 brave-bin
 fnm-bin
 lightdm-webkit2-theme-glorious
@@ -8,4 +9,5 @@ paru
 picom-git
 stacer
 visual-studio-code-bin
+xidlehook
 zoom

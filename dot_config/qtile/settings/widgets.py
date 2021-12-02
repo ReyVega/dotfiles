@@ -113,6 +113,10 @@ primary_widgets = [
         update_interval=0.2,
     ),
     separator(),
+    widget.Systray(
+        background=colors['dark'],
+        padding=5,
+    ),
 ]
 
 secondary_widgets = [
