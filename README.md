@@ -1,5 +1,5 @@
 # dotfiles
-<img src="screenshots/os-screenshot.png"></img>
+<img src="screenshots/os-screenshot.png" />
 
 ---
 <h2>Software Details</h2>
@@ -7,99 +7,147 @@
 <table>
     <tr>
         <th>Operating System</th>
-        <td>Arch Linux</td>
+        <td>
+            <a href="https://wiki.archlinux.org/">arch-linux</a>
+        </td>
     </tr>
     <tr>
         <th>AUR Helper</th>
-        <td>Paru</td>
+        <td>
+            <a href="https://github.com/Morganamilo/paru">paru</a>
+        </td>
     </tr>
     <tr>
         <th>Boot Loader</th>
-        <td>Grub</td>
+        <td>
+            <a href="https://wiki.archlinux.org/title/GRUB#Installation">grub</a>
+        </td>
     </tr>
     <tr>
         <th>Window Manager</th>
-        <td>Qtile</td>
+        <td>
+            <a href="http://www.qtile.org/">qtile</a>
+        </td>
     </tr>
     <tr>
         <th>Display Manager</th>
-        <td>LightDM</td>
+        <td>
+            <a href="https://wiki.archlinux.org/title/LightDM">lightdm</a>
+        </td>
     </tr>
     <tr>
         <th>LightDM Greeter</th>
-        <td>lightdm-webkit2-greeter</td>
+        <td>
+            <a href="https://archlinux.org/packages/community/x86_64/lightdm-webkit2-greeter/">lightdm-webkit2-greeter</a>
+        </td>
     </tr>
     <tr>
         <th>Screen Locker</th>
-        <td>BetterLockScreen</td>
+        <td>
+            <a href="https://github.com/betterlockscreen/betterlockscreen">betterlockscreen</a>
+        </td>
     </tr>
     <tr>
         <th>Shell</th>
-        <td>Bash using Starship and Fish</td>
+        <td>
+            bash using <a href="https://starship.rs/">starship</a> and <a href="https://fishshell.com/">fish</a>
+        </td>
     </tr>
     <tr>
         <th>Terminal</th>
-        <td>Kitty</td>
+        <td>
+            <a href="https://github.com/kovidgoyal/kitty">kitty</a>
+        </td>
     </tr>
     <tr>
         <th>Compositor</th>
-        <td>Picom-git</td>
+        <td>
+            <a href="https://github.com/yshui/picom">picom-git</a>
+        </td>
     </tr>
     <tr>
         <th>Notification Daemon</th>
-        <td>Dunst</td>
+        <td>
+            <a href="https://dunst-project.org/">dunst</a>
+        </td>
     </tr>
     <tr>
         <th>Application Launcher</th>
-        <td>Rofi</td>
+        <td>
+            <a href="https://github.com/davatorium/rofi">rofi</a>
+        </td>
     </tr>
     <tr>
         <th>File Manager</th>
-        <td>PCManFM</td>
+        <td>
+            <a href="https://wiki.archlinux.org/title/PCManFM">pcmanfm</a>
+        </td>
     </tr>
     <tr>
         <th>Screenshots</th>
-        <td>Scrot and XClip</td>
+        <td>
+            <a href="https://archlinux.org/packages/community/x86_64/scrot/">scrot</a> and <a href="https://archlinux.org/packages/extra/x86_64/xclip/">xclip</a>
+        </td>
     </tr>
     <tr>
         <th>GUI for setting themes</th>
-        <td>lxappearance</td>
+        <td>
+            <a href="https://archlinux.org/packages/community/x86_64/lxappearance/">lxappearance</a>
+        </td>
     </tr>
     <tr>
         <th>CLI for setting wallpapers</th>
-        <td>Feh</td>
+        <td>
+            <a href="https://archlinux.org/packages/extra/x86_64/feh/">feh</a>
+        </td>
     </tr>
     <tr>
         <th>Editor</th>
-        <td>Neovim</td>
+        <td>
+            <a href="https://neovim.io/">neovim</a>
+        </td>
     </tr>
     <tr>
         <th>Laptop Screen Brightness</th>
-        <td>Brightnessctl</td>
+        <td>
+            <a href="https://archlinux.org/packages/community/x86_64/brightnessctl/">brightnessctl</a>
+        </td>
     </tr>
     <tr>
         <th>Audio</th>
-        <td>Pipewire-Pulse</td>
+        <td>
+            <a href="https://archlinux.org/packages/extra/x86_64/pipewire-pulse/">pipewire-Pulse</a>
+        </td>
     </tr>
     <tr>
         <th>Audio Manager</th>
-        <td>Pulsemixer</td>
+        <td>
+            <a href="https://archlinux.org/packages/community/any/pulsemixer/">pulsemixer</a>
+        </td>
     </tr>
     <tr>
         <th>Video Manager</th>
-        <td>MPV</td>
+        <td>
+            <a href="https://archlinux.org/packages/community/x86_64/mpv/">mpv</a>
+        </td>
     </tr>
     <tr>
         <th>Network Manager</th>
-        <td>networkmanager (nmcli/nmtui)</td>
+        <td>
+            <a href="https://wiki.archlinux.org/title/NetworkManager">networkmanager (nmcli/nmtui)</a>
+        </td>
     </tr>
     <tr>
         <th>Firewall</th>
-        <td>Uncomplicated Firewall</td>
+        <td>
+            <a href="https://wiki.archlinux.org/title/Uncomplicated_Firewall">uncomplicated firewall</a>
+        </td>
     </tr>
     <tr>
         <th>Virtual Machines Manager</th>
-        <td>Cockpit</td>
+        <td>
+            <a href="https://wiki.archlinux.org/title/Cockpit">cockpit</a>
+        </td>
     </tr>
 </table>
 
@@ -109,30 +157,43 @@
 <table>
     <tr>
         <th>GTK Theme</th>
-        <td>Orchis-dark</td>
+        <td>
+            <a href="https://www.gnome-look.org/p/1357889/">Orchis-dark</a>
+        </td>
     </tr>
     <tr>
         <th>GTK Icons</th>
-        <td>Tela dark</td>
+        <td>
+            <a href="https://www.pling.com/p/1279924/">Tela dark</a>
+        </td>
     </tr>
     <tr>
         <th>GTK Mouse</th>
-        <td>Sweet-Cursors</td>
+        <td>
+            <a href="https://www.gnome-look.org/p/1393084/">Sweet-Cursors</a>
+        </td>
     </tr>
     <tr>
         <th>LightDM Theme</th>
-        <td>Glorious</td>
+        <td>
+            <a href="https://github.com/manilarome/lightdm-webkit2-theme-glorious">Glorious</a>
+        </td>
     </tr>
     <tr>
         <th>Font</th>
-        <td>Hack Nerd Font</td>
+        <td>
+            <a href="https://www.nerdfonts.com/">Hack Nerd Font</a>
+        </td>
     </tr>
     <tr>
         <th>Almost Every System Theme</th>
-        <td>Nord</td>
+        <td>
+            <a href="https://www.nordtheme.com/">Nord</a>
+        </td>
     </tr>
 </table>
 
 ---
 <h2>Neovim configuration</h2>
 <h3><a href='https://github.com/ReyVega/dotfiles/tree/main/dot_config/nvim'>VS Neovim</a><h3>
+<img src="screenshots/neovim-startup.png" />
