@@ -68,7 +68,7 @@ case $1 in
         mute_notification
         ;;
     app)
-        alacritty -e pulsemixer
+        kitty -e pulsemixer
         ;;
     *)
         muted=`is_mute`
