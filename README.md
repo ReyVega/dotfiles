@@ -1,5 +1,5 @@
 # dotfiles
-<img src="screenshots/screenshot.png"></img>
+<img src="screenshots/os-screenshot.png"></img>
 
 ---
 <h2>Software Details</h2>
@@ -31,7 +31,7 @@
     </tr>
     <tr>
         <th>Screen Locker</th>
-        <td>light-locker</td>
+        <td>BetterLockScreen</td>
     </tr>
     <tr>
         <th>Shell</th>
@@ -39,7 +39,7 @@
     </tr>
     <tr>
         <th>Terminal</th>
-        <td>Alacritty</td>
+        <td>Kitty</td>
     </tr>
     <tr>
         <th>Compositor</th>
@@ -132,3 +132,7 @@
         <td>Nord</td>
     </tr>
 </table>
+
+---
+<h2>Neovim configuration</h2>
+<h3><a href='https://github.com/ReyVega/dotfiles/tree/main/dot_config/nvim'>VS Neovim</a><h3>

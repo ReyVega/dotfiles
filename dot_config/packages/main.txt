@@ -1,4 +1,3 @@
-alacritty
 amd-ucode
 autoconf
 automake
@@ -36,6 +35,7 @@ gvfs
 hyperfine
 jdk-openjdk
 jq
+kitty
 libtool
 lightdm
 lightdm-webkit2-greeter

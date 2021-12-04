@@ -5,10 +5,10 @@
 -----------------------------------------------------------
 -- Neovim API aliases
 -----------------------------------------------------------
-local g = vim.g        	      -- global variables
-local set = vim.opt	      -- behaves like :set (Vim) 
-local cmd = vim.cmd           -- execute Vim commands
-
+local g = vim.g        	        -- global variables
+local set = vim.opt	            -- behaves like :set (Vim)
+local cmd = vim.cmd             -- execute Vim commands
+local exec = vim.api.nvim_exec 	-- execute Vimscript
 
 -----------------------------------------------------------
 -- General
@@ -63,12 +63,28 @@ set.smarttab = true       -- tab new lines
 -- Colorscheme
 -----------------------------------------------------------
 set.termguicolors = true      -- enable 24-bit RGB colors
-cmd [[colorscheme nord]]
+cmd [[colorscheme onenord]]
 
 -----------------------------------------------------------
 -- Autocompletion
 -----------------------------------------------------------
-set.completeopt = {'menuone','noinsert','noselect'} -- insert mode completion options
+set.completeopt = 'menuone,noselect' -- insert mode completion options
 
 -- don't auto commenting new lines
 cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
+
+-- remove whitespace on save
+cmd [[au BufWritePre * :%s/\s\+$//e]]
+
+-- highlight on yank
+exec([[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+  augroup end
+]], false)
+
+
+-- disable nvim intro
+set.shortmess:append "sI"
+

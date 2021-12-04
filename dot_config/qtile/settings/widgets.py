@@ -4,7 +4,7 @@ from .theme import colors
 from .paths import widgets_path
 import subprocess
 
-def base(fg='dark', bg='dark'): 
+def base(fg='dark', bg='dark'):
     return {
         'foreground': colors[fg],
         'background': colors[bg]
@@ -13,7 +13,7 @@ def base(fg='dark', bg='dark'):
 def separator():
     return widget.Sep(**base(), linewidth=12)
 
-def workspaces(): 
+def workspaces():
     return [
         widget.GroupBox(
             **base(fg='snowstorm1'),
@@ -39,7 +39,7 @@ primary_widgets = [
     *workspaces(),
 
     separator(),
-    
+
     widget.CheckUpdates(
         **base(),
         update_interval=1800,
@@ -50,7 +50,7 @@ primary_widgets = [
         display_format='{updates}',
         no_update_string='0',
         fmt=' {}',
-        execute='alacritty -e paru',
+        execute='kitty -e paru',
     ),
 
     separator(),
@@ -82,10 +82,10 @@ primary_widgets = [
     separator(),
 
     widget.CurrentLayout(
-        **base(fg='aurora1'), 
+        **base(fg='aurora1'),
         mouse_callbacks={
             'Button3': lambda:qtile.cmd_prev_layout()
-        }, 
+        },
         padding=1,
     ),
 
@@ -93,7 +93,7 @@ primary_widgets = [
         **base(fg='aurora2'),
         mouse_callbacks={
             'Button3': lambda:qtile.cmd_prev_layout()
-        }, 
+        },
         scale=0.58,
     ),
 
@@ -104,9 +104,9 @@ primary_widgets = [
         func=lambda: subprocess.check_output(widgets_path + "/calendar.sh").decode(),
         update_interval=0.2,
     ),
-    
+
     separator(),
-    
+
     widget.GenPollText(
         **base(fg='snowstorm1'),
         func=lambda: subprocess.check_output(widgets_path + "/battery.sh").decode(),

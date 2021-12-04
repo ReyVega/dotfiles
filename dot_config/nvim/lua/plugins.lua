@@ -7,20 +7,56 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Nord Theme for neovim editor
-    use { 'arcticicestudio/nord-vim', as = 'nord' }
+    -- Themes for neovim editor
+    use {'rmehri01/onenord.nvim', as = 'onenord' }
+    use 'folke/tokyonight.nvim'
+    use 'olimorris/onedarkpro.nvim'
+
+     -- Cursor line
+    use {
+        'yamatsum/nvim-cursorline',
+    }
 
     -- Icons for neovim
-    use 'kyazdani42/nvim-web-devicons'
+    use {
+        'kyazdani42/nvim-web-devicons',
+    }
 
     -- Indent line
-    use 'lukas-reineke/indent-blankline.nvim'
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+    }
 
-    -- Autopairs for pairing tags (parenthesis, brackets, etc)
+    -- Matchup functions, conditions, etc.
+    use { "andymass/vim-matchup" }
+
+    -- Comments
+    use {
+        'b3nj5m1n/kommentary',
+        config = function ()
+            require('kommentary.config').configure_language("default", {
+                prefer_single_line_comments = true,
+            })
+        end
+    }
+
+    -- Autocloses for pairing tags (parenthesis, brackets, etc)
     use {
         'windwp/nvim-autopairs',
+        'windwp/nvim-ts-autotag',
         config = function()
             require('nvim-autopairs').setup()
+        end
+    }
+
+    -- Neovim Colorizer
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require('colorizer').setup {
+                "*",
+                css = { rgb_fn = true; }
+            }
         end
     }
 
@@ -32,7 +68,7 @@ return require('packer').startup(function()
 
     -- Nvim cmp for autocompletion
     use {
-    'hrsh7th/nvim-cmp',
+        'hrsh7th/nvim-cmp',
         requires = {
             'L3MON4D3/LuaSnip',
             'hrsh7th/cmp-nvim-lsp',
@@ -44,71 +80,92 @@ return require('packer').startup(function()
             'lukas-reineke/cmp-rg',
             'f3fora/cmp-spell',
             'David-Kunz/cmp-npm',
+            'onsails/lspkind-nvim'
         },
     }
 
     -- File explorer
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = {'kyazdani42/nvim-web-devicons'},
-        config = function() require'nvim-tree'.setup {} end
+        requires = {
+            'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        },
+    }
+
+    -- Bufferline
+    use {
+        'akinsho/bufferline.nvim',
+        requires = {
+            'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        },
+    }
+
+    -- Utility to mantain bufferline layout when closing tabs
+    use {
+        'ojroques/nvim-bufdel',
+        config = function ()
+            require('bufdel').setup {
+                quit = false, -- close neovim if last buffer
+            }
+        end
+    }
+
+
+    -- Status line
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true }
     }
 
     -- Treesitter for Syntax (Languages Analyzer)
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        run = ':TSUpdate',
     }
 
-    -- Terminal
-    use {"akinsho/toggleterm.nvim"}
-
-    -- Lua line (status line)
-    use {
-         'nvim-lualine/lualine.nvim',
-         requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
-
-    -- Dashboard (Alpha-Nvim)
+    -- Alpha-Nvim
     use {
         'goolord/alpha-nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
         config = function ()
             require'alpha'.setup(require'alpha.themes.dashboard'.opts)
         end
     }
 
-    -- Git decorations
+    -- Terminal
+    use {"akinsho/toggleterm.nvim"}
+
+
+    -- Git Signs
     use {
         'lewis6991/gitsigns.nvim',
         requires = {
             'nvim-lua/plenary.nvim'
         },
+        config = function ()
+            require('gitsigns').setup()
+        end
     }
 
     -- Telescope
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = {'nvim-lua/plenary.nvim'}
     }
 
     -- FZF for nvim
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-    -- Tabs in neovim (Bufferline)
-    use {'akinsho/bufferline.nvim',
-        requires = {
-            'kyazdani42/nvim-web-devicons',
-            'famiu/bufdelete.nvim',
-        }
-    }
-
-    -- Neovim Colorizer
-    use {
-        'norcalli/nvim-colorizer.lua',
-        config = function()
-            require('colorizer').setup()
+    -- Markdown
+    use{
+        'davidgranstrom/nvim-markdown-preview',
+        config = function ()
+            vim.g.nvim_markdown_preview_theme = 'solarized-dark'
         end
     }
 
-end)
+    -- Formatter
+    use {
+        "sbdchd/neoformat",
+    }
+
+  end)

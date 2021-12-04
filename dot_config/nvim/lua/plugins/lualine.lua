@@ -6,7 +6,10 @@ require'lualine'.setup {
     theme = 'auto',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
+    disabled_filetypes = {
+        "toggleterm",
+        "NvimTree",
+    },
     always_divide_middle = true,
   },
   sections = {
@@ -27,5 +30,5 @@ require'lualine'.setup {
     lualine_z = {}
   },
   tabline = {},
-  extensions = {'nvim-tree'}
+  extensions = {}
 }

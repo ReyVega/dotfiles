@@ -5,6 +5,7 @@ lightdm-webkit2-theme-glorious
 mugshot
 nerd-fonts-hack
 nvim-packer-git
+pandoc-bin
 paru
 picom-git
 stacer
