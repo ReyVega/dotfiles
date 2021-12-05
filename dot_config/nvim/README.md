@@ -1,9 +1,30 @@
 <h1>VS Neovim</h1>
-<img src="../../screenshots/neovim-startup.png"></img>
-<img src="../../screenshots/neovim-tree.png"></img>
-<img src="../../screenshots/neovim-lsp.png"></img>
-<img src="../../screenshots/neovim-telescope.png"></img>
-<img src="../../screenshots/neovim-terminal.png"></img>
+<img src="../../screenshots/neovim-logo.png" />
+
+---
+
+<h2>Configuration structure (Lua)</h2>
+
+```text
+📂 ~/.config/nvim
+├── 📂 lua
+│   ├── 📂 plugins
+│   │   ├── 🌑 alpha.lua
+│   │   ├── 🌑 bufferline.lua
+│   │   ├── 🌑 indent-blanklineb.lua
+│   │   ├── 🌑 lsp-installer.lua
+│   │   ├── 🌑 lspconfig.lua
+│   │   ├── 🌑 lualine.lua
+│   │   ├── 🌑 nvim-cmp.lua
+│   │   ├── 🌑 nvim-tree.lua
+│   │   ├── 🌑 telescope.lua
+│   │   ├── 🌑 toggleterm.lua
+│   │   └── 🌑 treesitter.lua
+│   ├── 🌑 mappings.lua
+│   ├── 🌑 plugins.lua
+│   └── 🌑 settings.lua
+└── 🌑 init.lua
+```
 
 ---
 
@@ -126,3 +147,19 @@
         </td>
     </tr>
 </table>
+
+---
+
+<h2>Neovim screenshots</h2>
+<h3>Startup (alpha-nvim)</h3>
+<img src="../../screenshots/neovim-startup.png"></img>
+<h3>File Explorer (nvim-tree)</h3>
+<img src="../../screenshots/neovim-tree.png"></img>
+<h3>LSP Diagnostics (nvim-lspconfig)</h3>
+<img src="../../screenshots/neovim-lsp.png"></img>
+<h3>Fuzzy Finder (telescope)</h3>
+<img src="../../screenshots/neovim-telescope.png"></img>
+<h3>Terminal (toggleterm)</h3>
+<img src="../../screenshots/neovim-terminal.png"></img>
+
+
