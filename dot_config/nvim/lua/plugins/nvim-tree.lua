@@ -1,4 +1,10 @@
+-----------------------------------------------------------
+-- File explorer configuration file
+-----------------------------------------------------------
+
+-- PLugin: nvim-tree
 -- https://github.com/kyazdani42/nvim-tree.lua
+
 local g = vim.g
 local cmd = vim.cmd
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback

@@ -7,8 +7,37 @@
 
 local cmp = require('cmp')
 local luasnip = require('luasnip')
-local lspkind = require('lspkind')
 
+-- Require to download codicons.ttf
+-- AUR package https://aur.archlinux.org/packages/vscode-codicons-git/
+-- Manually https://github.com/microsoft/vscode-codicons/blob/main/dist/codicon.ttf
+local cmp_kinds = {
+    Text = '  ',
+    Method = '  ',
+    Function = '  ',
+    Constructor = '  ',
+    Field = '  ',
+    Variable = '  ',
+    Class = '  ',
+    Interface = '  ',
+    Module = '  ',
+    Property = '  ',
+    Unit = '  ',
+    Value = '  ',
+    Enum = '  ',
+    Keyword = '  ',
+    Snippet =  "",
+    Color = '  ',
+    File = '  ',
+    Reference = '  ',
+    Folder = '  ',
+    EnumMember = '  ',
+    Constant = '  ',
+    Struct = '  ',
+    Event = '  ',
+    Operator = '  ',
+    TypeParameter = '  ',
+}
 
 cmp.setup {
   -- load snippet support
@@ -20,12 +49,16 @@ cmp.setup {
 
      -- VS Code icons for completion
     formatting = {
-        format = lspkind.cmp_format({with_text = false, maxwidth = 50})
+        fields = { "kind", "abbr" },
+        format = function(_, vim_item)
+            vim_item.kind = cmp_kinds[vim_item.kind] or ""
+            return vim_item
+        end,
     },
 
     -- completion settings
     completion = {
-        --completeopt = 'menu,menuone,noselect'
+        completeopt = 'menu,menuone,noinsert',
         keyword_length = 2
     },
 
@@ -64,15 +97,44 @@ cmp.setup {
         end
     },
 
-    -- load sources, see: https://github.com/topics/nvim-cmp
+    sorting = {
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            require "cmp-under-comparator".under,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
+    },
+
+    -- load sources
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
-        { name = 'git' },
+        { name = 'cmp_git' },
         { name = 'buffer' },
         { name = 'nvim_lua'},
-        { name = 'spell'},
-        { name = 'npm'},
+        { name = 'rg' },
+        { name = 'npm', keyword_length = 4 },
     },
 }
+
+-- completion for commands
+cmp.setup.cmdline(':', {
+    sources = {
+        { name = 'cmdline' },
+    }
+})
+
+-- completion when searching in current buffer
+cmp.setup.cmdline('/', {
+    sources = {
+        { name = 'buffer' }
+    }
+})
+
+require("cmp_git").setup()

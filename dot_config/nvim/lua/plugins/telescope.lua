@@ -1,4 +1,10 @@
+-----------------------------------------------------------
+-- Fuzzy Finder configuration file
+-----------------------------------------------------------
+
+-- Plugin: telescope
 -- https://github.com/nvim-telescope/telescope.nvim#getting-started
+
 local actions = require('telescope.actions')
 
 require('telescope').setup({

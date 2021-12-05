@@ -1,3 +1,10 @@
+-----------------------------------------------------------
+-- Tabline configuration file
+-----------------------------------------------------------
+
+-- Plugin: bufferline and bufdelete
+
+-- https://github.com/akinsho/bufferline.nvim
 -- https://github.com/famiu/bufdelete.nvim
 
 require('bufferline').setup {

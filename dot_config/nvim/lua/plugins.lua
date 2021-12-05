@@ -1,6 +1,9 @@
 -----------------------------------------------------------
 -- Plugin manager configuration file
 -----------------------------------------------------------
+
+-- Plugin: packer
+
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
@@ -9,26 +12,23 @@ return require('packer').startup(function()
 
     -- Themes for neovim editor
     use {'rmehri01/onenord.nvim', as = 'onenord' }
-    use 'folke/tokyonight.nvim'
-    use 'olimorris/onedarkpro.nvim'
+    use {'folke/tokyonight.nvim', as = 'tokyonight'}
+    use {'olimorris/onedarkpro.nvim', as = 'onedarkpro'}
 
-     -- Cursor line
-    use {
-        'yamatsum/nvim-cursorline',
-    }
+    -- Git support for nvim
+    use {"tpope/vim-fugitive"}
+
+    -- Cursor line
+    use {'yamatsum/nvim-cursorline'}
 
     -- Icons for neovim
-    use {
-        'kyazdani42/nvim-web-devicons',
-    }
+    use {'kyazdani42/nvim-web-devicons'}
 
     -- Indent line
-    use {
-        'lukas-reineke/indent-blankline.nvim',
-    }
+    use {'lukas-reineke/indent-blankline.nvim'}
 
     -- Matchup functions, conditions, etc.
-    use { "andymass/vim-matchup" }
+    use {'andymass/vim-matchup'}
 
     -- Comments
     use {
@@ -42,12 +42,13 @@ return require('packer').startup(function()
 
     -- Autocloses for pairing tags (parenthesis, brackets, etc)
     use {
-        'windwp/nvim-autopairs',
-        'windwp/nvim-ts-autotag',
+        'steelsojka/pears.nvim',
         config = function()
-            require('nvim-autopairs').setup()
+            require('pears').setup()
         end
     }
+
+    use {'windwp/nvim-ts-autotag'}
 
     -- Neovim Colorizer
     use {
@@ -70,17 +71,18 @@ return require('packer').startup(function()
     use {
         'hrsh7th/nvim-cmp',
         requires = {
+            "rafamadriz/friendly-snippets",
             'L3MON4D3/LuaSnip',
-            'hrsh7th/cmp-nvim-lsp',
             'saadparwaiz1/cmp_luasnip',
+            'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-path',
-            'petertriho/cmp-git',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-nvim-lua',
+            'hrsh7th/cmp-cmdline',
             'lukas-reineke/cmp-rg',
-            'f3fora/cmp-spell',
+            "lukas-reineke/cmp-under-comparator",
+            'petertriho/cmp-git',
             'David-Kunz/cmp-npm',
-            'onsails/lspkind-nvim'
         },
     }
 

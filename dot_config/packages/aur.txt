@@ -10,5 +10,6 @@ paru
 picom-git
 stacer
 visual-studio-code-bin
+vscode-codicons-git
 xidlehook
 zoom

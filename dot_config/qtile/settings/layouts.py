@@ -4,6 +4,7 @@ from .theme import colors
 
 layout_conf = {
     'border_focus': colors['frost3'],
+    'border_normal': colors['dark'],
     'border_width': 3,
     'margin': 8
 }

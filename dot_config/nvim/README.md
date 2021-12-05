@@ -1,5 +1,7 @@
 <h1>VS Neovim</h1>
-<img src="../../screenshots/neovim-logo.png" />
+<p align="center">
+    <img src="../../screenshots/neovim-logo.png" width="60%" />
+</p>
 
 ---
 
@@ -29,6 +31,7 @@
 ---
 
 <h2>Plugins</h2>
+
 <table>
     <tr>
         <th>Plugin Manager</th>
@@ -104,8 +107,7 @@
     <tr>
         <th>Tabline</th>
         <td>
-            <a href="https://github.com/akinsho/bufferline.nvim">bufferline</a><br><br>
-            <b>Utilities</b><br>
+            <a href="https://github.com/akinsho/bufferline.nvim">bufferline</a><br>
             <a href="https://github.com/ojroques/nvim-bufdel">nvim-bufdel</a>
         </td>
     </tr>
@@ -120,8 +122,7 @@
     <tr>
         <th>Fuzzy Finder</th>
         <td>
-            <a href="https://github.com/nvim-telescope/telescope.nvim">telescope</a><br><br>
-            <b>Extensions</b><br>
+            <a href="https://github.com/nvim-telescope/telescope.nvim">telescope</a><br>
             <a href="https://github.com/nvim-telescope/telescope-fzf-native.nvim">telescope-fzf-native</a>
         </td>
     </tr>
@@ -141,37 +142,35 @@
     <tr>
         <th>Snippet</th>
         <td>
-            <a href="https://github.com/L3MON4D3/LuaSnip">LuaSnip</a>
+            <a href="https://github.com/L3MON4D3/LuaSnip">luasnip</a>
         </td>
     </tr>
     <tr>
-        <th>Git Gutter</th>
+        <th>Git</th>
         <td>
-            <a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns</a>
+            <a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns</a> <br>
+            <a href="https://github.com/tpope/vim-fugitive">vim-fugitive</a>
         </td>
     </tr>
     <tr>
         <th>Completion</th>
         <td>
-            <a href="https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a> <br><br>
-            <b>Sources</b><br>
+            <a href="https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a> <br>
             <a href="https://github.com/hrsh7th/cmp-nvim-lsp">cmp-nvim-lsp</a> <br>
-            <a href="https://github.com/saadparwaiz1/cmp_luasnip">cmp-luasnip</a> <br>
             <a href="https://github.com/hrsh7th/cmp-path">cmp-path</a><br>
-            <a href="https://github.com/petertriho/cmp-git">cmp-git</a> <br>
             <a href="https://github.com/hrsh7th/cmp-buffer">cmp-buffer</a> <br>
             <a href="https://github.com/hrsh7th/cmp-nvim-lua">cmp-nvim-lua</a> <br>
+            <a href="https://github.com/hrsh7th/cmp-cmdline">cmp-cmdline</a> <br>
+            <a href="https://github.com/saadparwaiz1/cmp_luasnip">cmp-luasnip</a> <br>
+            <a href="https://github.com/petertriho/cmp-git">cmp-git</a> <br>
             <a href="https://github.com/lukas-reineke/cmp-rg">cmp-rg</a> <br>
-            <a href="https://github.com/f3fora/cmp-spell">cmp-spell</a> <br>
-            <a href="https://github.com/David-Kunz/cmp-npm">cmp-npm</a> <br><br>
-            <b>Icons</b><br>
-            <a href="https://github.com/onsails/lspkind-nvim">lspkind (VS Code)</a>
+            <a href="https://github.com/David-Kunz/cmp-npm">cmp-npm</a>
         </td>
     </tr>
     <tr>
         <th>Editing Support</th>
         <td>
-            <a href="https://github.com/windwp/nvim-autopairs">nvim-autopairs</a> <br>
+            <a href="https://github.com/steelsojka/pears.nvim">pears</a> <br>
             <a href="https://github.com/windwp/nvim-ts-autotag">nvim-ts-autotags</a> <br>
             <a href="https://github.com/andymass/vim-matchup">vim-matchup</a>
         </td>
@@ -181,15 +180,29 @@
 ---
 
 <h2>Neovim screenshots</h2>
-<h3>Startup (alpha-nvim)</h3>
-<img src="../../screenshots/neovim-startup.png"></img>
-<h3>File Explorer (nvim-tree)</h3>
-<img src="../../screenshots/neovim-tree.png"></img>
-<h3>LSP Diagnostics (nvim-lspconfig)</h3>
-<img src="../../screenshots/neovim-lsp.png"></img>
-<h3>Fuzzy Finder (telescope)</h3>
-<img src="../../screenshots/neovim-telescope.png"></img>
-<h3>Terminal (toggleterm)</h3>
-<img src="../../screenshots/neovim-terminal.png"></img>
 
+<h3>Startup (alpha-nvim)</h3>
+<p align="center">
+    <img src="../../screenshots/neovim-startup.png" width="80%" />
+</p>
+
+<h3>File Explorer (nvim-tree)</h3>
+<p align="center">
+    <img src="../../screenshots/neovim-tree.png" width="80%" />
+</p>
+
+<h3>LSP Diagnostics (nvim-lspconfig)</h3>
+<p align="center">
+    <img src="../../screenshots/neovim-lsp.png" width="80%" />
+</p>
+
+<h3>Fuzzy Finder (telescope)</h3>
+<p align="center">
+    <img src="../../screenshots/neovim-telescope.png" width="80%" />
+</p>
+
+<h3>Terminal (toggleterm)</h3>
+<p align="center">
+    <img src="../../screenshots/neovim-terminal.png" width="80%" />
+</p>
 

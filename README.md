@@ -116,7 +116,7 @@
     <tr>
         <th>Audio</th>
         <td>
-            <a href="https://archlinux.org/packages/extra/x86_64/pipewire-pulse/">pipewire-Pulse</a>
+            <a href="https://archlinux.org/packages/extra/x86_64/pipewire-pulse/">pipewire-pulse</a>
         </td>
     </tr>
     <tr>
