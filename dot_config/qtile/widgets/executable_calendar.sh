@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 icon=""
 
 hour=$(date +%H:%M)

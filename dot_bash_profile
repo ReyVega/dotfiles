@@ -3,5 +3,3 @@
 #
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-
-PATH=$PATH:~/.config/rofi/bin

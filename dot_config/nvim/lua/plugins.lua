@@ -51,6 +51,12 @@ return require('packer').startup(function()
     -- Autocloses for tags
     use {'windwp/nvim-ts-autotag'}
 
+    -- Surround everything
+    use {'tpope/vim-surround'}
+
+    -- Repeat last action done
+    use {'tpope/vim-repeat'}
+
     -- Formatter
     use {"sbdchd/neoformat"}
 

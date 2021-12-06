@@ -101,7 +101,7 @@ key('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', default_opts)
 key('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', default_opts)
 key('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', default_opts)
 key('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', default_opts)
--- key('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', default_opts)
+key('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', default_opts)
 
 -- Code formatter.
 key("n", "<leader>f", ":Neoformat<CR>", default_opts)

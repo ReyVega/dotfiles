@@ -13,7 +13,7 @@
 │   ├── 📂 plugins
 │   │   ├── 🌑 alpha.lua
 │   │   ├── 🌑 bufferline.lua
-│   │   ├── 🌑 indent-blanklineb.lua
+│   │   ├── 🌑 indent-blankline.lua
 │   │   ├── 🌑 lsp-installer.lua
 │   │   ├── 🌑 lspconfig.lua
 │   │   ├── 🌑 lualine.lua
@@ -174,7 +174,9 @@
         <td>
             <a href="https://github.com/windwp/nvim-autopairs">nvim-autopairs</a> <br>
             <a href="https://github.com/windwp/nvim-ts-autotag">nvim-ts-autotags</a> <br>
-            <a href="https://github.com/andymass/vim-matchup">vim-matchup</a>
+            <a href="https://github.com/andymass/vim-matchup">vim-matchup</a> <br>
+            <a href="https://github.com/tpope/vim-surround">vim-surround</a> <br>
+            <a href="https://github.com/tpope/vim-repeat">vim-repeat</a>
         </td>
     </tr>
     <tr>

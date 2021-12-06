@@ -10,6 +10,7 @@ bluez-utils
 bottom
 brightnessctl
 chezmoi
+clang
 cockpit
 cockpit-machines
 cockpit-pcp
@@ -52,6 +53,7 @@ networkmanager
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
+npm
 ntfs-3g
 os-prober
 packagekit
