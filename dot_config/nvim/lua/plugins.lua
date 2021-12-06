@@ -40,7 +40,7 @@ return require('packer').startup(function()
         end
     }
 
-    -- Autocloses for pairing tags (parenthesis, brackets, etc)
+    -- Autocloses for pairing parenthesis, brackets, etc
     use {
         'steelsojka/pears.nvim',
         config = function()
@@ -48,7 +48,11 @@ return require('packer').startup(function()
         end
     }
 
+    -- Autocloses for tags
     use {'windwp/nvim-ts-autotag'}
+
+    -- Formatter
+    use {"sbdchd/neoformat"}
 
     -- Neovim Colorizer
     use {
@@ -67,12 +71,16 @@ return require('packer').startup(function()
         'williamboman/nvim-lsp-installer',
     }
 
+    -- Snippet Engine
+    use {
+        'L3MON4D3/LuaSnip',
+        requires = {"rafamadriz/friendly-snippets"},
+    }
+
     -- Nvim cmp for autocompletion
     use {
         'hrsh7th/nvim-cmp',
         requires = {
-            "rafamadriz/friendly-snippets",
-            'L3MON4D3/LuaSnip',
             'saadparwaiz1/cmp_luasnip',
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-path',
@@ -111,7 +119,6 @@ return require('packer').startup(function()
             }
         end
     }
-
 
     -- Status line
     use {
@@ -163,11 +170,6 @@ return require('packer').startup(function()
         config = function ()
             vim.g.nvim_markdown_preview_theme = 'solarized-dark'
         end
-    }
-
-    -- Formatter
-    use {
-        "sbdchd/neoformat",
     }
 
   end)

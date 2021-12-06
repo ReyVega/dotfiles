@@ -142,7 +142,8 @@
     <tr>
         <th>Snippet</th>
         <td>
-            <a href="https://github.com/L3MON4D3/LuaSnip">luasnip</a>
+            <a href="https://github.com/L3MON4D3/LuaSnip">luasnip</a> <br>
+            <a href="https://github.com/rafamadriz/friendly-snippets">friendly-snippets</a>
         </td>
     </tr>
     <tr>
@@ -164,7 +165,8 @@
             <a href="https://github.com/saadparwaiz1/cmp_luasnip">cmp-luasnip</a> <br>
             <a href="https://github.com/petertriho/cmp-git">cmp-git</a> <br>
             <a href="https://github.com/lukas-reineke/cmp-rg">cmp-rg</a> <br>
-            <a href="https://github.com/David-Kunz/cmp-npm">cmp-npm</a>
+            <a href="https://github.com/David-Kunz/cmp-npm">cmp-npm</a> <br>
+            <a href="https://github.com/lukas-reineke/cmp-under-comparator">cmp-under-comparator</a>
         </td>
     </tr>
     <tr>
