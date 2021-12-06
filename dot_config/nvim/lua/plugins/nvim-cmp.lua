@@ -49,9 +49,11 @@ cmp.setup {
 
      -- VS Code icons for completion
     formatting = {
-        fields = { "kind", "abbr" },
-        format = function(_, vim_item)
-            vim_item.kind = cmp_kinds[vim_item.kind] or ""
+        format = function(entry, vim_item)
+            vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+            if entry.source.name == 'cmp_tabnine' then
+				vim_item.kind = ''
+			end
             return vim_item
         end,
     },
@@ -120,6 +122,7 @@ cmp.setup {
         { name = 'nvim_lua'},
         { name = 'rg' },
         { name = 'npm', keyword_length = 4 },
+        { name = 'cmp_tabnine' }
     },
 }
 

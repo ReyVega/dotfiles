@@ -42,9 +42,9 @@ return require('packer').startup(function()
 
     -- Autocloses for pairing parenthesis, brackets, etc
     use {
-        'steelsojka/pears.nvim',
+        'windwp/nvim-autopairs',
         config = function()
-            require('pears').setup()
+            require('nvim-autopairs').setup()
         end
     }
 
@@ -93,6 +93,9 @@ return require('packer').startup(function()
             'David-Kunz/cmp-npm',
         },
     }
+
+    -- IA Assistant
+    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
     -- File explorer
     use {

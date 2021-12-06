@@ -172,9 +172,16 @@
     <tr>
         <th>Editing Support</th>
         <td>
-            <a href="https://github.com/steelsojka/pears.nvim">pears</a> <br>
+            <a href="https://github.com/windwp/nvim-autopairs">nvim-autopairs</a> <br>
             <a href="https://github.com/windwp/nvim-ts-autotag">nvim-ts-autotags</a> <br>
             <a href="https://github.com/andymass/vim-matchup">vim-matchup</a>
+        </td>
+    </tr>
+    <tr>
+        <th>IA Support</th>
+        <td>
+            <a href="https://www.tabnine.com/?utm_term=&utm_campaign=&utm_source=adwords&utm_medium=ppc&hsa_acc=4311736126&hsa_cam=14854202152&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3">tabnine</a> <br>
+            <a href="https://github.com/tzachar/cmp-tabnine">cmp-tabnine</a> <br>
         </td>
     </tr>
 </table>
