@@ -60,8 +60,7 @@ cmp.setup {
 
     -- completion settings
     completion = {
-        completeopt = 'menu,menuone,noinsert',
-        keyword_length = 2
+        keyword_length = 1
     },
 
     -- key mapping
@@ -72,13 +71,10 @@ cmp.setup {
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-        },
+        ['<CR>'] = cmp.mapping.confirm { select = true },
 
         -- Tab mapping
-        ['<Tab>'] = function(fallback)
+        ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             elseif luasnip.expand_or_jumpable() then
@@ -86,9 +82,9 @@ cmp.setup {
             else
                 fallback()
             end
-        end,
+        end, {"i", "s"}),
 
-        ['<S-Tab>'] = function(fallback)
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
@@ -96,7 +92,8 @@ cmp.setup {
             else
                 fallback()
             end
-        end
+        end, {"i", "s"})
+
     },
 
     sorting = {
@@ -141,6 +138,12 @@ cmp.setup.cmdline('/', {
 })
 
 require("cmp_git").setup()
+
+
+luasnip.config.set_config {
+    history = true,
+    updateevents = "TextChanged,TextChangedI"
+}
 
 -- Friendly snippets
 require("luasnip/loaders/from_vscode").lazy_load()

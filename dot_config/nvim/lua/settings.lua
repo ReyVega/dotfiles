@@ -36,7 +36,6 @@ set.cmdheight = 2                        -- more space for displaying messages
 set.signcolumn = 'number'                -- type of sign column
 set.cursorline = true                    -- enable highlighting of the current line
 set.guifont = 'Hack Nerd Font:h12'       -- font and size
---set.shortmess = append 'c'
 
 -----------------------------------------------------------
 -- Memory, CPU
@@ -68,7 +67,8 @@ cmd [[colorscheme onenord]]
 -----------------------------------------------------------
 -- Autocompletion
 -----------------------------------------------------------
-set.completeopt = 'menuone,noselect' -- insert mode completion options
+set.completeopt = {'menu','menuone','noselect'} -- insert mode completion options
+set.shortmess = set.shortmess + { c = true }
 
 -- don't auto commenting new lines
 cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
@@ -84,6 +84,11 @@ exec([[
   augroup end
 ]], false)
 
+
+-- 2 spaces for selected filetypes
+cmd [[
+  autocmd FileType xml,html,xhtml,css,scss,javascript,yaml,typescript setlocal shiftwidth=2 tabstop=2
+]]
 
 -- disable nvim intro
 set.shortmess:append "sI"
