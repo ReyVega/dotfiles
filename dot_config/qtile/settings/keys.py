@@ -2,7 +2,6 @@ from libqtile.config import Key
 from libqtile.command import lazy
 from libqtile.utils import guess_terminal
 from .paths import widgets_path
-from os import path
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -284,4 +283,12 @@ keys = [
         lazy.spawn("zoom"),
         desc="Starts zoom"
     ),
+
+    # Rofi
+    Key(
+        [mod], "r",
+        lazy.spawn("rofi -show drun"),
+        desc="Starts rofi"
+    ),
+
 ]
