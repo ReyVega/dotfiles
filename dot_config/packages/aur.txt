@@ -1,13 +1,17 @@
 betterlockscreen
 brave-bin
 fnm-bin
+libreoffice-dev-bin
 lightdm-webkit2-theme-glorious
 mugshot
+mycli
 nerd-fonts-hack
+notion-app
 nvim-packer-git
 pandoc-bin
 paru
 picom-git
+postman-bin
 stacer
 visual-studio-code-bin
 vscode-codicons-git
