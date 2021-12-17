@@ -3,8 +3,8 @@ from libqtile.config import Match
 from .theme import colors
 
 layout_conf = {
-    'border_focus': colors['frost3'],
-    'border_normal': colors['dark'],
+    'border_focus': colors['color9'],
+    'border_normal': colors['color1'],
     'border_width': 3,
     'margin': 8
 }
@@ -27,10 +27,10 @@ layouts = [
         padding_x=-4,
         padding_y=5,
         panel_width=140,
-        active_bg=colors['polar4'],
-        inactive_bg=colors['polar1'],
-        active_fg=colors['snowstorm3'],
-        inactive_fg=colors['polar4'],
+        active_bg=colors['color14'],
+        inactive_bg=colors['color11'],
+        active_fg=colors['color17'],
+        inactive_fg=colors['color14'],
     ),
     layout.Stack(
         **layout_conf,
@@ -62,6 +62,6 @@ floating_layout = layout.Floating(
         Match(title='branchdialog'),
         Match(title='pinentry'),
     ],
-    border_focus=colors["aurora4"],
+    border_focus=colors["color5"],
     border_width= 3,
 )

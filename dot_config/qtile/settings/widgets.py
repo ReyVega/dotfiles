@@ -4,7 +4,7 @@ from .theme import colors
 from .paths import widgets_path
 import subprocess
 
-def base(fg='dark', bg='dark'):
+def base(fg='color1', bg='color1'):
     return {
         'foreground': colors[fg],
         'background': colors[bg]
@@ -16,22 +16,22 @@ def separator():
 def workspaces():
     return [
         widget.GroupBox(
-            **base(fg='snowstorm1'),
+            **base(fg='color15'),
             font='Hack Nerd Font',
             fontsize=20,
             padding_x=18,
             disable_drag=True,
-            active=colors['snowstorm3'],
-            inactive=colors['polar4'],
+            active=colors['color17'],
+            inactive=colors['color14'],
             highlight_method='block',
-            this_current_screen_border=colors['frost3'],
-            this_screen_border=colors['frost3'],
+            this_current_screen_border=colors['color9'],
+            this_screen_border=colors['color9'],
             urgent_alert_method='block',
-            urgent_border=colors['aurora5'],
-            other_current_screen_border=colors['frost3'],
-            other_screen_border=colors['frost3'],
+            urgent_border=colors['color6'],
+            other_current_screen_border=colors['color9'],
+            other_screen_border=colors['color9'],
         ),
-        widget.WindowName(**base(fg='frost3'), fontsize=14, padding=5),
+        widget.WindowName(**base(fg='color9'), fontsize=14, padding=5),
     ]
 
 
@@ -43,8 +43,8 @@ primary_widgets = [
     widget.CheckUpdates(
         **base(),
         update_interval=1800,
-        colour_have_updates=colors['aurora2'],
-        colour_no_updates=colors['aurora2'],
+        colour_have_updates=colors['color3'],
+        colour_no_updates=colors['color3'],
         distro='Arch_paru',
         custom_command='checkupdates;paru -Qua',
         display_format='{updates}',
@@ -56,7 +56,7 @@ primary_widgets = [
     separator(),
 
     widget.GenPollText(
-        **base(fg='aurora3'),
+        **base(fg='color4'),
         func=lambda: subprocess.check_output(widgets_path + "/brightness.sh").decode(),
         mouse_callbacks={
             'Button4': lambda:qtile.cmd_spawn(widgets_path + "/brightness.sh down"),
@@ -68,7 +68,7 @@ primary_widgets = [
     separator(),
 
     widget.GenPollText(
-        **base(fg='aurora4'),
+        **base(fg='color5'),
         func=lambda: subprocess.check_output(widgets_path + "/volume.sh").decode(),
         mouse_callbacks={
             'Button1': lambda:qtile.cmd_spawn(widgets_path + "/volume.sh mute"),
@@ -82,7 +82,7 @@ primary_widgets = [
     separator(),
 
     widget.CurrentLayout(
-        **base(fg='aurora1'),
+        **base(fg='color2'),
         mouse_callbacks={
             'Button3': lambda:qtile.cmd_prev_layout()
         },
@@ -90,7 +90,7 @@ primary_widgets = [
     ),
 
     widget.CurrentLayoutIcon(
-        **base(fg='aurora2'),
+        **base(fg='color3'),
         mouse_callbacks={
             'Button3': lambda:qtile.cmd_prev_layout()
         },
@@ -100,7 +100,7 @@ primary_widgets = [
     separator(),
 
     widget.GenPollText(
-        **base(fg='frost4'),
+        **base(fg='color10'),
         func=lambda: subprocess.check_output(widgets_path + "/calendar.sh").decode(),
         update_interval=0.2,
     ),
@@ -108,13 +108,13 @@ primary_widgets = [
     separator(),
 
     widget.GenPollText(
-        **base(fg='snowstorm1'),
+        **base(fg='color15'),
         func=lambda: subprocess.check_output(widgets_path + "/battery.sh").decode(),
         update_interval=0.2,
     ),
     separator(),
     widget.Systray(
-        background=colors['dark'],
+        background=colors['color1'],
         padding=5,
     ),
 ]
@@ -124,11 +124,11 @@ secondary_widgets = [
 
     separator(),
 
-    widget.CurrentLayoutIcon(**base(bg='aurora1'), scale=0.65),
+    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
 
-    widget.CurrentLayout(**base(bg='aurora1'), padding=5),
+    widget.CurrentLayout(**base(bg='color2'), padding=5),
 
-    widget.Clock(**base(bg='aurora2'), format='%d/%m/%Y - %H:%M '),
+    widget.Clock(**base(bg='color3'), format='%d/%m/%Y - %H:%M '),
 ]
 
 widget_defaults = {

@@ -286,7 +286,7 @@ keys = [
 
     # Rofi
     Key(
-        [mod], "r",
+        [mod], "s",
         lazy.spawn("rofi -show drun"),
         desc="Starts rofi"
     ),
