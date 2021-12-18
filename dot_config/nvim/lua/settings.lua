@@ -10,6 +10,7 @@ local set = vim.opt	            -- behaves like :set (Vim)
 local cmd = vim.cmd             -- execute Vim commands
 local exec = vim.api.nvim_exec 	-- execute Vimscript
 
+
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
@@ -36,6 +37,7 @@ set.cmdheight = 2                        -- more space for displaying messages
 set.signcolumn = 'number'                -- type of sign column
 set.cursorline = true                    -- enable highlighting of the current line
 set.guifont = 'Hack Nerd Font:h12'       -- font and size
+
 
 -----------------------------------------------------------
 -- Memory, CPU
@@ -64,11 +66,13 @@ set.smarttab = true       -- tab new lines
 set.termguicolors = true      -- enable 24-bit RGB colors
 cmd [[colorscheme onenord]]
 
+
 -----------------------------------------------------------
 -- Autocompletion
 -----------------------------------------------------------
 set.completeopt = {'menu','menuone','noselect'} -- insert mode completion options
 set.shortmess = set.shortmess + { c = true }
+
 
 -- don't auto commenting new lines
 cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
@@ -85,9 +89,9 @@ exec([[
 ]], false)
 
 
--- 2 spaces for selected filetypes
+-- 2 spaces for selected filetypes (Basically to match prettier formatter indentation)
 cmd [[
-  autocmd FileType xml,html,xhtml,css,scss,javascript,yaml,typescript setlocal shiftwidth=2 tabstop=2
+  autocmd FileType xml,html,xhtml,css,scss,javascript,yaml,typescript,javascriptreact,typescriptreact setlocal shiftwidth=2 tabstop=2
 ]]
 
 -- disable nvim intro

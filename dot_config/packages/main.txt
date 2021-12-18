@@ -39,7 +39,6 @@ jq
 kitty
 libtool
 lightdm
-lightdm-webkit2-greeter
 linux
 linux-firmware
 lxappearance
