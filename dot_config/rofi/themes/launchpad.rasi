@@ -36,11 +36,11 @@ inputbar {
   background-color: @bg2;
 
   margin:   0px calc( 50% - 120px );
-  padding:  2px 4px;
+  padding:  4px 6px;
   spacing:  4px;
 
   border:         1px;
-  border-radius:  2px;
+  border-radius:  1em;
   border-color:   @bg3;
 
   children: [icon-search,entry];

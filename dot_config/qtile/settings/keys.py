@@ -284,11 +284,17 @@ keys = [
         desc="Starts zoom"
     ),
 
-    # Rofi
+    # Rofi (Applications)
     Key(
         [mod], "s",
         lazy.spawn("rofi -show drun"),
         desc="Starts rofi"
     ),
 
+    # Rofi (Powermenu)
+    Key(
+        [mod], "q",
+        lazy.spawn(widgets_path + "/powermenu.sh"),
+        desc="Starts rofi"
+    ),
 ]
