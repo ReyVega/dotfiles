@@ -1,5 +1,18 @@
 # dotfiles
+<h2>Desktop</h2>
 <img src="screenshots/os-screenshot.png" />
+
+---
+<h2>Neovim configuration</h2>
+<h3><a href='https://github.com/ReyVega/dotfiles/tree/main/dot_config/nvim'>Neovim</a><h3>
+<img src="screenshots/neovim-startup.png" />
+
+---
+<h2>Rofi</h2>
+<h3>Menu</h3>
+<img src="screenshots/rofi-menu.png" />
+<h3>Powermenu</h3>
+<img src="screenshots/rofi-powermenu.png" />
 
 ---
 <h2>Software Details</h2>
@@ -193,7 +206,4 @@
     </tr>
 </table>
 
----
-<h2>Neovim configuration</h2>
-<h3><a href='https://github.com/ReyVega/dotfiles/tree/main/dot_config/nvim'>VS Neovim</a><h3>
-<img src="screenshots/neovim-startup.png" />
+
