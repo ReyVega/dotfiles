@@ -14,7 +14,6 @@ options="$shutdown\n$reboot\n$suspend\n$logout\n$lock"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Select an option" -dmenu)"
 
-
 # Confirmation
 confirm_exit() {
 	rofi -dmenu\
@@ -31,52 +30,76 @@ msg() {
 
 case $chosen in
     $shutdown)
-        ans=$(confirm_exit &)
-        if [ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]
-        then
-			systemctl poweroff
-		elif [ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]
-        then
-			exit 0
-        else
-            msg
-        fi
+        while true
+        do
+            ans=$(confirm_exit &)
+            if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
+            then
+			    systemctl poweroff
+		    elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]
+            then
+			    exit 0
+            elif [[ $ans == "" ]]
+            then
+                exit 0
+            else
+                msg
+            fi
+        done
     ;;
     $reboot)
-        ans=$(confirm_exit &)
-        if [ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]
-        then
-			systemctl reboot
-		elif [ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]
-        then
-			exit 0
-        else
-            msg
-        fi
+        while true
+        do
+            ans=$(confirm_exit &)
+            if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
+            then
+                systemctl reboot
+            elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]
+            then
+                exit 0
+            elif [[ $ans == "" ]]
+            then
+                exit 0
+            else
+                msg
+            fi
+        done
     ;;
     $suspend)
-        ans=$(confirm_exit &)
-        if [ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]
-        then
-			systemctl suspend
-		elif [ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]
-        then
-			exit 0
-        else
-            msg
-        fi
+        while true
+        do
+            ans=$(confirm_exit &)
+            if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
+            then
+                systemctl suspend
+            elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]
+            then
+                exit 0
+            elif [[ $ans == "" ]]
+            then
+                exit 0
+            else
+                msg
+            fi
+        done
     ;;
     $logout)
-        ans=$(confirm_exit &)
-        if [ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]
-        then
-		    loginctl terminate-session ${XDG_SESSION_ID-}
-		elif [ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]
-        then
-			exit 0
-        else
-            msg
-        fi
+        while true
+        do
+            ans=$(confirm_exit &)
+            if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
+            then
+                loginctl terminate-session ${XDG_SESSION_ID-}
+            elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]
+            then
+                exit 0
+            elif [[ $ans == "" ]]
+            then
+                exit 0
+            else
+                msg
+            fi
+        done
     ;;
     $lock)
         betterlockscreen -l blur
