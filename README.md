@@ -1,5 +1,6 @@
 # dotfiles
 <h2>Desktop</h2>
+<img src="screenshots/os-desktop.png" />
 <img src="screenshots/os-screenshot.png" />
 
 ---
