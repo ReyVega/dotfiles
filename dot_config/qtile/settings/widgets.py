@@ -3,6 +3,7 @@ from libqtile import qtile
 from .theme import colors
 from .paths import widgets_path
 import subprocess
+import os
 
 def base(fg='color1', bg='color1'):
     return {
@@ -11,27 +12,40 @@ def base(fg='color1', bg='color1'):
     }
 
 def separator():
-    return widget.Sep(**base(), linewidth=12)
+    return widget.Sep(**base(), linewidth=0, padding=14, size_percent=40)
 
 def workspaces():
     return [
         widget.GroupBox(
             **base(fg='color15'),
-            font='Hack Nerd Font',
-            fontsize=20,
-            padding_x=18,
+            fontsize=12,
+            padding_x=7,
             disable_drag=True,
+            rounded=True,
             active=colors['color17'],
             inactive=colors['color14'],
-            highlight_method='block',
+            highlight_method='text',
+            block_highlight_text_color=colors['color10'],
             this_current_screen_border=colors['color9'],
             this_screen_border=colors['color9'],
-            urgent_alert_method='block',
+            urgent_alert_method='text',
             urgent_border=colors['color6'],
             other_current_screen_border=colors['color9'],
             other_screen_border=colors['color9'],
         ),
-        widget.WindowName(**base(fg='color9'), fontsize=14, padding=5),
+
+        widget.Systray(
+            background=colors['color1'],
+            padding=10,
+        ),
+
+        separator(),
+
+        widget.WindowName(
+            **base(fg='color9'),
+            fontsize=14,
+            padding=6,
+        ),
     ]
 
 
@@ -81,24 +95,6 @@ primary_widgets = [
 
     separator(),
 
-    widget.CurrentLayout(
-        **base(fg='color2'),
-        mouse_callbacks={
-            'Button3': lambda:qtile.cmd_prev_layout()
-        },
-        padding=1,
-    ),
-
-    widget.CurrentLayoutIcon(
-        **base(fg='color3'),
-        mouse_callbacks={
-            'Button3': lambda:qtile.cmd_prev_layout()
-        },
-        scale=0.58,
-    ),
-
-    separator(),
-
     widget.GenPollText(
         **base(fg='color10'),
         func=lambda: subprocess.check_output(widgets_path + "/calendar.sh").decode(),
@@ -112,12 +108,23 @@ primary_widgets = [
         func=lambda: subprocess.check_output(widgets_path + "/battery.sh").decode(),
         update_interval=0.2,
     ),
+
     separator(),
-    widget.Systray(
-        background=colors['color1'],
-        padding=5,
+
+    widget.CurrentLayoutIcon(
+        **base(fg='color3'),
+        custom_icon_paths=[
+            os.path.expanduser("~/.config/qtile/layout-icons")
+        ],
+        mouse_callbacks={
+            'Button3': lambda:qtile.cmd_prev_layout()
+        },
+        padding=-6,
+        scale=0.6,
     ),
-]
+
+    separator(),
+ ]
 
 secondary_widgets = [
     *workspaces(),
@@ -134,7 +141,7 @@ secondary_widgets = [
 widget_defaults = {
     'font': 'Hack Nerd Font Bold',
     'fontsize': 14,
-    'padding': 2,
+    'padding': 1,
 }
 
 extension_defaults = widget_defaults.copy()

@@ -36,9 +36,6 @@ layouts = [
         **layout_conf,
         num_stacks=2,
     ),
-    layout.RatioTile(
-        **layout_conf,
-    ),
     layout.Floating(
         **layout_conf,
     ),
@@ -49,6 +46,7 @@ layouts = [
     # layout.MonadWide(),
     # layout.Tile(),
     # layout.VerticalTile(),
+    # layout.RatioTile(),
     # layout.Zoomy(),
 ]
 
