@@ -1,5 +1,4 @@
 from os import path
-import subprocess
 import json
 from .paths import qtile_path
 

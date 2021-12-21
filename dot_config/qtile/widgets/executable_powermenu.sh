@@ -102,7 +102,7 @@ case $chosen in
         done
     ;;
     $lock)
-        betterlockscreen -l blur
+        betterlockscreen -l
     ;;
 esac
 
