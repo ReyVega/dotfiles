@@ -222,6 +222,26 @@ keys = [
         desc='Bright up'
     ),
 
+    Key(
+        [],
+        "XF86AudioNext",
+        lazy.spawn("playerctl next"),
+        desc="Play next audio",
+    ),
+
+    Key(
+        [],
+        "XF86AudioPrev",
+        lazy.spawn("playerctl previous"),
+        desc="Play previous audio",
+    ),
+
+    Key([],
+        "XF86AudioPlay",
+        lazy.spawn("playerctl play-pause"),
+        desc="Toggle play/pause audio"
+    ),
+
     # ------------ Extras ------------
     # Screenshots selected dimensions
     Key(

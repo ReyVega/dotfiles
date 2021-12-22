@@ -12,5 +12,10 @@ wallpaper=cat ~/.config/qtile/wallpaper.json | jq -r '.wallpaper'
 feh --bg-fill ~/.config/qtile/wallpapers/$wallpaper
 # Default brightness
 brightnessctl -d 'amdgpu_bl0' set 80%
-# Reset dunst notifications
+# Dunst notifications
 killall dunst
+dunst &
+# Mpd
+killall mpd
+mpd &
+mpDris2 &

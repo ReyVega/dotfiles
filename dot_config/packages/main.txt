@@ -45,7 +45,9 @@ lxappearance
 lxsession
 m4
 make
+mpd
 mpv
+ncmpcpp
 neofetch
 neovim
 networkmanager
@@ -64,6 +66,7 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 pkgconf
+playerctl
 procs
 pulsemixer
 pyenv
