@@ -12,7 +12,7 @@
 ## ncmpcpp.
 ##
 #
-ncmpcpp_directory = ~/.config/ncmpcpp
+ncmpcpp_directory = "~/.config/ncmpcpp"
 #
 ##
 ## Directory for storing downloaded lyrics. It defaults to ~/.lyrics since other
@@ -33,7 +33,7 @@ mpd_port = "6600"
 ##
 mpd_music_dir = "~/Music"
 #
-mpd_crossfade_time = "2"
+#mpd_crossfade_time = 5
 #
 # Exclude pattern for random song action
 # http://www.boost.org/doc/libs/1_46_1/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html
@@ -69,15 +69,14 @@ mpd_crossfade_time = "2"
 ## visualizer.
 ##
 #
-visualizer_data_source = "/tmp/mpd.fifo"
+#visualizer_data_source = "/tmp/mpd.fifo"
 #
 ##
 ## Note: Below parameter is needed for ncmpcpp to determine which output
 ## provides data for visualizer and reset it at the beginning of visualization
 ## to synchronize with audio.
-##
 #
-visualizer_output_name = "my_fifo"
+#visualizer_output_name = "my_fifo"
 #
 ##
 ## If you set format to 44100:16:2, make it 'yes'.
@@ -158,11 +157,11 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 ## Time of inactivity (in seconds) after playlist highlighting will be disabled
 ## (0 = always on).
 ##
-#playlist_disable_highlight_delay = 5
+playlist_disable_highlight_delay = "2"
 #
 ## Defines how long messages are supposed to be visible.
 ##
-#message_delay_time = 5
+message_delay_time = "2"
 #
 ##### song format #####
 ##
@@ -237,17 +236,17 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 #
 #song_library_format = {%n - }{%t}|{%f}
 #
-#alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
+alternative_header_first_line_format = "{{$5$b%t$/b$9}}"
 #
-#alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
+alternative_header_second_line_format = "{{$3$b%a$/b$9}{ - $8$b%b$9}}|{%D}"
 #
-#current_item_prefix = $(yellow)$r
+current_item_prefix = "$(blue)$r"
 #
-#current_item_suffix = $/r$(end)
+current_item_suffix = "$/r$(end)"
 #
-#current_item_inactive_column_prefix = $(white)$r
+current_item_inactive_column_prefix = "$(green)$r"
 #
-#current_item_inactive_column_suffix = $/r$(end)
+current_item_inactive_column_suffix = "$/r$(end)"
 #
 #now_playing_prefix = $b
 #
@@ -311,7 +310,7 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 ##   available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = "(30)[blue]{t|f:Title} (30)[green]{a} (30)[white]{b} (20)[cyan]{l}"
 #
 ##### various settings #####
 #
@@ -340,7 +339,7 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 ##
 ## Note: Possible display modes: classic, columns.
 ##
-#playlist_display_mode = columns
+playlist_display_mode = "columns"
 #
 #browser_display_mode = classic
 #
@@ -356,7 +355,7 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 #
 #seek_time = 1
 #
-#volume_change_step = 2
+volume_change_step = "2"
 #
 #autocenter_mode = no
 #
@@ -366,7 +365,7 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 ## Note: You can specify third character which will be used to build 'empty'
 ## part of progressbar.
 ##
-#progressbar_look = =>
+progressbar_look = "▄▄▄"
 #
 ## Available values: database, playlist.
 ##
@@ -374,7 +373,7 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 #
 ## Available values: classic, alternative.
 ##
-#user_interface = classic
+user_interface = "alternative"
 #
 #data_fetching_delay = yes
 #
@@ -403,7 +402,7 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 #
 #header_text_scrolling = yes
 #
-#cyclic_scrolling = no
+cyclic_scrolling = "yes"
 #
 #lyrics_fetchers = azlyrics, genius, musixmatch, sing365, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, zeneszoveg, internet
 #
@@ -445,7 +444,7 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 ##
 ## Note: You can define startup screen by choosing screen from the list above.
 ##
-#startup_screen = playlist
+startup_screen = "playlist"
 #
 ##
 ## Note: You can define startup slave screen by choosing screen from the list
@@ -494,7 +493,7 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 #
 #block_search_constraints_change_if_items_found = yes
 #
-#mouse_support = yes
+mouse_support = "yes"
 #
 #mouse_list_scroll_whole_page = no
 #
@@ -526,11 +525,11 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 #
 #search_engine_default_search_mode = 1
 #
-#external_editor = nano
+external_editor = "nvim"
 #
 ## Note: set to yes if external editor is a console application.
 ##
-#use_console_editor = yes
+use_console_editor = "yes"
 #
 ##### colors definitions #####
 ##
@@ -562,37 +561,37 @@ visualizer_color = "blue, cyan, green, yellow, magenta, red"
 ## are used there is a possibility that you'll be able to use only colors with
 ## transparent background.
 #
-#colors_enabled = yes
+colors_enabled = "yes"
 #
-#empty_tag_color = cyan
+empty_tag_color = "green"
 #
-#header_window_color = default
+header_window_color = "blue"
 #
-#volume_color = default
+volume_color = "cyan:b"
 #
-#state_line_color = default
+state_line_color = "white"
 #
-#state_flags_color = default:b
+state_flags_color = "white:b"
 #
-#main_window_color = yellow
+main_window_color = "white"
 #
-#color1 = white
+color1 = "blue"
 #
-#color2 = green
+color2 = "green"
 #
 #progressbar_color = black:b
 #
-#progressbar_elapsed_color = green:b
+progressbar_elapsed_color = "cyan:b"
 #
 #statusbar_color = default
 #
-#statusbar_time_color = default:b
+statusbar_time_color = "cyan:b"
 #
-#player_state_color = default:b
+player_state_color = "white:b"
 #
-#alternative_ui_separator_color = black:b
+alternative_ui_separator_color = "green:b"
 #
-#window_border_color = green
+window_border_color = "green"
 #
-#active_window_border = red
+active_window_border = "blue"
 #
