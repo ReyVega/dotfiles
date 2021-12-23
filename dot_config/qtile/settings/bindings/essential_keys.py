@@ -6,7 +6,6 @@ mod = "mod4"
 terminal = guess_terminal()
 
 essential_keys = [
-    # ------------ Essential Config ------------
     # Toggle between layouts
     Key(
         [mod], "Tab",
@@ -38,7 +37,12 @@ essential_keys = [
         desc="Kill focused window"
     ),
 
-    # ------------ Screens Config ------------
+    Key(
+        [mod, "shift"], "w",
+        lazy.spawn("xkill"),
+        desc="Force to kill focused window"
+    ),
+
     # Switch focus of monitors
     Key(
         [mod], "period",
@@ -52,6 +56,27 @@ essential_keys = [
         desc='Move focus to prev monitor'
     ),
 
+    # Toggles
+    Key(
+        [mod], "f",
+        lazy.hide_show_bar("top"),
+        lazy.window.toggle_fullscreen(),
+        desc='toggle fullscreen'
+    ),
+
+    Key(
+        [mod, "shift"], "f",
+        lazy.window.toggle_floating(),
+        desc='toggle floating'
+    ),
+
+    # Hide bar
+    Key(
+        [mod], "u",
+        lazy.hide_show_bar("top"),
+        desc='Hides bar'
+    ),
+
     # Restart and shutdown qtile
     Key(
         [mod, "control"], "r",
@@ -63,10 +88,12 @@ essential_keys = [
         lazy.shutdown(),
         desc="Shutdown Qtile"
     ),
+
+    # Opens Qtile configuration
     Key(
         [mod, "control"],
         "a",
-        lazy.spawn("kitty -e nvim ~/.config/qtile/config.py"),
-        desc="Config qtile",
+        lazy.spawn("kitty --directory ~/.config/qtile -e nvim"),
+        desc="Opens Qtile config",
     ),
 ]

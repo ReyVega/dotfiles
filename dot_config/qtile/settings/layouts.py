@@ -9,12 +9,19 @@ layout_conf = {
     'margin': 8
 }
 
+
 layouts = [
     layout.Max(
         **layout_conf,
     ),
     layout.MonadTall(
         **layout_conf,
+    ),
+    layout.MonadWide(
+        **layout_conf
+    ),
+    layout.Bsp(
+        **layout_conf
     ),
     layout.TreeTab(
         sections=['Browser', 'Video', 'Programming'],
@@ -41,9 +48,7 @@ layouts = [
     ),
     # layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
     # Try more layouts by unleashing below layouts.
-    # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadWide(),
     # layout.Tile(),
     # layout.VerticalTile(),
     # layout.RatioTile(),

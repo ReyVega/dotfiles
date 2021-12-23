@@ -11,7 +11,6 @@ def fix_cli_app(app):
     return f'{terminal} --title {app} -e sh -c "{fix_environment} {app}"'
 
 extra_keys = [
-    # ------------ Extras ------------
     # Screenshots selected dimensions
     Key(
         ["control", "shift"], "Print",
@@ -54,7 +53,7 @@ extra_keys = [
 
     # Discord
     Key(
-        [mod], "d",
+        [mod], "x",
         lazy.spawn("discord"),
         desc="Starts discord"
     ),

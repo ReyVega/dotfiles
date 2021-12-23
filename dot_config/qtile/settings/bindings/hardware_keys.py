@@ -5,8 +5,6 @@ from ..paths import widgets_path
 mod = "mod4"
 
 hardware_keys = [
-    # ------------ Hardware Config ------------
-
     # Volume
     Key(
         [], "XF86AudioLowerVolume",
