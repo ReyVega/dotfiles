@@ -59,6 +59,7 @@ floating_layout = layout.Floating(
         Match(wm_class='ssh-askpass'),
         Match(title='branchdialog'),
         Match(title='pinentry'),
+        Match(wm_class="lxappearance"),
     ],
     border_focus=colors["color5"],
     border_width= 3,
