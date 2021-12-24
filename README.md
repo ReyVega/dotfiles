@@ -2,6 +2,7 @@
 <h2>Desktop</h2>
 <img src="screenshots/os-desktop.png" />
 <img src="screenshots/os-screenshot.png" />
+<img src="screenshots/os-screenshot-2.png" />
 
 ---
 <h2>Neovim configuration</h2>
@@ -155,6 +156,14 @@
         <th>Firewall</th>
         <td>
             <a href="https://wiki.archlinux.org/title/Uncomplicated_Firewall">uncomplicated firewall</a>
+        </td>
+    </tr>
+    <tr>
+        <th>Music Player</th>
+        <td>
+            <a href="https://github.com/ncmpcpp/ncmpcpp">ncmpcpp</a>
+            using
+            <a href="https://github.com/MusicPlayerDaemon/MPD">mpd</a>
         </td>
     </tr>
     <tr>
