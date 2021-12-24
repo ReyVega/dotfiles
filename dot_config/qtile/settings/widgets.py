@@ -2,6 +2,7 @@ from libqtile import widget
 from libqtile import qtile
 from .theme import colors
 from .paths import widgets_path
+from libqtile import bar
 import subprocess
 import os
 
@@ -39,12 +40,14 @@ def workspaces():
             padding=10,
         ),
 
-        separator(),
+        widget.Spacer(**base()),
 
         widget.WindowName(
             **base(fg='color9'),
+            width=bar.CALCULATED,
+            empty_group_string="Desktop",
             fontsize=14,
-            padding=6,
+            max_chars=45,
         ),
     ]
 
@@ -52,7 +55,7 @@ def workspaces():
 primary_widgets = [
     *workspaces(),
 
-    separator(),
+    widget.Spacer(**base()),
 
     widget.CheckUpdates(
         **base(),
@@ -129,13 +132,29 @@ primary_widgets = [
 secondary_widgets = [
     *workspaces(),
 
+    widget.Spacer(**base()),
+
+    widget.GenPollText(
+        **base(fg='color10'),
+        func=lambda: subprocess.check_output(widgets_path + "/calendar.sh").decode(),
+        update_interval=0.2,
+    ),
+
     separator(),
 
-    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
+    widget.CurrentLayoutIcon(
+        **base(fg='color3'),
+        custom_icon_paths=[
+            os.path.expanduser("~/.config/qtile/layout-icons")
+        ],
+        mouse_callbacks={
+            'Button3': lambda:qtile.cmd_prev_layout()
+        },
+        padding=-6,
+        scale=0.6,
+    ),
 
-    widget.CurrentLayout(**base(bg='color2'), padding=5),
-
-    widget.Clock(**base(bg='color3'), format='%d/%m/%Y - %H:%M '),
+    separator(),
 ]
 
 widget_defaults = {

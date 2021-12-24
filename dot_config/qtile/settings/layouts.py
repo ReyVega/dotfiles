@@ -6,9 +6,8 @@ layout_conf = {
     'border_focus': colors['color9'],
     'border_normal': colors['color1'],
     'border_width': 3,
-    'margin': 8
+    'margin': 10
 }
-
 
 layouts = [
     layout.Max(
@@ -21,7 +20,10 @@ layouts = [
         **layout_conf
     ),
     layout.Bsp(
-        **layout_conf
+        **layout_conf,
+        fair=False,
+        lower_right=False,
+        grow_amount=1,
     ),
     layout.TreeTab(
         sections=['Browser', 'Video', 'Programming'],
@@ -57,15 +59,29 @@ layouts = [
 
 floating_layout = layout.Floating(
     float_rules=[
-        *layout.Floating.default_float_rules,
-        Match(wm_class='confirmreset'),
-        Match(wm_class='makebranch'),
-        Match(wm_class='maketag'),
-        Match(wm_class='ssh-askpass'),
-        Match(title='branchdialog'),
-        Match(title='pinentry'),
-        Match(wm_class="lxappearance"),
+        Match(wm_type='utility'),
+        Match(wm_type='notification'),
+        Match(wm_type='toolbar'),
+        Match(wm_type='splash'),
+        Match(wm_type='dialog'),
+        Match(wm_class='Conky'),
+        Match(wm_class='file_progress'),
+        Match(wm_class='confirm'),
+        Match(wm_class='dialog'),
+        Match(wm_class='download'),
+        Match(wm_class='error'),
+        Match(wm_class='notification'),
+        Match(wm_class='splash'),
+        Match(wm_class='toolbar'),
+        Match(wm_class='confirmreset'),  # gitk
+        Match(wm_class='makebranch'),  # gitk
+        Match(wm_class='maketag'),  # gitk
+        Match(wm_class='ssh-askpass'),  # ssh-askpass
+        Match(title='branchdialog'),  # gitk
+        Match(title='pinentry'),  # GPG key password entry
+        Match(wm_class='lxappearance'),
     ],
     border_focus=colors["color5"],
-    border_width= 3,
+    border_normal=colors['color1'],
+    border_width=3,
 )

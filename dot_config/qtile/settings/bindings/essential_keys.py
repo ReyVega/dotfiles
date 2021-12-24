@@ -21,7 +21,7 @@ essential_keys = [
     # Launch terminal and kill windows
     Key(
         [mod], "Return",
-        lazy.spawn(terminal + " --single-instance -e fish"),
+        lazy.spawn(terminal + " -e fish"),
         desc="Launch fish shell"
     ),
 
