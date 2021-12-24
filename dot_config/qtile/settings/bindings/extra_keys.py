@@ -20,7 +20,7 @@ extra_keys = [
 
     Key(
         ["shift"], "Print",
-        lazy.spawn("scrot -s ~/Pictures/screenshot.png"),
+        lazy.spawn("scrot -s /home/rey/Pictures/screenshot.png"),
         desc="Takes screenshot of selected dimension and stores it within Pictures folder"
     ),
 
@@ -33,7 +33,7 @@ extra_keys = [
 
     Key(
         [], "Print",
-        lazy.spawn("scrot ~/Pictures/screenshot.png"),
+        lazy.spawn("scrot /home/rey/Pictures/screenshot.png"),
         desc="Takes screenshot of fullscreen and stores it within Pictures folder"
     ),
 
