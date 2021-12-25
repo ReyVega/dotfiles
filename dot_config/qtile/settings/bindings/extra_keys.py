@@ -11,29 +11,23 @@ def fix_cli_app(app):
     return f'{terminal} --title {app} -e sh -c "{fix_environment} {app}"'
 
 extra_keys = [
-    # Screenshots selected dimensions
-    Key(
-        ["control", "shift"], "Print",
-        lazy.spawn("scrot -s /tmp/screenshot.png -e 'xclip -selection c -t image/png < $f'"),
-        desc="Takes screenshot of selected dimension and stores it within clipboard"
-    ),
-
+    # Screenshot dimensions
     Key(
         ["shift"], "Print",
-        lazy.spawn("scrot -s /home/rey/Pictures/screenshot.png"),
-        desc="Takes screenshot of selected dimension and stores it within Pictures folder"
+        lazy.spawn(widgets_path + "/screenshot.sh gui"),
+        desc="Takes screenshot of selected dimension"
     ),
 
     # Screenshots fullscreen
     Key(
         ["control"], "Print",
-        lazy.spawn("scrot /tmp/screenshot.png -e 'xclip -selection c -t image/png < $f'"),
+        lazy.spawn(widgets_path + "/screenshot.sh full-clip"),
         desc="Takes screenshot of full screen and stores it within clipboard"
     ),
 
     Key(
         [], "Print",
-        lazy.spawn("scrot /home/rey/Pictures/screenshot.png"),
+        lazy.spawn(widgets_path + "/screenshot.sh full"),
         desc="Takes screenshot of fullscreen and stores it within Pictures folder"
     ),
 
@@ -44,11 +38,18 @@ extra_keys = [
         desc="Starts brave browser"
     ),
 
-    # File Manager
+    # Ranger
     Key(
         [mod], "p",
+        lazy.spawn(fix_cli_app("ranger")),
+        desc="Starts ranger"
+    ),
+
+    # PCManFM
+    Key(
+        [mod, "shift"], "p",
         lazy.spawn("pcmanfm"),
-        desc="Starts file manager"
+        desc="Starts pcmanfm"
     ),
 
     # Discord

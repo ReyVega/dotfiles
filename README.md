@@ -101,7 +101,7 @@
     <tr>
         <th>Screenshots</th>
         <td>
-            <a href="https://archlinux.org/packages/community/x86_64/scrot/">scrot</a> and <a href="https://archlinux.org/packages/extra/x86_64/xclip/">xclip</a>
+            <a href="https://github.com/flameshot-org/flameshot">flameshot</a>
         </td>
     </tr>
     <tr>
@@ -111,7 +111,7 @@
         </td>
     </tr>
     <tr>
-        <th>CLI for setting wallpapers</th>
+        <th>CLI for viewing images</th>
         <td>
             <a href="https://archlinux.org/packages/extra/x86_64/feh/">feh</a>
         </td>
