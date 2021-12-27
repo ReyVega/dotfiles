@@ -60,7 +60,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
 		;;
 	*.avi|*.mp4|*.wmv|*.dat|*.3gp|*.ogv|*.mkv|*.mpg|*.mpeg|*.vob|*.fl[icv]|*.m2v|*.mov|*.webm|*.ts|*.mts|*.m4v|*.r[am]|*.qt|*.divx)
 		[ ! -f "${CACHE}.jpg" ] && \
-            ffmpeg -y -i "$1" -vframes 1 "$CACHE"
+            ffmpeg -y -i "$1" -vframes 1 "$CACHE.jpg"
 		image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
 		;;
 	*.bmp|*.jpg|*.jpeg|*.png|*.xpm|*.webp|*.gif|*.jfif)

@@ -7,7 +7,7 @@ mod = "mod4"
 terminal = guess_terminal()
 
 def fix_cli_app(app):
-    fix_environment = 'export -n LINES; export -n COLUMNS; sleep 0.1 &&'
+    fix_environment = 'export -n LINES; export -n COLUMNS; sleep 0.1; source "$HOME/.config/lf/lf-icons.sh"; export EDITOR=nvim &&'
     return f'{terminal} --title {app} -e sh -c "{fix_environment} {app}"'
 
 extra_keys = [

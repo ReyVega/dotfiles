@@ -185,6 +185,7 @@ map gd cd ~/Documents
 map gD cd ~/Downloads
 map ge cd ~/Desktop
 map gc cd ~/.config
+map gh cd ~/
 
 
 #------------ Default bindings ------------
