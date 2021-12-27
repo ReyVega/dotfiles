@@ -1,0 +1,290 @@
+# interpreter for shell commands
+set shell bash
+
+# icons
+set icons
+
+# borders
+set drawbox
+
+# preview files
+set preview
+set previewer ~/.config/lf/preview/preview.sh
+set cleaner ~/.config/lf/preview/cleaner.sh
+
+# set '-eu' options for shell commands
+# These options are used to have safer shell commands. Option '-e' is used to
+# exit on error and option '-u' is used to give error for unset variables.
+# Option '-f' disables pathname expansion which can be useful when $f, $fs, and
+# $fx variables contain names with '*' or '?' characters. However, this option
+# is used selectively within individual commands as it can be limiting at
+# times.
+set shellopts '-eu'
+
+# set internal field separator (IFS) to "\n" for shell commands
+# This is useful to automatically split file names in $fs and $fx properly
+# since default file separator used in these variables (i.e. 'filesep' option)
+# is newline. You need to consider the values of these options and create your
+# commands accordingly.
+set ifs "\n"
+
+# leave some space at the top and the bottom of the screen
+set scrolloff 10
+
+# custom commands
+# open files depending on the format
+cmd open_file ${{
+    case $(file --mime-type "$f" -bL) in
+        audio/*)
+            setsid -f mpv --force-window=yes $f >/dev/null 2>&1
+        ;;
+	    video/*)
+            setsid -f mpv --force-window=yes $f >/dev/null 2>&1
+        ;;
+        image/*)
+            setsid -f feh --start-at $f >/dev/null 2>&1
+        ;;
+	    application/pdf)
+            setsid -f zathura $f >/dev/null 2>&1
+        ;;
+        text/*)
+            $EDITOR $f
+        ;;
+    esac
+}}
+
+# mkdir
+cmd mkdir ${{
+    printf "Directory Name: "
+    read ans
+    mkdir $ans
+}}
+
+# touch
+cmd touch ${{
+    printf "File Name: "
+    read ans
+    touch $ans
+}}
+
+# chmod
+cmd chmod ${{
+    printf "Mode Bits: "
+    read ans
+
+    for file in "$fx"
+    do
+        chmod $ans $file
+    done
+
+    lf -remote 'send reload'
+}}
+
+# extract the current file with the right command
+cmd unarchive ${{
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x $f;;
+        *.7z) 7z x $f;;
+    esac
+}}
+
+# compress current file or selected files with tar and gunzip
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+# compress current file or selected files with zip
+cmd zip ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}
+
+# Trash command
+cmd trash ${{
+    files=$(printf "$fx" | tr '\n' ';')
+
+    while [ "$files" ]; do
+        file=${files%%;*}
+        trash-put "$(basename "$file")"
+
+        if [ "$files" = "$file" ]; then
+            files=''
+        else
+            files="${files#*;}"
+        fi
+  done
+}}
+
+# Empty trash
+cmd clear_trash %trash-empty
+
+# Restore files from trash
+cmd restore_trash ${{
+  trash-restore
+}}
+
+# Bindings
+# Remove some defaults
+map <enter>
+map m
+map o
+map n
+map "'"
+map '"'
+map d
+map c
+map e
+map f
+map zh
+
+# bindings calling lf's native commands
+map DD delete
+map r rename
+map y copy
+map x cut
+map p paste
+map c clear
+map v invert
+map u unselect
+map <space> :toggle; down
+map H top
+map L bottom
+map . set hidden!
+
+# bindings calling custom commands
+map <enter> open_file
+map ee $$EDITOR "$f"
+map md mkdir
+map ch chmod
+map mf touch
+# Compress mappings
+map az zip
+map at tar
+map au unarchive
+# Trash Mappings
+map dd trash
+map tc clear_trash
+map tr restore_trash
+# Movement
+map gtr cd ~/.local/share/Trash/files/
+map gp cd ~/Pictures
+map gv cd ~/Videos
+map gd cd ~/Documents
+map gD cd ~/Downloads
+map ge cd ~/Desktop
+map gc cd ~/.config
+
+
+#------------ Default bindings ------------
+# quit                     (default 'q')
+# up                       (default 'k' and '<up>')
+# half-up                  (default '<c-u>')
+# page-up                  (default '<c-b>' and '<pgup>')
+# down                     (default 'j' and '<down>')
+# half-down                (default '<c-d>')
+# page-down                (default '<c-f>' and '<pgdn>')
+# updir                    (default 'h' and '<left>')
+# open                     (default 'l' and '<right>')
+# top                      (default 'gg' and '<home>')
+# bottom                   (default 'G' and '<end>')
+# toggle
+# invert                   (default 'v')
+# unselect                 (default 'u')
+# glob-select
+# glob-unselect
+# copy                     (default 'y')
+# cut                      (default 'd')
+# paste                    (default 'p')
+# clear                    (default 'c')
+# sync
+# draw
+# redraw                   (default '<c-l>')
+# load
+# reload                   (default '<c-r>')
+# echo
+# echomsg
+# echoerr
+# cd
+# select
+# delete         (modal)
+# rename         (modal)   (default 'r')
+# source
+# push
+# read           (modal)   (default ':')
+# shell          (modal)   (default '$')
+# shell-pipe     (modal)   (default '%')
+# shell-wait     (modal)   (default '!')
+# shell-async    (modal)   (default '&')
+# find           (modal)   (default 'f')
+# find-back      (modal)   (default 'F')
+# find-next                (default ';')
+# find-prev                (default ',')
+# search         (modal)   (default '/')
+# search-back    (modal)   (default '?')
+# search-next              (default 'n')
+# search-prev              (default 'N')
+# filter         (modal)
+# setfilter
+# mark-save      (modal)   (default 'm')
+# mark-load      (modal)   (default "'")
+# mark-remove    (modal)   (default `"`)
+
+# cmd open &$OPENER "$f"   cmd open &%OPENER% %f%
+# map e $$EDITOR "$f"      map e $%EDITOR% %f%
+# map i $$PAGER "$f"       map i !%PAGER% %f%
+# map w $$SHELL            map w $%SHELL%
+
+# map zh set hidden!
+# map zr set reverse!
+# map zn set info
+# map zs set info size
+# map zt set info time
+# map za set info size:time
+# map sn :set sortby natural; set info
+# map ss :set sortby size; set info size
+# map st :set sortby time; set info time
+# map sa :set sortby atime; set info atime
+# map sc :set sortby ctime; set info ctime
+# map se :set sortby ext; set info
+# map gh cd ~
+# map <space> :toggle; down
+
+
+# cmd-escape               (default '<esc>')
+# cmd-complete             (default '<tab>')
+# cmd-menu-complete
+# cmd-menu-complete-back
+# cmd-enter                (default '<c-j>' and '<enter>')
+# cmd-interrupt            (default '<c-c>')
+# cmd-history-next         (default '<c-n>')
+# cmd-history-prev         (default '<c-p>')
+# cmd-left                 (default '<c-b>' and '<left>')
+# cmd-right                (default '<c-f>' and '<right>')
+# cmd-home                 (default '<c-a>' and '<home>')
+# cmd-end                  (default '<c-e>' and '<end>')
+# cmd-delete               (default '<c-d>' and '<delete>')
+# cmd-delete-back          (default '<backspace>' and '<backspace2>')
+# cmd-delete-home          (default '<c-u>')
+# cmd-delete-end           (default '<c-k>')
+# cmd-delete-unix-word     (default '<c-w>')
+# cmd-yank                 (default '<c-y>')
+# cmd-transpose            (default '<c-t>')
+# cmd-transpose-word       (default '<a-t>')
+# cmd-word                 (default '<a-f>')
+# cmd-word-back            (default '<a-b>')
+# cmd-delete-word          (default '<a-d>')
+# cmd-capitalize-word      (default '<a-c>')
+# cmd-uppercase-word       (default '<a-u>')
+# cmd-lowercase-word       (default '<a-l>')

@@ -38,11 +38,11 @@ extra_keys = [
         desc="Starts brave browser"
     ),
 
-    # Ranger
+    # LF
     Key(
         [mod], "p",
-        lazy.spawn(fix_cli_app("ranger")),
-        desc="Starts ranger"
+        lazy.spawn(fix_cli_app(widgets_path + "/lf.sh")),
+        desc="Starts Lf"
     ),
 
     # PCManFM

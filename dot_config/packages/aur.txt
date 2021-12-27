@@ -2,6 +2,7 @@ betterlockscreen
 brave-bin
 cava
 fnm-bin
+lf
 libreoffice-dev-bin
 lightdm-webkit2-theme-glorious
 mpdris2

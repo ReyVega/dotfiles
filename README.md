@@ -95,7 +95,7 @@
     <tr>
         <th>File Manager</th>
         <td>
-            <a href="https://github.com/ranger/ranger">ranger</a>
+            <a href="https://github.com/gokcehan/lf">lf</a>
             and
             <a href="https://wiki.archlinux.org/title/PCManFM">pcmanfm</a>
         </td>

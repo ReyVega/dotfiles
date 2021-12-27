@@ -74,7 +74,6 @@ pulsemixer
 pyenv
 python-pip
 qtile
-ranger
 ripgrep
 rofi
 sd
@@ -82,6 +81,7 @@ starship
 sudo
 tealdeer
 texinfo
+trash-cli
 ttf-dejavu
 ttf-inconsolata
 ttf-liberation
@@ -145,5 +145,5 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 zathura
-zathura-pdf-mupdf
+zathura-pdf-poppler
 zoxide
