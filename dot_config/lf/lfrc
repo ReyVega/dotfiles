@@ -33,7 +33,7 @@ set scrolloff 10
 
 # custom commands
 # open files depending on the format
-cmd open_file ${{
+cmd open ${{
     case $(file --mime-type "$f" -bL) in
         audio/*)
             setsid -f mpv --force-window=yes $f >/dev/null 2>&1
@@ -47,7 +47,7 @@ cmd open_file ${{
 	    application/pdf)
             setsid -f zathura $f >/dev/null 2>&1
         ;;
-        text/*)
+        text/* | application/json)
             $EDITOR $f
         ;;
     esac
@@ -164,7 +164,7 @@ map L bottom
 map . set hidden!
 
 # bindings calling custom commands
-map <enter> open_file
+map <enter> open
 map ee $$EDITOR "$f"
 map md mkdir
 map ch chmod
