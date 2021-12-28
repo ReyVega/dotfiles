@@ -29,7 +29,7 @@ for i in range(1, monitors + 1):
     keys.extend([Key([mod, "mod1"], str(i), lazy.window.toscreen(i))])
 
 if monitors > 1:
-    for i in range(1, monitors):
+    for i in range(monitors - 1):
         screens.append(
             Screen(
                 wallpaper = wallpaper,

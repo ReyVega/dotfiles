@@ -66,7 +66,7 @@ extra_keys = [
         desc="Starts vs-code"
     ),
 
-    # VS Code
+    # Zoom
     Key(
         [mod], "z",
         lazy.spawn("zoom"),

@@ -15,9 +15,15 @@ layouts = [
     ),
     layout.MonadTall(
         **layout_conf,
+        change_ratio=0.01,
+        max_ratio=0.75,
+        min_ratio=0.25,
     ),
     layout.MonadWide(
-        **layout_conf
+        **layout_conf,
+        change_ratio=0.01,
+        max_ratio=0.75,
+        min_ratio=0.25,
     ),
     layout.Bsp(
         **layout_conf,
@@ -58,27 +64,16 @@ layouts = [
 ]
 
 floating_layout = layout.Floating(
-    float_rules=[
-        Match(wm_type='utility'),
-        Match(wm_type='notification'),
-        Match(wm_type='toolbar'),
-        Match(wm_type='splash'),
-        Match(wm_type='dialog'),
+    float_rules=
+    [
+       *layout.Floating.default_float_rules,
+        Match(wm_class="confirmreset"),  # gitk
+        Match(wm_class="makebranch"),  # gitk
+        Match(wm_class="maketag"),  # gitk
+        Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry        Match(wm_class='lxappearance'),
         Match(wm_class='Conky'),
-        Match(wm_class='file_progress'),
-        Match(wm_class='confirm'),
-        Match(wm_class='dialog'),
-        Match(wm_class='download'),
-        Match(wm_class='error'),
-        Match(wm_class='notification'),
-        Match(wm_class='splash'),
-        Match(wm_class='toolbar'),
-        Match(wm_class='confirmreset'),  # gitk
-        Match(wm_class='makebranch'),  # gitk
-        Match(wm_class='maketag'),  # gitk
-        Match(wm_class='ssh-askpass'),  # ssh-askpass
-        Match(title='branchdialog'),  # gitk
-        Match(title='pinentry'),  # GPG key password entry
         Match(wm_class='lxappearance'),
     ],
     border_focus=colors["color5"],

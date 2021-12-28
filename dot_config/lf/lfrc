@@ -132,7 +132,7 @@ cmd clear_trash %trash-empty
 
 # Restore files from trash
 cmd restore_trash ${{
-  trash-restore
+    trash-restore
 }}
 
 # Bindings
