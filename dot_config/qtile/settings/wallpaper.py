@@ -21,4 +21,3 @@ def load_wallpaper():
 
     return wallpaper_file
 
-wallpaper = load_wallpaper()
