@@ -1,5 +1,5 @@
 #!/bin/bash
-dir="~/.config/qtile/powermenu"
+dir="~/.config/qtile/settings/powermenu"
 rofi_command="rofi -theme $dir/powermenu.rasi"
 
 # Options

@@ -22,4 +22,3 @@ def load_theme():
 
     with open(theme_file, 'r') as f:
         return json.load(f)
-

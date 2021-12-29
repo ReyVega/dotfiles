@@ -1,5 +1,5 @@
 #!/bin/bash
-icon_path="~/.config/qtile/icons/"
+icon_path="~/.config/qtile/settings/icons/"
 notify_id=5556
 timeout=1500
 

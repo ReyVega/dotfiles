@@ -1,5 +1,5 @@
 #!/bin/bash
-icon="~/.config/qtile/icons/brightnesssettings.svg"
+icon="~/.config/qtile/settings/icons/brightnesssettings.svg"
 notify_id=5555
 timeout=1500
 icon_bar=""
