@@ -75,11 +75,13 @@ def init_floating_layout(colors):
             Match(wm_class="ssh-askpass"),  # ssh-askpass
             Match(title="branchdialog"),  # gitk
             Match(title="pinentry"),  # GPG key password entry        Match(wm_class='lxappearance'),
-            Match(wm_class='Conky'),
-            Match(wm_class='lxappearance'),
+            Match(wm_class="Conky"),
+            Match(wm_class="lxappearance"),
+            Match(wm_class="mpv"),
         ],
         border_focus=colors["color5"],
         border_normal=colors['color1'],
         border_width=3,
+        fullscreen_border_width=0,
     )
 

@@ -10,7 +10,6 @@ def fix_cli_app(app):
     return f'{terminal} --title {app} -e sh -c "{fix_environment} {app}"'
 
 def init_extra_keys(widgets_path):
-
     return [
         # Screenshot dimensions
         Key(
@@ -25,7 +24,6 @@ def init_extra_keys(widgets_path):
             lazy.spawn(widgets_path + "/screenshot.sh full-clip"),
             desc="Takes screenshot of full screen and stores it within clipboard"
         ),
-
         Key(
             [], "Print",
             lazy.spawn(widgets_path + "/screenshot.sh full"),
@@ -88,10 +86,24 @@ def init_extra_keys(widgets_path):
             desc="Starts rofi powermenu"
         ),
 
+        # Wi-fi
+        Key(
+            [mod, "shift"], "n",
+            lazy.spawn("kitty -e nmtui"),
+            desc="Starts nmtui"
+        ),
+
         # Music player (ncmpcpp)
         Key(
             [mod], "e",
             lazy.spawn(fix_cli_app("ncmpcpp")),
             desc="Starts ncmpcpp"
+        ),
+
+        # Conky
+        Key(
+            [mod, "shift"], "c",
+            lazy.spawn(widgets_path + "/conkytoggle.sh"),
+            desc="conky"
         ),
     ]

@@ -1,5 +1,5 @@
 from libqtile import bar, widget
-from libqtile import qtile
+from libqtile.command import lazy
 from os import path
 import subprocess
 
@@ -73,8 +73,8 @@ def primary_widgets(widgets_path, colors):
             **base(fg='color4', colors=colors),
             func=lambda: subprocess.check_output(widgets_path + "/brightness.sh").decode(),
             mouse_callbacks={
-                'Button4': lambda:qtile.cmd_spawn(widgets_path + "/brightness.sh down"),
-                'Button5': lambda:qtile.cmd_spawn(widgets_path + "/brightness.sh up"),
+                'Button4': lazy.spawn(widgets_path + "/brightness.sh down"),
+                'Button5': lazy.spawn(widgets_path + "/brightness.sh up"),
             },
             update_interval=0.2,
         ),
@@ -85,10 +85,10 @@ def primary_widgets(widgets_path, colors):
             **base(fg='color5', colors=colors),
             func=lambda: subprocess.check_output(widgets_path + "/volume.sh").decode(),
             mouse_callbacks={
-                'Button1': lambda:qtile.cmd_spawn(widgets_path + "/volume.sh mute"),
-                'Button4': lambda:qtile.cmd_spawn(widgets_path + "/volume.sh down"),
-                'Button5': lambda:qtile.cmd_spawn(widgets_path + "/volume.sh up"),
-                'Button3': lambda:qtile.cmd_spawn(widgets_path + "/volume.sh app"),
+                'Button1': lazy.spawn(widgets_path + "/volume.sh mute"),
+                'Button4': lazy.spawn(widgets_path + "/volume.sh down"),
+                'Button5': lazy.spawn(widgets_path + "/volume.sh up"),
+                'Button3': lazy.spawn(widgets_path + "/volume.sh app"),
             },
             update_interval=0.2,
         ),
@@ -115,7 +115,7 @@ def primary_widgets(widgets_path, colors):
             **base(fg='color3', colors=colors),
             custom_icon_paths=[path.expanduser("~/.config/qtile/settings/layout-icons")],
             mouse_callbacks={
-                'Button3': lambda:qtile.cmd_prev_layout()
+                'Button3': lazy.prev_layout()
             },
             padding=-6,
             scale=0.6,
@@ -142,7 +142,7 @@ def secondary_widgets(widgets_path, colors):
             **base(fg='color3', colors=colors),
             custom_icon_paths=[path.expanduser("~/.config/qtile/settings/layout-icons")],
             mouse_callbacks={
-                'Button3': lambda:qtile.cmd_prev_layout()
+                'Button3': lazy.prev_layout()
             },
             padding=-6,
             scale=0.6,

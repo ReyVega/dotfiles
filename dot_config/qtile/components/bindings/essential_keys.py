@@ -25,19 +25,16 @@ def init_essential_keys():
             lazy.spawn(terminal + " -e fish"),
             desc="Launch fish shell"
         ),
-
         Key(
             [mod, "shift"], "Return",
             lazy.spawn(terminal),
             desc="Launch terminal (bash shell)"
         ),
-
         Key(
             [mod], "w",
             lazy.window.kill(),
             desc="Kill focused window"
         ),
-
         Key(
             [mod, "shift"], "w",
             lazy.spawn("xkill"),
@@ -50,7 +47,6 @@ def init_essential_keys():
             lazy.next_screen(),
             desc='Move focus to next monitor'
         ),
-
         Key(
             [mod], "comma",
             lazy.prev_screen(),
@@ -64,7 +60,6 @@ def init_essential_keys():
             lazy.window.toggle_fullscreen(),
             desc='toggle fullscreen'
         ),
-
         Key(
             [mod, "shift"], "f",
             lazy.window.toggle_floating(),
@@ -97,8 +92,7 @@ def init_essential_keys():
 
         # Opens Qtile configuration
         Key(
-            [mod, "control"],
-            "a",
+            [mod, "control"], "a",
             lazy.spawn("kitty --directory ~/.config/qtile -e nvim"),
             desc="Opens Qtile config",
         ),

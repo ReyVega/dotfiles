@@ -35,16 +35,13 @@ def resize(qtile, direction):
 def resize_left(qtile):
     resize(qtile, "left")
 
-
 @lazy.function
 def resize_right(qtile):
     resize(qtile, "right")
 
-
 @lazy.function
 def resize_up(qtile):
     resize(qtile, "up")
-
 
 @lazy.function
 def resize_down(qtile):
@@ -84,7 +81,6 @@ def init_layout_keys():
             lazy.layout.client_to_previous(),
             desc="Move window to the left"
         ),
-
         Key(
             [mod, "shift"], "l",
             lazy.layout.shuffle_right(),
@@ -92,14 +88,12 @@ def init_layout_keys():
             lazy.layout.client_to_next(),
             desc="Move window to the right"
         ),
-
         Key(
             [mod, "shift"], "j",
             lazy.layout.section_down(),
             lazy.layout.shuffle_down(),
             desc="Move window down"
         ),
-
         Key(
             [mod, "shift"], "k",
             lazy.layout.section_up(),
@@ -146,7 +140,5 @@ def init_layout_keys():
             lazy.group.next_window(),
             lazy.window.bring_to_front(),
         ),
-
         Key([mod, "shift"], "o", float_to_front),
-
     ]

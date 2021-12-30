@@ -98,6 +98,3 @@ for item in groups_settings:
         # Send window and switch to item N
         Key([mod, "shift"], item["key"], lazy.window.togroup(item["name"], switch_group=True))
     ])
-
-
-
