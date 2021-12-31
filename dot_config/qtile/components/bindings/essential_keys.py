@@ -93,7 +93,7 @@ def init_essential_keys():
         # Opens Qtile configuration
         Key(
             [mod, "control"], "a",
-            lazy.spawn("kitty --directory ~/.config/qtile -e nvim"),
+            lazy.spawn("kitty --directory ~/.config/qtile -e nvim config.py"),
             desc="Opens Qtile config",
         ),
     ]

@@ -26,12 +26,6 @@ key('n', '<A-l>', '<C-w>l', default_opts)
 key('n', '<A-j>', '<C-w>j', default_opts)
 key('n', '<A-k>', '<C-w>k', default_opts)
 
--- Resize windows like monadtall (M = Alt)
-key('n', '<S-h>', '<Cmd>vertical resize -2<CR>', default_opts)
-key('n', '<S-l>', '<Cmd>vertical resize +2<CR>', default_opts)
-key('n', '<S-j>', '<Cmd>resize -2<CR>', default_opts)
-key('n', '<S-k>', '<Cmd>resize +2<CR>', default_opts)
-
 -- Close all windows and exit from neovim
 key('n', '<C-q>', ':qa!<CR>', default_opts)
 key('i', '<C-q>', '<Esc>:qa!<CR>', default_opts)
@@ -101,7 +95,7 @@ key('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', default_opts)
 key('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', default_opts)
 key('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', default_opts)
 key('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', default_opts)
-key('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', default_opts)
+-- key('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', default_opts)
 
 -- Code formatter.
 key("n", "<leader>f", ":Neoformat<CR>", default_opts)

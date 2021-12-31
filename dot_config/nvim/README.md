@@ -163,7 +163,6 @@
             <a href="https://github.com/hrsh7th/cmp-nvim-lua">cmp-nvim-lua</a> <br>
             <a href="https://github.com/hrsh7th/cmp-cmdline">cmp-cmdline</a> <br>
             <a href="https://github.com/saadparwaiz1/cmp_luasnip">cmp-luasnip</a> <br>
-            <a href="https://github.com/petertriho/cmp-git">cmp-git</a> <br>
             <a href="https://github.com/lukas-reineke/cmp-rg">cmp-rg</a> <br>
             <a href="https://github.com/David-Kunz/cmp-npm">cmp-npm</a> <br>
             <a href="https://github.com/lukas-reineke/cmp-under-comparator">cmp-under-comparator</a>
@@ -179,14 +178,7 @@
             <a href="https://github.com/tpope/vim-repeat">vim-repeat</a>
         </td>
     </tr>
-    <tr>
-        <th>IA Support</th>
-        <td>
-            <a href="https://www.tabnine.com/?utm_term=&utm_campaign=&utm_source=adwords&utm_medium=ppc&hsa_acc=4311736126&hsa_cam=14854202152&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3">tabnine</a> <br>
-            <a href="https://github.com/tzachar/cmp-tabnine">cmp-tabnine</a> <br>
-        </td>
-    </tr>
-</table>
+ </table>
 
 ---
 

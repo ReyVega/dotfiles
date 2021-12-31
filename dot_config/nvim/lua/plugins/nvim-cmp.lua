@@ -49,11 +49,9 @@ cmp.setup {
 
      -- VS Code icons for completion
     formatting = {
-        format = function(entry, vim_item)
-            vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
-            if entry.source.name == 'cmp_tabnine' then
-				vim_item.kind = ''
-			end
+        fields = { "kind", "abbr" },
+        format = function(_, vim_item)
+            vim_item.kind = cmp_kinds[vim_item.kind] or ""
             return vim_item
         end,
     },
@@ -65,13 +63,11 @@ cmp.setup {
 
     -- key mapping
     mapping = {
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm { select = true },
+        ['<CR>'] = cmp.mapping.confirm { select = false },
 
         -- Tab mapping
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -114,12 +110,10 @@ cmp.setup {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
-        { name = 'cmp_git' },
         { name = 'buffer' },
         { name = 'nvim_lua'},
         { name = 'rg' },
         { name = 'npm', keyword_length = 4 },
-        { name = 'cmp_tabnine' }
     },
 }
 
@@ -136,9 +130,6 @@ cmp.setup.cmdline('/', {
         { name = 'buffer' }
     }
 })
-
-require("cmp_git").setup()
-
 
 luasnip.config.set_config {
     history = true,

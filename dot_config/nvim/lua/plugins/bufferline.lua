@@ -37,7 +37,7 @@ require('bufferline').setup {
             text = " File Explorer",
             highlight = 'Directory',
             text_align = "center",
-            padding=1
+            padding = 1
         }},
         show_buffer_icons = true, -- disable filetype icons for buffers
         show_buffer_close_icons = true,

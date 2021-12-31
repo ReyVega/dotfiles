@@ -30,6 +30,18 @@ return require('packer').startup(function()
     -- Matchup functions, conditions, etc.
     use {'andymass/vim-matchup'}
 
+    -- Autocloses for tags
+    use {'windwp/nvim-ts-autotag'}
+
+    -- Surround everything
+    use {'tpope/vim-surround'}
+
+    -- Repeat last action done
+    use {'tpope/vim-repeat'}
+
+    -- Formatter
+    use {"sbdchd/neoformat"}
+
     -- Comments
     use {
         'b3nj5m1n/kommentary',
@@ -47,18 +59,6 @@ return require('packer').startup(function()
             require('nvim-autopairs').setup()
         end
     }
-
-    -- Autocloses for tags
-    use {'windwp/nvim-ts-autotag'}
-
-    -- Surround everything
-    use {'tpope/vim-surround'}
-
-    -- Repeat last action done
-    use {'tpope/vim-repeat'}
-
-    -- Formatter
-    use {"sbdchd/neoformat"}
 
     -- Neovim Colorizer
     use {
@@ -95,13 +95,9 @@ return require('packer').startup(function()
             'hrsh7th/cmp-cmdline',
             'lukas-reineke/cmp-rg',
             "lukas-reineke/cmp-under-comparator",
-            'petertriho/cmp-git',
             'David-Kunz/cmp-npm',
         },
     }
-
-    -- IA Assistant
-    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
     -- File explorer
     use {
