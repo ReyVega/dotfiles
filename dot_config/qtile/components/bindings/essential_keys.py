@@ -56,7 +56,7 @@ def init_essential_keys():
         # Toggles
         Key(
             [mod], "f",
-            lazy.hide_show_bar("top"),
+            lazy.hide_show_bar(position="all"),
             lazy.window.toggle_fullscreen(),
             desc='toggle fullscreen'
         ),
@@ -93,7 +93,7 @@ def init_essential_keys():
         # Opens Qtile configuration
         Key(
             [mod, "control"], "a",
-            lazy.spawn("kitty --directory ~/.config/qtile -e nvim config.py"),
+            lazy.spawn("kitty -d ~/.config/qtile -e nvim config.py"),
             desc="Opens Qtile config",
         ),
     ]

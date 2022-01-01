@@ -19,8 +19,7 @@ def init_screens(primary_widgets, secondary_widgets, wallpaper):
         )
     ]
 
-    xr = subprocess.check_output('xrandr --query | grep " connected"', shell=True).decode().split('\n')
-    monitors = len(xr) - 1 if len(xr) > 2 else len(xr)
+    monitors = int(subprocess.check_output('xrandr -q | grep "Screen" | wc -l', shell=True).decode())
 
     if monitors > 1:
         for i in range(monitors - 1):

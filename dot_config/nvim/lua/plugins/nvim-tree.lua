@@ -53,7 +53,7 @@ g.nvim_tree_icons = {
 -- default mappings
 local keys = {
     { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
-    { key = {"<2-RightMouse>", ","},        cb = tree_cb("cd") },
+    { key = {"<2-RightMouse>", "l"},        cb = tree_cb("cd") },
     { key = "<C-v>",                        cb = tree_cb("vsplit") },
     { key = "<C-x>",                        cb = tree_cb("split") },
     { key = "<C-t>",                        cb = tree_cb("tabnew") },
@@ -66,7 +66,7 @@ local keys = {
     { key = "K",                            cb = tree_cb("first_sibling") },
     { key = "J",                            cb = tree_cb("last_sibling") },
     { key = "I",                            cb = tree_cb("toggle_ignored") },
-    { key = "H",                            cb = tree_cb("toggle_dotfiles") },
+    { key = ".",                            cb = tree_cb("toggle_dotfiles") },
     { key = "R",                            cb = tree_cb("refresh") },
     { key = "mf",                           cb = tree_cb("create") },
     { key = "DD",                           cb = tree_cb("remove") },
@@ -81,7 +81,7 @@ local keys = {
     { key = "ca",                           cb = tree_cb("copy_absolute_path") },
     { key = "[c",                           cb = tree_cb("prev_git_item") },
     { key = "]c",                           cb = tree_cb("next_git_item") },
-    { key = ".",                            cb = tree_cb("dir_up") },
+    { key = "h",                            cb = tree_cb("dir_up") },
     { key = "s",                            cb = tree_cb("system_open") },
     { key = "q",                            cb = tree_cb("close") },
     { key = "g?",                           cb = tree_cb("toggle_help") },

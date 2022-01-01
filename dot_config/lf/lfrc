@@ -135,6 +135,11 @@ cmd restore_trash ${{
     trash-restore
 }}
 
+# Open configuration
+cmd open_config $ {{
+    kitty -d ~/.config/lf -e nvim lfrc
+}}
+
 # Bindings
 # Remove some defaults
 map <enter>
@@ -148,8 +153,11 @@ map c
 map e
 map f
 map zh
+map gg
+map G
 
 # bindings calling lf's native commands
+map <esc> quit
 map DD delete
 map r rename
 map y copy
@@ -162,6 +170,7 @@ map <space> :toggle; down
 map H top
 map L bottom
 map . set hidden!
+map R reload
 
 # bindings calling custom commands
 map <enter> open
@@ -169,6 +178,7 @@ map ee $$EDITOR "$f"
 map md mkdir
 map ch chmod
 map mf touch
+map o  open_config
 # Compress mappings
 map az zip
 map at tar
