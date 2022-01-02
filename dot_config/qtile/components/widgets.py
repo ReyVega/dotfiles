@@ -48,7 +48,7 @@ def workspaces(colors):
         ),
     ]
 
-def primary_widgets(widgets_path, colors):
+def primary_widgets(colors):
     return [
         *workspaces(colors),
 
@@ -71,10 +71,10 @@ def primary_widgets(widgets_path, colors):
 
         widget.GenPollText(
             **base(fg='color4', colors=colors),
-            func=lambda: subprocess.check_output(widgets_path + "/brightness.sh").decode(),
+            func=lambda: subprocess.check_output("brightness").decode(),
             mouse_callbacks={
-                'Button4': lazy.spawn(widgets_path + "/brightness.sh down"),
-                'Button5': lazy.spawn(widgets_path + "/brightness.sh up"),
+                'Button4': lazy.spawn("brightness down"),
+                'Button5': lazy.spawn("brightness up"),
             },
             update_interval=0.2,
         ),
@@ -83,12 +83,12 @@ def primary_widgets(widgets_path, colors):
 
         widget.GenPollText(
             **base(fg='color5', colors=colors),
-            func=lambda: subprocess.check_output(widgets_path + "/volume.sh").decode(),
+            func=lambda: subprocess.check_output("volume").decode(),
             mouse_callbacks={
-                'Button1': lazy.spawn(widgets_path + "/volume.sh mute"),
-                'Button4': lazy.spawn(widgets_path + "/volume.sh down"),
-                'Button5': lazy.spawn(widgets_path + "/volume.sh up"),
-                'Button3': lazy.spawn(widgets_path + "/volume.sh app"),
+                'Button1': lazy.spawn("volume mute"),
+                'Button4': lazy.spawn("volume down"),
+                'Button5': lazy.spawn("volume up"),
+                'Button3': lazy.spawn("volume app"),
             },
             update_interval=0.2,
         ),
@@ -97,7 +97,7 @@ def primary_widgets(widgets_path, colors):
 
         widget.GenPollText(
             **base(fg='color10', colors=colors),
-            func=lambda: subprocess.check_output(widgets_path + "/calendar.sh").decode(),
+            func=lambda: subprocess.check_output("calendar").decode(),
             update_interval=0.2,
         ),
 
@@ -105,7 +105,7 @@ def primary_widgets(widgets_path, colors):
 
         widget.GenPollText(
             **base(fg='color15', colors=colors),
-            func=lambda: subprocess.check_output(widgets_path + "/battery.sh").decode(),
+            func=lambda: subprocess.check_output("battery").decode(),
             update_interval=0.2,
         ),
 
@@ -124,7 +124,7 @@ def primary_widgets(widgets_path, colors):
         separator(colors),
     ]
 
-def secondary_widgets(widgets_path, colors):
+def secondary_widgets(colors):
     return[
         *workspaces(colors),
 
@@ -132,7 +132,7 @@ def secondary_widgets(widgets_path, colors):
 
         widget.GenPollText(
             **base(fg='color10', colors=colors),
-            func=lambda: subprocess.check_output(widgets_path + "/calendar.sh").decode(),
+            func=lambda: subprocess.check_output("calendar").decode(),
             update_interval=0.2,
         ),
 
@@ -152,11 +152,11 @@ def secondary_widgets(widgets_path, colors):
 ]
 
 
-def init_primary_widgets(widgets_path, colors):
-    return primary_widgets(widgets_path, colors)
+def init_primary_widgets(colors):
+    return primary_widgets(colors)
 
-def init_secondary_widgets(widgets_path, colors):
-    return secondary_widgets(widgets_path, colors)
+def init_secondary_widgets(colors):
+    return secondary_widgets(colors)
 
 def widget_defaults():
     return {

@@ -5,28 +5,24 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 terminal = guess_terminal()
 
-def fix_cli_app(app):
-    fix_environment = 'export -n LINES; export -n COLUMNS; sleep 0.1; source "$HOME/.config/lf/lf-icons.sh"; export EDITOR=nvim &&'
-    return f'{terminal} --title {app} -e sh -c "{fix_environment} {app}"'
-
-def init_extra_keys(widgets_path):
+def init_extra_keys():
     return [
         # Screenshot dimensions
         Key(
             ["shift"], "Print",
-            lazy.spawn(widgets_path + "/screenshot.sh gui"),
+            lazy.spawn("screenshot gui"),
             desc="Takes screenshot of selected dimension"
         ),
 
         # Screenshots fullscreen
         Key(
             ["control"], "Print",
-            lazy.spawn(widgets_path + "/screenshot.sh full-clip"),
+            lazy.spawn("screenshot full-clip"),
             desc="Takes screenshot of full screen and stores it within clipboard"
         ),
         Key(
             [], "Print",
-            lazy.spawn(widgets_path + "/screenshot.sh full"),
+            lazy.spawn("screenshot full"),
             desc="Takes screenshot of fullscreen and stores it within Pictures folder"
         ),
 
@@ -40,7 +36,7 @@ def init_extra_keys(widgets_path):
         # LF
         Key(
             [mod], "p",
-            lazy.spawn(fix_cli_app(widgets_path + "/lf.sh")),
+            lazy.spawn(f'{terminal} -e sh -c "source $HOME/.config/lf/lf-icons.sh; lfrun"'),
             desc="Starts Lf"
         ),
 
@@ -82,28 +78,28 @@ def init_extra_keys(widgets_path):
         # Rofi (Powermenu)
         Key(
             [mod], "q",
-            lazy.spawn(widgets_path + "/powermenu.sh"),
+            lazy.spawn("powermenu"),
             desc="Starts rofi powermenu"
         ),
 
         # Wi-fi
         Key(
             [mod, "shift"], "n",
-            lazy.spawn("kitty -e nmtui"),
+            lazy.spawn(f"{terminal} -e nmtui"),
             desc="Starts nmtui"
         ),
 
         # Music player (ncmpcpp)
         Key(
             [mod], "e",
-            lazy.spawn(fix_cli_app("ncmpcpp")),
+            lazy.spawn(f"{terminal} -e ncmpcpp"),
             desc="Starts ncmpcpp"
         ),
 
         # Conky
         Key(
             [mod, "shift"], "c",
-            lazy.spawn(widgets_path + "/conkytoggle.sh"),
+            lazy.spawn("conkytoggle"),
             desc="conky"
         ),
     ]

@@ -68,8 +68,7 @@ case $1 in
         mute_notification
         ;;
     app)
-        fix_environment=export -n LINES; export -n COLUMNS; sleep 0.1 &&
-        kitty --title pulsemixer -e sh -c "$fix_environment pulsemixer"
+        kitty --title pulsemixer -e pulsemixer
         ;;
     *)
         muted=`is_mute`

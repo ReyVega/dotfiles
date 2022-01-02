@@ -42,7 +42,7 @@ cmd open ${{
             setsid -f mpv --force-window=yes $f >/dev/null 2>&1
         ;;
         image/*)
-            setsid -f feh --start-at $f >/dev/null 2>&1
+            setsid -f feh --zoom 80% --start-at $f >/dev/null 2>&1
         ;;
 	    application/pdf)
             setsid -f zathura $f >/dev/null 2>&1

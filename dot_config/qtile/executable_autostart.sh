@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Allow certain functionalities
 lxsession &

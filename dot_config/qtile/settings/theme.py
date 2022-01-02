@@ -1,8 +1,7 @@
 from os import path
 import json
-from .paths import qtile_path
 
-def load_theme():
+def load_theme(qtile_path):
     theme = "nord"
 
     theme_config = path.join(qtile_path, "theme.json")

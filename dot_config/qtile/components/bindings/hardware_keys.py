@@ -3,34 +3,34 @@ from libqtile.command import lazy
 
 mod = "mod4"
 
-def init_hardware_keys(widgets_path):
+def init_hardware_keys():
     return [
         # Volume
         Key(
             [], "XF86AudioLowerVolume",
-            lazy.spawn(widgets_path + "/volume.sh down"),
+            lazy.spawn("volume down"),
             desc="Lower the volume"
         ),
         Key(
             [], "XF86AudioRaiseVolume",
-            lazy.spawn(widgets_path + "/volume.sh up"),
+            lazy.spawn("volume up"),
             desc="Turn up the volume"
         ),
         Key(
             [], "XF86AudioMute",
-            lazy.spawn(widgets_path + "/volume.sh mute"),
+            lazy.spawn("volume mute"),
             desc="Mute volume"
         ),
 
         # Brightness
         Key(
             [], "XF86MonBrightnessDown",
-            lazy.spawn(widgets_path + "/brightness.sh down"),
+            lazy.spawn("brightness down"),
             desc='Bright down'
         ),
         Key(
             [], "XF86MonBrightnessUp",
-            lazy.spawn(widgets_path + "/brightness.sh up"),
+            lazy.spawn("brightness up"),
             desc='Bright up'
         ),
 

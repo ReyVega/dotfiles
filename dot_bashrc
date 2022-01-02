@@ -5,12 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+# Default bash prompt
 PS1='[\u@\h \W]\$ '
 
-# Default Editor (editor)
-export EDITOR=nvim
-export VISUAL=nvim
+# Alias
+alias ls='ls --color=auto'
+alias lf=lfrun
 
 # Starship
 eval "$(starship init bash)"

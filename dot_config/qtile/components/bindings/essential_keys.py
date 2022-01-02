@@ -22,7 +22,7 @@ def init_essential_keys():
         # Launch terminal and kill windows
         Key(
             [mod], "Return",
-            lazy.spawn(terminal + " -e fish"),
+            lazy.spawn(f"{terminal} -e fish"),
             desc="Launch fish shell"
         ),
         Key(
@@ -93,7 +93,7 @@ def init_essential_keys():
         # Opens Qtile configuration
         Key(
             [mod, "control"], "a",
-            lazy.spawn("kitty -d ~/.config/qtile -e nvim config.py"),
+            lazy.spawn(f"{terminal} -d ~/.config/qtile -e nvim config.py"),
             desc="Opens Qtile config",
         ),
     ]

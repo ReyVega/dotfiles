@@ -32,7 +32,6 @@ reload("components.screens")
 #-----------------------------------------------------------
 from settings.theme import load_theme
 from settings.wallpaper import load_wallpaper
-from settings.paths import qtile_path, widgets_path
 
 
 #-----------------------------------------------------------
@@ -47,16 +46,22 @@ from components.screens import init_screens
 
 
 #-----------------------------------------------------------
+#-- Get qtile config path
+#-----------------------------------------------------------
+qtile_path = path.join(path.expanduser('~'), ".config", "qtile")
+
+
+#-----------------------------------------------------------
 #-- Load colors and wallpaper
 #-----------------------------------------------------------
-colors = load_theme()
-wallpaper = load_wallpaper()
+colors = load_theme(qtile_path)
+wallpaper = load_wallpaper(qtile_path)
 
 
 #-----------------------------------------------------------
 #-- Initialize keys
 #-----------------------------------------------------------
-keys = init_keys(widgets_path)
+keys = init_keys()
 
 
 #-----------------------------------------------------------
@@ -68,8 +73,8 @@ keys.extend(keys_group)
 #-----------------------------------------------------------
 #-- Initialize widgets
 #-----------------------------------------------------------
-primary_widgets = init_primary_widgets(widgets_path, colors)
-secondary_widgets = init_secondary_widgets(widgets_path, colors)
+primary_widgets = init_primary_widgets(colors)
+secondary_widgets = init_secondary_widgets(colors)
 
 
 #-----------------------------------------------------------
