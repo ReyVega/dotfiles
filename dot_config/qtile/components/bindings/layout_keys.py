@@ -50,10 +50,9 @@ def resize_down(qtile):
 # Function to bring all floating windows to front
 @lazy.function
 def float_to_front(qtile):
-    for group in qtile.groups:
-        for window in group.windows:
-            if window.floating:
-                window.cmd_bring_to_front()
+    for window in qtile.current_group.windows:
+        if window.floating:
+            window.cmd_bring_to_front()
 
 def init_layout_keys():
     return [
@@ -61,13 +60,13 @@ def init_layout_keys():
         Key(
             [mod], "h",
             lazy.layout.left(),
-            lazy.layout.next(),
+            lazy.layout.previous(),
             desc="Move focus to left"
         ),
         Key(
             [mod], "l",
             lazy.layout.right(),
-            lazy.layout.previous(),
+            lazy.layout.next(),
             desc="Move focus to right"
         ),
         Key([mod], "j", lazy.layout.down(), desc="Move focus down"),

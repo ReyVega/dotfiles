@@ -5,8 +5,31 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 terminal = guess_terminal()
 
+@lazy.function
+def kill_all_windows(qtile):
+	for window in qtile.current_group.windows:
+		window.cmd_kill()
+
+@lazy.function
+def kill_all_windows_except_current(qtile):
+    for window in qtile.current_group.windows:
+        if window != qtile.current_window:
+            window.cmd_kill()
+
 def init_essential_keys():
     return [
+        # Move among groups
+        Key(
+            [mod], "period",
+            lazy.screen.next_group(skip_empty=False),
+            desc="Move to next group"
+        ),
+        Key(
+            [mod], "comma",
+            lazy.screen.prev_group(skip_empty=False),
+            desc="Move to previous group"
+        ),
+
         # Toggle between layouts
         Key(
             [mod], "Tab",
@@ -40,15 +63,25 @@ def init_essential_keys():
             lazy.spawn("xkill"),
             desc="Force to kill focused window"
         ),
+        Key(
+            [mod, "control"], "w",
+            kill_all_windows,
+            desc="Kill all windows"
+        ),
+        Key(
+            [mod, "mod1"], "w",
+            kill_all_windows_except_current,
+            desc="Kill all windows"
+        ),
 
         # Switch focus of monitors
         Key(
-            [mod], "period",
+            [mod, "shift"], "period",
             lazy.next_screen(),
             desc='Move focus to next monitor'
         ),
         Key(
-            [mod], "comma",
+            [mod, "shift"], "comma",
             lazy.prev_screen(),
             desc='Move focus to prev monitor'
         ),

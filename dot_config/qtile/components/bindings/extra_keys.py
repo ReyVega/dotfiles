@@ -47,27 +47,6 @@ def init_extra_keys():
             desc="Starts pcmanfm"
         ),
 
-        # Discord
-        Key(
-            [mod], "x",
-            lazy.spawn("discord"),
-            desc="Starts discord"
-        ),
-
-        # VS Code
-        Key(
-            [mod], "c",
-            lazy.spawn("code"),
-            desc="Starts vs-code"
-        ),
-
-        # Zoom
-        Key(
-            [mod], "z",
-            lazy.spawn("zoom"),
-            desc="Starts zoom"
-        ),
-
         # Rofi (Applications)
         Key(
             [mod], "s",

@@ -38,11 +38,11 @@ from settings.wallpaper import load_wallpaper
 #-- Import components
 #-----------------------------------------------------------
 from components.keys import init_keys
-from components.groups import groups, keys_group
-from components.layouts import init_floating_layout, init_layouts
-from components.widgets import init_primary_widgets, init_secondary_widgets, widget_defaults
-from components.mouse import init_mouse
-from components.screens import init_screens
+from components.groups import Groups
+from components.layouts import Layouts
+from components.widgets import Widgets
+from components.mouse import Mouse
+from components.screens import Screens
 
 
 #-----------------------------------------------------------
@@ -65,42 +65,48 @@ keys = init_keys()
 
 
 #-----------------------------------------------------------
-#-- Initialize keys for groups
+#-- Initialize Groups
 #-----------------------------------------------------------
-keys.extend(keys_group)
+init_groups = Groups()
+groups = init_groups.get_groups()
+keys.extend(init_groups.get_keys())
 
 
 #-----------------------------------------------------------
 #-- Initialize widgets
 #-----------------------------------------------------------
-primary_widgets = init_primary_widgets(colors)
-secondary_widgets = init_secondary_widgets(colors)
+init_widgets = Widgets(colors)
+primary_widgets = init_widgets.get_primary_widgets()
+secondary_widgets = init_widgets.get_secondary_widgets()
 
 
 #-----------------------------------------------------------
 #-- Initialize widget's defaults
 #-----------------------------------------------------------
-widget_defaults = widget_defaults()
+widget_defaults = init_widgets.get_widget_defaults()
 extension_defaults = widget_defaults.copy()
 
 
 #-----------------------------------------------------------
 #-- Initialize layouts
 #-----------------------------------------------------------
-layouts = init_layouts(colors)
-floating_layout = init_floating_layout(colors)
+init_layouts = Layouts(colors)
+layouts = init_layouts.get_layouts()
+floating_layout = init_layouts.get_floating_rules()
 
 
 #-----------------------------------------------------------
 #-- Initialize mouse
 #-----------------------------------------------------------
-mouse = init_mouse()
+init_mouse = Mouse()
+mouse = init_mouse.get_mouse()
 
 
 #-----------------------------------------------------------
 #-- Initialize screens
 #-----------------------------------------------------------
-screens = init_screens(primary_widgets, secondary_widgets, wallpaper)
+init_screens = Screens(primary_widgets, secondary_widgets, wallpaper)
+screens = init_screens.get_screens()
 
 
 #-----------------------------------------------------------
