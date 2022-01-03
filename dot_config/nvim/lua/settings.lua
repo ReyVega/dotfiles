@@ -19,6 +19,7 @@ set.mouse = 'a'               -- enable mouse support
 set.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 set.swapfile = false          -- don't use swapfile
 set.encoding = 'utf-8'        -- the encoding displayed
+set.shell = "/bin/fish"       -- set default shell for terminal
 
 
 -----------------------------------------------------------

@@ -1,58 +1,8 @@
 from libqtile.config import Key
 from libqtile.command import lazy
+from .. functions import Function
 
 mod = "mod4"
-
-# Function for BSP layout, it allows to resize a window without focusing another neighbor
-def resize(qtile, direction):
-    layout = qtile.current_layout
-    child = layout.current
-    parent = child.parent
-
-    while parent:
-        if child in parent.children:
-            layout_all = False
-
-            if (direction == "left" and parent.split_horizontal) or (
-                direction == "up" and not parent.split_horizontal
-            ):
-                parent.split_ratio = max(5, parent.split_ratio - layout.grow_amount)
-                layout_all = True
-            elif (direction == "right" and parent.split_horizontal) or (
-                direction == "down" and not parent.split_horizontal
-            ):
-                parent.split_ratio = min(95, parent.split_ratio + layout.grow_amount)
-                layout_all = True
-
-            if layout_all:
-                layout.group.layout_all()
-                break
-
-        child = parent
-        parent = child.parent
-
-@lazy.function
-def resize_left(qtile):
-    resize(qtile, "left")
-
-@lazy.function
-def resize_right(qtile):
-    resize(qtile, "right")
-
-@lazy.function
-def resize_up(qtile):
-    resize(qtile, "up")
-
-@lazy.function
-def resize_down(qtile):
-    resize(qtile, "down")
-
-# Function to bring all floating windows to front
-@lazy.function
-def float_to_front(qtile):
-    for window in qtile.current_group.windows:
-        if window.floating:
-            window.cmd_bring_to_front()
 
 def init_layout_keys():
     return [
@@ -105,10 +55,10 @@ def init_layout_keys():
         Key([mod, "mod1"], "k", lazy.layout.flip_up()),
         Key([mod, "mod1"], "h", lazy.layout.flip_left()),
         Key([mod, "mod1"], "l", lazy.layout.flip_right()),
-        Key([mod, "control"], "j", resize_down),
-        Key([mod, "control"], "k", resize_up),
-        Key([mod, "control"], "h", resize_left),
-        Key([mod, "control"], "l", resize_right),
+        Key([mod, "control"], "j", Function.resize_down()),
+        Key([mod, "control"], "k", Function.resize_up()),
+        Key([mod, "control"], "h", Function.resize_left()),
+        Key([mod, "control"], "l", Function.resize_right()),
 
         # MonadTall and MonadWide
         Key([mod], "i", lazy.layout.shrink()),
@@ -139,5 +89,5 @@ def init_layout_keys():
             lazy.group.next_window(),
             lazy.window.bring_to_front(),
         ),
-        Key([mod, "shift"], "o", float_to_front),
+        Key([mod, "shift"], "o", Function.float_to_front()),
     ]

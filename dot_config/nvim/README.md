@@ -20,7 +20,6 @@
 │   │   ├── 🌑 nvim-cmp.lua
 │   │   ├── 🌑 nvim-tree.lua
 │   │   ├── 🌑 telescope.lua
-│   │   ├── 🌑 toggleterm.lua
 │   │   └── 🌑 treesitter.lua
 │   ├── 🌑 mappings.lua
 │   ├── 🌑 plugins.lua
@@ -90,12 +89,6 @@
         <th>Markdown</th>
         <td>
             <a href="https://github.com/davidgranstrom/nvim-markdown-preview">nvim-markdown-preview</a>
-        </td>
-    </tr>
-    <tr>
-        <th>Terminal Integration</th>
-        <td>
-            <a href="https://github.com/akinsho/toggleterm.nvim">nvim-toggleterm</a>
         </td>
     </tr>
     <tr>
@@ -204,7 +197,7 @@
     <img src="../../screenshots/neovim-telescope.png" width="80%" />
 </p>
 
-<h3>Terminal (toggleterm)</h3>
+<h3>Terminal (native)</h3>
 <p align="center">
     <img src="../../screenshots/neovim-terminal.png" width="80%" />
 </p>

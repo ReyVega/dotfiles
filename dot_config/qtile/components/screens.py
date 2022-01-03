@@ -1,7 +1,9 @@
-from libqtile.config import Screen
+from libqtile.config import Screen, Key
 from libqtile import bar
 from libqtile.lazy import lazy
+from libqtile.log_utils import logger
 import subprocess
+
 
 class Screens:
 
@@ -10,6 +12,7 @@ class Screens:
         self.secondary_widgets = secondary_widgets
         self.wallpaper = wallpaper
         self.monitors = int(subprocess.check_output('xrandr -q | grep "Screen" | wc -l', shell=True).decode())
+        logger.warning(f"Number of monitors: {self.monitors}")
 
     def status_bar(self, widgets):
         return bar.Bar(widgets, 26, opacity=0.92, margin=[10,10,10,10])
@@ -39,7 +42,8 @@ class Screens:
         keys_screen = []
         mod = "mod4"
 
+        # Move window to specific screen
         for i in range(self.monitors):
-            keys_screen.extend([([mod, "mod1"], str(i), lazy.window.toscreen(i))])
+            keys_screen.extend([Key([mod, "mod1"], str(i + 1), lazy.window.toscreen(i))])
 
         return keys_screen

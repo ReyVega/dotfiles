@@ -15,6 +15,7 @@ def reload(module):
 #-----------------------------------------------------------
 #-- Reload imports
 #-----------------------------------------------------------
+reload("components.functions")
 reload("components.keys")
 reload("components.bindings.essential_keys")
 reload("components.bindings.hardware_keys")
@@ -107,6 +108,7 @@ mouse = init_mouse.get_mouse()
 #-----------------------------------------------------------
 init_screens = Screens(primary_widgets, secondary_widgets, wallpaper)
 screens = init_screens.get_screens()
+keys.extend(init_screens.get_keys())
 
 
 #-----------------------------------------------------------
