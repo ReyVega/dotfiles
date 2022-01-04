@@ -61,11 +61,11 @@ class Widgets():
 
             widget.CheckUpdates(
                 **self.base(),
-                update_interval=1800,
+                update_interval=1200,
                 colour_have_updates=self.colors['color3'],
                 colour_no_updates=self.colors['color3'],
                 distro='Arch_paru',
-                custom_command='paru -Qu',
+                custom_command='arch-updates',
                 display_format='{updates}',
                 no_update_string='0',
                 fmt=' {}',

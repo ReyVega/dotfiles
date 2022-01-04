@@ -137,40 +137,44 @@ def focus_window(qtile, dir, axis):
 def up(qtile):
     layout_name = qtile.current_layout.name
 
-    if layout_name == "max" or layout_name == "treetab" or layout_name == "stack":
-        qtile.current_layout.cmd_up()
-    else:
+    if layout_name == "floating":
         focus_window(qtile, -1, 'y')
+    else:
+        qtile.current_layout.cmd_up()
 
 
 @lazy.function
 def down(qtile):
     layout_name = qtile.current_layout.name
 
-    if layout_name == "max" or layout_name == "treetab" or layout_name == "stack":
-        qtile.current_layout.cmd_down()
+    if layout_name == "floating":
+        focus_window(qtile, 1, 'y')
     else:
-       focus_window(qtile, 1, 'y')
+        qtile.current_layout.cmd_down()
 
 
 @lazy.function
 def left(qtile):
     layout_name = qtile.current_layout.name
 
-    if layout_name == "stack":
+    if layout_name == "floating":
+        focus_window(qtile, -1, 'x')
+    elif layout_name == "stack":
         qtile.current_layout.cmd_previous()
     else:
-        focus_window(qtile, -1, 'x')
+        qtile.current_layout.cmd_left()
 
 
 @lazy.function
 def right(qtile):
     layout_name = qtile.current_layout.name
 
-    if layout_name == "stack":
+    if layout_name == "floating":
+        focus_window(qtile, 1, 'x')
+    elif layout_name == "stack":
         qtile.current_layout.cmd_next()
     else:
-        focus_window(qtile, 1, 'x')
+        qtile.current_layout.cmd_right()
 
 
 

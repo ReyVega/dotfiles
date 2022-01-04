@@ -18,8 +18,8 @@ return require('packer').startup(function()
     -- Git support for nvim
     use {"tpope/vim-fugitive"}
 
-    -- Cursor line
-    use {'yamatsum/nvim-cursorline'}
+    -- Vim iluminate
+    use {'RRethy/vim-illuminate'}
 
     -- Icons for neovim
     use {'kyazdani42/nvim-web-devicons'}
@@ -33,14 +33,32 @@ return require('packer').startup(function()
     -- Autocloses for tags
     use {'windwp/nvim-ts-autotag'}
 
-    -- Surround everything
-    use {'tpope/vim-surround'}
-
     -- Repeat last action done
     use {'tpope/vim-repeat'}
 
     -- Formatter
     use {"sbdchd/neoformat"}
+
+    -- Surround everything
+    use {
+        "blackCauldron7/surround.nvim",
+        config = function ()
+            require"surround".setup {
+                context_offset = 100,
+                load_autogroups = false,
+                mappings_style = "sandwich",
+                map_insert_mode = true,
+                quotes = {"'", '"'},
+                brackets = {"(", '{', '['},
+                space_on_closing_char = false,
+                pairs = {
+                    nestable = {{"(", ")"}, {"[", "]"}, {"{", "}"}},
+                    linear = {{"'", "'"}, {"`", "`"}, {'"', '"'}}
+                },
+                prefix = "s"
+            }
+        end
+    }
 
     -- Comments
     use {

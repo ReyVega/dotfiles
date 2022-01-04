@@ -21,17 +21,17 @@ key('n', '<C-s>', '<Cmd>w<CR>', default_opts)
 key('i', '<C-s>', '<Esc><Cmd>w<CR>i', default_opts)
 
 -- Move around splits using Ctrl + {h,l,j,k}
-key('n', '<A-h>', '<C-w>h', default_opts)
-key('n', '<A-l>', '<C-w>l', default_opts)
-key('n', '<A-j>', '<C-w>j', default_opts)
-key('n', '<A-k>', '<C-w>k', default_opts)
+key('n', '<C-h>', '<C-w>h', default_opts)
+key('n', '<C-l>', '<C-w>l', default_opts)
+key('n', '<C-j>', '<C-w>j', default_opts)
+key('n', '<C-k>', '<C-w>k', default_opts)
 
 -- Close all windows and exit from neovim
 key('n', '<C-q>', '<Cmd>qa!<CR>', default_opts)
 key('i', '<C-q>', '<Esc><Cmd>qa!<CR>', default_opts)
 
 -- Clear search highlighting
-key('n', '<leader>ch', '<Cmd>nohl<CR>', default_opts)
+key('n', '<leader>c', '<Cmd>nohl<CR>', default_opts)
 
 -- Open terminal
 key('n', '<C-t>', '<Cmd>te<CR>', default_opts)
@@ -64,7 +64,6 @@ key('n', '<leader>w', '<Cmd>BufDel<CR>', default_opts)
 -- Nvim-tree
 key('n', '<C-b>', '<Cmd>NvimTreeToggle<CR>', default_opts)       -- open/close
 key('n', '<leader>r', '<Cmd>NvimTreeRefresh<CR>', default_opts)  -- refresh
-key('n', '<leader>f', '<Cmd>NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Telescope
 key("n", "<leader>fg", "<Cmd>Telescope live_grep<CR>", default_opts)
@@ -80,27 +79,27 @@ key("n", "<leader>cs", "<Cmd>Telescope colorscheme<CR>", default_opts)
 
 -- Kommentary
 g.kommentary_create_default_mappings = false
-key("n", "<leader>cc", "<Plug>kommentary_line_default", {})
-key("n", "<leader>c", "<Plug>kommentary_motion_default", {})
-key("x", "<leader>c", "<Plug>kommentary_visual_default<C-c>", {})
+key("n", "<leader>k", "<Plug>kommentary_line_default", {})
+key("x", "<leader>k", "<Plug>kommentary_visual_default<C-c>", {})
 
 -- Lsp native commands
-key('n', '<space>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', default_opts)
-key('n', '<space>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', default_opts)
-key('n', '<space>K', '<cmd>lua vim.lsp.buf.hover()<CR>', default_opts)
-key('n', '<space>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', default_opts)
+key('n', '<C-p>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', default_opts)
+key('n', '<C-n>', '<cmd>lua vim.diagnostic.goto_next()<CR>', default_opts)
+key('n', '<C-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', default_opts)
+key('n', '<C-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', default_opts)
+key('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', default_opts)
 key('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', default_opts)
-key('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', default_opts)
-key('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', default_opts)
-key('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', default_opts)
-key('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', default_opts)
-key('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', default_opts)
-key('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', default_opts)
-key('n', '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>', default_opts)
-key('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', default_opts)
-key('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', default_opts)
-key('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', default_opts)
-key('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', default_opts)
+
+-- key('n', '<space>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', default_opts)
+-- key('n', '<space>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', default_opts)
+-- key('n', 'gh', '<cmd>lua vim.lsp.buf.definition()<CR>', default_opts)
+-- key('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', default_opts)
+-- key('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', default_opts)
+-- key('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', default_opts)
+-- key('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', default_opts)
+-- key('n', '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>', default_opts)
+-- key('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', default_opts)
+-- key('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', default_opts)
 -- key('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', default_opts)
 
 -- Code formatter.
