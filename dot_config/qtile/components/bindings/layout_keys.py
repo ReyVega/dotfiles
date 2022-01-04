@@ -1,26 +1,16 @@
 from libqtile.config import Key
 from libqtile.command import lazy
-from .. functions import Function
+from ..functions import *
 
 mod = "mod4"
 
 def init_layout_keys():
     return [
         # Switch between windows
-        Key(
-            [mod], "h",
-            lazy.layout.left(),
-            lazy.layout.previous(),
-            desc="Move focus to left"
-        ),
-        Key(
-            [mod], "l",
-            lazy.layout.right(),
-            lazy.layout.next(),
-            desc="Move focus to right"
-        ),
-        Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-        Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+        Key([mod], "h", left, desc="Move focus to left"),
+        Key([mod], "l", right, desc="Move focus to right"),
+        Key([mod], "j", down, desc="Move focus down"),
+        Key([mod], "k", up, desc="Move focus up"),
 
         # Switch windows positions
         Key(
@@ -55,10 +45,10 @@ def init_layout_keys():
         Key([mod, "mod1"], "k", lazy.layout.flip_up()),
         Key([mod, "mod1"], "h", lazy.layout.flip_left()),
         Key([mod, "mod1"], "l", lazy.layout.flip_right()),
-        Key([mod, "control"], "j", Function.resize_down()),
-        Key([mod, "control"], "k", Function.resize_up()),
-        Key([mod, "control"], "h", Function.resize_left()),
-        Key([mod, "control"], "l", Function.resize_right()),
+        Key([mod, "control"], "j", resize_down),
+        Key([mod, "control"], "k", resize_up),
+        Key([mod, "control"], "h", resize_left),
+        Key([mod, "control"], "l", resize_right),
 
         # MonadTall and MonadWide
         Key([mod], "i", lazy.layout.shrink()),
@@ -89,5 +79,5 @@ def init_layout_keys():
             lazy.group.next_window(),
             lazy.window.bring_to_front(),
         ),
-        Key([mod, "shift"], "o", Function.float_to_front()),
+        Key([mod, "shift"], "o", float_to_front),
     ]

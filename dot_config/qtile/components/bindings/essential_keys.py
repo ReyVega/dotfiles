@@ -1,7 +1,7 @@
 from libqtile.config import Key
 from libqtile.command import lazy
 from libqtile.utils import guess_terminal
-from ..functions import Function
+from ..functions import *
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -55,12 +55,12 @@ def init_essential_keys():
         ),
         Key(
             [mod, "control"], "w",
-            Function.kill_all_windows(),
+            kill_all_windows,
             desc="Kill all windows"
         ),
         Key(
             [mod, "mod1"], "w",
-            Function.kill_all_windows_except_current(),
+            kill_all_windows_except_current,
             desc="Kill all windows"
         ),
 

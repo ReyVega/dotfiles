@@ -97,9 +97,9 @@ class Groups:
                 )
             )
             self.keys_group.extend([
-                # Switch to item N
+                # Switch among groups
                 Key([mod], item["key"], lazy.group[item["name"]].toscreen(toggle=True)),
-                # Send window and switch to item N
+                # Send window and switch to group N
                 Key([mod, "shift"], item["key"], lazy.window.togroup(item["name"], switch_group=True))
             ])
 

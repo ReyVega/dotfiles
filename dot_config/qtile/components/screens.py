@@ -42,8 +42,10 @@ class Screens:
         keys_screen = []
         mod = "mod4"
 
-        # Move window to specific screen
         for i in range(self.monitors):
+            # Move window to specific screen
             keys_screen.extend([Key([mod, "mod1"], str(i + 1), lazy.window.toscreen(i))])
+            # Focus screens like if they were groups
+            keys_screen.extend([Key([mod, "control"], str(i + 1), lazy.to_screen(i))])
 
         return keys_screen
