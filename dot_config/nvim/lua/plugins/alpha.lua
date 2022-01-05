@@ -28,7 +28,7 @@ dashboard.section.header.val = {
 -- menu
 dashboard.section.buttons.val = {
   dashboard.button('n', '  New file', '<Cmd>ene <BAR> startinsert<CR>'),
-  dashboard.button('f', '  Find file', '<Cmd>NvimTreeOpen<CR>'),
+  dashboard.button('f', '  Find file', '<Cmd>Telescope find_files<CR>'),
   dashboard.button('s', '漣 Settings', '<Cmd>cd ~/.config/nvim/ <bar> e init.lua<CR>'),
   dashboard.button('u', '  Update plugins', '<Cmd>PackerSync<CR>'),
   dashboard.button('q', '  Quit', '<Cmd>qa!<CR>'),

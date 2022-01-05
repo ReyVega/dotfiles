@@ -71,10 +71,8 @@ key("n", "<leader>gs", "<Cmd>Telescope git_status<CR>", default_opts)
 key("n", "<leader>gc", "<Cmd>Telescope git_commits<CR>", default_opts)
 key("n", "<leader>gt", "<Cmd>Telescope git_bcommits<CR>", default_opts)
 key("n", "<leader>gb", "<Cmd>Telescope git_branches<CR>", default_opts)
-key("n", "<leader>ff", "<Cmd>Telescope find_files find_command=rg,--follow,--hidden,--files<CR>", default_opts)
+key("n", "<leader>ff", "<Cmd>Telescope find_files<CR>", default_opts)
 key("n", "<leader>fb", "<Cmd>Telescope buffers<CR>", default_opts)
-key("n", "<leader>fh", "<Cmd>Telescope help_tags<CR>", default_opts)
-key("n", "<leader>fo", "<Cmd>Telescope oldfiles<CR>", default_opts)
 key("n", "<leader>cs", "<Cmd>Telescope colorscheme<CR>", default_opts)
 
 -- Kommentary
@@ -103,4 +101,4 @@ key('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', default_opts)
 -- key('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', default_opts)
 
 -- Code formatter.
-key("n", "<leader>f", ":Neoformat<CR>", default_opts)
+key("n", "<C-f>", "<Cmd>Neoformat<CR>", default_opts)

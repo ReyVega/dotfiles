@@ -6,7 +6,13 @@
 
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+    Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
+return require("packer").startup({function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
@@ -59,6 +65,7 @@ return require('packer').startup(function()
             }
         end
     }
+
 
     -- Comments
     use {
@@ -184,11 +191,24 @@ return require('packer').startup(function()
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Markdown
-    use{
-        'davidgranstrom/nvim-markdown-preview',
-        config = function ()
-            vim.g.nvim_markdown_preview_theme = 'solarized-dark'
-        end
+    use {
+        'iamcco/markdown-preview.nvim',
+        ft = 'markdown',
+        run = 'cd app && yarn install'
     }
 
-  end)
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if Packer_bootstrap then
+        require('packer').sync()
+    end
+end,
+
+config = {
+    display = {
+        open_fn = function()
+            return require('packer.util').float({ border = 'single' })
+        end
+    }
+}})
+

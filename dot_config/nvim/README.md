@@ -88,7 +88,7 @@
     <tr>
         <th>Markdown</th>
         <td>
-            <a href="https://github.com/davidgranstrom/nvim-markdown-preview">nvim-markdown-preview</a>
+            <a href="https://github.com/iamcco/markdown-preview.nvim">markdown-preview.nvim</a>
         </td>
     </tr>
     <tr>
