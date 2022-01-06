@@ -59,6 +59,8 @@ class Widgets():
 
             widget.Spacer(**self.base()),
 
+            self.separator(),
+
             widget.CheckUpdates(
                 **self.base(),
                 update_interval=1200,
@@ -134,6 +136,8 @@ class Widgets():
             *self.workspaces(),
 
             widget.Spacer(**self.base()),
+
+            self.separator(),
 
             widget.GenPollText(
                 **self.base(fg='color10'),

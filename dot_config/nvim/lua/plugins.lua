@@ -66,7 +66,6 @@ return require("packer").startup({function()
         end
     }
 
-
     -- Comments
     use {
         'b3nj5m1n/kommentary',
