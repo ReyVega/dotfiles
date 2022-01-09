@@ -133,7 +133,11 @@
     <tr>
         <th>Audio</th>
         <td>
-            <a href="https://archlinux.org/packages/extra/x86_64/pipewire-pulse/">pipewire-pulse</a>
+            <a href="https://archlinux.org/packages/extra/x86_64/pipewire/">pipewire</a><br>
+            <a href="https://archlinux.org/packages/extra/x86_64/pipewire-alsa/">pipewire-alsa</a><br>
+            <a href="https://archlinux.org/packages/extra/x86_64/pipewire-pulse/">pipewire-pulse</a><br>
+            <a href="https://archlinux.org/packages/extra/x86_64/pipewire-jack/">pipewire-jack</a><br>
+            <a href="https://archlinux.org/packages/extra/x86_64/wireplumber/">wireplumber</a><br>
         </td>
     </tr>
     <tr>
@@ -169,9 +173,13 @@
         </td>
     </tr>
     <tr>
-        <th>Virtual Machines Manager</th>
+        <th>Virtual Machines</th>
         <td>
-            <a href="https://wiki.archlinux.org/title/Cockpit">cockpit</a>
+            <a href="https://archlinux.org/packages/community/any/virt-manager/">virt-manager</a> (GUI Manager)<br>
+            <a href="https://archlinux.org/packages/extra/x86_64/qemu/">qemu</a> (Hypervisor)<br>
+            <a href="https://archlinux.org/packages/extra/x86_64/dnsmasq/">dnsmasq</a> (NAT/DHCP guests)<br>
+            <a href="https://archlinux.org/packages/?name=iptables-nft">iptables-nft</a> (NAT networking)<br>
+            <a href="https://archlinux.org/packages/extra/any/edk2-ovmf/">edk2-ovmf</a> (UEFI-support)<br>
         </td>
     </tr>
 </table>
