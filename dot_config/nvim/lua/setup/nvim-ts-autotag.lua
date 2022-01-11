@@ -6,12 +6,12 @@
 -- https://github.com/windwp/nvim-ts-autotag
 
 require('nvim-ts-autotag').setup({
-	filetypes = {
+    filetypes = {
         'html',
-		'javascript',
-		'javascriptreact',
-		'typescriptreact',
-		'svelte',
-		'vue',
-	},
+        'javascript',
+        'javascriptreact',
+        'typescriptreact',
+        'svelte',
+        'vue',
+    },
 })

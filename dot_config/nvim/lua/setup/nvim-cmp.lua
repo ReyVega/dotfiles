@@ -121,8 +121,8 @@ cmp.setup {
 
     -- borders for documentation
     documentation = {
-		border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
-	},
+        border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
+    },
 }
 
 -- completion for commands

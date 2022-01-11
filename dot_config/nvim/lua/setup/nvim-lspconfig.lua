@@ -28,12 +28,12 @@ vim.diagnostic.config({
     update_in_insert = true,
     severity_sort = false,
     float = {
-		border = "rounded",
-		focusable = false,
-		style = "minimal",
-		source = "always",
-		header = "",
-		prefix = "",
+        border = "rounded",
+        focusable = false,
+        style = "minimal",
+        source = "always",
+        header = "",
+        prefix = "",
 	},
 })
 
