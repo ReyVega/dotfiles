@@ -77,6 +77,7 @@ return require("packer").startup({function(use)
     use {
         ft = {'html', 'tsx', 'vue', 'svelte', 'php'},
         'windwp/nvim-ts-autotag',
+        requires = {'nvim-treesitter/nvim-treesitter'},
         config = Get_setup("nvim-ts-autotag")
     }
 
@@ -142,9 +143,14 @@ return require("packer").startup({function(use)
     -- Treesitter for Syntax (Languages Analyzer)
     use {
         'nvim-treesitter/nvim-treesitter',
-        event = "UIEnter",
         run = ':TSUpdate',
         config = Get_setup('nvim-treesitter')
+    }
+
+    -- Treesitter extension
+    use {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        after = "nvim-treesitter"
     }
 
     -- Bufferline and nvim-bufdel (Utility to mantain bufferline layout when closing tabs)
