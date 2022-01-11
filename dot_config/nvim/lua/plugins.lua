@@ -9,10 +9,21 @@ vim.cmd [[packadd packer.nvim]]
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    Packer_bootstrap = fn.system({
+        'git',
+        'clone',
+        '--depth',
+        '1',
+        'https://github.com/wbthomason/packer.nvim',
+        install_path
+    })
 end
 
-return require("packer").startup({function()
+function Get_setup(name)
+  return string.format('require("setup/%s")', name)
+end
+
+return require("packer").startup({function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
@@ -21,179 +32,180 @@ return require("packer").startup({function()
     use {'folke/tokyonight.nvim', as = 'tokyonight'}
     use {'olimorris/onedarkpro.nvim', as = 'onedarkpro'}
 
-    -- Git support for nvim
-    use {"tpope/vim-fugitive"}
+    -- Improve performace
+    use {
+        'lewis6991/impatient.nvim',
+        'nathom/filetype.nvim'
+    }
+
+    -- Icons
+    use {'kyazdani42/nvim-web-devicons'}
 
     -- Vim iluminate
     use {'RRethy/vim-illuminate'}
 
-    -- Icons for neovim
-    use {'kyazdani42/nvim-web-devicons'}
-
-    -- Indent line
-    use {'lukas-reineke/indent-blankline.nvim'}
-
     -- Matchup functions, conditions, etc.
     use {'andymass/vim-matchup'}
 
-    -- Autocloses for tags
-    use {'windwp/nvim-ts-autotag'}
-
-    -- Repeat last action done
-    use {'tpope/vim-repeat'}
+    -- Git support for nvim
+    use {
+        'tpope/vim-fugitive',
+        cmd = {'Git'}
+    }
 
     -- Formatter
-    use {"sbdchd/neoformat"}
+    use {
+        "sbdchd/neoformat",
+        cmd = {'Neoformat'}
+    }
+
+    -- Markdown
+    use {
+        'iamcco/markdown-preview.nvim',
+        ft = 'markdown',
+        run = 'cd app && yarn install',
+        cmd = {'MarkdownPreview'}
+    }
+
+    -- Indent line
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        config = Get_setup("indent-blankline")
+    }
+
+    -- Autocloses for tags
+    use {
+        ft = {'html', 'tsx', 'vue', 'svelte', 'php'},
+        'windwp/nvim-ts-autotag',
+        config = Get_setup("nvim-ts-autotag")
+    }
 
     -- Surround everything
     use {
         "blackCauldron7/surround.nvim",
-        config = function ()
-            require"surround".setup {
-                context_offset = 100,
-                load_autogroups = false,
-                mappings_style = "sandwich",
-                map_insert_mode = true,
-                quotes = {"'", '"'},
-                brackets = {"(", '{', '['},
-                space_on_closing_char = false,
-                pairs = {
-                    nestable = {{"(", ")"}, {"[", "]"}, {"{", "}"}},
-                    linear = {{"'", "'"}, {"`", "`"}, {'"', '"'}}
-                },
-                prefix = "s"
-            }
-        end
+        config = Get_setup("surround-nvim")
     }
 
     -- Comments
     use {
         'b3nj5m1n/kommentary',
-        config = function ()
-            require('kommentary.config').configure_language("default", {
-                prefer_single_line_comments = true,
-            })
-        end
+        config = Get_setup("kommentary")
     }
 
     -- Autocloses for pairing parenthesis, brackets, etc
     use {
         'windwp/nvim-autopairs',
-        config = function()
-            require('nvim-autopairs').setup()
-        end
+        after = "nvim-cmp",
+        config = Get_setup("nvim-autopairs")
     }
 
     -- Neovim Colorizer
     use {
         'norcalli/nvim-colorizer.lua',
-        config = function()
-            require('colorizer').setup {
-                "*",
-                css = { rgb_fn = true; }
-            }
-        end
-    }
-
-    -- LSP support and installer (To detect programming languages and other functionalities)
-    use {
-        'neovim/nvim-lspconfig',
-        'williamboman/nvim-lsp-installer',
+        event = "BufReadPre",
+        config = Get_setup("nvim-colorizer"),
     }
 
     -- Snippet Engine
     use {
         'L3MON4D3/LuaSnip',
         requires = {"rafamadriz/friendly-snippets"},
+        config = Get_setup("luasnip")
     }
 
     -- Nvim cmp for autocompletion
     use {
         'hrsh7th/nvim-cmp',
         requires = {
-            'saadparwaiz1/cmp_luasnip',
             'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-path',
+            {'hrsh7th/cmp-nvim-lua', ft = 'lua'},
             'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-nvim-lua',
+            'hrsh7th/cmp-path',
+            'saadparwaiz1/cmp_luasnip',
             'hrsh7th/cmp-cmdline',
             'lukas-reineke/cmp-rg',
             "lukas-reineke/cmp-under-comparator",
             'David-Kunz/cmp-npm',
         },
+        config = Get_setup('nvim-cmp')
     }
 
     -- File explorer
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icon
-        },
-    }
-
-    -- Bufferline
-    use {
-        'akinsho/bufferline.nvim',
-        requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icon
-        },
-    }
-
-    -- Utility to mantain bufferline layout when closing tabs
-    use {
-        'ojroques/nvim-bufdel',
-        config = function ()
-            require('bufdel').setup {
-                quit = false, -- close neovim if last buffer
-            }
-        end
-    }
-
-    -- Status line
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true }
+        event = "UIEnter",
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = Get_setup('nvim-tree'),
+        cmd = {'NvimTreeToggle', 'NvimTreeRefresh'}
     }
 
     -- Treesitter for Syntax (Languages Analyzer)
     use {
         'nvim-treesitter/nvim-treesitter',
+        event = "UIEnter",
         run = ':TSUpdate',
+        config = Get_setup('nvim-treesitter')
     }
 
-    -- Alpha-Nvim
+    -- Bufferline and nvim-bufdel (Utility to mantain bufferline layout when closing tabs)
     use {
-        'goolord/alpha-nvim',
-        config = function ()
-            require'alpha'.setup(require'alpha.themes.dashboard'.opts)
-        end
+        'akinsho/bufferline.nvim',
+        event = "UIEnter",
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+            'ojroques/nvim-bufdel',
+            opt = true
+        },
+        config = Get_setup('bufferline')
+    }
+
+    -- Status line
+    use {
+        'nvim-lualine/lualine.nvim',
+        event = "UIEnter",
+        requires = {'kyazdani42/nvim-web-devicons', opt = true },
+        config = Get_setup('lualine')
     }
 
     -- Git Signs
     use {
         'lewis6991/gitsigns.nvim',
+        event = "BufReadPre",
         requires = {
             'nvim-lua/plenary.nvim'
         },
-        config = function ()
-            require('gitsigns').setup()
-        end
+        config = Get_setup("gitsigns"),
     }
 
     -- Telescope
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {'nvim-lua/plenary.nvim'}
+        requires = {
+            {'nvim-lua/popup.nvim'},
+            {'nvim-lua/plenary.nvim'},
+            {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+        },
+        config = Get_setup('telescope')
     }
 
-    -- FZF for nvim
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-    -- Markdown
+    -- Alpha-Nvim
     use {
-        'iamcco/markdown-preview.nvim',
-        ft = 'markdown',
-        run = 'cd app && yarn install'
+        'goolord/alpha-nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = Get_setup('alpha')
+    }
+
+    -- LSP
+    use {
+        'neovim/nvim-lspconfig',
+        event = 'BufEnter',
+        config = Get_setup('nvim-lspconfig')
+    }
+
+    -- LSP support and installer (To detect programming languages and other functionalities)
+    use {
+        'williamboman/nvim-lsp-installer',
+        config = Get_setup('nvim-lsp-installer')
     }
 
     -- Automatically set up your configuration after cloning packer.nvim

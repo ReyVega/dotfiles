@@ -10,17 +10,26 @@
 ```text
 📂 ~/.config/nvim
 ├── 📂 lua
-│   ├── 📂 plugins
+│   ├── 📂 setup
 │   │   ├── 🌑 alpha.lua
 │   │   ├── 🌑 bufferline.lua
+│   │   ├── 🌑 filetype.lua
+│   │   ├── 🌑 gitsigns.lua
+│   │   ├── 🌑 impatient.lua
 │   │   ├── 🌑 indent-blankline.lua
-│   │   ├── 🌑 lsp-installer.lua
-│   │   ├── 🌑 lspconfig.lua
+│   │   ├── 🌑 kommentary.lua
 │   │   ├── 🌑 lualine.lua
+│   │   ├── 🌑 luasnip.lua
+│   │   ├── 🌑 nvim-autopairs.lua
 │   │   ├── 🌑 nvim-cmp.lua
+│   │   ├── 🌑 nvim-colorizer.lua
+│   │   ├── 🌑 nvim-lsp-installer.lua
+│   │   ├── 🌑 nvim-lspconfig.lua
 │   │   ├── 🌑 nvim-tree.lua
-│   │   ├── 🌑 telescope.lua
-│   │   └── 🌑 treesitter.lua
+│   │   ├── 🌑 nvim-treesitter.lua
+│   │   ├── 🌑 nvim-ts-autotag.lua
+│   │   ├── 🌑 surround-nvim.lua
+│   │   └── 🌑 telescope.lua
 │   ├── 🌑 mappings.lua
 │   ├── 🌑 plugins.lua
 │   └── 🌑 settings.lua
@@ -168,7 +177,13 @@
             <a href="https://github.com/windwp/nvim-ts-autotag">nvim-ts-autotags</a> <br>
             <a href="https://github.com/andymass/vim-matchup">vim-matchup</a> <br>
             <a href="https://github.com/blackCauldron7/surround.nvim">surround.nvim</a> <br>
-            <a href="https://github.com/tpope/vim-repeat">vim-repeat</a>
+        </td>
+    </tr>
+    <tr>
+        <th>Performance</th>
+        <td>
+            <a href="https://github.com/lewis6991/impatient.nvim">impatient.nvim</a> <br>
+            <a href="https://github.com/nathom/filetype.nvim">filetype.nvim</a> <br>
         </td>
     </tr>
  </table>
@@ -201,4 +216,3 @@
 <p align="center">
     <img src="../../screenshots/neovim-terminal.png" width="80%" />
 </p>
-

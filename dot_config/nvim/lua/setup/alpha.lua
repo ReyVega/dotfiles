@@ -5,7 +5,8 @@
 -- Plugin: alpha-nvim
 -- https://github.com/goolord/alpha-nvim
 
-local dashboard = require 'alpha.themes.dashboard'
+local alpha = require('alpha')
+local dashboard = require('alpha.themes.dashboard')
 
 -- setup footer
 local function footer()
@@ -36,4 +37,4 @@ dashboard.section.buttons.val = {
 
 dashboard.section.footer.val = footer()
 
-require('alpha').setup { dashboard.opts }
+alpha.setup(dashboard.opts)

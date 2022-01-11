@@ -7,7 +7,6 @@ libreoffice-dev-bin
 lightdm-webkit2-theme-glorious
 mpdris2
 mugshot
-mycli
 nerd-fonts-hack
 notion-app
 nvim-packer-git

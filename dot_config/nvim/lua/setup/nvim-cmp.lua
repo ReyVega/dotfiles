@@ -67,7 +67,10 @@ cmp.setup {
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm { select = false },
+        ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false
+        },
 
         -- Tab mapping
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -115,6 +118,11 @@ cmp.setup {
         { name = 'rg' },
         { name = 'npm', keyword_length = 4 },
     },
+
+    -- borders for documentation
+    documentation = {
+		border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
+	},
 }
 
 -- completion for commands
@@ -130,11 +138,3 @@ cmp.setup.cmdline('/', {
         { name = 'buffer' }
     }
 })
-
-luasnip.config.set_config {
-    history = true,
-    updateevents = "TextChanged,TextChangedI"
-}
-
--- Friendly snippets
-require("luasnip/loaders/from_vscode").lazy_load()

@@ -134,9 +134,7 @@
         <th>Audio</th>
         <td>
             <a href="https://archlinux.org/packages/extra/x86_64/pipewire/">pipewire</a><br>
-            <a href="https://archlinux.org/packages/extra/x86_64/pipewire-alsa/">pipewire-alsa</a><br>
             <a href="https://archlinux.org/packages/extra/x86_64/pipewire-pulse/">pipewire-pulse</a><br>
-            <a href="https://archlinux.org/packages/extra/x86_64/pipewire-jack/">pipewire-jack</a><br>
             <a href="https://archlinux.org/packages/extra/x86_64/wireplumber/">wireplumber</a><br>
         </td>
     </tr>
