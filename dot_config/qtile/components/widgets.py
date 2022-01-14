@@ -17,7 +17,7 @@ class Widgets():
     def separator(self):
         return widget.Sep(**self.base(), linewidth=0, padding=14, size_percent=40)
 
-    def workspaces(self):
+    def workspaces(self, visible_groups):
         return [
             widget.GroupBox(
                 **self.base(fg='color15'),
@@ -35,7 +35,13 @@ class Widgets():
                 urgent_border=self.colors['color6'],
                 other_current_screen_border=self.colors['color9'],
                 other_screen_border=self.colors['color9'],
-            ),
+                visible_groups=visible_groups
+            )
+        ]
+
+    def get_primary_widgets(self, visible_groups):
+        return [
+            *self.workspaces(visible_groups),
 
             widget.Systray(
                 background=self.colors['color1'],
@@ -51,11 +57,6 @@ class Widgets():
                 fontsize=14,
                 max_chars=45,
             ),
-        ]
-
-    def get_primary_widgets(self):
-        return [
-            *self.workspaces(),
 
             widget.Spacer(**self.base()),
 
@@ -83,7 +84,7 @@ class Widgets():
                     'Button4': lazy.spawn("brightness down"),
                     'Button5': lazy.spawn("brightness up"),
                 },
-                update_interval=0.2,
+                update_interval=1.5,
             ),
 
             self.separator(),
@@ -97,7 +98,7 @@ class Widgets():
                     'Button5': lazy.spawn("volume up"),
                     'Button3': lazy.spawn("volume app"),
                 },
-                update_interval=0.2,
+                update_interval=1.5,
             ),
 
             self.separator(),
@@ -105,7 +106,7 @@ class Widgets():
             widget.GenPollText(
                 **self.base(fg='color10'),
                 func=lambda: subprocess.check_output("calendar").decode(),
-                update_interval=0.2,
+                update_interval=1.5,
             ),
 
             self.separator(),
@@ -113,7 +114,7 @@ class Widgets():
             widget.GenPollText(
                 **self.base(fg='color15'),
                 func=lambda: subprocess.check_output("battery").decode(),
-                update_interval=0.2,
+                update_interval=1.5,
             ),
 
             self.separator(),
@@ -131,18 +132,42 @@ class Widgets():
             self.separator(),
         ]
 
-    def get_secondary_widgets(self):
+    def get_secondary_widgets(self, visible_groups):
         return[
-            *self.workspaces(),
+            *self.workspaces(visible_groups),
+
+            widget.Spacer(**self.base()),
+
+            widget.WindowName(
+                **self.base(fg='color9'),
+                width=bar.CALCULATED,
+                empty_group_string="Desktop",
+                fontsize=14,
+                max_chars=45,
+            ),
 
             widget.Spacer(**self.base()),
 
             self.separator(),
 
             widget.GenPollText(
+                **self.base(fg='color5'),
+                func=lambda: subprocess.check_output("volume").decode(),
+                mouse_callbacks={
+                    'Button1': lazy.spawn("volume mute"),
+                    'Button4': lazy.spawn("volume down"),
+                    'Button5': lazy.spawn("volume up"),
+                    'Button3': lazy.spawn("volume app"),
+                },
+                update_interval=1.5,
+            ),
+
+            self.separator(),
+
+            widget.GenPollText(
                 **self.base(fg='color10'),
                 func=lambda: subprocess.check_output("calendar").decode(),
-                update_interval=0.2,
+                update_interval=1.5,
             ),
 
             self.separator(),

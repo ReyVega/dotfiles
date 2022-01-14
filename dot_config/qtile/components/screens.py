@@ -1,18 +1,13 @@
 from libqtile.config import Screen, Key
 from libqtile import bar
 from libqtile.lazy import lazy
-from libqtile.log_utils import logger
-import subprocess
-
 
 class Screens:
 
-    def __init__(self, primary_widgets, secondary_widgets, wallpaper):
-        self.primary_widgets = primary_widgets
-        self.secondary_widgets = secondary_widgets
+    def __init__(self, widgets, monitors, wallpaper):
+        self.widgets = widgets
         self.wallpaper = wallpaper
-        self.monitors = int(subprocess.check_output('xrandr -q | grep "Screen" | wc -l', shell=True).decode())
-        logger.warning(f"Number of monitors: {self.monitors}")
+        self.monitors = monitors
 
     def status_bar(self, widgets):
         return bar.Bar(widgets, 26, opacity=0.92, margin=[10,10,10,10])
@@ -22,17 +17,17 @@ class Screens:
             Screen(
                 wallpaper = self.wallpaper,
                 wallpaper_mode = 'fill',
-                top = self.status_bar(self.primary_widgets)
+                top = self.status_bar(self.widgets.get_primary_widgets(["0" + str(i) for i in range(1, 10)]))
             )
         ]
 
         if self.monitors > 1:
-            for _ in range(self.monitors - 1):
+            for i in range(self.monitors - 1):
                 screens.append(
                     Screen(
                         wallpaper = self.wallpaper,
                         wallpaper_mode = 'fill',
-                        top = self.status_bar(self.secondary_widgets)
+                        top = self.status_bar(self.widgets.get_secondary_widgets([str(i + 1) + str(j) for j in range(1, 10)]))
                     )
                 )
 

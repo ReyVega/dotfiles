@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+monitors=$(xrandr -q | grep " connected" | wc -l)
+
+if [[ $monitors -gt 1 ]]
+then
+    xrandr --output eDP --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --set TearFree on &
+else
+    xrandr --output eDP --primary --auto --output HDMI-A-0 --off --set TearFree on &
+fi

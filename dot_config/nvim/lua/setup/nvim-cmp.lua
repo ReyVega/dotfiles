@@ -49,9 +49,8 @@ cmp.setup {
 
      -- VS Code icons for completion
     formatting = {
-        fields = { "kind", "abbr" },
         format = function(_, vim_item)
-            vim_item.kind = cmp_kinds[vim_item.kind] or ""
+            vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
             return vim_item
         end,
     },
@@ -122,6 +121,12 @@ cmp.setup {
     -- borders for documentation
     documentation = {
         border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
+    },
+
+    -- experimental features
+    experimental = {
+        native_menu = false,
+        ghost_text = true,
     },
 }
 

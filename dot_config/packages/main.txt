@@ -1,4 +1,5 @@
 amd-ucode
+arandr
 autoconf
 automake
 base

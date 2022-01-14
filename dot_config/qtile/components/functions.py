@@ -178,7 +178,6 @@ def right(qtile):
 
 
 
-
 # lazy.layout.left(),
 # lazy.layout.previous(),
 # lazy.layout.right(),

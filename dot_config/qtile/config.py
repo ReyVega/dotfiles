@@ -1,4 +1,4 @@
-from libqtile import hook
+from libqtile import hook, qtile
 from os import path
 import subprocess
 import sys
@@ -47,9 +47,10 @@ from components.screens import Screens
 
 
 #-----------------------------------------------------------
-#-- Get qtile config path
+#-- Get qtile config path and number of monitors
 #-----------------------------------------------------------
 qtile_path = path.join(path.expanduser('~'), ".config", "qtile")
+monitors = int(subprocess.check_output('xrandr -q | grep " connected" | wc -l', shell=True).decode())
 
 
 #-----------------------------------------------------------
@@ -68,7 +69,7 @@ keys = init_keys()
 #-----------------------------------------------------------
 #-- Initialize Groups
 #-----------------------------------------------------------
-init_groups = Groups()
+init_groups = Groups(monitors)
 groups = init_groups.get_groups()
 keys.extend(init_groups.get_keys())
 
@@ -77,8 +78,6 @@ keys.extend(init_groups.get_keys())
 #-- Initialize widgets
 #-----------------------------------------------------------
 init_widgets = Widgets(colors)
-primary_widgets = init_widgets.get_primary_widgets()
-secondary_widgets = init_widgets.get_secondary_widgets()
 
 
 #-----------------------------------------------------------
@@ -106,7 +105,7 @@ mouse = init_mouse.get_mouse()
 #-----------------------------------------------------------
 #-- Initialize screens
 #-----------------------------------------------------------
-init_screens = Screens(primary_widgets, secondary_widgets, wallpaper)
+init_screens = Screens(init_widgets, monitors, wallpaper)
 screens = init_screens.get_screens()
 keys.extend(init_screens.get_keys())
 
@@ -115,9 +114,16 @@ keys.extend(init_screens.get_keys())
 #-- Autostart
 #-----------------------------------------------------------
 @hook.subscribe.startup_once
-def startup_once():
+def _():
     subprocess.call([path.join(qtile_path, 'autostart.sh')])
 
+#-----------------------------------------------------------
+#-- Setup monitors when plugging HDMI automatically
+#-----------------------------------------------------------
+@hook.subscribe.screen_change
+def _(_):
+    subprocess.run("monitor-setup", shell=True)
+    qtile.cmd_reload_config()
 
 #-----------------------------------------------------------
 #-- More configurations
@@ -125,8 +131,8 @@ def startup_once():
 dgroups_key_binder = None
 dgroups_app_rules = []
 follow_mouse_focus = True
-bring_front_click = False
-cursor_warp = False
+bring_front_click = True
+cursor_warp = True # Warp cursor even if there's a window in another screen or if a new window is opened
 auto_fullscreen = True
 focus_on_window_activation = 'smart'
 reconfigure_screens = True
