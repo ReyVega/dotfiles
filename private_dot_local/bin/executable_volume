@@ -7,10 +7,6 @@ function get_volume {
     pulsemixer --get-volume | awk '{print $1;}'
 }
 
-function get_bar {
-    seq -s "─" 0 $(($1 / 4)) | sed 's/[0-9]//g'
-}
-
 function is_mute {
     pulsemixer --get-mute
 }
@@ -18,27 +14,26 @@ function is_mute {
 function get_volume_icon {
     if [ $1 = 0 ]
     then
-        echo -n "audio-volume-muted-symbolic.svg"
+        echo "audio-volume-muted-symbolic.svg"
     elif [ $1 -lt 34 ]
     then
-        echo -n "audio-volume-low-symbolic.svg"
+        echo "audio-volume-low-symbolic.svg"
     elif [ $1 -lt 67 ]
     then
-        echo -n "audio-volume-medium-symbolic.svg"
+        echo "audio-volume-medium-symbolic.svg"
     elif [ $1 -le 100 ]
     then
-        echo -n "audio-volume-high-symbolic.svg"
+        echo "audio-volume-high-symbolic.svg"
     else
-        echo -n "audio-volume-overamplified-symbolic.svg"
+        echo "audio-volume-overamplified-symbolic.svg"
     fi
 }
 
 function volume_notification {
     volume=`get_volume`
     vol_icon=`get_volume_icon $volume`
-    bar=`get_bar $volume`
 
-    dunstify -t $timeout -r $notify_id -u normal "$bar  $volume %" -i "$icon_path$vol_icon"
+    dunstify "Volume: $volume%" -h "int:value:$volume" -i "$icon_path$vol_icon" -a "volume" -u low -t $timeout -r $notify_id
 }
 
 function mute_notification {
@@ -47,7 +42,7 @@ function mute_notification {
     if [ $muted = 1 ]
     then
         brightnessctl -d 'hda::mute' s 100%
-        dunstify -t $timeout -r $notify_id -u normal "Muted" -i "${icon_path}audio-volume-muted-blocking-symbolic.svg"
+        dunstify "Muted" -u low -t $timeout -r $notify_id -i "${icon_path}audio-volume-muted-blocking-symbolic.svg"
     else
         brightnessctl -d 'hda::mute' s 0%
         volume_notification

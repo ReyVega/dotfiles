@@ -1,6 +1,6 @@
 * {
     font: "Montserrat 40";
-    title-margins: 1em 2.1em;
+    title-margins: 0% 0% 5% calc(11% - 20px);
 
     bg0:  #24242480;
     bg1:  #363636;
@@ -22,7 +22,7 @@ window {
     height:             100%;
     x-offset:           0%;
     y-offset:           0%;
-    padding: 23.7% 24%;
+    padding: 35% 0% 0% calc(37% - 170px);
     background-color: @bg0;
     children: [ inputbar, horibox ];
 }

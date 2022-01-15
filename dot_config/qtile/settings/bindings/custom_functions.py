@@ -1,15 +1,22 @@
 from libqtile.command import lazy
 from libqtile.config import Screen
 
+#---------------------------------------------------------------
+#-- Custom functions for bindings
+#---------------------------------------------------------------
 
-# Kill all windows
+#---------------------------------------------------------------
+#-- Kill all windows in current group
+#---------------------------------------------------------------
 @lazy.function
 def kill_all_windows(qtile):
     for window in qtile.current_group.windows:
         window.cmd_kill()
 
 
-# Kill all windows except current
+#---------------------------------------------------------------
+#-- Kill all windows in current group except current window
+#---------------------------------------------------------------
 @lazy.function
 def kill_all_windows_except_current(qtile):
     for window in qtile.current_group.windows:
@@ -17,7 +24,9 @@ def kill_all_windows_except_current(qtile):
             window.cmd_kill()
 
 
-# Bring all floating windows to front
+#---------------------------------------------------------------
+#-- Bring to front all floating windows in current group
+#---------------------------------------------------------------
 @lazy.function
 def float_to_front(qtile):
     for window in qtile.current_group.windows:
@@ -25,7 +34,9 @@ def float_to_front(qtile):
             window.cmd_bring_to_front()
 
 
-# for BSP layout, it allows to resize a window without focusing another neighbor
+#---------------------------------------------------------------
+#-- Allow to resize windows in BSP layout
+#---------------------------------------------------------------
 def resize(qtile, direction):
     layout = qtile.current_layout
     child = layout.current
@@ -53,6 +64,7 @@ def resize(qtile, direction):
         child = parent
         parent = child.parent
 
+
 @lazy.function
 def resize_left(qtile):
     resize(qtile, "left")
@@ -73,10 +85,11 @@ def resize_down(qtile):
     resize(qtile, "down")
 
 
-# Focussing is based entirely on position and geometry,
-# so is independent of screens, layouts and whether
-# windows are floating or tiled. It can also move focus
-# to and from empty screens.
+#---------------------------------------------------------------
+#-- Focusing windows based on position and geometry
+#-- (Independent of screens, layouts, floating windows, tiled)
+#-- (Move among empty screens)
+#---------------------------------------------------------------
 def focus_window(qtile, dir, axis):
     win = None
     win_wide = None
@@ -175,13 +188,3 @@ def right(qtile):
         qtile.current_layout.cmd_next()
     else:
         qtile.current_layout.cmd_right()
-
-
-
-# lazy.layout.left(),
-# lazy.layout.previous(),
-# lazy.layout.right(),
-# lazy.layout.next(),
-# lazy.layout.down(),
-# lazy.layout.up(),
-

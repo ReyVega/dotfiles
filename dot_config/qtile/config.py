@@ -1,8 +1,9 @@
+from typing import List  # noqa: F401
 from libqtile import hook, qtile
-from os import path
-import subprocess
-import sys
 import importlib
+import sys
+import subprocess
+from os import path
 
 #-----------------------------------------------------------
 #-- Configure imports
@@ -13,128 +14,101 @@ def reload(module):
 
 
 #-----------------------------------------------------------
-#-- Reload imports
+#-- Reload theme and wallpaper
 #-----------------------------------------------------------
-reload("components.functions")
-reload("components.keys")
-reload("components.bindings.essential_keys")
-reload("components.bindings.hardware_keys")
-reload("components.bindings.layout_keys")
-reload("components.bindings.extra_keys")
-reload("components.groups")
-reload("components.layouts")
-reload("components.widgets")
-reload("components.mouse")
-reload("components.screens")
+reload("settings.theme")
+reload("settings.wallpaper")
 
 
 #-----------------------------------------------------------
-#-- Import settings
+#-- Import groups and groups bindings
 #-----------------------------------------------------------
-from settings.theme import load_theme
-from settings.wallpaper import load_wallpaper
+reload("settings.groups")
+from settings.groups import groups, keys_group
 
 
 #-----------------------------------------------------------
-#-- Import components
+#-- Import layouts and floating windows rules
 #-----------------------------------------------------------
-from components.keys import init_keys
-from components.groups import Groups
-from components.layouts import Layouts
-from components.widgets import Widgets
-from components.mouse import Mouse
-from components.screens import Screens
+reload("settings.layouts")
+from settings.layouts import layouts, floating_layout
 
 
 #-----------------------------------------------------------
-#-- Get qtile config path and number of monitors
+#-- Import mouse
 #-----------------------------------------------------------
-qtile_path = path.join(path.expanduser('~'), ".config", "qtile")
-monitors = int(subprocess.check_output('xrandr -q | grep " connected" | wc -l', shell=True).decode())
+reload("settings.mouse")
+from settings.mouse import mouse
 
 
 #-----------------------------------------------------------
-#-- Load colors and wallpaper
+#-- Import widgets default configuration
 #-----------------------------------------------------------
-colors = load_theme(qtile_path)
-wallpaper = load_wallpaper(qtile_path)
-
-
-#-----------------------------------------------------------
-#-- Initialize keys
-#-----------------------------------------------------------
-keys = init_keys()
-
-
-#-----------------------------------------------------------
-#-- Initialize Groups
-#-----------------------------------------------------------
-init_groups = Groups(monitors)
-groups = init_groups.get_groups()
-keys.extend(init_groups.get_keys())
-
-
-#-----------------------------------------------------------
-#-- Initialize widgets
-#-----------------------------------------------------------
-init_widgets = Widgets(colors)
-
-
-#-----------------------------------------------------------
-#-- Initialize widget's defaults
-#-----------------------------------------------------------
-widget_defaults = init_widgets.get_widget_defaults()
+reload("settings.widgets")
+from settings.widgets import widget_defaults
 extension_defaults = widget_defaults.copy()
 
 
 #-----------------------------------------------------------
-#-- Initialize layouts
+#-- Import screens and screens bindings
 #-----------------------------------------------------------
-init_layouts = Layouts(colors)
-layouts = init_layouts.get_layouts()
-floating_layout = init_layouts.get_floating_rules()
+reload("settings.widgets")
+reload("settings.screens")
+from settings.screens import screens, keys_screen
 
 
 #-----------------------------------------------------------
-#-- Initialize mouse
+#-- Import bindings
 #-----------------------------------------------------------
-init_mouse = Mouse()
-mouse = init_mouse.get_mouse()
+reload("settings.bindings.custom_functions")
+reload("settings.bindings.essential_keys")
+reload("settings.bindings.hardware_keys")
+reload("settings.bindings.layout_keys")
+reload("settings.bindings.extra_keys")
+from settings.bindings.essential_keys import essential_keys
+from settings.bindings.hardware_keys import hardware_keys
+from settings.bindings.layout_keys import layout_keys
+from settings.bindings.extra_keys import extra_keys
 
 
 #-----------------------------------------------------------
-#-- Initialize screens
+#-- Initialize bindings
 #-----------------------------------------------------------
-init_screens = Screens(init_widgets, monitors, wallpaper)
-screens = init_screens.get_screens()
-keys.extend(init_screens.get_keys())
+keys = []
+keys.extend(keys_group)
+keys.extend(essential_keys)
+keys.extend(hardware_keys)
+keys.extend(layout_keys)
+keys.extend(extra_keys)
+keys.extend(keys_screen)
 
+
+#-----------------------------------------------------------
+#-- Extra configuration
+#-----------------------------------------------------------
+dgroups_key_binder = None
+dgroups_app_rules = []  # type: List
+follow_mouse_focus = True
+bring_front_click = True
+cursor_warp = True
+auto_fullscreen = True
+focus_on_window_activation = "smart"
+reconfigure_screens = True
+auto_minimize = True
+wmname = "Qtile"
 
 #-----------------------------------------------------------
 #-- Autostart
 #-----------------------------------------------------------
 @hook.subscribe.startup_once
 def _():
-    subprocess.call([path.join(qtile_path, 'autostart.sh')])
+    home = path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.run([home])
+
 
 #-----------------------------------------------------------
-#-- Setup monitors when plugging HDMI automatically
+#-- Reload configuration on randr events
 #-----------------------------------------------------------
 @hook.subscribe.screen_change
 def _(_):
-    subprocess.run("monitor-setup", shell=True)
     qtile.cmd_reload_config()
-
-#-----------------------------------------------------------
-#-- More configurations
-#-----------------------------------------------------------
-dgroups_key_binder = None
-dgroups_app_rules = []
-follow_mouse_focus = True
-bring_front_click = True
-cursor_warp = True # Warp cursor even if there's a window in another screen or if a new window is opened
-auto_fullscreen = True
-focus_on_window_activation = 'smart'
-reconfigure_screens = True
-auto_minimize = True
-wmname = 'Qtile'

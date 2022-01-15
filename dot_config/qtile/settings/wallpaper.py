@@ -1,7 +1,11 @@
 from os import path
 import json
 
-def load_wallpaper(qtile_path):
+#---------------------------------------------------------------
+#-- Function which loads wallpaper
+#---------------------------------------------------------------
+def load_wallpaper():
+    qtile_path = path.expanduser('~/.config/qtile/')
     wallpaper = "arch.png"
 
     wallpaper_config = path.join(qtile_path, "wallpaper.json")
@@ -20,3 +24,8 @@ def load_wallpaper(qtile_path):
 
     return wallpaper_file
 
+
+#---------------------------------------------------------------
+#-- Function which loads wallpaper
+#---------------------------------------------------------------
+wallpaper = load_wallpaper()
