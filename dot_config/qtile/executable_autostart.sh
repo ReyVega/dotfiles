@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Automatically setup dual setup when plugging/unplugging HDMI
+monitor-setup &
 # Allow certain functionalities
 lxsession &
 # picom

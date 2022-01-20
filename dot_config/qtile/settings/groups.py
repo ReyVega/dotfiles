@@ -2,7 +2,6 @@ from libqtile.config import Group, Match, Key
 from libqtile.lazy import lazy
 from libqtile.command import lazy
 from libqtile import hook, qtile
-import subprocess
 
 #---------------------------------------------------------------
 #-- Initialize variables
@@ -10,7 +9,6 @@ import subprocess
 groups = []
 keys_group = []
 mod = "mod4"
-monitors = int(subprocess.check_output('xrandr -q | grep " connected" | wc -l', shell=True))
 
 
 #---------------------------------------------------------------
@@ -86,73 +84,72 @@ groups_settings = [
 #---------------------------------------------------------------
 #-- Initialize more groups depending on monitors
 #---------------------------------------------------------------
-if monitors > 1:
-    for i in range(monitors - 1):
-        groups_settings.extend([
-            {
-                "name": str(i + 1) + "1",
-                "label": "",
-                "layout": "max",
-                "matches": [],
-                "spawn": [],
-            },
-            {
-                "name": str(i + 1) + "2",
-                "label": "",
-                "layout": "max",
-                "matches": [],
-                "spawn": [],
-            },
-            {
-                "name": str(i + 1) + "3",
-                "label": "",
-                "layout": "max",
-                "matches": [],
-                "spawn": [],
-            },
-            {
-                "name": str(i + 1) + "4",
-                "label": "",
-                "layout": "max",
-                "matches": [],
-                "spawn": [],
-            },
-            {
-                "name": str(i + 1) + "5",
-                "label": "",
-                "layout": "max",
-                "matches": [],
-                "spawn": [],
-            },
-            {
-                "name": str(i + 1) + "6",
-                "label": "",
-                "layout": "max",
-                "matches": [],
-                "spawn": [],
-            },
-            {
-                "name": str(i + 1) + "7",
-                "label": "",
-                "layout": "max",
-                "matches": [],
-                "spawn": [],
-            },
-            {
-                "name": str(i + 1) + "8",
-                "label": "",
-                "layout": "max",
-                "matches": [],
-                "spawn": [],
-            },
-            {
-                "name": str(i + 1) + "9",
-                "label": "",
-                "layout": "max",
-                "matches": [],
-                "spawn": [],
-            }
-        ])
+for i in range(1, 9):
+    groups_settings.extend([
+        {
+            "name": str(i) + "1",
+            "label": "",
+            "layout": "max",
+            "matches": [],
+            "spawn": [],
+        },
+        {
+            "name": str(i) + "2",
+            "label": "",
+            "layout": "max",
+            "matches": [],
+            "spawn": [],
+        },
+        {
+            "name": str(i) + "3",
+            "label": "",
+            "layout": "max",
+            "matches": [],
+            "spawn": [],
+        },
+        {
+            "name": str(i) + "4",
+            "label": "",
+            "layout": "max",
+            "matches": [],
+            "spawn": [],
+        },
+        {
+            "name": str(i) + "5",
+            "label": "",
+            "layout": "max",
+            "matches": [],
+            "spawn": [],
+        },
+        {
+            "name": str(i) + "6",
+            "label": "",
+            "layout": "max",
+            "matches": [],
+            "spawn": [],
+        },
+        {
+            "name": str(i) + "7",
+            "label": "",
+            "layout": "max",
+            "matches": [],
+            "spawn": [],
+        },
+        {
+            "name": str(i) + "8",
+            "label": "",
+            "layout": "max",
+            "matches": [],
+            "spawn": [],
+        },
+        {
+            "name": str(i) + "9",
+            "label": "",
+            "layout": "max",
+            "matches": [],
+            "spawn": [],
+        }
+    ])
 
 
 #---------------------------------------------------------------
@@ -236,19 +233,19 @@ keys_group.extend([
 #---------------------------------------------------------------
 @hook.subscribe.startup
 def _():
-    screens = len(qtile.screens)
-    if screens > 1:
-        for i in range(screens):
-            qtile.groups_map[str(i) + "1"].cmd_toscreen(i, toggle=False)
+    for i in range(len(qtile.screens)):
+        qtile.groups_map[str(i) + "1"].cmd_toscreen(i, toggle=False)
 
 
 #---------------------------------------------------------------
 #-- Initialize groups in their repectives screens (workspaces)
 #-- (When screens change on randr events)
 #---------------------------------------------------------------
+@hook.subscribe.screens_reconfigured
+def _():
+    for i in range(len(qtile.screens)):
+        qtile.groups_map[str(i) + "1"].cmd_toscreen(i, toggle=False)
+
 @hook.subscribe.screen_change
 def _(_):
-    screens = len(qtile.screens)
-    if screens > 1:
-        for i in range(screens):
-            qtile.groups_map[str(i) + "1"].cmd_toscreen(i, toggle=False)
+    qtile.cmd_reconfigure_screens()

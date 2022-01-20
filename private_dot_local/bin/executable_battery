@@ -10,7 +10,7 @@ function get_battery_level {
 
         case $status in
             "Full") status_icon="" ;;
-            "Discharging") 
+            "Discharging")
                 case $level in
                     100) status_icon="" ;;
                     9?) status_icon="" ;;
@@ -25,7 +25,7 @@ function get_battery_level {
                     ?) status_icon="" ;;
                 esac
                 ;;
-            "Charging") 
+            "Charging")
                 case $level in
                     100) status_icon="" ;;
                     9?) status_icon="" ;;
@@ -44,9 +44,9 @@ function get_battery_level {
             "Unknown") status_icon="" ;;
         esac
 
-        echo -n "$status_icon $level%"
+        printf "%s" "$status_icon $level%"
     else
-        echo -n "Battery was not found"
+        printf "%s" "Battery was not found"
     fi
 }
 

@@ -31,6 +31,7 @@ flex
 fzf
 gcc
 git
+gnome-keyring
 go
 groff
 grub
@@ -72,7 +73,6 @@ pulsemixer
 pyenv
 python-pip
 qemu
-qtile
 ripgrep
 rofi
 starship
@@ -87,6 +87,7 @@ ueberzug
 ufw
 unzip
 virt-manager
+vulkan-radeon
 which
 wireplumber
 xclip

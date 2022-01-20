@@ -1,11 +1,40 @@
 #!/bin/bash
 
+MONITOR="eDP"
 
-monitors=$(xrandr -q | grep " connected" | wc -l)
+function ActivateHDMI {
+    echo "manos"
+    xrandr --output eDP --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 1366x0 --rotate normal
+    MONITOR="HDMI-A-0"
+  #  feh --bg-fill ~/.config/qtile/wallpapers/arch.png
+}
 
-if [[ $monitors -gt 1 ]]
-then
-    xrandr --output eDP --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --set TearFree on &
-else
-    xrandr --output eDP --primary --auto --output HDMI-A-0 --off --set TearFree on &
-fi
+function DeactivateHDMI {
+    xrandr --output eDP --primary --auto --output HDMI-A-0 --off
+    MONITOR="eDP"
+ #   feh --bg-fill ~/.config/qtile/wallpapers/arch.png
+}
+
+function HDMIActive {
+    [ $MONITOR = "HDMI-A-0" ]
+}
+
+function HDMIConnected {
+    [[ $(xrandr | grep "^HDMI-A-0" | grep -c disconnected) -eq 0 ]]
+}
+
+
+while true
+do
+    if ! HDMIActive && HDMIConnected
+    then
+        ActivateHDMI
+    fi
+
+    if HDMIActive && ! HDMIConnected
+    then
+        DeactivateHDMI
+    fi
+
+    sleep 1s
+done

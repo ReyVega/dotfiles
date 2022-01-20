@@ -1,7 +1,7 @@
 #!/bin/bash
 icon=""
 
-hour=$(date +%H:%M)
+hour=$(date +"%H:%M")
 date=$(date +"%b %d %Y")
 
-echo -n "$icon $date ($hour)"
+printf "%s" "$icon $date ($hour)"

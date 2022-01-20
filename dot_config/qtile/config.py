@@ -1,5 +1,5 @@
 from typing import List  # noqa: F401
-from libqtile import hook, qtile
+from libqtile import hook
 import importlib
 import sys
 import subprocess
@@ -104,11 +104,3 @@ wmname = "Qtile"
 def _():
     home = path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.run([home])
-
-
-#-----------------------------------------------------------
-#-- Reload configuration on randr events
-#-----------------------------------------------------------
-@hook.subscribe.screen_change
-def _(_):
-    qtile.cmd_reload_config()

@@ -62,8 +62,8 @@ key('n', '<leader>o', '<Cmd>BufferLinePickClose<CR>', default_opts)
 key('n', '<leader>w', '<Cmd>BufDel<CR>', default_opts)
 
 -- Nvim-tree
-key('n', '<C-b>', '<Cmd>NvimTreeToggle<CR>', default_opts)       -- open/close
-key('n', '<leader>r', '<Cmd>NvimTreeRefresh<CR>', default_opts)  -- refresh
+key('n', '<C-b>', '<Cmd>NvimTreeToggle<CR>', default_opts)
+key('n', '<leader>re', '<Cmd>NvimTreeRefresh<CR>', default_opts)
 
 -- Telescope
 key("n", "<leader>fg", "<Cmd>Telescope live_grep<CR>", default_opts)
@@ -83,7 +83,7 @@ key("x", "<leader>k", "<Plug>kommentary_visual_default<C-c>", {})
 -- Lsp native commands
 key('n', '<C-p>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', default_opts)
 key('n', '<C-n>', '<cmd>lua vim.diagnostic.goto_next()<CR>', default_opts)
-key('n', '<C-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', default_opts)
+key('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', default_opts)
 key('n', '<C-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', default_opts)
 key('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', default_opts)
 key('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', default_opts)
