@@ -1,0 +1,7 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Rey Vega
+	email = reynaldovega2010@hotmail.com
+[init]
+	defaultBranch = main
