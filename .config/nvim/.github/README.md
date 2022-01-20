@@ -1,6 +1,6 @@
 <h1>VS Neovim</h1>
 <p align="center">
-    <img src="../../screenshots/neovim-logo.png" width="60%" />
+    <img src="./screenshots/neovim-logo.png" width="60%" />
 </p>
 
 ---
