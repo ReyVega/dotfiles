@@ -194,25 +194,25 @@
 
 <h3>Startup (alpha-nvim)</h3>
 <p align="center">
-    <img src="../../screenshots/neovim-startup.png" width="80%" />
+    <img src="./screenshots/neovim-startup.png" width="80%" />
 </p>
 
 <h3>File Explorer (nvim-tree)</h3>
 <p align="center">
-    <img src="../../screenshots/neovim-tree.png" width="80%" />
+    <img src="./screenshots/neovim-tree.png" width="80%" />
 </p>
 
 <h3>LSP Diagnostics (nvim-lspconfig)</h3>
 <p align="center">
-    <img src="../../screenshots/neovim-lsp.png" width="80%" />
+    <img src="./screenshots/neovim-lsp.png" width="80%" />
 </p>
 
 <h3>Fuzzy Finder (telescope)</h3>
 <p align="center">
-    <img src="../../screenshots/neovim-telescope.png" width="80%" />
+    <img src="./screenshots/neovim-telescope.png" width="80%" />
 </p>
 
 <h3>Terminal (native)</h3>
 <p align="center">
-    <img src="../../screenshots/neovim-terminal.png" width="80%" />
+    <img src="./screenshots/neovim-terminal.png" width="80%" />
 </p>

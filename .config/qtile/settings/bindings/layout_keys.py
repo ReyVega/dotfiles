@@ -83,7 +83,7 @@ layout_keys = [
     Key([mod, "shift"], "i",
         lazy.window.toggle_minimize(),
         lazy.group.next_window(),
-        lazy.window.bring_to_front(),
+        # lazy.window.bring_to_front(),
     ),
     Key([mod, "shift"], "o", float_to_front),
 ]

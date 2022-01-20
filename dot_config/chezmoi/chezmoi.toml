@@ -1,3 +1,0 @@
-sourceDir = "~/.dotfiles"
-[cd]
-    command = "fish"
