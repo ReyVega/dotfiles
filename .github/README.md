@@ -6,7 +6,7 @@
 
 ---
 <h2>Neovim configuration</h2>
-<h3><a href='https://github.com/ReyVega/dotfiles/tree/main/dot_config/nvim'>Neovim</a><h3>
+<h3><a href='https://github.com/ReyVega/dotfiles/tree/main/.config/nvim'>Neovim</a><h3>
 <img src="screenshots/neovim-startup.png" />
 
 ---
