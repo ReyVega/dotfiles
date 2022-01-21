@@ -32,7 +32,7 @@ screens = [
 
 
 #---------------------------------------------------------------
-#-- Define more screens depending on monitors
+#-- Define more screens
 #---------------------------------------------------------------
 for i in range(1, 9):
     screens.append(
@@ -43,11 +43,15 @@ for i in range(1, 9):
         )
     )
 
+
 #---------------------------------------------------------------
 #-- Fill keys_screen with screen bindings
 #---------------------------------------------------------------
 for i in range(9):
     # Move window to specific screen
-    keys_screen.extend([Key([mod, "mod1"], str(i + 1), lazy.window.toscreen(i))])
-    # Focus screens like if they were groups with 123456789
-    keys_screen.extend([Key([mod, "control"], str(i + 1), lazy.to_screen(i))])
+    keys_screen.extend([
+        # Move window to specific screen
+        Key([mod, "mod1"], str(i + 1), lazy.window.toscreen(i)),
+        # Focus screens like if they were groups with 123456789
+        Key([mod, "control"], str(i + 1), lazy.to_screen(i))
+    ])

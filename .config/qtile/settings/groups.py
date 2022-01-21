@@ -82,68 +82,69 @@ groups_settings = [
 
 
 #---------------------------------------------------------------
-#-- Initialize more groups depending on monitors
+#-- Initialize more groups for other monitors
 #---------------------------------------------------------------
 for i in range(1, 9):
+    screen = str(i)
     groups_settings.extend([
         {
-            "name": str(i) + "1",
+            "name": screen + "1",
             "label": "",
             "layout": "max",
             "matches": [],
             "spawn": [],
         },
         {
-            "name": str(i) + "2",
+            "name": screen + "2",
             "label": "",
             "layout": "max",
             "matches": [],
             "spawn": [],
         },
         {
-            "name": str(i) + "3",
+            "name": screen + "3",
             "label": "",
             "layout": "max",
             "matches": [],
             "spawn": [],
         },
         {
-            "name": str(i) + "4",
+            "name": screen + "4",
             "label": "",
             "layout": "max",
             "matches": [],
             "spawn": [],
         },
         {
-            "name": str(i) + "5",
+            "name": screen + "5",
             "label": "",
             "layout": "max",
             "matches": [],
             "spawn": [],
         },
         {
-            "name": str(i) + "6",
+            "name": screen + "6",
             "label": "",
             "layout": "max",
             "matches": [],
             "spawn": [],
         },
         {
-            "name": str(i) + "7",
+            "name": screen + "7",
             "label": "",
             "layout": "max",
             "matches": [],
             "spawn": [],
         },
         {
-            "name": str(i) + "8",
+            "name": screen + "8",
             "label": "",
             "layout": "max",
             "matches": [],
             "spawn": [],
         },
         {
-            "name": str(i) + "9",
+            "name": screen + "9",
             "label": "",
             "layout": "max",
             "matches": [],
@@ -222,8 +223,8 @@ def scroll_screen(direction):
 #-- Extend keys_group with scrolling bindings
 #---------------------------------------------------------------
 keys_group.extend([
-    Key([mod], 'period', lazy.function(scroll_screen(1)),  "Screen groups forward"),
-    Key([mod], 'comma', lazy.function(scroll_screen(-1)), "Screen groups backward"),
+    Key([mod], 'period', lazy.function(scroll_screen(1))),
+    Key([mod], 'comma', lazy.function(scroll_screen(-1))),
 ])
 
 
@@ -238,7 +239,7 @@ def _():
 
 
 #---------------------------------------------------------------
-#-- Initialize groups in their repectives screens (workspaces)
+#-- Initialize groups in their respectives screens (workspaces)
 #-- (When screens change on randr events)
 #---------------------------------------------------------------
 @hook.subscribe.screens_reconfigured
