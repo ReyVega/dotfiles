@@ -4,11 +4,11 @@ notify_id=5556
 timeout=1500
 
 function get_volume {
-    pulsemixer --get-volume | awk '{print $1;}'
+    pactl list sinks | grep -A15 -P "(\#|№)$SINK" | grep -P "\d+\s*\/\s*\d+\%" | head -1 | awk "{print \$5}"
 }
 
 function is_mute {
-    pulsemixer --get-mute
+    pactl list sinks | grep -A15 -P "(\#|№)$SINK" | grep Mute | awk "{print \$2}"
 }
 
 function get_volume_icon {
@@ -32,17 +32,14 @@ function get_volume_icon {
 function volume_notification {
     volume=$(get_volume)
     vol_icon=$(get_volume_icon $volume)
-
-    dunstify "Volume: $volume%" -h "int:value:$volume" -i "$icon_path$vol_icon" -a "volume" -u low -t $timeout -r $notify_id &
+    dunstify "Volume: $volume%" -h "int:value:$volume" -i "$icon_path$vol_icon" -a "volume" -u low -t $timeout -r $notify_id
 }
 
 function mute_notification {
-    muted=$(is_mute)
-
-    if [ $muted = 1 ]
+    if [[ $(is_mute) == "yes" ]]
     then
         brightnessctl -d 'hda::mute' s 100%
-        dunstify "Muted" -u low -t $timeout -r $notify_id -i "${icon_path}audio-volume-muted-blocking-symbolic.svg" &
+        dunstify "Muted" -u low -t $timeout -r $notify_id -i "${icon_path}audio-volume-muted-blocking-symbolic.svg"
     else
         brightnessctl -d 'hda::mute' s 0%
         volume_notification
@@ -66,11 +63,10 @@ case $1 in
         kitty --title pulsemixer -e pulsemixer
         ;;
     *)
-        muted=$(is_mute)
-        volume="$(get_volume)%"
+        volume=$(get_volume)
         volume_icon=""
 
-        if [ $muted = 1 ]
+        if [[ $(is_mute) == "yes" ]]
         then
             volume="M"
             volume_icon="婢"

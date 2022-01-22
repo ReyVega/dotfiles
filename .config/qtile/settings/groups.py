@@ -246,7 +246,4 @@ def _():
 def _():
     for i in range(len(qtile.screens)):
         qtile.groups_map[str(i) + "1"].cmd_toscreen(i, toggle=False)
-
-@hook.subscribe.screen_change
-def _(_):
-    qtile.cmd_reconfigure_screens()
+    qtile.cmd_reload_config()

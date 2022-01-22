@@ -3,13 +3,9 @@
     title-margins: 0% 0% 5% calc(11% - 20px);
 
     bg0:  #24242480;
-    bg1:  #363636;
-    bg2:  #f5f5f520;
-    bg3:  #f5f5f540;
-    bg4:  #5E81AC;
+    bg1:  #5E81AC;
 
     fg0:  #f5f5f5;
-    fg1:  #f5f5f580;
 
     background-color: transparent;
     text-color:       @fg0;
@@ -53,5 +49,5 @@ element {
 }
 
 element selected {
-    background-color: @bg4;
+    background-color: @bg1;
 }

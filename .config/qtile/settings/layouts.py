@@ -89,7 +89,7 @@ floating_layout = layout.Floating(
         Match(wm_class="mpv"),
         Match(title="zoom"),
     ],
-    border_focus=colors["color5"],
+    border_focus=colors["color9"],
     border_normal=colors['color1'],
     border_width=3,
     fullscreen_border_width=0,

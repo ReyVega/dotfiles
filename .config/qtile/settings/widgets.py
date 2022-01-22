@@ -81,7 +81,7 @@ def primary_widgets(visible_groups):
 
         widget.GenPollText(
             **base(fg='color4'),
-            func=lambda: subprocess.check_output("brightness").decode("utf-8"),
+            func=lambda: subprocess.check_output(["brightness"], encoding="utf-8"),
             mouse_callbacks={
                 'Button4': lazy.spawn("brightness down"),
                 'Button5': lazy.spawn("brightness up"),
@@ -93,7 +93,7 @@ def primary_widgets(visible_groups):
 
         widget.GenPollText(
             **base(fg='color5'),
-            func=lambda: subprocess.check_output("volume").decode("utf-8"),
+            func=lambda: subprocess.check_output(["volume"], encoding="utf-8"),
             mouse_callbacks={
                 'Button1': lazy.spawn("volume mute"),
                 'Button4': lazy.spawn("volume down"),
@@ -107,7 +107,7 @@ def primary_widgets(visible_groups):
 
         widget.GenPollText(
             **base(fg='color10'),
-            func=lambda: subprocess.check_output("calendar").decode("utf-8"),
+            func=lambda: subprocess.check_output(["calendar"], encoding="utf-8"),
             update_interval=1,
         ),
 
@@ -115,7 +115,7 @@ def primary_widgets(visible_groups):
 
         widget.GenPollText(
             **base(fg='color15'),
-            func=lambda: subprocess.check_output("battery").decode("utf-8"),
+            func=lambda: subprocess.check_output(["battery"], encoding="utf-8"),
             update_interval=1,
         ),
 
@@ -123,7 +123,7 @@ def primary_widgets(visible_groups):
 
         widget.CurrentLayoutIcon(
             **base(fg='color3'),
-            custom_icon_paths=[path.expanduser("~/.config/qtile/settings/layout-icons")],
+            custom_icon_paths=[path.expanduser("~/.config/qtile/settings/layout_icons")],
             mouse_callbacks={
                 'Button3': lazy.prev_layout()
             },
@@ -175,29 +175,29 @@ def secondary_widgets(visible_groups):
 
         widget.GenPollText(
             **base(fg='color5'),
-            func=lambda: subprocess.check_output("volume").decode(),
+            func=lambda: subprocess.check_output(["volume"], encoding="utf-8"),
             mouse_callbacks={
                 'Button1': lazy.spawn("volume mute"),
                 'Button4': lazy.spawn("volume down"),
                 'Button5': lazy.spawn("volume up"),
                 'Button3': lazy.spawn("volume app"),
             },
-            update_interval=1.5,
+            update_interval=1,
         ),
 
         separator(),
 
         widget.GenPollText(
             **base(fg='color10'),
-            func=lambda: subprocess.check_output("calendar").decode(),
-            update_interval=1.5,
+            func=lambda: subprocess.check_output(["calendar"], encoding="utf-8"),
+            update_interval=1,
         ),
 
         separator(),
 
         widget.CurrentLayoutIcon(
             **base(fg='color3'),
-            custom_icon_paths=[path.expanduser("~/.config/qtile/settings/layout-icons")],
+            custom_icon_paths=[path.expanduser("~/.config/qtile/settings/layout_icons")],
             mouse_callbacks={
                 'Button3': lazy.prev_layout()
             },

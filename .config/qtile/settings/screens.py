@@ -4,7 +4,6 @@ from libqtile.lazy import lazy
 from .wallpaper import wallpaper
 from .widgets import primary_widgets, secondary_widgets
 
-
 #---------------------------------------------------------------
 #-- Initialize variables
 #---------------------------------------------------------------

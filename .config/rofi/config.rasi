@@ -144,6 +144,5 @@ configuration {
       sorting-method:    "name";
   }
 }
-//@theme "/home/rey/.config/rofi/themes/launchpad.rasi"
 //@theme "/home/rey/.config/rofi/themes/rounded-nord-dark.rasi"
 @theme "/home/rey/.config/rofi/themes/launchpad.rasi"
