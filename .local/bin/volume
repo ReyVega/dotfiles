@@ -31,8 +31,8 @@ function get_volume_icon {
 
 function volume_notification {
     volume=$(get_volume)
-    vol_icon=$(get_volume_icon $volume)
-    dunstify "Volume: $volume%" -h "int:value:$volume" -i "$icon_path$vol_icon" -a "volume" -u low -t $timeout -r $notify_id
+    vol_icon=$(get_volume_icon ${volume::-1})
+    dunstify "Volume: $volume" -h "int:value:$volume" -i "$icon_path$vol_icon" -a "volume" -u low -t $timeout -r $notify_id
 }
 
 function mute_notification {

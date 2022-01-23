@@ -1,5 +1,6 @@
 from os import path
 import json
+import subprocess
 
 #---------------------------------------------------------------
 #-- Function which loads wallpaper
@@ -29,3 +30,4 @@ def load_wallpaper():
 #-- Function which loads wallpaper
 #---------------------------------------------------------------
 wallpaper = load_wallpaper()
+subprocess.run(["feh", "--bg-fill", wallpaper])
