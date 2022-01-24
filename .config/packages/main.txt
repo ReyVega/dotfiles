@@ -10,7 +10,6 @@ bluez
 bluez-utils
 bottom
 brightnessctl
-chezmoi
 clang
 conky
 discord

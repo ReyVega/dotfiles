@@ -63,7 +63,6 @@ key('n', '<leader>w', '<Cmd>BufDel<CR>', default_opts)
 
 -- Nvim-tree
 key('n', '<C-b>', '<Cmd>NvimTreeToggle<CR>', default_opts)
-key('n', '<leader>re', '<Cmd>NvimTreeRefresh<CR>', default_opts)
 
 -- Telescope
 key("n", "<leader>fg", "<Cmd>Telescope live_grep<CR>", default_opts)

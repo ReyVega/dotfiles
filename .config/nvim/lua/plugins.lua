@@ -137,7 +137,7 @@ return require("packer").startup({function(use)
         event = "UIEnter",
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         config = Get_setup('nvim-tree'),
-        cmd = {'NvimTreeToggle', 'NvimTreeRefresh'}
+        cmd = {'NvimTreeToggle'}
     }
 
     -- Treesitter for Syntax (Languages Analyzer)

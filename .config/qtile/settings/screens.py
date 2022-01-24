@@ -24,6 +24,8 @@ def status_bar(widgets):
 screens = [
     Screen(
         top = status_bar(primary_widgets(["0" + str(i) for i in range(1, 10)])),
+        wallpaper = wallpaper,
+        wallpaper_mode = "fill"
     )
 ]
 
@@ -35,6 +37,8 @@ for i in range(1, 9):
     screens.append(
         Screen(
             top = status_bar(secondary_widgets([str(i) + str(j) for j in range(1, 10)])),
+            wallpaper = wallpaper,
+            wallpaper_mode = "fill"
         )
     )
 
