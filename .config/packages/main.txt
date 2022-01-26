@@ -72,6 +72,7 @@ pulsemixer
 pyenv
 python-pip
 qemu
+qtile
 ripgrep
 rofi
 starship
@@ -142,4 +143,5 @@ xorg-xwininfo
 xorg-xwud
 zathura
 zathura-pdf-poppler
+zip
 zoxide

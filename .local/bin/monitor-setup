@@ -6,8 +6,6 @@ function ActivateHDMI {
     echo "manos"
     xrandr --output eDP --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 1366x0 --rotate normal
     MONITOR="HDMI-A-0"
-    WALLPAPER=$(cat ~/.config/qtile/wallpaper.json | jq .wallpaper -r)
-    feh --bg-fill ~/.config/qtile/wallpapers/$WALLPAPER
 }
 
 function DeactivateHDMI {

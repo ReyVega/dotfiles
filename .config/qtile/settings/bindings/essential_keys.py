@@ -73,7 +73,6 @@ essential_keys = [
     # Toggles
     Key(
         [mod], "f",
-        lazy.hide_show_bar(position="all"),
         lazy.window.toggle_fullscreen(),
         desc='toggle fullscreen'
     ),

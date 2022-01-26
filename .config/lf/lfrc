@@ -47,7 +47,7 @@ cmd open ${{
 	    application/pdf)
             setsid -f zathura $f >/dev/null 2>&1
         ;;
-        text/* | application/json)
+        text/* | application/json | inode/*)
             $EDITOR $f
         ;;
     esac
@@ -57,7 +57,7 @@ cmd open ${{
 cmd mkdir ${{
     printf "Directory Name: "
     read ans
-    mkdir $ans
+    mkdir -p $ans
 }}
 
 # touch
@@ -71,12 +71,7 @@ cmd touch ${{
 cmd chmod ${{
     printf "Mode Bits: "
     read ans
-
-    for file in "$fx"
-    do
-        chmod $ans $file
-    done
-
+    chmod $ans $fx
     lf -remote 'send reload'
 }}
 
@@ -95,36 +90,21 @@ cmd unarchive ${{
 
 # compress current file or selected files with tar and gunzip
 cmd tar ${{
-    set -f
-    mkdir $1
-    cp -r $fx $1
-    tar czf $1.tar.gz $1
-    rm -rf $1
+    printf "Tar Name: "
+    read ans
+    tar czf $ans.tar.gz $(basename -a $fx)
 }}
 
 # compress current file or selected files with zip
 cmd zip ${{
-    set -f
-    mkdir $1
-    cp -r $fx $1
-    zip -r $1.zip $1
-    rm -rf $1
+    printf "Zip Name: "
+    read ans
+    zip -r $ans.zip $(basename -a $fx)
 }}
 
 # Trash command
 cmd trash ${{
-    files=$(printf "$fx" | tr '\n' ';')
-
-    while [ "$files" ]; do
-        file=${files%%;*}
-        trash-put "$(basename "$file")"
-
-        if [ "$files" = "$file" ]; then
-            files=''
-        else
-            files="${files#*;}"
-        fi
-  done
+    trash-put $fx
 }}
 
 # Empty trash
@@ -163,7 +143,7 @@ map r rename
 map y copy
 map x cut
 map p paste
-map c clear
+map C clear
 map v invert
 map u unselect
 map <space> :toggle; down
