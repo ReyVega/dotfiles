@@ -17,7 +17,7 @@
 <img src="screenshots/rofi-powermenu.png" />
 
 ---
-<h2>Software Details</h2>
+##Software Details
 
 <table>
     <tr>
@@ -183,7 +183,6 @@
 </table>
 
 ---
-
 <h2>Fonts and Theming</h2>
 <table>
     <tr>
@@ -223,3 +222,10 @@
         </td>
     </tr>
 </table>
+
+---
+
+## Installation
+```
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/install.sh)"
+```

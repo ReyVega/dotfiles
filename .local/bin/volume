@@ -54,7 +54,7 @@ case $1 in
     down)
         pulsemixer --max-volume 100 --change-volume -2
         volume_notification
-	    ;;
+        ;;
     mute)
         pulsemixer --toggle-mute
         mute_notification

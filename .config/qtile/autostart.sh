@@ -5,7 +5,7 @@ monitor-setup &
 # Allow certain functionalities
 lxsession &
 # picom
-picom --experimental-backends &
+picom --experimental-backends -b
 # Suspend laptop after certain time
 xset dpms 120 120 120 # Time to blank screen
 xidlehook --not-when-audio --not-when-fullscreen --timer 300 'systemctl suspend' '' & # Time to suspend system
