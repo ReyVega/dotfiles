@@ -1,7 +1,7 @@
 #!/bin/bash
 function gui_screenshot {
     focusedwindow=$(xdotool getactivewindow)
-    flameshot gui -g >/dev/null
+    flameshot gui >/dev/null
     if [ "$focusedwindow" == "$(xdotool getactivewindow)" ]
     then
         xdotool windowfocus $focusedwindow

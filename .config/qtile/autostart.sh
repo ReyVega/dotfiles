@@ -8,7 +8,7 @@ lxsession &
 picom --experimental-backends -b
 # Suspend laptop after certain time
 xset dpms 120 120 120 # Time to blank screen
-xidlehook --not-when-audio --not-when-fullscreen --timer 300 'systemctl suspend' '' & # Time to suspend system
+xidlehook --not-when-audio --not-when-fullscreen --timer 900 'systemctl suspend' '' & # Time to suspend system
 # Default brightness
 brightnessctl -d 'amdgpu_bl0' set 80%
 # Default volume

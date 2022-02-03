@@ -1,1 +1,0 @@
-ACTION=="change", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/rey/.Xauthority", RUN+="/home/rey/.local/bin/monitor-setup"
