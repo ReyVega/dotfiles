@@ -105,7 +105,7 @@ require'nvim-tree'.setup {
             error = " ",
             warning = " ",
             hint = " ",
-            info = " "
+            info = " ",
         }
     },
     update_focused_file = {
@@ -143,6 +143,13 @@ require'nvim-tree'.setup {
     trash = {
         cmd = "trash",
         require_confirm = true
+    },
+    actions = {
+        change_dir = {
+            global = false,
+        },
+        open_file = {
+            quit_on_open = false,
+        }
     }
 }
-
