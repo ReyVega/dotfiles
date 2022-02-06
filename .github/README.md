@@ -204,6 +204,12 @@
         </td>
     </tr>
     <tr>
+        <th>GTK Grub</th>
+        <td>
+            <a href="https://www.gnome-look.org/p/1307852">Tela</a>
+        </td>
+    </tr>
+    <tr>
         <th>LightDM Theme</th>
         <td>
             <a href="https://github.com/manilarome/lightdm-webkit2-theme-glorious">Glorious</a>
