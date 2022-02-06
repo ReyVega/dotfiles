@@ -1,4 +1,0 @@
-typescript
-prettier
-yarn
-live-server
