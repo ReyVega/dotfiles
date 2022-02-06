@@ -1,9 +1,3 @@
-/*******************************************************************************
- * MACOS LAUNCHPAD LIKE THEME FOR ROFI
- * User                 : LR-Tech
- * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
- *******************************************************************************/
-
 * {
     font: "Montserrat 9";
 
@@ -29,7 +23,7 @@ window {
 }
 
 mainbox {
-  padding:  48px 8px 8px 8px;
+  padding:  22px 8px 8px 8px;
 }
 
 inputbar {
@@ -62,7 +56,7 @@ entry {
 }
 
 listview {
-  margin:   48px calc( 50% - 560px );
+  margin:   48px calc(50% - 560px);
   spacing:  48px;
   columns:  6;
   fixed-columns: true;

@@ -1,6 +1,6 @@
 * {
     font: "Montserrat 40";
-    title-margins: 0% 0% 5% calc(11% - 20px);
+    title-margins: 0% 0% 5% calc(12.5% - 20px);
 
     bg0:  #24242480;
     bg1:  #5E81AC;
@@ -18,7 +18,7 @@ window {
     height:             100%;
     x-offset:           0%;
     y-offset:           0%;
-    padding: 35% 0% 0% calc(37% - 170px);
+    padding: calc(43% - 90px) 0% 0% calc(37% - 170px);
     background-color: @bg0;
     children: [ inputbar, horibox ];
 }
@@ -43,7 +43,7 @@ element, element-text, element-icon {
 }
 
 element {
-    padding: 3.5% 2.1% 2.8% 1%;
+    padding: 3.5% 2.1% 2% 1%;
     border-radius: 1em;
     background-color: rgba(100, 100, 100, 0.3);
 }

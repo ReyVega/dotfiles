@@ -10,7 +10,7 @@
 
 window {
     fullscreen: true;
-    padding: 47% 0% 0% calc(49.2% - 140px);
+    padding: 47% 0% 0% calc(50% - 140px);
     background-color: @bg0;
 }
 
