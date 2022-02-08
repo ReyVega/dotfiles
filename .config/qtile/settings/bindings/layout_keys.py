@@ -56,7 +56,7 @@ layout_keys = [
     Key([mod, "control"], "h", resize_left),
     Key([mod, "control"], "l", resize_right),
 
-    # MonadTall and MonadWide
+    # MonadTall, MonadWide, MonadThreeCol
     Key([mod], "i", lazy.layout.shrink()),
     Key([mod], "o", lazy.layout.grow()),
     Key([mod], "m", lazy.layout.maximize()),
@@ -66,7 +66,7 @@ layout_keys = [
     Key([mod], "a", lazy.layout.add()),
     Key([mod], "d", lazy.layout.delete()),
 
-    # Bsp, MonadTall, MonadWide
+    # Bsp, MonadTall, MonadWide, MonadThreeCol
     Key([mod], "n", lazy.layout.normalize()),
 
     # Bsp and Stack

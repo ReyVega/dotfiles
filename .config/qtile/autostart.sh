@@ -7,12 +7,22 @@ lxsession &
 # picom
 picom --experimental-backends -b
 # Suspend laptop after certain time
-xset dpms 120 120 120 # Time to blank screen
-xidlehook --not-when-audio --not-when-fullscreen --timer 900 'systemctl suspend' '' & # Time to suspend system
+xidlehook \
+    --not-when-fullscreen \
+    --not-when-audio \
+    --timer 120 \
+    'xrandr --output "eDP" --brightness 0' \
+    'xrandr --output "eDP" --brightness 1' \
+    --timer 300 \
+    'xrandr --output "eDP" --brightness 1; betterlockscreen -l' \
+    '' \
+    --timer 900 \
+    'systemctl suspend' \
+    '' &
 # Default brightness
 brightnessctl -d 'amdgpu_bl0' set 80%
 # Default volume
-pulsemixer --set-volume 50
+pactl -- set-sink-volume 0 50%
 # Dunst notifications
 killall dunst
 dunst &

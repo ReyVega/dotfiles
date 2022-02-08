@@ -66,6 +66,8 @@ pacman-contrib
 patch
 pcmanfm
 pipewire
+pipewire-alsa
+pipewire-jack
 pipewire-pulse
 pkgconf
 playerctl

@@ -32,6 +32,13 @@ layouts = [
         max_ratio=0.75,
         min_ratio=0.25,
     ),
+    layout.MonadThreeCol(
+        **layout_defaults,
+        main_centered=True,
+        change_ratio=0.01,
+        max_ratio=0.75,
+        min_ratio=0.25,
+    ),
     layout.Bsp(
         **layout_defaults,
         fair=False,

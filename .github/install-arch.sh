@@ -82,7 +82,8 @@ pacman --noconfirm -S arandr autoconf automake bat binutils bison bluez bluez-ut
                       exa fakeroot fd feh firefox fish flameshot flex fzf gcc git gnome-keyring go groff gvfs\
                       hyperfine iptables-nft jdk-openjdk jq kitty libtool lightdm lxappearance lxsession m4 make\
                       man-db mariadb mpd mpv ncmpcpp neofetch neovim networkmanager noto-fonts noto-fonts-cjk noto-fonts-emoji npm ntfs-3g\
-                      pacman-contrib patch pcmanfm pipewire pipewire-pulse pkgconf playerctl pulsemixer pyenv python-pip\
+                      pacman-contrib patch pcmanfm pipewire pipewire-alsa pipewire-jack pipewire-pulse pkgconf playerctl\
+                      pulsemixer pyenv python-pip\
                       qemu qtile ripgrep rofi starship sudo texinfo trash-cli ttf-dejavu ttf-inconsolata ttf-liberation udiskie ueberzug ufw\
                       unzip virt-manager vulkan-radeon which wireplumber xclip xdg-user-dirs xdotool xf86-video-amdgpu xf86-video-vesa\
                       xorg-server xorg-xinput xorg-xkill xorg-xprop xorg-xrandr xorg-xset zathura zathura-pdf-poppler zip zoxide
