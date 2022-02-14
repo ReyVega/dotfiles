@@ -82,10 +82,7 @@ return require("packer").startup({function(use)
     }
 
     -- Surround everything
-    use {
-        "blackCauldron7/surround.nvim",
-        config = Get_setup("surround-nvim")
-    }
+    use {"https://github.com/tpope/vim-surround"}
 
     -- Comments
     use {

@@ -28,7 +28,6 @@
 │   │   ├── 🌑 nvim-tree.lua
 │   │   ├── 🌑 nvim-treesitter.lua
 │   │   ├── 🌑 nvim-ts-autotag.lua
-│   │   ├── 🌑 surround-nvim.lua
 │   │   └── 🌑 telescope.lua
 │   ├── 🌑 mappings.lua
 │   ├── 🌑 plugins.lua
@@ -176,7 +175,7 @@
             <a href="https://github.com/windwp/nvim-autopairs">nvim-autopairs</a> <br>
             <a href="https://github.com/windwp/nvim-ts-autotag">nvim-ts-autotags</a> <br>
             <a href="https://github.com/andymass/vim-matchup">vim-matchup</a> <br>
-            <a href="https://github.com/blackCauldron7/surround.nvim">surround.nvim</a> <br>
+            <a href="https://github.com/tpope/vim-surround">vim-surround</a> <br>
         </td>
     </tr>
     <tr>

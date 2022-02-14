@@ -55,7 +55,7 @@ essential_keys = [
     Key(
         [mod, "mod1"], "w",
         kill_all_windows_except_current,
-        desc="Kill all windows"
+        desc="Kill all windows except current"
     ),
 
     # Switch focus of monitors
@@ -85,7 +85,7 @@ essential_keys = [
     # Hide bar
     Key(
         [mod], "u",
-        lazy.hide_show_bar("top"),
+        lazy.hide_show_bar(position="all"),
         desc='Hides bar'
     ),
 

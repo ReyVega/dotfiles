@@ -87,25 +87,26 @@ local keys = {
 
 
 require'nvim-tree'.setup {
-    disable_netrw       = true,
-    hijack_netrw        = true,
-    open_on_setup       = false,
-    ignore_ft_on_setup  = {},
-    auto_close          = false,
-    open_on_tab         = false,
-    hijack_cursor       = true,
-    update_cwd          = true,
-    update_to_buf_dir   = {
+    disable_netrw        = true,
+    hijack_netrw         = true,
+    open_on_setup        = false,
+    ignore_ft_on_setup   = {},
+    auto_close           = false,
+    auto_reload_on_write = true,
+    open_on_tab          = false,
+    hijack_cursor        = true,
+    update_cwd           = true,
+    hijack_directories   = {
         enable = true,
         auto_open = true,
     },
     diagnostics = {
         enable = true,
         icons = {
-            error = " ",
-            warning = " ",
             hint = " ",
             info = " ",
+            warning = " ",
+            error = " ",
         }
     },
     update_focused_file = {
