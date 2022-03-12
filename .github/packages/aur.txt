@@ -19,5 +19,6 @@ qtile-git
 stacer
 visual-studio-code-bin
 vscode-codicons-git
+woeusb
 xidlehook
 zoom

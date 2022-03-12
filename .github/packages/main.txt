@@ -16,7 +16,6 @@ discord
 dnsmasq
 docker
 dunst
-dust
 edk2-ovmf
 efibootmgr
 exa
@@ -56,6 +55,7 @@ ncmpcpp
 neofetch
 neovim
 networkmanager
+nm-connection-editor
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -80,6 +80,7 @@ rofi
 starship
 sudo
 texinfo
+tlp
 trash-cli
 ttf-dejavu
 ttf-inconsolata
