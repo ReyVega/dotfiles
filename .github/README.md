@@ -47,13 +47,7 @@
     <tr>
         <th>Display Manager</th>
         <td>
-            <a href="https://wiki.archlinux.org/title/LightDM">lightdm</a>
-        </td>
-    </tr>
-    <tr>
-        <th>LightDM Greeter</th>
-        <td>
-            <a href="https://archlinux.org/packages/community/x86_64/lightdm-webkit2-greeter/">lightdm-webkit2-greeter</a>
+            <a href="https://wiki.archlinux.org/title/SDDM">sddm</a>
         </td>
     </tr>
     <tr>
@@ -212,9 +206,9 @@
         </td>
     </tr>
     <tr>
-        <th>LightDM Theme</th>
+        <th>SDDM Theme</th>
         <td>
-            <a href="https://github.com/manilarome/lightdm-webkit2-theme-glorious">Glorious</a>
+            <a href="https://aur.archlinux.org/packages/sddm-sugar-candy-git">Sugar Candy</a>
         </td>
     </tr>
     <tr>
