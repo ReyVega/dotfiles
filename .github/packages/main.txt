@@ -40,7 +40,6 @@ jdk-openjdk
 jq
 kitty
 libtool
-lightdm
 linux
 linux-firmware
 lxappearance
@@ -77,6 +76,7 @@ python-pip
 qemu
 ripgrep
 rofi
+sddm
 starship
 sudo
 texinfo

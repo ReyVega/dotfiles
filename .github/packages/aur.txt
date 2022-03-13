@@ -4,10 +4,8 @@ cava
 fnm-bin
 lf
 libreoffice-dev-bin
-lightdm-webkit2-theme-glorious
 minecraft-launcher
 mpdris2
-mugshot
 nerd-fonts-hack
 notion-app
 nvim-packer-git
@@ -16,6 +14,7 @@ paru
 picom-git
 postman-bin
 qtile-git
+sddm-sugar-candy-git
 stacer
 visual-studio-code-bin
 vscode-codicons-git
