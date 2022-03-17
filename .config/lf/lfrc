@@ -47,6 +47,9 @@ cmd open ${{
 	    application/pdf)
             setsid -f zathura $f >/dev/null 2>&1
         ;;
+        application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+            setsid -f xdg-open $f >/dev/null 2>&1
+        ;;
         text/* | application/json | inode/*)
             $EDITOR $f
         ;;
