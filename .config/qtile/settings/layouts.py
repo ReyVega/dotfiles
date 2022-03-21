@@ -44,6 +44,7 @@ layouts = [
         fair=False,
         lower_right=False,
         grow_amount=1,
+        border_on_single=True
     ),
     layout.TreeTab(
         sections=['Browser', 'Video', 'Programming'],

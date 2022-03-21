@@ -53,6 +53,7 @@ mpv
 ncmpcpp
 neofetch
 neovim
+network-manager-applet
 networkmanager
 nm-connection-editor
 noto-fonts

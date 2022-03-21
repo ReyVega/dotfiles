@@ -149,7 +149,7 @@
     <tr>
         <th>Network Manager</th>
         <td>
-            <a href="https://wiki.archlinux.org/title/NetworkManager">networkmanager (nmcli/nmtui)</a>
+            <a href="https://wiki.archlinux.org/title/NetworkManager">networkmanager (nmcli/nm-applet)</a>
         </td>
     </tr>
     <tr>
@@ -164,6 +164,13 @@
             <a href="https://github.com/ncmpcpp/ncmpcpp">ncmpcpp</a>
             using
             <a href="https://github.com/MusicPlayerDaemon/MPD">mpd</a>
+        </td>
+    </tr>
+    <tr>
+        <th>VPN</th>
+        <td>
+            <a href="https://wiki.archlinux.org/title/ProtonVPN">ProtonVPN</a><br>
+            <a href="https://github.com/ProtonVPN/linux-cli">protonvpn-cli</a> (Client)<br>
         </td>
     </tr>
     <tr>

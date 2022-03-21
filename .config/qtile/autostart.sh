@@ -30,3 +30,5 @@ dunst &
 killall mpd
 mpd &
 mpDris2 &
+# Internet
+nm-applet &
