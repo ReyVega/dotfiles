@@ -67,6 +67,7 @@ auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 auto_minimize = True
+wl_input_rules = None
 wmname = "Qtile"
 
 

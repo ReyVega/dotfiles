@@ -11,10 +11,8 @@ notion-app
 nvim-packer-git
 pandoc-bin
 paru
-picom-git
 postman-bin
 protonvpn-cli
-qtile-git
 sddm-sugar-candy-git
 stacer
 visual-studio-code-bin

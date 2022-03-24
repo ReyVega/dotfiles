@@ -65,6 +65,7 @@ os-prober
 pacman-contrib
 patch
 pcmanfm
+picom
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -75,6 +76,7 @@ pulsemixer
 pyenv
 python-pip
 qemu
+qtile
 ripgrep
 rofi
 sddm
@@ -94,7 +96,6 @@ virt-manager
 vulkan-radeon
 which
 wireplumber
-xclip
 xdg-user-dirs
 xdotool
 xf86-video-amdgpu
