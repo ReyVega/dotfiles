@@ -16,7 +16,7 @@ local exec = vim.api.nvim_exec 	-- execute Vimscript
 -----------------------------------------------------------
 g.mapleader = ','             -- change leader to a comma
 set.mouse = 'a'               -- enable mouse support
-set.clipboard = 'unnamedplus' -- copy/paste to system clipboard
+set.clipboard = 'unnamedplus' -- copy/paste to system clipboard (xclip needed to work)
 set.swapfile = false          -- don't use swapfile
 set.encoding = 'utf-8'        -- the encoding displayed
 set.shell = "/bin/fish"       -- set default shell for terminal
