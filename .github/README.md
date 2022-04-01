@@ -90,8 +90,6 @@
         <th>File Manager</th>
         <td>
             <a href="https://github.com/gokcehan/lf">lf</a>
-            and
-            <a href="https://wiki.archlinux.org/title/PCManFM">pcmanfm</a>
         </td>
     </tr>
     <tr>

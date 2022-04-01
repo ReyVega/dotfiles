@@ -22,7 +22,6 @@ exa
 fakeroot
 fd
 feh
-firefox
 fish
 flameshot
 flex
@@ -33,7 +32,6 @@ gnome-keyring
 go
 groff
 grub
-gvfs
 hyperfine
 iptables-nft
 jdk-openjdk
@@ -64,7 +62,6 @@ ntfs-3g
 os-prober
 pacman-contrib
 patch
-pcmanfm
 picom
 pipewire
 pipewire-alsa

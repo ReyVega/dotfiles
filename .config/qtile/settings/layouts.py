@@ -95,7 +95,7 @@ floating_layout = layout.Floating(
         Match(wm_class="Conky"),
         Match(wm_class="lxappearance"),
         Match(wm_class="mpv"),
-        Match(title="zoom"),
+        Match(title="zoom "),
     ],
     border_focus=colors["color9"],
     border_normal=colors['color1'],

@@ -172,13 +172,13 @@ map tc clear_trash
 map tr restore_trash
 # Movement
 map gtr cd ~/.local/share/Trash/files/
-map gp cd ~/Pictures
-map gv cd ~/Videos
-map gd cd ~/Documents
-map gD cd ~/Downloads
-map ge cd ~/Desktop
+map gp cd ~/pictures
+map gv cd ~/videos
+map gd cd ~/documents
+map gD cd ~/downloads
+map ge cd ~/desktop
 map gc cd ~/.config
-map gh cd ~/
+map gr cd ~/
 
 
 #------------ Default bindings ------------

@@ -10,7 +10,7 @@ picom --experimental-backends -b
 xidlehook \
     --not-when-fullscreen \
     --not-when-audio \
-    --timer 120 \
+    --timer 600 \
     'xrandr --output "eDP" --brightness 0' \
     'xrandr --output "eDP" --brightness 1' \
     --timer 300 \

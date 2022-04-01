@@ -46,13 +46,6 @@ extra_keys = [
         desc="Starts Lf"
     ),
 
-    # PCManFM
-    Key(
-        [mod, "shift"], "p",
-        lazy.spawn("pcmanfm"),
-        desc="Starts pcmanfm"
-    ),
-
     # Rofi (Applications)
     Key(
         [mod], "s",

@@ -14,8 +14,6 @@ paru
 postman-bin
 protonvpn-cli
 sddm-sugar-candy-git
-stacer
-visual-studio-code-bin
 vscode-codicons-git
 woeusb
 xidlehook
