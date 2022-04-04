@@ -42,7 +42,7 @@ extra_keys = [
     # LF
     Key(
         [mod], "p",
-        lazy.spawn(f'{terminal} --title LF -e sh -c "source $HOME/.config/lf/lf-icons.sh; lfrun"'),
+        lazy.spawn(f"{terminal} -e lfrun"),
         desc="Starts Lf"
     ),
 

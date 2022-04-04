@@ -29,6 +29,3 @@ pyenv init - | source
 
 # Fnm
 fnm env | source
-
-# Lf
-[ -f $HOME/.config/lf/lf-icons.sh ]; and source $HOME/.config/lf/lf-icons.sh

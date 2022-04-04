@@ -123,6 +123,32 @@ cmd open_config $ {{
     kitty -d ~/.config/lf -e nvim lfrc
 }}
 
+# Select all files within a directory
+cmd select-files ${{
+    { echo "$fs"; find -L "$(pwd)" -mindepth 1 -maxdepth 1 -type f; } |
+        if [ "$lf_hidden" = "false" ]; then
+          # remove any hidden files so you only select files you can see.
+          grep -v '/\.[^/]\+$'
+        else
+          cat
+        fi |
+        sed '/^$/d' | sort | uniq -u |
+        xargs -d '\n' -r -I{} lf -remote "send $id toggle {}"
+}}
+
+# Select all directories within a directory
+cmd select-dirs ${{
+    { echo "$fs"; find -L "$(pwd)" -mindepth 1 -maxdepth 1 -type d; } |
+        if [ "$lf_hidden" = "false" ]; then
+          grep -v '/\.[^/]\+$'
+        else
+          cat
+        fi |
+        sed '/^$/d' | sort | uniq -u |
+        xargs -d '\n' -r -I{} lf -remote "send $id toggle {}"
+}}
+
+
 # Bindings
 # Remove some defaults
 map <enter>
@@ -139,7 +165,7 @@ map zh
 map gg
 map G
 
-# bindings calling lf's native commands
+# Bindings calling lf's native commands
 map <esc> quit
 map DD delete
 map r rename
@@ -155,21 +181,27 @@ map L bottom
 map . set hidden!
 map R reload
 
-# bindings calling custom commands
+# Bindings calling custom commands
 map <enter> open
 map ee $$EDITOR "$f"
 map md mkdir
 map ch chmod
 map mf touch
 map o  open_config
+map af select-files
+map ad select-dirs
+map aa :select-files; select-dirs
+
 # Compress mappings
 map az zip
 map at tar
 map au unarchive
+
 # Trash Mappings
 map dd trash
 map tc clear_trash
 map tr restore_trash
+
 # Movement
 map gtr cd ~/.local/share/Trash/files/
 map gp cd ~/pictures
@@ -186,11 +218,15 @@ map gr cd ~/
 # up                       (default 'k' and '<up>')
 # half-up                  (default '<c-u>')
 # page-up                  (default '<c-b>' and '<pgup>')
+# scroll-up                (default '<c-y>')
 # down                     (default 'j' and '<down>')
 # half-down                (default '<c-d>')
 # page-down                (default '<c-f>' and '<pgdn>')
+# scroll-down              (default '<c-e>')
 # updir                    (default 'h' and '<left>')
 # open                     (default 'l' and '<right>')
+# jump-next                (default ']')
+# jump-prev                (default '[')
 # top                      (default 'gg' and '<home>')
 # bottom                   (default 'G' and '<end>')
 # toggle
@@ -198,6 +234,7 @@ map gr cd ~/
 # unselect                 (default 'u')
 # glob-select
 # glob-unselect
+# calcdirsize
 # copy                     (default 'y')
 # cut                      (default 'd')
 # paste                    (default 'p')
@@ -233,27 +270,9 @@ map gr cd ~/
 # setfilter
 # mark-save      (modal)   (default 'm')
 # mark-load      (modal)   (default "'")
-# mark-remove    (modal)   (default `"`)
-
-# cmd open &$OPENER "$f"   cmd open &%OPENER% %f%
-# map e $$EDITOR "$f"      map e $%EDITOR% %f%
-# map i $$PAGER "$f"       map i !%PAGER% %f%
-# map w $$SHELL            map w $%SHELL%
-
-# map zh set hidden!
-# map zr set reverse!
-# map zn set info
-# map zs set info size
-# map zt set info time
-# map za set info size:time
-# map sn :set sortby natural; set info
-# map ss :set sortby size; set info size
-# map st :set sortby time; set info time
-# map sa :set sortby atime; set info atime
-# map sc :set sortby ctime; set info ctime
-# map se :set sortby ext; set info
-# map gh cd ~
-# map <space> :toggle; down
+# mark-remove    (modal)   (default '"')
+# tag
+# tag-toggle               (default 't')
 
 
 # cmd-escape               (default '<esc>')
@@ -282,3 +301,19 @@ map gr cd ~/
 # cmd-capitalize-word      (default '<a-c>')
 # cmd-uppercase-word       (default '<a-u>')
 # cmd-lowercase-word       (default '<a-l>')
+
+
+# map zh set hidden!
+# map zr set reverse!
+# map zn set info
+# map zs set info size
+# map zt set info time
+# map za set info size:time
+# map sn :set sortby natural; set info
+# map ss :set sortby size; set info size
+# map st :set sortby time; set info time
+# map sa :set sortby atime; set info atime
+# map sc :set sortby ctime; set info ctime
+# map se :set sortby ext; set info
+# map gh cd ~
+# map <space> :toggle; down

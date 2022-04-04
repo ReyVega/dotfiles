@@ -35,6 +35,3 @@ eval "$(pyenv init -)"
 
 # FNM
 eval "$(fnm env)"
-
-#LF
-[ -f "$HOME/.config/lf/lf-icons.sh" ] && source "$HOME/.config/lf/lf-icons.sh"
