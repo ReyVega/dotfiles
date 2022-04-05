@@ -104,7 +104,6 @@ xorg-xkill
 xorg-xprop
 xorg-xrandr
 xorg-xset
-zathura
 zathura-pdf-poppler
 zip
 zoxide

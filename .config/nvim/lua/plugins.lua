@@ -132,6 +132,7 @@ return require("packer").startup({function(use)
     use {
         'kyazdani42/nvim-tree.lua',
         event = "UIEnter",
+        after = "alpha-nvim",
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         config = Get_setup('nvim-tree'),
         cmd = {'NvimTreeToggle'}
@@ -154,6 +155,7 @@ return require("packer").startup({function(use)
     use {
         'akinsho/bufferline.nvim',
         event = "UIEnter",
+        after = "alpha-nvim",
         requires = {
             'kyazdani42/nvim-web-devicons',
             'ojroques/nvim-bufdel',
@@ -194,7 +196,7 @@ return require("packer").startup({function(use)
     -- Alpha-Nvim
     use {
         'goolord/alpha-nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        requires = {'kyazdani42/nvim-web-devicons'},
         config = Get_setup('alpha')
     }
 

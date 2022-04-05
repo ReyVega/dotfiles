@@ -5,35 +5,68 @@
 -- Plugin: lualine
 -- https://github.com/nvim-lualine/lualine.nvim
 
-require'lualine'.setup {
+local colors = {
+    color1 = "#ECEFF4",
+    color2 = "#81A1C1",
+    color3 = "#2E3440",
+    color4 = "#B48EAD",
+    color5 = "#BF616A",
+    color6 = "#A3BE8C",
+    color7 = "#212121",
+    color8 = "#3B4252"
+}
+
+local bubbles_theme = {
+    normal = {
+        a = { fg = colors.color7, bg = colors.color2, gui = "bold" },
+        b = { fg = colors.color1, bg = colors.color8 },
+        c = { fg = colors.color3, bg = colors.color3 },
+    },
+
+    insert = { a = { fg = colors.color7, bg = colors.color6, gui = "bold" } },
+    visual = { a = { fg = colors.color7, bg = colors.color4, gui = "bold" } },
+    replace = { a = { fg = colors.color7, bg = colors.color5, gui = "bold" } },
+
+    inactive = {
+        a = { fg = colors.color1, bg = colors.color3, gui = "bold"},
+        b = { fg = colors.color1, bg = colors.color3, gui = "bold" },
+        c = { fg = colors.color1, bg = colors.color3, gui = "bold" },
+    },
+}
+
+require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'auto',
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
-        disabled_filetypes = {
-            "toggleterm",
-            "NvimTree",
-        },
+        theme = bubbles_theme,
+        component_separators = '|',
+        disabled_filetypes = {"NvimTree"},
+        section_separators = { left = '', right = '' },
         always_divide_middle = true,
+        globalstatus = false,
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff',
-                      {'diagnostics', sources={'nvim_diagnostic'}}},
-        lualine_c = {'filename'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_a = {
+            {   'mode',
+                separator = { left = '' },
+                right_padding = 2,
+            },
+        },
+        lualine_b = { 'filename', 'branch' },
+        lualine_c = { 'fileformat' },
+        lualine_x = {},
+        lualine_y = { 'filetype', 'progress' },
+        lualine_z = {
+            { 'location', separator = { right = '' }, left_padding = 2 },
+        },
     },
     inactive_sections = {
-        lualine_a = {},
+        lualine_a = { 'filename' },
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = {},
+        lualine_x = {},
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = { 'location' },
     },
     tabline = {},
-    extensions = {'fugitive'}
+    extensions = {"fugitive", "nvim-tree"},
 }

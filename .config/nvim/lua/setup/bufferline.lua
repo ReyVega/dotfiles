@@ -8,21 +8,29 @@
 -- https://github.com/ojroques/nvim-bufdel
 
 require('bufdel').setup {
+    next = 'cycle',  -- or 'alternate'
     quit = false, -- close neovim if last buffer
 }
 
+
 require('bufferline').setup {
     options = {
-        close_command = "BufDel! %d",
-        right_mouse_command = "BufDel! %d",
-        left_mouse_command = "buffer %d",
-        middle_mouse_command = nil,
+        mode = "buffers", -- set to "tabs" to only show tabpages instead
+        close_command = "BufDel! %d",       -- can be a string | function, see "Mouse actions"
+        right_mouse_command = "BufDel! %d", -- can be a string | function, see "Mouse actions"
+        left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
+        middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
         indicator_icon = '▎',
         buffer_close_icon = '',
         modified_icon = '●',
         close_icon = '',
         left_trunc_marker = '',
         right_trunc_marker = '',
+        name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
+            if buf.name:match('%.md') then
+                return vim.fn.fnamemodify(buf.name, ':t:r')
+            end
+        end,
         max_name_length = 18,
         max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
         tab_size = 18,
@@ -31,29 +39,43 @@ require('bufferline').setup {
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
             local s = " "
             for e, n in pairs(diagnostics_dict) do
-                local sym = e == "error" and " " or (e == "warning" and " " or " " )
+                local sym = e == "error" and " "
+                    or (e == "warning" and " " or " " )
                 s = s .. n .. sym
             end
             return s
         end,
+        custom_filter = function(buf_number, buf_numbers)
+            if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
+                return true
+            end
+            if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
+                return true
+            end
+            if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
+                return true
+            end
+            if buf_numbers[1] ~= buf_number then
+                return true
+            end
+        end,
         offsets = {{
             filetype = "NvimTree",
             text = " File Explorer",
-            highlight = 'Directory',
+            highlight = "Directory",
             text_align = "center",
             padding = 1
         }},
+        color_icons = true, -- whether or not to add the filetype icon highlights
         show_buffer_icons = true, -- disable filetype icons for buffers
         show_buffer_close_icons = true,
         show_close_icon = false,
         show_tab_indicators = true,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-        -- can also be a table containing 2 custom separators
-        -- [focused and unfocused]. eg: { '|', '|' }
-        separator_style = 'slant',
+        separator_style = "slant",
         enforce_regular_tabs = true,
         always_show_bufferline = true,
-        sort_by = 'id',
+        sort_by = 'insert_after_current',
 
         custom_areas = {
             right = function()
@@ -65,19 +87,19 @@ require('bufferline').setup {
                 local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
 
                 if error ~= 0 then
-                  table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
+                    table.insert(result, {text = "  " .. error, guifg = "#BF616A"})
                 end
 
                 if warning ~= 0 then
-                  table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
+                    table.insert(result, {text = "  " .. warning, guifg = "#EBCB8B"})
                 end
 
                 if hint ~= 0 then
-                  table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
+                    table.insert(result, {text = "  " .. hint, guifg = "#A3BE8C"})
                 end
 
                 if info ~= 0 then
-                  table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
+                    table.insert(result, {text = "  " .. info, guifg = "#88C0D0"})
                 end
                 return result
             end,
