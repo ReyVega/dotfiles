@@ -123,31 +123,6 @@ cmd open_config $ {{
     kitty -d ~/.config/lf -e nvim lfrc
 }}
 
-# Select all files within a directory
-cmd select-files ${{
-    { echo "$fs"; find -L "$(pwd)" -mindepth 1 -maxdepth 1 -type f; } |
-        if [ "$lf_hidden" = "false" ]; then
-          # remove any hidden files so you only select files you can see.
-          grep -v '/\.[^/]\+$'
-        else
-          cat
-        fi |
-        sed '/^$/d' | sort | uniq -u |
-        xargs -d '\n' -r -I{} lf -remote "send $id toggle {}"
-}}
-
-# Select all directories within a directory
-cmd select-dirs ${{
-    { echo "$fs"; find -L "$(pwd)" -mindepth 1 -maxdepth 1 -type d; } |
-        if [ "$lf_hidden" = "false" ]; then
-          grep -v '/\.[^/]\+$'
-        else
-          cat
-        fi |
-        sed '/^$/d' | sort | uniq -u |
-        xargs -d '\n' -r -I{} lf -remote "send $id toggle {}"
-}}
-
 
 # Bindings
 # Remove some defaults
@@ -188,9 +163,6 @@ map md mkdir
 map ch chmod
 map mf touch
 map o  open_config
-map af select-files
-map ad select-dirs
-map aa :select-files; select-dirs
 
 # Compress mappings
 map az zip

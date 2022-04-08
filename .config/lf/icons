@@ -22,9 +22,9 @@
 # file types (with matching order)
 ln             # LINK
 or             # ORPHAN
-tw      t       # STICKY_OTHER_WRITABLE
+tw             # STICKY_OTHER_WRITABLE
 ow             # OTHER_WRITABLE
-st      t       # STICKY
+st             # STICKY
 di             # DIR
 pi      p       # FIFO
 so      s       # SOCK
