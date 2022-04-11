@@ -71,7 +71,7 @@
     <tr>
         <th>Compositor</th>
         <td>
-            <a href="https://github.com/yshui/picom">picom-git</a>
+            <a href="https://wiki.archlinux.org/title/Picom">picom</a>
         </td>
     </tr>
     <tr>

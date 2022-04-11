@@ -111,7 +111,7 @@ cmd trash ${{
 }}
 
 # Empty trash
-cmd clear_trash %trash-empty
+cmd clear_trash %trash-empty -i; lf -remote 'send reload'
 
 # Restore files from trash
 cmd restore_trash ${{
@@ -139,6 +139,7 @@ map f
 map zh
 map gg
 map G
+map t
 
 # Bindings calling lf's native commands
 map <esc> quit
