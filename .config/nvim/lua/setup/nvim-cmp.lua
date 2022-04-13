@@ -39,7 +39,7 @@ local cmp_kinds = {
     TypeParameter = '  ',
 }
 
-cmp.setup {
+cmp.setup({
   -- load snippet support
     snippet = {
         expand = function(args)
@@ -61,7 +61,7 @@ cmp.setup {
     },
 
     -- key mapping
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -91,8 +91,7 @@ cmp.setup {
                 fallback()
             end
         end, {"i", "s"})
-
-    },
+    }),
 
     sorting = {
         comparators = {
@@ -108,19 +107,20 @@ cmp.setup {
     },
 
     -- load sources
-    sources = {
+    sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
         { name = 'buffer' },
         { name = 'nvim_lua'},
         { name = 'rg' },
-        { name = 'npm', keyword_length = 4 },
-    },
+        { name = 'npm', keyword_length = 1 },
+    }),
 
     -- borders for documentation
-    documentation = {
-        border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
 
     -- experimental features
@@ -128,18 +128,23 @@ cmp.setup {
         native_menu = false,
         ghost_text = true,
     },
-}
+})
 
 -- completion for commands
 cmp.setup.cmdline(':', {
-    sources = {
-        { name = 'cmdline' },
-    }
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
 })
 
 -- completion when searching in current buffer
 cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
     sources = {
         { name = 'buffer' }
     }
 })
+
