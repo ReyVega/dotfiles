@@ -72,13 +72,14 @@ playerctl
 pulsemixer
 pyenv
 python-pip
-qemu
+qemu-desktop
 qtile
 ripgrep
 rofi
 sddm
 starship
 sudo
+tesseract
 texinfo
 tlp
 trash-cli
@@ -88,6 +89,7 @@ ttf-liberation
 udiskie
 ueberzug
 ufw
+unrar
 unzip
 virt-manager
 vulkan-radeon

@@ -49,8 +49,13 @@ for i in range(1, 9):
 for i in range(9):
     # Move window to specific screen
     keys_screen.extend([
-        # Move window to specific screen
-        Key([mod, "mod1"], str(i + 1), lazy.window.toscreen(i)),
+        # Move window to specific screen and switch to screen
+        Key(
+            [mod, "mod1"],
+            str(i + 1),
+            lazy.window.toscreen(i),
+            lazy.to_screen(i)
+        ),
         # Focus screens like if they were groups with 123456789
         Key([mod, "control"], str(i + 1), lazy.to_screen(i))
     ])

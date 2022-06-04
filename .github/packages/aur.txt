@@ -6,6 +6,7 @@ lf
 libreoffice-dev-bin
 minecraft-launcher
 mpdris2
+mycli
 nerd-fonts-hack
 notion-app
 nvim-packer-git
