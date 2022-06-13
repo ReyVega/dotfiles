@@ -58,18 +58,6 @@ essential_keys = [
         desc="Kill all windows except current"
     ),
 
-    # Switch focus of monitors
-    Key(
-        [mod, "shift"], "period",
-        lazy.next_screen(),
-        desc='Move focus to next monitor'
-    ),
-    Key(
-        [mod, "shift"], "comma",
-        lazy.prev_screen(),
-        desc='Move focus to prev monitor'
-    ),
-
     # Toggles
     Key(
         [mod], "f",
