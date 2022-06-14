@@ -34,7 +34,10 @@ key('i', '<C-q>', '<Esc><Cmd>qa!<CR>', default_opts)
 key('n', '<leader>c', '<Cmd>nohl<CR>', default_opts)
 
 -- Open terminal
-key('n', '<C-t>', '<Cmd>te<CR>', default_opts)
+key('n', '<leader>t', '<Cmd>te<CR>', default_opts)
+
+-- Open new buffer
+key('n', '<C-t>', '<Cmd>new | close<CR>', default_opts)
 
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
@@ -44,8 +47,8 @@ key('n', '<C-t>', '<Cmd>te<CR>', default_opts)
 key('n', '<TAB>', '<Cmd>BufferLineCycleNext<CR>', default_opts)
 key('n', '<S-TAB>', '<Cmd>BufferLineCyclePrev<CR>', default_opts)
 
-key('n', '<A-n>', '<Cmd>BufferLineMoveNext<CR>', default_opts)
-key('n', '<A-p>', '<Cmd>BufferLineMovePrev<CR>', default_opts)
+key('n', '<PageUp>', '<Cmd>BufferLineMoveNext<CR>', default_opts)
+key('n', '<PageDown>', '<Cmd>BufferLineMovePrev<CR>', default_opts)
 
 key('n', '<A-1>', '<Cmd>BufferLineGoToBuffer 1<CR>', default_opts)
 key('n', '<A-2>', '<Cmd>BufferLineGoToBuffer 2<CR>', default_opts)
@@ -57,12 +60,10 @@ key('n', '<A-7>', '<Cmd>BufferLineGoToBuffer 7<CR>', default_opts)
 key('n', '<A-8>', '<Cmd>BufferLineGoToBuffer 8<CR>', default_opts)
 key('n', '<A-9>', '<Cmd>BufferLineGoToBuffer 9<CR>', default_opts)
 
-key('n', '<leader>p', '<Cmd>BufferLinePick<CR>', default_opts)
-key('n', '<leader>o', '<Cmd>BufferLinePickClose<CR>', default_opts)
-key('n', '<leader>w', '<Cmd>BufDel<CR>', default_opts)
+key('n', '<leader>w', '<Cmd>Bdelete!<CR>', default_opts)
 
 -- Nvim-tree
-key('n', '<C-b>', '<Cmd>NvimTreeToggle<CR>', default_opts)
+key('n', '<leader>b', '<Cmd>NvimTreeToggle<CR>', default_opts)
 
 -- Telescope
 key("n", "<leader>fg", "<Cmd>Telescope live_grep<CR>", default_opts)

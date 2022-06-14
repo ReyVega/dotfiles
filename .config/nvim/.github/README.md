@@ -109,7 +109,7 @@
         <th>Tabline</th>
         <td>
             <a href="https://github.com/akinsho/bufferline.nvim">bufferline</a><br>
-            <a href="https://github.com/ojroques/nvim-bufdel">nvim-bufdel</a>
+            <a href="https://github.com/famiu/bufdelete.nvim">bufdelete.nvim</a>
         </td>
     </tr>
     <tr>

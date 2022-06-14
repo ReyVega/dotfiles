@@ -158,7 +158,7 @@ return require("packer").startup({function(use)
         after = "alpha-nvim",
         requires = {
             'kyazdani42/nvim-web-devicons',
-            'ojroques/nvim-bufdel',
+            'famiu/bufdelete.nvim',
             opt = true
         },
         config = Get_setup('bufferline')

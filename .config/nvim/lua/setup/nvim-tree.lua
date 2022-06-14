@@ -10,12 +10,9 @@ local g = vim.g
 -- default mappings
 local keys = {
     { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
-    { key = "<C-e>",                        action = "edit_in_place" },
-    { key = {"O"},                          action = "edit_no_picker" },
     { key = {"<2-RightMouse>", "l"},        action = "cd" },
     { key = "<C-v>",                        action = "vsplit" },
     { key = "<C-x>",                        action = "split" },
-    { key = "<C-t>",                        action = "tabnew" },
     { key = "<",                            action = "prev_sibling" },
     { key = ">",                            action = "next_sibling" },
     { key = "P",                            action = "parent_node" },
@@ -140,7 +137,7 @@ require'nvim-tree'.setup {
         update_cwd = false,
         ignore_list = {},
     },
-    ignore_ft_on_setup = {"alpha"},
+    ignore_ft_on_setup = {"alpha", "startify", "dashboard"},
     system_open = {
         cmd = "",
         args = {},
