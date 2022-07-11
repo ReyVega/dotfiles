@@ -32,6 +32,7 @@ dashboard.section.buttons.val = {
     dashboard.button('f', '  Find file', '<Cmd>Telescope find_files<CR>'),
     dashboard.button('s', '漣 Settings', '<Cmd>cd ~/.config/nvim/ <bar> e init.lua<CR>'),
     dashboard.button('u', '  Update plugins', '<Cmd>PackerSync<CR>'),
+    dashboard.button('a', '力 LSP servers', '<Cmd>LspInstallInfo<CR>'),
     dashboard.button('q', '  Quit', '<Cmd>qa!<CR>'),
 }
 

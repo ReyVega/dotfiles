@@ -7,18 +7,35 @@
 
 local lsp_installer = require("nvim-lsp-installer")
 
--- Provide settings first!
 lsp_installer.settings {
+    ensure_installed = {},
+    automatic_installation = false,
     ui = {
+        check_outdated_servers_on_open = true,
+        border = "rounded",
         icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗",
+            server_installed = "◍",
+            server_pending = "◍",
+            server_uninstalled = "◍",
+        },
+        keymaps = {
+            toggle_server_expand = "<CR>",
+            install_server = "i",
+            update_server = "u",
+            check_server_version = "c",
+            update_all_servers = "U",
+            check_outdated_servers = "C",
+            uninstall_server = "X",
         },
     },
-    -- Limit for the maximum amount of servers to be installed at the same time. Once this limit is reached, any further
-    -- servers that are requested to be installed will be put in a queue.
+    pip = {
+        install_args = {},
+    },
+    log_level = vim.log.levels.INFO,
     max_concurrent_installers = 4,
+    github = {
+        download_url_template = "https://github.com/%s/releases/download/%s/%s",
+    },
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
