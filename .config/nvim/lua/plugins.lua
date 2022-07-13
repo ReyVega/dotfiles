@@ -84,6 +84,12 @@ return require("packer").startup({function(use)
     -- Surround everything
     use {"https://github.com/tpope/vim-surround"}
 
+    -- Keybindings menu
+    use {
+        "folke/which-key.nvim",
+        config = Get_setup("which-key")
+    }
+
     -- Comments
     use {
         'b3nj5m1n/kommentary',
@@ -211,6 +217,13 @@ return require("packer").startup({function(use)
     use {
         'williamboman/nvim-lsp-installer',
         config = Get_setup('nvim-lsp-installer')
+    }
+
+    -- LSP better actions
+    use {
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        config = Get_setup("lspsaga")
     }
 
     -- Automatically set up your configuration after cloning packer.nvim

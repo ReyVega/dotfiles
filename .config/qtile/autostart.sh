@@ -32,3 +32,5 @@ mpd &
 mpDris2 &
 # Internet
 nm-applet &
+# Disable beep
+xset -b

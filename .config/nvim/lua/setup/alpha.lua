@@ -7,35 +7,129 @@
 
 local alpha = require('alpha')
 local dashboard = require('alpha.themes.dashboard')
+local configure_path = "~/.config/nvim"
 
--- setup footer
-local function footer()
-    local datetime = os.date('%b %d %y, %H:%M')
-    return datetime
+
+-- Colors Header
+vim.api.nvim_command [[ hi StartLogo1 guifg=#5E81AC ]]
+vim.api.nvim_command [[ hi StartLogo2 guifg=#5E81AC ]]
+vim.api.nvim_command [[ hi StartLogo3 guifg=#5E81AC ]]
+vim.api.nvim_command [[ hi StartLogo4 guifg=#5E81AC ]]
+vim.api.nvim_command [[ hi StartLogo5 guifg=#5E81AC ]]
+vim.api.nvim_command [[ hi StartLogo6 guifg=#5E81AC ]]
+vim.api.nvim_command [[ hi StartLogo7 guifg=#5E81AC ]]
+vim.api.nvim_command [[ hi StartLogo8 guifg=#5E81AC ]]
+
+
+-- Colors
+vim.api.nvim_command [[ hi AlphaButton guifg=#ECEFF4 ]]
+vim.api.nvim_command [[ hi AlphaButtonShortcut guifg=#D08770 ]]
+vim.api.nvim_command [[ hi AlphaFooter guifg=#EBCB8B ]]
+
+
+-- Setup button
+local function button(sc, txt, keybind, keybind_opts)
+  local b = dashboard.button(sc, txt, keybind, keybind_opts)
+  b.opts.hl = "AlphaButton"
+  b.opts.hl_shortcut = "AlphaButtonShortcut"
+  return b
 end
 
--- header
-dashboard.section.header.val = {
-    "                                                    ",
-    " ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-    " ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-    " ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-    " ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-    " ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-    " ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-    "                                                    ",
+
+-- Setup footer
+local function footer()
+    local total_plugins = #vim.tbl_keys(packer_plugins)
+    local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
+    local version = vim.version()
+    local nvim_version_info = "   " .. version.major .. "." .. version.minor .. "." .. version.patch
+    return datetime .. "   " .. total_plugins .. " plugins" .. nvim_version_info
+end
+
+
+-- Header
+local header = {
+    [[                                                                   ]],
+    [[      ████ ██████           █████      ██                    ]],
+    [[     ███████████             █████                            ]],
+    [[     █████████ ███████████████████ ███   ███████████  ]],
+    [[    █████████  ███    █████████████ █████ ██████████████  ]],
+    [[   █████████ ██████████ █████████ █████ █████ ████ █████  ]],
+    [[ ███████████ ███    ███ █████████ █████ █████ ████ █████ ]],
+    [[██████  █████████████████████ ████ █████ █████ ████ ██████]],
 }
 
--- menu
+
+-- Colorize header
+local function colorize_header()
+    local lines = {}
+    for i, chars in pairs(header) do
+        local line = {
+            type = "text",
+            val = chars,
+            opts = {
+                hl = "StartLogo" .. i,
+                shrink_margin = false,
+                position = "center",
+            },
+        }
+        table.insert(lines, line)
+    end
+    return lines
+end
+
+
+-- Menu
 dashboard.section.buttons.val = {
-    dashboard.button('n', '  New file', '<Cmd>ene <BAR> startinsert<CR>'),
-    dashboard.button('f', '  Find file', '<Cmd>Telescope find_files<CR>'),
-    dashboard.button('s', '漣 Settings', '<Cmd>cd ~/.config/nvim/ <bar> e init.lua<CR>'),
-    dashboard.button('u', '  Update plugins', '<Cmd>PackerSync<CR>'),
-    dashboard.button('a', '力 LSP servers', '<Cmd>LspInstallInfo<CR>'),
-    dashboard.button('q', '  Quit', '<Cmd>qa!<CR>'),
+    button('n', '  New file', '<Cmd>ene <BAR> startinsert<CR>'),
+    button('f', '  Find file', '<Cmd>Telescope find_files<CR>'),
+    button('s', '漣 Settings', ':cd' .. configure_path .. '<CR>:e init.lua<CR>'),
+    button('u', '  Update plugins', '<Cmd>PackerSync<CR>'),
+    button('a', '力 LSP servers', '<Cmd>LspInstallInfo<CR>'),
+    button('q', '  Quit', '<Cmd>qa!<CR>'),
 }
 
+
+-- Footer
 dashboard.section.footer.val = footer()
-dashboard.config.opts.noautocmd = true
-alpha.setup(dashboard.config)
+dashboard.section.footer.opts.hl = "AlphaFooter"
+
+
+-- Disable many features only when being in the dashboard
+-- to make prettier the interface
+vim.api.nvim_create_autocmd("User", {
+    group = group,
+    pattern = "AlphaReady",
+    callback = function()
+        vim.opt.showtabline = 0
+        vim.opt.laststatus = 0
+        vim.opt.showmode = false
+        vim.opt.showcmd = false
+        vim.opt.ruler = false
+    end,
+})
+
+vim.api.nvim_create_autocmd("BufUnload", {
+    group = group,
+    pattern = "<buffer>",
+    callback = function()
+        vim.opt.showtabline = 2
+        vim.opt.laststatus = 2
+        vim.opt.showmode = true
+        vim.opt.showcmd = true
+        vim.opt.ruler = true
+    end,
+})
+
+
+-- Setup
+alpha.setup({
+    layout = {
+        { type = "padding", val = 2 },
+        { type = "group", val = colorize_header() },
+        { type = "padding", val = 4 },
+        dashboard.section.buttons,
+        { type = "padding", val = 2 },
+        dashboard.section.footer,
+    },
+    opts = { margin = 5 },
+})

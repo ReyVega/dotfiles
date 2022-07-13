@@ -31,7 +31,7 @@ key('n', '<C-q>', '<Cmd>qa!<CR>', default_opts)
 key('i', '<C-q>', '<Esc><Cmd>qa!<CR>', default_opts)
 
 -- Clear search highlighting
-key('n', '<leader>c', '<Cmd>nohl<CR>', default_opts)
+key('n', '<leader>cl', '<Cmd>nohl<CR>', default_opts)
 
 -- Open terminal
 key('n', '<leader>t', '<Cmd>te<CR>', default_opts)
@@ -80,25 +80,22 @@ g.kommentary_create_default_mappings = false
 key("n", "<leader>k", "<Plug>kommentary_line_default", {})
 key("x", "<leader>k", "<Plug>kommentary_visual_default<C-c>", {})
 
--- Lsp native commands
-key('n', '<C-p>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', default_opts)
-key('n', '<C-n>', '<cmd>lua vim.diagnostic.goto_next()<CR>', default_opts)
-key('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', default_opts)
-key('n', '<C-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', default_opts)
-key('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', default_opts)
-key('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', default_opts)
-
--- key('n', '<space>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', default_opts)
--- key('n', '<space>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', default_opts)
--- key('n', 'gh', '<cmd>lua vim.lsp.buf.definition()<CR>', default_opts)
--- key('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', default_opts)
--- key('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', default_opts)
--- key('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', default_opts)
--- key('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', default_opts)
--- key('n', '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>', default_opts)
--- key('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', default_opts)
--- key('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', default_opts)
--- key('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', default_opts)
+-- Lspsaga commands
+key("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", default_opts)
+key("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", default_opts)
+key("n", "<C-n>", "<cmd>Lspsaga diagnostic_jump_next<CR>", default_opts)
+key("n", "<C-p>", "<cmd>Lspsaga diagnostic_jump_prev<CR>", default_opts)
+key("n", "gr", "<cmd>Lspsaga rename<CR>", default_opts)
+key("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", default_opts)
+key("v", "<leader>ca", "<cmd>Lspsaga range_code_action<CR>", default_opts)
+key("n", "K", "<cmd>Lspsaga hover_doc<CR>", default_opts)
+key("n", "gs", "<cmd>Lspsaga signature_help<CR>", default_opts)
+key("n", "gd", "<cmd>Lspsaga preview_definition<CR>", default_opts)
+key("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", default_opts)
+key("t", "<A-d>", "<C-\\><C-n><cmd>Lspsaga close_floaterm<CR>", default_opts)
 
 -- Code formatter.
-key("n", "<C-f>", "<Cmd>Neoformat<CR>", default_opts)
+key("n", "gf", "<Cmd>Neoformat<CR>", default_opts)
+
+-- Markdwn preview
+key("n", "<leader>m", "<Cmd>MarkdownPreview<CR>", default_opts)

@@ -1,4 +1,3 @@
-<h1>VS Neovim</h1>
 <p align="center">
     <img src="./screenshots/neovim-logo.png" width="60%" />
 </p>
@@ -18,6 +17,7 @@
 │   │   ├── 🌑 impatient.lua
 │   │   ├── 🌑 indent-blankline.lua
 │   │   ├── 🌑 kommentary.lua
+│   │   ├── 🌑 lspsaga.lua
 │   │   ├── 🌑 lualine.lua
 │   │   ├── 🌑 luasnip.lua
 │   │   ├── 🌑 nvim-autopairs.lua
@@ -28,7 +28,8 @@
 │   │   ├── 🌑 nvim-tree.lua
 │   │   ├── 🌑 nvim-treesitter.lua
 │   │   ├── 🌑 nvim-ts-autotag.lua
-│   │   └── 🌑 telescope.lua
+│   │   ├── 🌑 telescope.lua
+│   │   └── 🌑 which-key.lua
 │   ├── 🌑 mappings.lua
 │   ├── 🌑 plugins.lua
 │   └── 🌑 settings.lua
@@ -131,6 +132,7 @@
         <th>LSP</th>
         <td>
             <a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig</a> <br>
+            <a href="https://github.com/glepnir/lspsaga.nvim">lspsaga</a> <br>
             <a href="https://github.com/williamboman/nvim-lsp-installer">nvim-lsp-installer</a>
         </td>
     </tr>
@@ -176,6 +178,7 @@
             <a href="https://github.com/windwp/nvim-ts-autotag">nvim-ts-autotags</a> <br>
             <a href="https://github.com/andymass/vim-matchup">vim-matchup</a> <br>
             <a href="https://github.com/tpope/vim-surround">vim-surround</a> <br>
+            <a href="https://github.com/folke/which-key.nvim">which-key</a> <br>
         </td>
     </tr>
     <tr>
@@ -214,4 +217,14 @@
 <h3>Terminal (native)</h3>
 <p align="center">
     <img src="./screenshots/neovim-terminal.png" width="80%" />
+</p>
+
+<h3>Terminal (lspsaga)</h3>
+<p align="center">
+    <img src="./screenshots/neovim-terminal-2.png" width="80%" />
+</p>
+
+<h3>Help with keybindings (which-key)</h3>
+<p align="center">
+    <img src="./screenshots/neovim-which-key.png" width="80%" />
 </p>

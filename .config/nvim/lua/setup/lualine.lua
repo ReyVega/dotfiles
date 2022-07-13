@@ -39,7 +39,7 @@ require('lualine').setup {
         icons_enabled = true,
         theme = bubbles_theme,
         component_separators = '|',
-        disabled_filetypes = {"NvimTree"},
+        disabled_filetypes = {"NvimTree", "alpha"},
         section_separators = { left = '', right = '' },
         always_divide_middle = true,
         globalstatus = false,
