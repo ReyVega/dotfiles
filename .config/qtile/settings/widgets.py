@@ -26,7 +26,9 @@ def separator():
 #---------------------------------------------------------------
 def primary_widgets(visible_groups):
     return [
-         widget.GroupBox(
+        widget.Sep(**base(), linewidth=0, padding=6, size_percent=40),
+
+        widget.GroupBox(
             **base(fg='color15'),
             fontsize=12,
             padding_x=7,
@@ -45,24 +47,53 @@ def primary_widgets(visible_groups):
             visible_groups=visible_groups
         ),
 
-        widget.Systray(
-             background=colors['color1'],
-             padding=10,
+        widget.TextBox(
+            text="",
+            foreground=colors["color1"],
+            padding=-1,
+            fontsize=26,
         ),
 
-        widget.Spacer(**base()),
+        widget.Sep(linewidth=0, padding=6, size_percent=40),
+
+        widget.Systray(
+             padding=4,
+        ),
+
+        widget.Spacer(),
+
+        widget.TextBox(
+            text="",
+            foreground=colors["color1"],
+            padding=-1,
+            fontsize=26,
+        ),
 
         widget.WindowName(
             **base(fg='color9'),
             width=bar.CALCULATED,
             empty_group_string="Desktop",
             fontsize=14,
-            max_chars=45,
+            max_chars=30,
         ),
 
-        widget.Spacer(**base()),
+        widget.TextBox(
+            text="",
+            foreground=colors["color1"],
+            padding=-1,
+            fontsize=26,
+        ),
 
-        separator(),
+        widget.Spacer(),
+
+        widget.Sep(linewidth=0, padding=14, size_percent=40),
+
+        widget.TextBox(
+            text="",
+            foreground=colors["color1"],
+            padding=-1,
+            fontsize=26,
+        ),
 
         widget.CheckUpdates(
             **base(),
@@ -130,8 +161,7 @@ def primary_widgets(visible_groups):
             padding=-6,
             scale=0.6,
         ),
-
-        separator(),
+        separator()
     ]
 
 
@@ -140,6 +170,8 @@ def primary_widgets(visible_groups):
 #---------------------------------------------------------------
 def secondary_widgets(visible_groups):
     return [
+        widget.Sep(**base(), linewidth=0, padding=6, size_percent=40),
+
         widget.GroupBox(
             **base(fg='color15'),
             fontsize=12,
@@ -159,7 +191,21 @@ def secondary_widgets(visible_groups):
             visible_groups=visible_groups
         ),
 
-        widget.Spacer(**base()),
+        widget.TextBox(
+            text="",
+            foreground=colors["color1"],
+            padding=-1,
+            fontsize=26,
+        ),
+
+        widget.Spacer(),
+
+        widget.TextBox(
+            text="",
+            foreground=colors["color1"],
+            padding=-1,
+            fontsize=26,
+        ),
 
         widget.WindowName(
             **base(fg='color9'),
@@ -169,9 +215,23 @@ def secondary_widgets(visible_groups):
             max_chars=45,
         ),
 
-        widget.Spacer(**base()),
+        widget.TextBox(
+            text="",
+            foreground=colors["color1"],
+            padding=-1,
+            fontsize=26,
+        ),
 
-        separator(),
+        widget.Spacer(),
+
+        widget.Sep(linewidth=0, padding=14, size_percent=40),
+
+        widget.TextBox(
+            text="",
+            foreground=colors["color1"],
+            padding=-1,
+            fontsize=26,
+        ),
 
         widget.GenPollText(
             **base(fg='color5'),
@@ -205,7 +265,12 @@ def secondary_widgets(visible_groups):
             scale=0.6,
         ),
 
-        separator(),
+        widget.TextBox(
+            text="",
+            foreground=colors["color1"],
+            padding=-1,
+            fontsize=26,
+        ),
     ]
 
 

@@ -151,6 +151,7 @@ require("nvim-tree").setup {
     diagnostics = {
         enable = true,
         show_on_dirs = false,
+        debounce_delay = 50,
         icons = {
             hint = " ",
             info = " ",
@@ -165,7 +166,6 @@ require("nvim-tree").setup {
     },
     filesystem_watchers = {
         enable = false,
-        interval = 100,
         debounce_delay = 50,
     },
     git = {
@@ -216,6 +216,7 @@ require("nvim-tree").setup {
             all = false,
             config = false,
             copy_paste = false,
+            dev = false,
             diagnostics = false,
             git = false,
             profile = false,

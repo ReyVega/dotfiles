@@ -3,6 +3,7 @@ from libqtile import bar, qtile
 from libqtile.lazy import lazy
 from .widgets import primary_widgets, secondary_widgets
 from .wallpaper import wallpaper
+from .theme import colors
 
 #---------------------------------------------------------------
 #-- Initialize variables
@@ -15,7 +16,13 @@ mod = "mod4"
 #-- Function which returns bar with widgets
 #---------------------------------------------------------------
 def status_bar(widgets):
-    return bar.Bar(widgets, 26, opacity=0.92, margin=[10,10,10,10])
+    return bar.Bar(
+        widgets,
+        26,
+        opacity=1,
+        margin=[10, 10, 10, 10],
+        background=colors["color_bar"]
+    )
 
 
 #---------------------------------------------------------------

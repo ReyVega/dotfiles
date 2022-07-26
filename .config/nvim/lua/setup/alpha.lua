@@ -7,7 +7,6 @@
 
 local alpha = require('alpha')
 local dashboard = require('alpha.themes.dashboard')
-local configure_path = "~/.config/nvim"
 
 
 -- Colors Header
@@ -22,7 +21,7 @@ vim.api.nvim_command [[ hi StartLogo8 guifg=#5E81AC ]]
 
 
 -- Colors
-vim.api.nvim_command [[ hi AlphaButton guifg=#ECEFF4 ]]
+vim.api.nvim_command [[ hi AlphaButton guifg=#A3BE8C ]]
 vim.api.nvim_command [[ hi AlphaButtonShortcut guifg=#D08770 ]]
 vim.api.nvim_command [[ hi AlphaFooter guifg=#EBCB8B ]]
 
@@ -30,7 +29,7 @@ vim.api.nvim_command [[ hi AlphaFooter guifg=#EBCB8B ]]
 -- Setup button
 local function button(sc, txt, keybind, keybind_opts)
   local b = dashboard.button(sc, txt, keybind, keybind_opts)
-  b.opts.hl = "AlphaButton"
+  b.opts.hl = {{"AlphaButton", 2, 3}}
   b.opts.hl_shortcut = "AlphaButtonShortcut"
   return b
 end
@@ -48,14 +47,12 @@ end
 
 -- Header
 local header = {
-    [[                                                                   ]],
-    [[      ████ ██████           █████      ██                    ]],
-    [[     ███████████             █████                            ]],
-    [[     █████████ ███████████████████ ███   ███████████  ]],
-    [[    █████████  ███    █████████████ █████ ██████████████  ]],
-    [[   █████████ ██████████ █████████ █████ █████ ████ █████  ]],
-    [[ ███████████ ███    ███ █████████ █████ █████ ████ █████ ]],
-    [[██████  █████████████████████ ████ █████ █████ ████ ██████]],
+    [[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
+    [[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
+    [[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
+    [[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
+    [[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
+    [[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]]
 }
 
 
@@ -82,9 +79,10 @@ end
 dashboard.section.buttons.val = {
     button('n', '  New file', '<Cmd>ene <BAR> startinsert<CR>'),
     button('f', '  Find file', '<Cmd>Telescope find_files<CR>'),
-    button('s', '漣 Settings', ':cd' .. configure_path .. '<CR>:e init.lua<CR>'),
+    button('r', "  Recently used files", "<Cmd>Telescope oldfiles<CR>"),
     button('u', '  Update plugins', '<Cmd>PackerSync<CR>'),
     button('a', '力 LSP servers', '<Cmd>LspInstallInfo<CR>'),
+    button('s', '漣 Settings', '<Cmd>e $MYVIMRC | :cd %:p:h | NvimTreeFocus<CR>'),
     button('q', '  Quit', '<Cmd>qa!<CR>'),
 }
 
@@ -124,7 +122,7 @@ vim.api.nvim_create_autocmd("BufUnload", {
 -- Setup
 alpha.setup({
     layout = {
-        { type = "padding", val = 2 },
+        { type = "padding", val = 4 },
         { type = "group", val = colorize_header() },
         { type = "padding", val = 4 },
         dashboard.section.buttons,
