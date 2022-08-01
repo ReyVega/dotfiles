@@ -79,10 +79,15 @@ layout_keys = [
         lazy.layout.rotate(),
     ),
 
-    # Floating
+    # Minimize windows
     Key([mod, "shift"], "i",
-        lazy.window.toggle_minimize(),
-        lazy.group.next_window(),
+        lazy.spawn("minimize -m"),
     ),
+
+    Key([mod, "control"], "i",
+        lazy.spawn("minimize -u name"),
+    ),
+
+    # Floating
     Key([mod, "shift"], "o", float_to_front),
 ]

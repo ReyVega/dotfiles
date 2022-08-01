@@ -79,7 +79,6 @@ rofi
 sddm
 starship
 sudo
-tesseract
 texinfo
 tlp
 trash-cli

@@ -5,31 +5,29 @@ timeout=1500
 icon_bar=""
 
 function get_brightness {
-    brightnessctl -d 'amdgpu_bl0' get
+    brightnessctl i | grep % | awk "{print \$4}" | tr -d '()'
 }
 
 function send_notification {
     brightness=$(get_brightness)
-    brightness=$((brightness * 100 / 255))
 
     # Send the notification
-    dunstify "Brightness: $brightness%" -h "int:value:$brightness" -u low -t $timeout -r $notify_id -i "$icon"
+    dunstify "Brightness: $brightness" -h "int:value:$brightness" -u low -t $timeout -r $notify_id -i "$icon"
 }
 
 case $1 in
     up)
         # Increase the backlight by 10%
-        brightnessctl -d 'amdgpu_bl0' set +10%
+        brightnessctl s +10%
         send_notification
         ;;
     down)
         # Decrease the backlight by 10%
-        brightnessctl -d 'amdgpu_bl0' set 10%-
+        brightnessctl s 10%-
         send_notification
         ;;
     *)
         brightness=$(get_brightness)
-        brightness=$((brightness * 100 / 255))
-        printf "%s" "$icon_bar $brightness%"
+        printf "%s" "$icon_bar $brightness"
         ;;
 esac

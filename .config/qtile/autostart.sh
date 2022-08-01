@@ -1,12 +1,24 @@
 #!/bin/bash
 
+# Variables
+# us, es, latam
+k_layout="latam"
+
 # Automatically setup dual setup when plugging/unplugging HDMI
 monitor-setup &
+
 # Allow certain functionalities
 lxsession &
+
+# Keyboard layout
+setxkbmap $k_layout
+
 # picom
 picom --experimental-backends -b
+
 # Suspend laptop after certain time
+xset -dpms
+xset s off
 xidlehook \
     --not-when-fullscreen \
     --not-when-audio \
@@ -19,18 +31,21 @@ xidlehook \
     --timer 900 \
     'systemctl suspend' \
     '' &
+
 # Default brightness
-brightnessctl -d 'amdgpu_bl0' set 80%
-# Default volume
-pactl -- set-sink-volume 0 50%
+brightnessctl s 80%
+
 # Dunst notifications
 killall dunst
 dunst &
+
 # Mpd
 killall mpd
 mpd &
 mpDris2 &
+
 # Internet
 nm-applet &
-# Disable beep
+
+# Disable beep bell
 xset -b

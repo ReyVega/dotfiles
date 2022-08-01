@@ -4,11 +4,13 @@ notify_id=5556
 timeout=1500
 
 function get_volume {
-    pactl list sinks | grep -A8 -P "RUNNING" | grep -P "\d+\s*\/\s*\d+\%" | head -1 | awk "{print \$5}"
+    default_sink=$(pactl get-default-sink)
+    pactl list sinks | grep -A8 -P $default_sink | grep -P "\d+\s*\/\s*\d+\%" | head -1 | awk "{print \$5}"
 }
 
 function is_mute {
-    pactl list sinks | grep -A8 -P "RUNNING" | grep Mute | awk "{print \$2}"
+    default_sink=$(pactl get-default-sink)
+    pactl list sinks | grep -A8 -P $default_sink | grep Mute | awk "{print \$2}"
 }
 
 function get_volume_icon {

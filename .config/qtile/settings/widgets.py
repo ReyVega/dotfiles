@@ -54,10 +54,9 @@ def primary_widgets(visible_groups):
             fontsize=26,
         ),
 
-        widget.Sep(linewidth=0, padding=6, size_percent=40),
-
         widget.Systray(
-             padding=4,
+             padding=10,
+             icon_size=16,
         ),
 
         widget.Spacer(),
