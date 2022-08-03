@@ -84,7 +84,7 @@ layout_keys = [
         lazy.spawn("minimize -m"),
     ),
 
-    Key([mod, "control"], "i",
+    Key([mod, "mod1"], "i",
         lazy.spawn("minimize -u name"),
     ),
 

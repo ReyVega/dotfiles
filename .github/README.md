@@ -13,6 +13,8 @@
 <h2>Rofi</h2>
 <h3>Menu</h3>
 <img src="screenshots/rofi-menu.png" />
+<h3>Minimize/Unminimize windows</h3>
+<img src="screenshots/rofi-windows.png" />
 <h3>Powermenu</h3>
 <img src="screenshots/rofi-powermenu.png" />
 

@@ -18,11 +18,8 @@ c = InteractiveCommandClient()
 
 # Minimize windows
 def minimize():
-    if c.window.info()["minimized"] is False:
-        c.window.toggle_minimize()
-        c.group.next_window()
-    else:
-        c.window.toggle_minimize()
+    c.window.toggle_minimize()
+    c.group.next_window()
 
 
 # Get all icons
@@ -68,7 +65,7 @@ def get_minimized_windows(icons: list) -> list[dict]:
 
     for window in c.windows():
         item = {}
-        if window["minimized"] is True:
+        if window["minimized"]:
             item["id"] = window["id"]
             item["wm_class"] = window["wm_class"][0]
             item["name"] = window["name"]
@@ -124,7 +121,7 @@ def main():
         icons = get_all_icons()
         minimized_windows = get_minimized_windows(icons)
         rofi_menu_options = build_menu_options(minimized_windows, args.unminimize)
-        command = f"echo -en '{rofi_menu_options}'| rofi -dmenu -multi-select -format i"
+        command = f"echo -en '{rofi_menu_options}'| rofi -dmenu -i -multi-select -format i"
 
         try:
             result = subprocess.check_output(
