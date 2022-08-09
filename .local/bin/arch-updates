@@ -1,5 +1,5 @@
 #!/bin/bash
-file="$HOME/.local/bin/tmp/updates"
+file="/tmp/updates"
 terminal=kitty
 
 case $1 in

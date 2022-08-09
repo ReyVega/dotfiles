@@ -1,6 +1,6 @@
 #!/bin/bash
 time="1200s"
-file="$HOME/.local/bin/tmp/updates"
+file="/tmp/updates"
 
 while [ 1 ]
 do
