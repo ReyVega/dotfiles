@@ -1,0 +1,4 @@
+#!/bin/bash
+hour=$(date +"%H:%M")
+
+printf %s " $hour"

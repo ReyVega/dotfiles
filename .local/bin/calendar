@@ -1,7 +1,14 @@
 #!/bin/bash
-icon=""
-
+ACTION="$HOME/.local/bin/calendar-notification"
+icon=""
 hour=$(date +"%H:%M")
 date=$(date +"%b %d %Y")
 
-printf "%s" "$icon $date ($hour)"
+case $1 in
+    curr) $ACTION curr;;
+	next)  $ACTION next;;
+	prev) $ACTION prev;;
+    *)
+        printf "%s" "$icon $date"
+        ;;
+esac

@@ -49,3 +49,6 @@ nm-applet &
 
 # Disable beep bell
 xset -b
+
+# Arch updates daemon
+updates-daemon &

@@ -94,17 +94,13 @@ def primary_widgets(visible_groups):
             fontsize=26,
         ),
 
-        widget.CheckUpdates(
-            **base(),
-            update_interval=1200,
-            colour_have_updates=colors['color3'],
-            colour_no_updates=colors['color3'],
-            distro='Arch_paru',
-            custom_command='arch-updates',
-            display_format='{updates}',
-            no_update_string='0',
-            fmt=' {}',
-            execute='kitty -e paru',
+        widget.GenPollText(
+            **base(fg='color3'),
+            func=lambda: subprocess.check_output(["arch-updates"], encoding="utf-8"),
+            mouse_callbacks={
+                'Button1': lazy.spawn("arch-updates action"),
+            },
+            update_interval=1,
         ),
 
         separator(),
@@ -136,8 +132,21 @@ def primary_widgets(visible_groups):
         separator(),
 
         widget.GenPollText(
+            **base(fg='color6'),
+            func=lambda: subprocess.check_output(["hour"], encoding="utf-8"),
+            update_interval=1,
+        ),
+
+        separator(),
+
+        widget.GenPollText(
             **base(fg='color10'),
             func=lambda: subprocess.check_output(["calendar"], encoding="utf-8"),
+            mouse_callbacks={
+                'Button1': lazy.spawn("calendar curr"),
+                'Button5': lazy.spawn("calendar next"),
+                'Button4': lazy.spawn("calendar prev")
+            },
             update_interval=1,
         ),
 

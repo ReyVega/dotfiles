@@ -1,0 +1,11 @@
+#!/bin/bash
+time="1200s"
+file="$HOME/.local/bin/tmp/updates"
+
+while [ 1 ]
+do
+    updates=$(checkupdates | wc -l)
+    aur_updates=$(paru -Qua | wc -l)
+
+    echo $(($updates + $aur_updates)) > $file && sleep $time
+done
