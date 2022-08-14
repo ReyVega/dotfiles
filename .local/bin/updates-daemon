@@ -1,11 +1,16 @@
 #!/bin/bash
-time="1200s"
-file="/tmp/updates"
+TIME=1200s
+DAEMON_PATH=/tmp/arch-updates
+mkdir -p $DAEMON_PATH
+UPDATES_FILE=$DAEMON_PATH/updates
+STATUS_FILE=$DAEMON_PATH/status
+echo 0 > $UPDATES_FILE
+echo 0 > $STATUS_FILE
 
 while [ 1 ]
 do
     updates=$(checkupdates | wc -l)
     aur_updates=$(paru -Qua | wc -l)
 
-    echo $(($updates + $aur_updates)) > $file && sleep $time
+    echo $(($updates + $aur_updates)) > $UPDATES_FILE && sleep "$TIME"
 done
