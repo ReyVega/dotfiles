@@ -81,7 +81,7 @@ dashboard.section.buttons.val = {
     button('f', '  Find file', '<Cmd>Telescope find_files<CR>'),
     button('r', "  Recently used files", "<Cmd>Telescope oldfiles<CR>"),
     button('u', '  Update plugins', '<Cmd>PackerSync<CR>'),
-    button('a', '力 LSP servers', '<Cmd>LspInstallInfo<CR>'),
+    button('a', '力 LSP servers', '<Cmd>Mason<CR>'),
     button('s', '漣 Settings', '<Cmd>e $MYVIMRC | :cd %:p:h | NvimTreeFocus<CR>'),
     button('q', '  Quit', '<Cmd>qa!<CR>'),
 }

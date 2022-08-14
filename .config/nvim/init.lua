@@ -11,8 +11,8 @@
 -- Import Lua modules
 -----------------------------------------------------------
 
+require('plugins')
 require('setup/impatient')
 require('setup/filetype')
 require('settings')
 require('mappings')
-require('plugins')

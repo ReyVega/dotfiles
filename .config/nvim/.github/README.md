@@ -20,10 +20,10 @@
 │   │   ├── 🌑 lspsaga.lua
 │   │   ├── 🌑 lualine.lua
 │   │   ├── 🌑 luasnip.lua
+│   │   ├── 🌑 mason.lua
 │   │   ├── 🌑 nvim-autopairs.lua
 │   │   ├── 🌑 nvim-cmp.lua
 │   │   ├── 🌑 nvim-colorizer.lua
-│   │   ├── 🌑 nvim-lsp-installer.lua
 │   │   ├── 🌑 nvim-lspconfig.lua
 │   │   ├── 🌑 nvim-tree.lua
 │   │   ├── 🌑 nvim-treesitter.lua
@@ -133,7 +133,8 @@
         <td>
             <a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig</a> <br>
             <a href="https://github.com/glepnir/lspsaga.nvim">lspsaga</a> <br>
-            <a href="https://github.com/williamboman/nvim-lsp-installer">nvim-lsp-installer</a>
+            <a href="https://github.com/williamboman/mason">mason</a> <br>
+            <a href="https://github.com/williamboman/mason-lspconfig.nvim">mason-lspconfig</a>
         </td>
     </tr>
     <tr>

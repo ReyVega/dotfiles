@@ -215,8 +215,9 @@ return require("packer").startup({function(use)
 
     -- LSP support and installer (To detect programming languages and other functionalities)
     use {
-        'williamboman/nvim-lsp-installer',
-        config = Get_setup('nvim-lsp-installer')
+        "williamboman/mason.nvim",
+        requires = {"williamboman/mason-lspconfig.nvim"},
+        config = Get_setup('mason')
     }
 
     -- LSP better actions
