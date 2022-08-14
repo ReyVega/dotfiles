@@ -1,7 +1,10 @@
 from libqtile.config import Key
 from libqtile.command import lazy
 from libqtile.utils import guess_terminal
-from .custom_functions import *
+from .custom_functions import (
+    kill_all_windows,
+    kill_all_windows_except_current
+)
 
 #---------------------------------------------------------------
 #-- Initialize variables

@@ -1,5 +1,4 @@
-from libqtile.config import Group, Match, Key
-from libqtile.lazy import lazy
+from libqtile.config import Group, Key
 from libqtile.command import lazy
 from libqtile import hook, qtile
 
@@ -171,25 +170,19 @@ for item in groups_settings:
 #---------------------------------------------------------------
 #-- Manage workspaces as independent with 123456789
 #---------------------------------------------------------------
-def go_to_group(name):
-
-    def __inner(qtile):
-        current_screen = str(qtile.screens.index(qtile.current_screen))
-        qtile.groups_map[current_screen + name].cmd_toscreen(toggle=False)
-
-    return __inner
+@lazy.function
+def go_to_group(qtile, name):
+    current_screen = str(qtile.screens.index(qtile.current_screen))
+    qtile.groups_map[current_screen + name].cmd_toscreen(toggle=False)
 
 
 #---------------------------------------------------------------
 #-- Switch windows within independent workspaces with 123456789
 #---------------------------------------------------------------
-def switch_to_group(name):
-
-    def __inner(qtile):
-        current_screen = str(qtile.screens.index(qtile.current_screen))
-        qtile.current_window.cmd_togroup(current_screen + name, switch_group=True)
-
-    return __inner
+@lazy.function
+def switch_to_group(qtile, name):
+    current_screen = str(qtile.screens.index(qtile.current_screen))
+    qtile.current_window.cmd_togroup(current_screen + name, switch_group=True)
 
 
 #---------------------------------------------------------------
@@ -198,33 +191,31 @@ def switch_to_group(name):
 for i in range(1, 10):
     keys_group.extend([
         # Switch among groups
-        Key([mod], str(i), lazy.function(go_to_group(str(i)))),
+        Key([mod], str(i), go_to_group(str(i))),
+
         # Send window and switch to group N
-        Key([mod, "shift"], str(i), lazy.function(switch_to_group(str(i))))
+        Key([mod, "shift"], str(i), switch_to_group(str(i))),
     ])
 
 
 #---------------------------------------------------------------
 #-- Move between next/prev groups within independent workspaces
 #---------------------------------------------------------------
-def scroll_screen(direction):
+@lazy.function
+def scroll_screen(qtile, direction):
+    current = qtile.groups.index(qtile.current_group)
+    screen = qtile.screens.index(qtile.current_screen)
 
-    def _inner(qtile):
-        current = qtile.groups.index(qtile.current_group)
-        screen = qtile.screens.index(qtile.current_screen)
-
-        destination = ((current - (9 * screen) + direction) % 9) + (9 * screen)
-        qtile.groups[destination].cmd_toscreen()
-
-    return _inner
+    destination = ((current - (9 * screen) + direction) % 9) + (9 * screen)
+    qtile.groups[destination].cmd_toscreen()
 
 
 #---------------------------------------------------------------
 #-- Extend keys_group with scrolling bindings
 #---------------------------------------------------------------
 keys_group.extend([
-    Key([mod], 'period', lazy.function(scroll_screen(1))),
-    Key([mod], 'comma', lazy.function(scroll_screen(-1))),
+    Key([mod], 'period', scroll_screen(1)),
+    Key([mod], 'comma', scroll_screen(-1)),
 ])
 
 

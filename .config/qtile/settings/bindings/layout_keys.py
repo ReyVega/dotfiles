@@ -1,6 +1,16 @@
 from libqtile.config import Key
 from libqtile.command import lazy
-from .custom_functions import *
+from .custom_functions import (
+    left,
+    right,
+    down,
+    up,
+    resize_left,
+    resize_right,
+    resize_down,
+    resize_up,
+    float_to_front
+)
 
 #---------------------------------------------------------------
 #-- Initialize variables
