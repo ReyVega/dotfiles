@@ -19,7 +19,7 @@
 <img src="screenshots/rofi-powermenu.png" />
 
 ---
-##Software Details
+## Software Details
 
 <table>
     <tr>

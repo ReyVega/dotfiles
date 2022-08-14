@@ -86,9 +86,7 @@ def resize_down(qtile):
 
 
 #---------------------------------------------------------------
-#-- Focusing windows based on position and geometry
-#-- (Independent of screens, layouts, floating windows, tiled)
-#-- (Move among empty screens)
+#-- Better windows focus in floating layout
 #---------------------------------------------------------------
 def focus_window(qtile, dir, axis):
     win = None
@@ -96,8 +94,6 @@ def focus_window(qtile, dir, axis):
     dist = 10000
     dist_wide = 10000
     cur = qtile.current_window
-    if not cur:
-        cur = qtile.current_screen
 
     if axis == 'x':
         dim = 'width'
@@ -117,13 +113,12 @@ def focus_window(qtile, dir, axis):
     cur_pos += getattr(cur, dim) / 2
 
     windows = [w for g in qtile.groups if g.screen for w in g.windows]
-    windows.extend([s for s in qtile.screens if not s.group.windows])
 
     if cur in windows:
         windows.remove(cur)
 
     for w in windows:
-        if isinstance(w, Screen) or not w.minimized:
+        if not w.minimized:
             pos = getattr(w, axis) + getattr(w, dim) / 2
             gap = dir * (pos - cur_pos)
             if gap > 5:
@@ -139,11 +134,8 @@ def focus_window(qtile, dir, axis):
 
     if not win:
         win = win_wide
-    if win:
-        qtile.focus_screen(win.group.screen.index)
-        win.group.focus(win, True)
-        if not isinstance(win, Screen):
-            win.focus(False)
+
+    win.group.focus(win, True)
 
 
 @lazy.function
