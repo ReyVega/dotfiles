@@ -73,8 +73,8 @@ return packer.startup({
 
         -- Formatter
         use {
-            "sbdchd/neoformat",
-            cmd = {'Neoformat'}
+            "jose-elias-alvarez/null-ls.nvim",
+            config = Get_setup("null_ls")
         }
 
         -- Markdown

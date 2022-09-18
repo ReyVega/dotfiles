@@ -16,6 +16,10 @@ if not lsp_installer_ok then return end
 local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
 if not lspconfig_ok then return end
 
+local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+if not cmp_nvim_lsp_ok then return end
+
+
 lsp_installer.setup({
     ensure_installed = {},
     automatic_installation = false,
@@ -53,7 +57,7 @@ mason.setup({
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 lsp_installer.setup_handlers {
     function (server_name)

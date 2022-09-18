@@ -26,6 +26,7 @@
 │   │   ├── 🌑 lualine.lua
 │   │   ├── 🌑 luasnip.lua
 │   │   ├── 🌑 mason.lua
+│   │   ├── 🌑 null_ls.lua
 │   │   ├── 🌑 nvim-autopairs.lua
 │   │   ├── 🌑 nvim-cmp.lua
 │   │   ├── 🌑 nvim-colorizer.lua
@@ -94,7 +95,7 @@
     <tr>
         <th>Formatter</th>
         <td>
-            <a href="https://github.com/sbdchd/neoformat">neoformat</a>
+            <a href="https://github.com/jose-elias-alvarez/null-ls.nvim">null-ls</a>
         </td>
     </tr>
     <tr>

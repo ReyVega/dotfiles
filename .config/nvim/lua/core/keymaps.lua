@@ -99,3 +99,6 @@ key("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], default_opts)
 
 -- Markdwn preview
 key("n", "<leader>m", "<Cmd>MarkdownPreview<CR>", default_opts)
+
+-- Formatting
+key('n', 'F', '<Cmd>lua vim.lsp.buf.formatting_sync()<CR>', default_opts)
