@@ -30,6 +30,7 @@ def primary_widgets(visible_groups):
 
         widget.GroupBox(
             **base(fg='color15'),
+            font="Hack Nerd Font",
             fontsize=12,
             padding_x=7,
             disable_drag=True,
@@ -51,6 +52,7 @@ def primary_widgets(visible_groups):
             text="",
             foreground=colors["color1"],
             padding=-1,
+            font="Hack Nerd Font Bold",
             fontsize=26,
         ),
 
@@ -65,6 +67,7 @@ def primary_widgets(visible_groups):
             text="",
             foreground=colors["color1"],
             padding=-1,
+            font="Hack Nerd Font Bold",
             fontsize=26,
         ),
 
@@ -73,6 +76,7 @@ def primary_widgets(visible_groups):
             width=bar.CALCULATED,
             empty_group_string="Desktop",
             fontsize=14,
+            font="Hack Nerd Font Bold",
             max_chars=30,
         ),
 
@@ -80,6 +84,7 @@ def primary_widgets(visible_groups):
             text="",
             foreground=colors["color1"],
             padding=-1,
+            font="Hack Nerd Font Bold",
             fontsize=26,
         ),
 
@@ -91,6 +96,7 @@ def primary_widgets(visible_groups):
             text="",
             foreground=colors["color1"],
             padding=-1,
+            font="Hack Nerd Font Bold",
             fontsize=26,
         ),
 
@@ -101,6 +107,7 @@ def primary_widgets(visible_groups):
                 'Button1': lazy.spawn("arch-updates action"),
             },
             update_interval=1,
+            font="Hack Nerd Font Bold"
         ),
 
         separator(),
@@ -113,6 +120,7 @@ def primary_widgets(visible_groups):
                 'Button5': lazy.spawn("brightness up"),
             },
             update_interval=1,
+            font="Hack Nerd Font Bold"
         ),
 
         separator(),
@@ -127,6 +135,7 @@ def primary_widgets(visible_groups):
                 'Button3': lazy.spawn("volume app"),
             },
             update_interval=1,
+            font="Hack Nerd Font Bold"
         ),
 
         separator(),
@@ -135,6 +144,7 @@ def primary_widgets(visible_groups):
             **base(fg='color6'),
             func=lambda: subprocess.check_output(["hour"], encoding="utf-8"),
             update_interval=1,
+            font="Hack Nerd Font Bold"
         ),
 
         separator(),
@@ -148,6 +158,7 @@ def primary_widgets(visible_groups):
                 'Button4': lazy.spawn("calendar prev")
             },
             update_interval=1,
+            font="Hack Nerd Font Bold"
         ),
 
         separator(),
@@ -156,6 +167,7 @@ def primary_widgets(visible_groups):
             **base(fg='color15'),
             func=lambda: subprocess.check_output(["battery"], encoding="utf-8"),
             update_interval=1,
+            font="Hack Nerd Font Bold"
         ),
 
         separator(),
@@ -168,6 +180,7 @@ def primary_widgets(visible_groups):
             },
             padding=-6,
             scale=0.6,
+            font="Hack Nerd Font Bold"
         ),
         separator()
     ]
@@ -182,6 +195,7 @@ def secondary_widgets(visible_groups):
 
         widget.GroupBox(
             **base(fg='color15'),
+            font="Hack Nerd Font",
             fontsize=12,
             padding_x=7,
             disable_drag=True,
@@ -203,6 +217,7 @@ def secondary_widgets(visible_groups):
             text="",
             foreground=colors["color1"],
             padding=-1,
+            font="Hack Nerd Font Bold",
             fontsize=26,
         ),
 
@@ -212,6 +227,7 @@ def secondary_widgets(visible_groups):
             text="",
             foreground=colors["color1"],
             padding=-1,
+            font="Hack Nerd Font Bold",
             fontsize=26,
         ),
 
@@ -219,6 +235,7 @@ def secondary_widgets(visible_groups):
             **base(fg='color9'),
             width=bar.CALCULATED,
             empty_group_string="Desktop",
+            font="Hack Nerd Font Bold",
             fontsize=14,
             max_chars=45,
         ),
@@ -227,6 +244,7 @@ def secondary_widgets(visible_groups):
             text="",
             foreground=colors["color1"],
             padding=-1,
+            font="Hack Nerd Font Bold",
             fontsize=26,
         ),
 
@@ -238,6 +256,7 @@ def secondary_widgets(visible_groups):
             text="",
             foreground=colors["color1"],
             padding=-1,
+            font="Hack Nerd Font Bold",
             fontsize=26,
         ),
 
@@ -251,6 +270,16 @@ def secondary_widgets(visible_groups):
                 'Button3': lazy.spawn("volume app"),
             },
             update_interval=1,
+            font="Hack Nerd Font Bold",
+        ),
+
+        separator(),
+
+        widget.GenPollText(
+            **base(fg='color6'),
+            func=lambda: subprocess.check_output(["hour"], encoding="utf-8"),
+            update_interval=1,
+            font="Hack Nerd Font Bold"
         ),
 
         separator(),
@@ -259,6 +288,7 @@ def secondary_widgets(visible_groups):
             **base(fg='color10'),
             func=lambda: subprocess.check_output(["calendar"], encoding="utf-8"),
             update_interval=1,
+            font="Hack Nerd Font Bold",
         ),
 
         separator(),
@@ -271,6 +301,7 @@ def secondary_widgets(visible_groups):
             },
             padding=-6,
             scale=0.6,
+            font="Hack Nerd Font Bold",
         ),
 
         widget.TextBox(
@@ -278,6 +309,7 @@ def secondary_widgets(visible_groups):
             foreground=colors["color1"],
             padding=-1,
             fontsize=26,
+            font="Hack Nerd Font Bold",
         ),
     ]
 
@@ -286,7 +318,7 @@ def secondary_widgets(visible_groups):
 #-- Define widgets defaults
 #---------------------------------------------------------------
 widget_defaults = dict(
-    font='Hack Nerd Font Bold',
+    font="Hack Nerd Font",
     fontsize=14,
     padding=1,
 )
