@@ -5,8 +5,13 @@
 -- Plugin: nvim-cmp
 -- https://github.com/hrsh7th/nvim-cmp
 
-local cmp = require('cmp')
-local luasnip = require('luasnip')
+
+local cmp_ok, cmp = pcall(require, 'cmp')
+if not cmp_ok then return end
+
+local luasnip_ok, luasnip = pcall(require, 'luasnip')
+if not luasnip_ok then return end
+
 
 -- Require to download codicons.ttf
 -- AUR package https://aur.archlinux.org/packages/vscode-codicons-git/

@@ -3,7 +3,12 @@
 -----------------------------------------------------------
 
 -- Plugin: lualine
+
 -- https://github.com/nvim-lualine/lualine.nvim
+
+
+local lualine_ok, lualine = pcall(require, 'lualine')
+if not lualine_ok then return end
 
 local colors = {
     color1 = "#ECEFF4",
@@ -34,7 +39,7 @@ local bubbles_theme = {
     },
 }
 
-require('lualine').setup {
+lualine.setup {
     options = {
         icons_enabled = true,
         theme = bubbles_theme,

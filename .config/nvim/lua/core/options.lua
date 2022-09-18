@@ -7,19 +7,17 @@
 -----------------------------------------------------------
 local g = vim.g        	        -- global variables
 local set = vim.opt	            -- behaves like :set (Vim)
-local cmd = vim.cmd             -- execute Vim commands
-local exec = vim.api.nvim_exec 	-- execute Vimscript
 
 
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-g.mapleader = ','             -- change leader to a comma
-set.mouse = 'a'               -- enable mouse support
-set.clipboard = 'unnamedplus' -- copy/paste to system clipboard (xclip needed to work)
-set.swapfile = false          -- don't use swapfile
-set.encoding = 'utf-8'        -- the encoding displayed
-set.shell = "/bin/fish"       -- set default shell for terminal
+set.mouse = 'a'                                 -- Enable mouse support
+set.clipboard = 'unnamedplus'                   -- Copy/paste to system clipboard
+set.swapfile = false                            -- Don't use swapfile
+set.completeopt = 'menuone,noinsert,noselect'   -- Autocomplete options
+set.encoding = 'utf-8'                          -- the encoding displayed
+set.shell = "/bin/fish"                         -- set default shell for terminal
 
 
 -----------------------------------------------------------
@@ -37,7 +35,17 @@ set.linebreak = true                     -- wrap on word boundary
 set.cmdheight = 2                        -- more space for displaying messages
 set.signcolumn = 'number'                -- type of sign column
 set.cursorline = true                    -- enable highlighting of the current line
-set.guifont = 'Hack Nerd Font:h12'       -- font and size
+set.termguicolors = true                 -- Enable 24-bit RGB colors
+
+
+-----------------------------------------------------------
+-- Tabs, indent
+-----------------------------------------------------------
+set.expandtab = true      -- use spaces instead of tabs
+set.shiftwidth = 4        -- shift 4 spaces when tab
+set.tabstop = 4           -- 1 tab == 4 spaces
+set.smartindent = true    -- autoindent new lines
+set.smarttab = true       -- tab new lines
 
 
 -----------------------------------------------------------
@@ -52,72 +60,39 @@ set.timeoutlen = 500      -- by default timeoutlen is 1000 ms
 
 
 -----------------------------------------------------------
--- Tabs, indent
+-- Startup
 -----------------------------------------------------------
-set.expandtab = true      -- use spaces instead of tabs
-set.shiftwidth = 4        -- shift 4 spaces when tab
-set.tabstop = 4           -- 1 tab == 4 spaces
-set.smartindent = true    -- autoindent new lines
-set.smarttab = true       -- tab new lines
 
-
------------------------------------------------------------
--- Colorscheme
------------------------------------------------------------
-set.termguicolors = true      -- enable 24-bit RGB colors
-cmd [[colorscheme onenord]]
-
-
------------------------------------------------------------
--- Autocompletion
------------------------------------------------------------
-set.completeopt = {'menu','menuone','noselect'} -- insert mode completion options
-set.shortmess = set.shortmess + { c = true }
-
-
--- don't auto commenting new lines
-cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
-
--- remove whitespace on save
-cmd [[au BufWritePre * :%s/\s\+$//e]]
-
--- highlight on yank
-exec([[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
-  augroup end
-]], false)
-
-
--- 2 spaces for selected filetypes (Basically to match prettier formatter indentation)
-cmd [[
-  autocmd FileType xml,html,xhtml,css,scss,javascript,yaml,typescript,javascriptreact,typescriptreact setlocal shiftwidth=2 tabstop=2
-]]
-
--- disable nvim intro
+-- Disable nvim intro
 set.shortmess:append "sI"
 
--- disable builtins plugins
+-- Disable builtins plugins
 local disabled_built_ins = {
+    "2html_plugin",
+    "getscript",
+    "getscriptPlugin",
+    "gzip",
+    "logipat",
     "netrw",
     "netrwPlugin",
     "netrwSettings",
     "netrwFileHandlers",
-    "gzip",
-    "zip",
-    "zipPlugin",
+    "matchit",
     "tar",
     "tarPlugin",
-    "getscript",
-    "getscriptPlugin",
-    "vimball",
-    "vimballPlugin",
-    "2html_plugin",
-    "logipat",
     "rrhelper",
     "spellfile_plugin",
-    "matchit"
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
+    "tutor",
+    "rplugin",
+    "synmenu",
+    "optwin",
+    "compiler",
+    "bugreport",
+    "ftplugin"
 }
 
 for _, plugin in pairs(disabled_built_ins) do

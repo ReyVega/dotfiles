@@ -3,9 +3,14 @@
 -----------------------------------------------------------
 
 -- Plugin: nvim-colorizer
+
 -- https://github.com/norcalli/nvim-colorizer.lua
 
-require('colorizer').setup({
+
+local colorizer_ok, colorizer = pcall(require, 'colorizer')
+if not colorizer_ok then return end
+
+colorizer.setup({
     'css',
     'html',
     'javascript',

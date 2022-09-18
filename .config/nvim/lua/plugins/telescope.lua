@@ -3,11 +3,22 @@
 -----------------------------------------------------------
 
 -- Plugin: telescope
+
 -- https://github.com/nvim-telescope/telescope.nvim#getting-started
 
-local actions = require('telescope.actions')
+local telescope_ok, telescope = pcall(require, "telescope")
+if not telescope_ok then return end
 
-require('telescope').setup({
+local actions_ok, actions = pcall(require, "telescope.actions")
+if not actions_ok then return end
+
+local sorters_ok, sorters = pcall(require, "telescope.sorters")
+if not sorters_ok then return end
+
+local previewers_ok, previewers = pcall(require, "telescope.previewers")
+if not previewers_ok then return end
+
+telescope.setup({
     defaults = {
         vimgrep_arguments = {
             'rg',
@@ -27,11 +38,11 @@ require('telescope').setup({
             vertical = {mirror = false},
         },
         file_ignore_patterns = {},
-        file_sorter = require'telescope.sorters'.get_fuzzy_file,
-        generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
-        file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-        grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-        qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+        file_sorter = sorters.get_fuzzy_file,
+        generic_sorter = sorters.get_generic_fuzzy_sorter,
+        file_previewer = previewers.vim_buffer_cat.new,
+        grep_previewer = previewers.vim_buffer_vimgrep.new,
+        qflist_previewer = previewers.vim_buffer_qflist.new,
         prompt_prefix = ' ',
         color_devicons = true,
         mappings = {
@@ -62,4 +73,4 @@ require('telescope').setup({
 })
 
 -- Load Telescope extensions
-require('telescope').load_extension('fzf')
+telescope.load_extension('fzf')

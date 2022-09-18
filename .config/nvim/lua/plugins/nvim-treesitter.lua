@@ -3,9 +3,14 @@
 -----------------------------------------------------------
 
 -- PLugin: nvim-treesitter
+
 -- https://github.com/nvim-treesitter/nvim-treesitter
 
-require'nvim-treesitter.configs'.setup {
+
+local treesitter_ok, treesitter =  pcall(require, 'nvim-treesitter.configs')
+if not treesitter_ok then return end
+
+treesitter.setup {
     ensure_installed = "all",
     sync_install = false,
     highlight = {
@@ -20,7 +25,19 @@ require'nvim-treesitter.configs'.setup {
     },
     autotag = {
        enable = true
-    }
+    },
+    textobjects = {
+        select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+                ['af'] = '@function.outer',
+                ['if'] = '@function.inner',
+                ['ac'] = '@class.outer',
+                ['ic'] = '@class.inner'
+            },
+        }
+    },
 }
 
 vim.cmd

@@ -3,9 +3,15 @@
 -----------------------------------------------------------
 
 -- Plugin: LuaSnip
+
 -- https://github.com/L3MON4D3/LuaSnip
 
-local ls = require("luasnip")
+
+local luasnip_ok, ls = pcall(require, 'luasnip')
+if not luasnip_ok then return end
+
+local friendly_snippets_ok, friendly_snippets = pcall(require, 'luasnip.loaders.from_vscode')
+if not friendly_snippets_ok then return end
 
 ls.config.set_config({
     history = false,
@@ -14,4 +20,4 @@ ls.config.set_config({
 })
 
 -- Friendly snippets
-require("luasnip.loaders.from_vscode").lazy_load()
+friendly_snippets.lazy_load()

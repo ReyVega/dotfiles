@@ -8,7 +8,10 @@
 -- https://github.com/ojroques/nvim-bufdel
 
 
-require('bufferline').setup {
+local bufferline_ok, bufferline = pcall(require, 'bufferline')
+if not bufferline_ok then return end
+
+bufferline.setup {
     options = {
         mode = "buffers", -- set to "tabs" to only show tabpages instead
         numbers = "none",
@@ -16,7 +19,10 @@ require('bufferline').setup {
         right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
         left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
         middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
-        indicator_icon = '▎',
+        indicator = {
+            style = 'icon',
+            indicator_icon = '▎',
+        },
         buffer_close_icon = '',
         modified_icon = '●',
         close_icon = '',

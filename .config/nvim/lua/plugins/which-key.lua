@@ -3,9 +3,13 @@
 -----------------------------------------------------------
 
 -- Plugin: which-key
+
 -- https://github.com/folke/which-key.nvim
 
-require("which-key").setup {
+local which_ok, which = pcall(require, "which-key")
+if not which_ok then return end
+
+which.setup {
     plugins = {
         marks = true,
         registers = true,

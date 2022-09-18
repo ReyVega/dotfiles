@@ -4,10 +4,12 @@
 -- key (mode, keymap, mapped-to, options)
 -----------------------------------------------------------
 
-local key = vim.api.nvim_set_keymap
+local key = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
-local cmd = vim.cmd
-local g = vim.g
+
+-- Change leader to a comma
+vim.g.mapleader = ','             -- change leader to a comma
+
 
 -----------------------------------------------------------
 -- Neovim shortcuts:
@@ -33,8 +35,9 @@ key('i', '<C-q>', '<Esc><Cmd>qa!<CR>', default_opts)
 -- Clear search highlighting
 key('n', '<leader>cl', '<Cmd>nohl<CR>', default_opts)
 
--- Open terminal
+-- Open/Exit terminal
 key('n', '<leader>t', '<Cmd>te<CR>', default_opts)
+key('t', '<ESC>', [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], default_opts)
 
 -- Open new buffer
 key('n', '<C-t>', '<Cmd>new | close<CR>', default_opts)
@@ -63,7 +66,7 @@ key('n', '<A-9>', '<Cmd>BufferLineGoToBuffer 9<CR>', default_opts)
 key('n', '<leader>w', '<Cmd>Bdelete!<CR>', default_opts)
 
 -- Nvim-tree
-key('n', '<leader>b', '<Cmd>NvimTreeToggle<CR>', default_opts)
+key('n', '<leader>b', '<Cmd>NvimTreeFindFileToggle<CR>', default_opts)
 
 -- Telescope
 key("n", "<leader>fg", "<Cmd>Telescope live_grep<CR>", default_opts)
@@ -76,26 +79,23 @@ key("n", "<leader>fb", "<Cmd>Telescope buffers<CR>", default_opts)
 key("n", "<leader>cs", "<Cmd>Telescope colorscheme<CR>", default_opts)
 
 -- Kommentary
-g.kommentary_create_default_mappings = false
+vim.g.kommentary_create_default_mappings = false
 key("n", "<leader>k", "<Plug>kommentary_line_default", {})
 key("x", "<leader>k", "<Plug>kommentary_visual_default<C-c>", {})
 
 -- Lspsaga commands
-key("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", default_opts)
 key("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", default_opts)
-key("n", "<C-n>", "<cmd>Lspsaga diagnostic_jump_next<CR>", default_opts)
-key("n", "<C-p>", "<cmd>Lspsaga diagnostic_jump_prev<CR>", default_opts)
+key({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", default_opts)
 key("n", "gr", "<cmd>Lspsaga rename<CR>", default_opts)
-key("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", default_opts)
-key("v", "<leader>ca", "<cmd>Lspsaga range_code_action<CR>", default_opts)
+key("n", "gd", "<cmd>Lspsaga peek_definition<CR>", default_opts)
+key("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", default_opts)
+--key("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", default_opts)
+key("n", "<C-p>", "<cmd>Lspsaga diagnostic_jump_prev<CR>", default_opts)
+key("n", "<C-n>", "<cmd>Lspsaga diagnostic_jump_next<CR>", default_opts)
+key("n","<leader>o", "<cmd>LSoutlineToggle<CR>", default_opts)
 key("n", "K", "<cmd>Lspsaga hover_doc<CR>", default_opts)
-key("n", "gs", "<cmd>Lspsaga signature_help<CR>", default_opts)
-key("n", "gd", "<cmd>Lspsaga preview_definition<CR>", default_opts)
-key("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", default_opts)
-key("t", "<A-d>", "<C-\\><C-n><cmd>Lspsaga close_floaterm<CR>", default_opts)
-
--- Code formatter.
-key("n", "gf", "<Cmd>Neoformat<CR>", default_opts)
+key("n", "<A-d>", "<cmd>Lspsaga open_floaterm fish<CR>", default_opts)
+key("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], default_opts)
 
 -- Markdwn preview
 key("n", "<leader>m", "<Cmd>MarkdownPreview<CR>", default_opts)

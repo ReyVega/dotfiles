@@ -3,7 +3,12 @@
 -----------------------------------------------------------
 
 -- Plugin: nvim-lspconfig
+
 -- https://github.com/neovim/nvim-lspconfig
+
+
+local lspconfig_ok, _ = pcall(require, 'lspconfig')
+if not lspconfig_ok then return end
 
 -- Customizing gutter signs
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

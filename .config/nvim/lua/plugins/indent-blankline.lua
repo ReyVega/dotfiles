@@ -3,12 +3,17 @@
 -----------------------------------------------------------
 
 -- Plugin: indent-blankline
+
 -- https://github.com/lukas-reineke/indent-blankline.nvim
+
+
+local indent_ok, indent = pcall(require, "indent_blankline")
+if not indent_ok then return end
 
 -- Current context indent blankline color
 vim.cmd[[highlight IndentBlanklineContextChar guifg=#5E81AC gui=nocombine]]
 
-require('indent_blankline').setup {
+indent.setup {
     char = "▏",
     show_first_indent_level = true,
     filetype_exclude = {

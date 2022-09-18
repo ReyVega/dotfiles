@@ -3,11 +3,18 @@
 -----------------------------------------------------------
 
 -- Plugin: mason.nvim
+
 -- https://github.com/williamboman/mason.nvim
 
-local mason = require("mason")
-local lsp_installer = require("mason-lspconfig")
-local lspconfig = require("lspconfig")
+
+local mason_ok, mason = pcall(require, 'mason')
+if not mason_ok then return end
+
+local lsp_installer_ok, lsp_installer = pcall(require, 'mason-lspconfig')
+if not lsp_installer_ok then return end
+
+local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
+if not lspconfig_ok then return end
 
 lsp_installer.setup({
     ensure_installed = {},
@@ -20,7 +27,7 @@ mason.setup({
         icons = {
             package_installed = "◍",
             package_pending = "◍",
-            package_uninstalled = "◍",
+            package_uninstalled = "◍"
         },
         keymaps = {
             toggle_package_expand = "<CR>",
@@ -34,6 +41,7 @@ mason.setup({
             apply_language_filter = "<C-f>",
         },
     },
+    install_root_dir = vim.fn.stdpath("data").."/mason",
     pip = {
         install_args = {},
     },

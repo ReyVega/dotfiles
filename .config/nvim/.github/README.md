@@ -9,7 +9,12 @@
 ```text
 📂 ~/.config/nvim
 ├── 📂 lua
-│   ├── 📂 setup
+│   ├── 📂 core
+│   │   ├── 🌑 autocmds.lua
+│   │   ├── 🌑 keymaps.lua
+│   │   ├── 🌑 theme.lua
+│   │   └── 🌑 options.lua
+│   ├── 📂 plugins
 │   │   ├── 🌑 alpha.lua
 │   │   ├── 🌑 bufferline.lua
 │   │   ├── 🌑 filetype.lua
@@ -30,9 +35,7 @@
 │   │   ├── 🌑 nvim-ts-autotag.lua
 │   │   ├── 🌑 telescope.lua
 │   │   └── 🌑 which-key.lua
-│   ├── 🌑 mappings.lua
-│   ├── 🌑 plugins.lua
-│   └── 🌑 settings.lua
+│   └── 🌑 packer_init.lua
 └── 🌑 init.lua
 ```
 

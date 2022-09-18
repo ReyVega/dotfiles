@@ -3,11 +3,15 @@
 -----------------------------------------------------------
 
 -- Plugin: alpha-nvim
+
 -- https://github.com/goolord/alpha-nvim
 
-local alpha = require('alpha')
-local dashboard = require('alpha.themes.dashboard')
 
+local alpha_ok, alpha = pcall(require, "alpha")
+if not alpha_ok then return end
+
+local dashboard_ok, dashboard = pcall(require, "alpha.themes.dashboard")
+if not dashboard_ok then return end
 
 -- Colors Header
 vim.api.nvim_command [[ hi StartLogo1 guifg=#5E81AC ]]
