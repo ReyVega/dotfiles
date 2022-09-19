@@ -100,7 +100,7 @@ return packer.startup({
         }
 
         -- Surround everything
-        use {"https://github.com/tpope/vim-surround"}
+        use {"kylechui/nvim-surround"}
 
         -- Keybindings menu
         use {
