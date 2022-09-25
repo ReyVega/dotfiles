@@ -23,8 +23,8 @@ def minimize():
 
 
 # Get all icons
-def get_all_icons() -> list[str]:
-    icons = []
+def get_all_icons() -> dict[str, str]:
+    dict_icons = {}
     config = configparser.ConfigParser(interpolation=None)
 
     for root, _, files in os.walk("/usr/share/applications"):
@@ -39,35 +39,35 @@ def get_all_icons() -> list[str]:
                 continue
             except configparser.DuplicateOptionError:
                 continue
-            icons.append(icon)
+            dict_icons[file] = icon
 
-    return icons
+    return dict_icons
 
 
 # Get corresponding icon depending on the wm_class
-def get_corresponding_icon(name: str, icons: list) -> str:
+def get_corresponding_icon(name: str, icons: dict[str, str]) -> str:
     max_ratio = float("-inf")
     icon_guessed = ""
 
-    for icon in icons:
-        ratio = fuzz.ratio(name, icon)
+    for desktop_name, icon in icons.items():
+        ratio_desktop_name = fuzz.partial_ratio(name.lower(), os.path.splitext(desktop_name.lower())[0])
 
-        if ratio > max_ratio:
+        if ratio_desktop_name > max_ratio:
             icon_guessed = icon
-            max_ratio = ratio
+            max_ratio = ratio_desktop_name
 
     return icon_guessed
 
 
 # Get wm_class for each window
-def get_minimized_windows(icons: list) -> list[dict]:
+def get_minimized_windows(icons: dict[str, str]) -> list[dict]:
     minimized_windows = []
 
     for window in c.windows():
         item = {}
         if window["minimized"]:
             item["id"] = window["id"]
-            item["wm_class"] = window["wm_class"][0]
+            item["wm_class"] = window["wm_class"][0] if window["wm_class"] else window["name"]
             item["name"] = window["name"]
             item["icon"] = get_corresponding_icon(item["wm_class"], icons)
             minimized_windows.append(item)
