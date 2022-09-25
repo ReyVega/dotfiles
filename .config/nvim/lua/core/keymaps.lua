@@ -102,3 +102,16 @@ key("n", "<leader>m", "<Cmd>MarkdownPreview<CR>", default_opts)
 
 -- Formatting
 key('n', 'F', '<Cmd>lua vim.lsp.buf.formatting_sync()<CR>', default_opts)
+
+-- Zen Mode
+key("n", "<leader>zm", "<Cmd>ZenMode<CR>", {})
+
+-- Custom
+-- When deleting empty line with "dd" it won't override your last yank
+local function smart_dd()
+	if vim.api.nvim_get_current_line():match("^%s*$") then
+		return "\"_dd"
+	else return "dd" end
+end
+
+key("n", "dd", smart_dd, { noremap = true, expr = true })

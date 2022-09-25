@@ -19,5 +19,12 @@ ls.config.set_config({
     region_check_events = "CursorMoved",
 })
 
+-- enable html snippets in javascript/javascript(REACT)
+ls.filetype_extend("javascriptreact", {"html"})
+ls.filetype_extend("typescriptreact", {"html"})
+
+-- enable html snippets in Django (htmldjango)
+ls.filetype_extend("htmldjango", {"html"})
+
 -- Friendly snippets
 friendly_snippets.lazy_load()

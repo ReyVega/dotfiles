@@ -32,3 +32,7 @@ vim.api.nvim_command [[ hi DiagnosticUnderlineError cterm=underline gui=undercur
 vim.api.nvim_command [[ hi DiagnosticUnderlineHint cterm=underline  gui=undercurl guisp=#B988B0 ]]
 vim.api.nvim_command [[ hi DiagnosticUnderlineWarn cterm=underline  gui=undercurl guisp=#D08F70 ]]
 vim.api.nvim_command [[ hi DiagnosticUnderlineInfo cterm=underline  gui=undercurl guisp=#A3BE8C ]]
+
+vim.api.nvim_command [[ hi LspReferenceText cterm=bold gui=bold guibg=#3F4754 ]]
+vim.api.nvim_command [[ hi LspReferenceRead cterm=bold gui=bold guibg=#3F4754 ]]
+vim.api.nvim_command [[ hi LspReferenceWrite cterm=bold gui=bold guibg=#3F4754 ]]

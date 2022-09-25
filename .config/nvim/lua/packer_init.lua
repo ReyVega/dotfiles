@@ -59,15 +59,12 @@ return packer.startup({
         -- Icons
         use {'kyazdani42/nvim-web-devicons'}
 
-        -- Vim iluminate
-        use {'RRethy/vim-illuminate'}
-
         -- Matchup functions, conditions, etc.
         use {'andymass/vim-matchup'}
 
         -- Git support for nvim
         use {
-            'tpope/vim-fugitive',
+            'dinhhuy258/git.nvim',
             cmd = {'Git'}
         }
 
@@ -159,7 +156,7 @@ return packer.startup({
             after = "alpha-nvim",
             requires = {'kyazdani42/nvim-web-devicons', opt = true},
             config = Get_setup('nvim-tree'),
-            cmd = {'NvimTreeToggle'}
+            cmd = {'NvimTreeToggle', 'NvimTreeFindFileToggle'}
         }
 
         -- Treesitter for Syntax (Languages Analyzer)
@@ -243,6 +240,13 @@ return packer.startup({
             "glepnir/lspsaga.nvim",
             branch = "main",
             config = Get_setup("lspsaga")
+        }
+
+        -- Zen Mode
+        use {
+            "folke/zen-mode.nvim",
+            requires = {'folke/twilight.nvim'},
+	        config = Get_setup('zen-mode')
         }
 
         -- Automatically set up your configuration after cloning packer.nvim

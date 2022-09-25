@@ -10,6 +10,7 @@
 local null_ls_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_ok then return end
 
+local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
     sources = {
@@ -18,24 +19,33 @@ null_ls.setup({
         ---------------------------------------------------------------------------------
 
         -- javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars"
-        null_ls.builtins.formatting.prettierd,
+        formatting.prettierd,
 
         -- "c", "cpp", "cs", "java", "cuda"
-        null_ls.builtins.formatting.clang_format,
+        formatting.clang_format,
 
         -- python
-        null_ls.builtins.formatting.black,
+        formatting.black,
 
         -- lua
-        null_ls.builtins.formatting.stylua,
+        formatting.stylua,
 
         -- JSON
-        null_ls.builtins.formatting.jq,
+        formatting.jq,
 
         -- Markdown
-        null_ls.builtins.formatting.markdownlint,
+        formatting.markdownlint,
 
         -- Go
-        null_ls.builtins.formatting.gofumpt
-    }
+        formatting.gofumpt,
+    },
+    on_attach = function(client)
+        vim.cmd([[
+            augroup document_highlight
+                autocmd! * <buffer>
+                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+            augroup END
+        ]])
+    end,
 })

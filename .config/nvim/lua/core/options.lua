@@ -18,6 +18,7 @@ set.swapfile = false                            -- Don't use swapfile
 set.completeopt = 'menuone,noinsert,noselect'   -- Autocomplete options
 set.encoding = 'utf-8'                          -- the encoding displayed
 set.shell = "/bin/bash"                         -- set default shell for terminal
+set.guifont = { "Hack Nerd Font", ":h10" }      -- set font and size
 
 
 -----------------------------------------------------------

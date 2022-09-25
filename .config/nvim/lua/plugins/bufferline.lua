@@ -63,6 +63,11 @@ bufferline.setup {
         separator_style = "slant",
         enforce_regular_tabs = false,
         always_show_bufferline = true,
+        hover = {
+            enabled = false,
+            delay = 200,
+            reveal = {'close'}
+        },
         sort_by = 'insert_after_current',
 
         custom_areas = {

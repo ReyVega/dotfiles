@@ -35,7 +35,8 @@
 │   │   ├── 🌑 nvim-treesitter.lua
 │   │   ├── 🌑 nvim-ts-autotag.lua
 │   │   ├── 🌑 telescope.lua
-│   │   └── 🌑 which-key.lua
+│   │   ├── 🌑 which-key.lua
+│   │   └── 🌑 zen-mode.lua
 │   └── 🌑 packer_init.lua
 └── 🌑 init.lua
 ```
@@ -72,12 +73,6 @@
     <th>Colors</th>
         <td>
             <a href="https://github.com/norcalli/nvim-colorizer.lua">nvim-colorizer</a>
-        </td>
-    </tr>
-    <tr>
-        <th>Cursor</th>
-        <td>
-            <a href="https://github.com/RRethy/vim-illuminate">vim-illuminate</a>
         </td>
     </tr>
     <tr>
@@ -158,7 +153,7 @@
         <th>Git</th>
         <td>
             <a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns</a> <br>
-            <a href="https://github.com/tpope/vim-fugitive">vim-fugitive</a>
+            <a href="https://github.com/dinhhuy258/git.nvim">git.nvim</a>
         </td>
     </tr>
     <tr>
@@ -184,6 +179,8 @@
             <a href="https://github.com/andymass/vim-matchup">vim-matchup</a> <br>
             <a href="https://github.com/kylechui/nvim-surround">nvim-surround</a> <br>
             <a href="https://github.com/folke/which-key.nvim">which-key</a> <br>
+            <a href="https://github.com/folke/zen-mode.nvim">zen-mode</a> <br>
+            <a href="https://github.com/folke/twilight.nvim">twilight</a> <br>
         </td>
     </tr>
     <tr>
