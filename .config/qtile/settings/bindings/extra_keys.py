@@ -50,7 +50,14 @@ extra_keys = [
     Key(
         [mod], "s",
         lazy.spawn("rofi -show drun"),
-        desc="Starts rofi"
+        desc="Starts rofi apps"
+    ),
+
+    # Rofi (Windows)
+    Key(
+        [mod, "control"], "s",
+        lazy.spawn("rofi -show window"),
+        desc="Starts rofi windows"
     ),
 
     # Rofi (Powermenu)

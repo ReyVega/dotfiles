@@ -18,7 +18,10 @@ layout_defaults = {
 #---------------------------------------------------------------
 layouts = [
     layout.Max(
-        **layout_defaults,
+        border_focus=colors['color9'],
+        border_normal=colors['color1'],
+        border_width=0,
+        margin=10
     ),
     layout.MonadTall(
         **layout_defaults,
