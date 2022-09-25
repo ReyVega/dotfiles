@@ -1,18 +1,20 @@
 #!/bin/bash
 dir="~/.local/bin/rofi-themes"
 rofi_command="rofi -theme $dir/powermenu.rasi"
+uptime="`uptime -p | sed -e 's/up //g'`"
+
 
 # Options
-shutdown="";
-reboot="";
-suspend="";
-logout="";
-lock="";
+shutdown=''
+reboot=''
+lock=''
+suspend=''
+logout=''
 
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$suspend\n$logout\n$lock"
 
-chosen="$(echo -e "$options" | $rofi_command -p "Select an option" -dmenu)"
+chosen="$(echo -e "$options" | $rofi_command -p "Select an option" -mesg "Uptime: $uptime" -dmenu)"
 
 # Confirmation
 confirm_exit() {
