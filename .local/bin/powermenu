@@ -1,5 +1,5 @@
 #!/bin/bash
-dir="~/.local/bin/rofi-themes"
+dir="~/.local/bin/rofi/themes"
 rofi_command="rofi -theme $dir/powermenu.rasi"
 uptime="`uptime -p | sed -e 's/up //g'`"
 
@@ -18,11 +18,7 @@ chosen="$(echo -e "$options" | $rofi_command -p "Select an option" -mesg "Uptime
 
 # Confirmation
 confirm_exit() {
-	rofi -dmenu\
-		-i\
-		-no-fixed-num-lines\
-		-p "Are you sure? : "\
-		-theme $dir/confirm.rasi
+	rofi -theme $dir/confirm.rasi -p "Are you sure? : " -dmenu
 }
 
 # Message
@@ -34,7 +30,7 @@ case $chosen in
     $shutdown)
         while true
         do
-            ans=$(confirm_exit &)
+            ans=$(confirm_exit)
             if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
             then
 			    systemctl poweroff
@@ -52,7 +48,7 @@ case $chosen in
     $reboot)
         while true
         do
-            ans=$(confirm_exit &)
+            ans=$(confirm_exit)
             if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
             then
                 systemctl reboot
@@ -70,7 +66,7 @@ case $chosen in
     $suspend)
         while true
         do
-            ans=$(confirm_exit &)
+            ans=$(confirm_exit)
             if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
             then
                 systemctl suspend
@@ -88,7 +84,7 @@ case $chosen in
     $logout)
         while true
         do
-            ans=$(confirm_exit &)
+            ans=$(confirm_exit)
             if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
             then
                 loginctl terminate-session ${XDG_SESSION_ID-}
