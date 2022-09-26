@@ -1,95 +1,111 @@
 * {
-    font: "Montserrat 9";
+    font:   "Montserrat 9";
 
-    bg0:  #24242480;
-    bg1:  #363636;
-    bg2:  #f5f5f520;
-    bg3:  #f5f5f540;
-    bg4:  #5E81AC;
+    inputbar-margin:                0px calc(50% - 120px);
+    inputbar-padding:               4px 6px;
+    inputbar-spacing:               4px;
+    inputbar-border:                2px;
+    textbox-prompt-colon-padding:   0px 6px 0px 2px;
+    listview-margin:                6% 9%;
+    listview-spacing:               4.5%;
+    element-padding:                0.8%;
+    element-spacing:                1%;
+    element-border-radius:          1em;
+    element-icon-size:              calc(5% + 25px);
 
-    fg0:  #f5f5f5;
-    fg1:  #f5f5f580;
+    bg0:    #24242480;
+    bg1:    #363636;
+    bg2:    #f5f5f520;
+    bg3:    #f5f5f540;
+    bg4:    #5E81AC;
 
-    background-color: transparent;
-    text-color:       @fg0;
-    padding:          0px;
-    margin:           0px;
+    fg0:    #f5f5f5;
+    fg1:    #f5f5f580;
+
+    background-color:   transparent;
+    text-color:         @fg0;
 }
 
 window {
+    transparency:       "real";
+    location:           center;
+    anchor:             center;
     fullscreen:         true;
-    padding:            1em;
     background-color:   @bg0;
 }
 
 mainbox {
-    padding:  22px 8px 8px 8px;
+    enabled:    true;
+    children:   [dummy, inputbar, listview, dummy];
 }
 
 inputbar {
-    background-color: @bg2;
-    margin:           0px calc( 50% - 120px );
-    padding:          4px 6px;
-    spacing:          4px;
-    border:           1px;
-    border-radius:    1em;
-    border-color:     @bg3;
-    children:         ["textbox-prompt-colon", "entry"];
-}
-
-prompt {
-    enabled:          false;
+    enabled:            true;
+    background-color:   @bg2;
+    margin:             @inputbar-margin;
+    padding:            @inputbar-padding;
+    spacing:            @inputbar-spacing;
+    border:             @inputbar-border;
+    border-radius:      100%;
+    border-color:       @bg3;
+    children:           [textbox-prompt-colon, entry];
 }
 
 textbox-prompt-colon {
-    enabled:            true;
     expand:             false;
-    text-color: 		@fg1;
+    text-color:         @fg1;
     font:		        "Hack Nerd Font 9";
     vertical-align:     0.5;
-    str:                "";
-    padding: 			0px 6px 0px 2px;
-}
-
-icon-search {
-  expand:           false;
-  filename:         "search";
-  vertical-align:   0.5;
+    content:            "";
+    padding: 			@textbox-prompt-colon-padding;
 }
 
 entry {
-  placeholder:        "Search";
-  placeholder-color:  @fg1;
+    placeholder:          "Search";
+    placeholder-color:    @fg1;
 }
 
 listview {
-  margin:           48px calc(50% - 560px);
-  spacing:          48px;
-  columns:          6;
-  fixed-columns:    true;
-}
-
-element, element-text, element-icon {
-  cursor: pointer;
+    enabled:            true;
+    expand:             false;
+    flow:               vertical;
+    layout:             vertical;
+    margin:             @listview-margin;
+    spacing:            @listview-spacing;
+    columns:            6;
+    lines:              4;
+    fixed-columns:      true;
+    fixed-height:       true;
+    cycle:              true;
+    reverse:            false;
+    dynamic:            false;
+    scrollbar:          false;
 }
 
 element {
-  padding:          8px;
-  spacing:          4px;
-
-  orientation:      vertical;
-  border-radius:    16px;
+    orientation:        vertical;
+    padding:            @element-padding;
+    spacing:            @element-spacing;
+    border-radius:      @element-border-radius;
 }
 
 element selected {
-  background-color: @bg4;
+    background-color:   @bg4;
 }
 
 element-icon {
-  size:                 4em;
-  horizontal-align:     0.5;
+    horizontal-align:   0.5;
+    size:               @element-icon-size;
 }
 
 element-text {
-  horizontal-align: 0.5;
+    horizontal-align:   0.5;
+}
+
+element, element-text, element-icon {
+    cursor: pointer;
+}
+
+dummy {
+    background-color: transparent;
 }
