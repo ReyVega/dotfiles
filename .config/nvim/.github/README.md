@@ -124,7 +124,8 @@
         <th>Fuzzy Finder</th>
         <td>
             <a href="https://github.com/nvim-telescope/telescope.nvim">telescope</a><br>
-            <a href="https://github.com/nvim-telescope/telescope-fzf-native.nvim">telescope-fzf-native</a>
+            <a href="https://github.com/nvim-telescope/telescope-fzf-native.nvim">telescope-fzf-native</a><br>
+            <a href="https://github.com/nvim-telescope/telescope-ui-select.nvim">telescope-ui-select</a>
         </td>
     </tr>
     <tr>
