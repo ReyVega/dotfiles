@@ -59,12 +59,24 @@ mason.setup({
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
+local on_attach = function(client)
+    if client.server_capabilities.documentHighlightProvider then
+        vim.cmd([[
+            augroup document_highlight
+                autocmd! * <buffer>
+                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+            augroup END
+        ]])
+    end
+end
+
 lsp_installer.setup_handlers {
     function (server_name)
         local opts = {
-            capabilities = capabilities
+            capabilities = capabilities,
+            on_attach = on_attach
         }
         lspconfig[server_name].setup(opts)
-        vim.cmd [[ do User LspAttachBuffers ]]
     end
 }

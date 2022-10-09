@@ -101,7 +101,7 @@ key("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], default_opts)
 key("n", "<leader>m", "<Cmd>MarkdownPreview<CR>", default_opts)
 
 -- Formatting
-key('n', 'F', '<Cmd>lua vim.lsp.buf.formatting_sync()<CR>', default_opts)
+key('n', 'F', '<Cmd>lua vim.lsp.buf.format()<CR>', default_opts)
 
 -- Zen Mode
 key("n", "<leader>zm", "<Cmd>ZenMode<CR>", {})

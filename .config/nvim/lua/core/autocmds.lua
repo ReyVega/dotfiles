@@ -32,7 +32,7 @@ autocmd('Filetype', {
     group = 'setIndent',
     pattern = {
         'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript',
-        'yaml', 'typescriptreact', 'javascriptreact'
+        'yaml', 'typescriptreact', 'javascriptreact', 'json'
     },
     command = 'setlocal shiftwidth=2 tabstop=2'
 })
