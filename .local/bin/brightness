@@ -1,6 +1,5 @@
 #!/bin/bash
 icon="~/.local/bin/icons/brightnesssettings.svg"
-notify_id=5555
 timeout=1500
 icon_bar=""
 
@@ -12,7 +11,7 @@ function send_notification {
     brightness=$(get_brightness)
 
     # Send the notification
-    dunstify "Brightness: $brightness" -h "int:value:$brightness" -u low -t $timeout -r $notify_id -i "$icon"
+    dunstify -a "widget" -h string:x-dunst-stack-tag:widget "Brightness: $brightness" -h "int:value:$brightness" -u low -t $timeout -i "$icon"
 }
 
 case $1 in

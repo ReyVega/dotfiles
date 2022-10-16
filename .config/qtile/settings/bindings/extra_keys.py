@@ -87,4 +87,16 @@ extra_keys = [
         lazy.spawn("conkytoggle"),
         desc="conky"
     ),
+
+    # Dunst
+    Key(
+        [mod], "z",
+        lazy.spawn("dunstctl close-all"),
+        desc="conky"
+    ),
+    Key(
+        [mod], "x",
+        lazy.spawn("dunstctl history-pop"),
+        desc="conky"
+    )
 ]

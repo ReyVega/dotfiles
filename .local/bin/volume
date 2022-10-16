@@ -1,6 +1,5 @@
 #!/bin/bash
 icon_path="~/.local/bin/icons/"
-notify_id=5556
 timeout=1500
 
 function get_volume {
@@ -34,14 +33,14 @@ function get_volume_icon {
 function volume_notification {
     volume=$(get_volume)
     vol_icon=$(get_volume_icon ${volume::-1})
-    dunstify "Volume: $volume" -h "int:value:$volume" -i "$icon_path$vol_icon" -a "volume" -u low -t $timeout -r $notify_id
+    dunstify -a "widget" -h string:x-dunst-stack-tag:widget "Volume: $volume" -h "int:value:$volume" -u low -t $timeout -i "$icon_path$vol_icon"
 }
 
 function mute_notification {
     if [[ $(is_mute) == "yes" ]]
     then
         brightnessctl -d 'hda::mute' s 100%
-        dunstify "Muted" -u low -t $timeout -r $notify_id -i "${icon_path}audio-volume-muted-blocking-symbolic.svg"
+        dunstify -a "widget" -h string:x-dunst-stack-tag:widget "Muted" -u low -t $timeout -i "${icon_path}audio-volume-muted-blocking-symbolic.svg"
     else
         brightnessctl -d 'hda::mute' s 0%
         volume_notification

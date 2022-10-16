@@ -288,20 +288,21 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#212121"
     foreground = "#ECEFF4"
-    timeout = 10
+    timeout = 5
+    highlight = "#5E81AC"
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
     background = "#212121"
     foreground = "#ECEFF4"
-    timeout = 10
+    timeout = 5
+    highlight = "#5E81AC"
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
@@ -309,7 +310,7 @@
     background = "#BF616A"
     foreground = "#ECEFF4"
     frame_color = "#ff0000"
-    timeout = 0
+    timeout = 5
     # Icon for notifications with critical urgency, uncomment to enable
     #default_icon = /path/to/icon
 
@@ -434,3 +435,7 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+
+[Widget]
+    appname = "widget"
+    history_ignore = yes

@@ -52,3 +52,6 @@ xset -b
 
 # Arch updates daemon
 updates-daemon &
+
+# USB
+udiskie -t &
