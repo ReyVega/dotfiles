@@ -12,6 +12,10 @@ if not cmp_ok then return end
 local luasnip_ok, luasnip = pcall(require, 'luasnip')
 if not luasnip_ok then return end
 
+local lspkind_ok, lspkind = pcall(require, 'lspkind')
+if not lspkind_ok then return end
+
+
 local cmp_kinds = {
     Text = "",
     Method = "",
@@ -48,12 +52,14 @@ cmp.setup({
         end,
     },
 
-     -- VS Code icons for completion
     formatting = {
-        format = function(_, vim_item)
-            vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
-            return vim_item
-        end,
+        format = lspkind.cmp_format({
+            mode = 'symbol_text',
+            preset = 'default',
+            maxwidth = 35,
+            ellipsis_char = '...',
+            symbol_map = cmp_kinds
+        })
     },
 
     -- completion settings

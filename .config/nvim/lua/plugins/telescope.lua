@@ -164,9 +164,9 @@ local telescope_colors = {
     TelescopeResultsBorder = { bg = colors.darker_black, fg = colors.darker_black },
     TelescopePreviewBorder = { bg = colors.darker_black, fg = colors.darker_black },
 
-    TelescopePromptTitle = { bg = colors.red, fg = colors.black },
+    TelescopePromptTitle = { bg = colors.red, fg = colors.darker_black },
     TelescopeResultsTitle = { bg = colors.darker_black, fg = colors.darker_black },
-    TelescopePreviewTitle = { bg = colors.green, fg = colors.black },
+    TelescopePreviewTitle = { bg = colors.green, fg = colors.darker_black },
 
     TelescopePromptPrefix = { fg = colors.red, bg = colors.black },
     TelescopeSelection = { bg = colors.black, fg = colors.white, bold = true },

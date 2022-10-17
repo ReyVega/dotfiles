@@ -11,12 +11,20 @@
 local bufferline_ok, bufferline = pcall(require, 'bufferline')
 if not bufferline_ok then return end
 
+local bufdel_ok, bufdel = pcall(require, 'bufdel')
+if not bufdel_ok then return end
+
+bufdel.setup {
+    next = 'alternate',     -- or 'cycle, 'alternate'
+    quit = false,           -- quit Neovim when last buffer is closed
+}
+
 bufferline.setup {
     options = {
         mode = "buffers", -- set to "tabs" to only show tabpages instead
         numbers = "none",
-        close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
-        right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+        close_command = "BufDel! %d",       -- can be a string | function, see "Mouse actions"
+        right_mouse_command = "BufDel! %d", -- can be a string | function, see "Mouse actions"
         left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
         middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
         indicator = {
@@ -64,7 +72,7 @@ bufferline.setup {
         enforce_regular_tabs = false,
         always_show_bufferline = true,
         hover = {
-            enabled = false,
+            enabled = true,
             delay = 200,
             reveal = {'close'}
         },

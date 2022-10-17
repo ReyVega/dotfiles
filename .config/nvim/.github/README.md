@@ -34,6 +34,7 @@
 │   │   ├── 🌑 nvim-tree.lua
 │   │   ├── 🌑 nvim-treesitter.lua
 │   │   ├── 🌑 nvim-ts-autotag.lua
+│   │   ├── 🌑 rest.lua
 │   │   ├── 🌑 telescope.lua
 │   │   ├── 🌑 which-key.lua
 │   │   └── 🌑 zen-mode.lua
@@ -109,7 +110,7 @@
         <th>Tabline</th>
         <td>
             <a href="https://github.com/akinsho/bufferline.nvim">bufferline</a><br>
-            <a href="https://github.com/famiu/bufdelete.nvim">bufdelete.nvim</a>
+            <a href="https://github.com/ojroques/nvim-bufdel">nvim-bufdel</a>
         </td>
     </tr>
     <tr>
@@ -154,7 +155,6 @@
         <th>Git</th>
         <td>
             <a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns</a> <br>
-            <a href="https://github.com/dinhhuy258/git.nvim">git.nvim</a>
         </td>
     </tr>
     <tr>
@@ -169,7 +169,8 @@
             <a href="https://github.com/saadparwaiz1/cmp_luasnip">cmp-luasnip</a> <br>
             <a href="https://github.com/lukas-reineke/cmp-rg">cmp-rg</a> <br>
             <a href="https://github.com/David-Kunz/cmp-npm">cmp-npm</a> <br>
-            <a href="https://github.com/lukas-reineke/cmp-under-comparator">cmp-under-comparator</a>
+            <a href="https://github.com/lukas-reineke/cmp-under-comparator">cmp-under-comparator</a> <br>
+            <a href="https://github.com/onsails/lspkind.nvim">lspkind.nvim</a>
         </td>
     </tr>
     <tr>
@@ -182,6 +183,12 @@
             <a href="https://github.com/folke/which-key.nvim">which-key</a> <br>
             <a href="https://github.com/folke/zen-mode.nvim">zen-mode</a> <br>
             <a href="https://github.com/folke/twilight.nvim">twilight</a> <br>
+        </td>
+    </tr>
+     <tr>
+        <th>Web Development</th>
+        <td>
+            <a href="https://github.com/rest-nvim/rest.nvim">rest.nvim</a> <br>
         </td>
     </tr>
     <tr>
@@ -220,11 +227,6 @@
 <h3>Terminal (native)</h3>
 <p align="center">
     <img src="./screenshots/neovim-terminal.png" width="80%" />
-</p>
-
-<h3>Terminal (lspsaga)</h3>
-<p align="center">
-    <img src="./screenshots/neovim-terminal-2.png" width="80%" />
 </p>
 
 <h3>Help with keybindings (which-key)</h3>

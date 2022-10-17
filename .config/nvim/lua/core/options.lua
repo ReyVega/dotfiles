@@ -12,11 +12,11 @@ local set = vim.opt	            -- behaves like :set (Vim)
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-set.mouse = 'a'                                 -- Enable mouse support
-set.clipboard = 'unnamedplus'                   -- Copy/paste to system clipboard
-set.swapfile = false                            -- Don't use swapfile
-set.completeopt = 'menuone,noinsert,noselect'   -- Autocomplete options
-set.encoding = 'utf-8'                          -- the encoding displayed
+set.mouse = "a"                                 -- Enable mouse support
+set.clipboard = "unnamedplus"                   -- Copy/paste to system clipboard
+set.swapfile = false                            -- Don"t use swapfile
+set.completeopt = "menuone,noinsert,noselect"   -- Autocomplete options
+set.encoding = "utf-8"                          -- the encoding displayed
 set.shell = "/bin/bash"                         -- set default shell for terminal
 set.guifont = { "Hack Nerd Font", ":h10" }      -- set font and size
 
@@ -26,7 +26,7 @@ set.guifont = { "Hack Nerd Font", ":h10" }      -- set font and size
 -----------------------------------------------------------
 set.number = true                        -- show line number
 set.showmatch = true                     -- highlight matching parenthesis
-set.foldmethod = 'marker'                -- enable folding (default 'foldmarker')
+set.foldmethod = "marker"                -- enable folding (default "foldmarker")
 set.splitright = true                    -- vertical split to the right
 set.splitbelow = true                    -- horizontal split to the bottom
 set.incsearch = true                     -- type of search
@@ -34,7 +34,7 @@ set.ignorecase = true                    -- ignore case letters when search
 set.smartcase = true                     -- ignore lowercase for the whole pattern
 set.linebreak = true                     -- wrap on word boundary
 set.cmdheight = 2                        -- more space for displaying messages
-set.signcolumn = 'number'                -- type of sign column
+set.signcolumn = "number"                -- type of sign column
 set.cursorline = true                    -- enable highlighting of the current line
 set.termguicolors = true                 -- Enable 24-bit RGB colors
 
