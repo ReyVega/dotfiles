@@ -31,7 +31,7 @@ def primary_widgets(visible_groups):
         widget.GroupBox(
             **base(fg='color15'),
             font="Hack Nerd Font",
-            fontsize=12,
+            fontsize=28,
             padding_x=7,
             disable_drag=True,
             rounded=True,
@@ -196,7 +196,7 @@ def secondary_widgets(visible_groups):
         widget.GroupBox(
             **base(fg='color15'),
             font="Hack Nerd Font",
-            fontsize=12,
+            fontsize=28,
             padding_x=7,
             disable_drag=True,
             rounded=True,
