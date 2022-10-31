@@ -104,5 +104,5 @@
 ## Installation
 
 ```
-bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/install.sh)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/install)"
 ```
