@@ -55,3 +55,6 @@ updates-daemon &
 
 # USB
 udiskie -t &
+
+# Detect cursor by default
+xsetroot -cursor_name left_ptr
