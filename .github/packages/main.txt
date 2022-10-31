@@ -37,10 +37,11 @@ iptables-nft
 jdk-openjdk
 jq
 kitty
+lf
 libtool
 linux
 linux-firmware
-lxappearance
+lxappearance-gtk3
 lxsession
 m4
 make
@@ -105,6 +106,7 @@ xorg-xkill
 xorg-xprop
 xorg-xrandr
 xorg-xset
+xorg-xsetroot
 zathura-pdf-poppler
 zip
 zoxide
