@@ -173,7 +173,7 @@ for item in groups_settings:
 @lazy.function
 def go_to_group(qtile, name):
     current_screen = str(qtile.screens.index(qtile.current_screen))
-    qtile.groups_map[current_screen + name].cmd_toscreen(toggle=False)
+    qtile.groups_map[current_screen + name].toscreen(toggle=False)
 
 
 #---------------------------------------------------------------
@@ -182,7 +182,7 @@ def go_to_group(qtile, name):
 @lazy.function
 def switch_to_group(qtile, name):
     current_screen = str(qtile.screens.index(qtile.current_screen))
-    qtile.current_window.cmd_togroup(current_screen + name, switch_group=True)
+    qtile.current_window.togroup(current_screen + name, switch_group=True)
 
 
 #---------------------------------------------------------------
@@ -207,7 +207,7 @@ def scroll_screen(qtile, direction):
     screen = qtile.screens.index(qtile.current_screen)
 
     destination = ((current - (9 * screen) + direction) % 9) + (9 * screen)
-    qtile.groups[destination].cmd_toscreen()
+    qtile.groups[destination].toscreen()
 
 
 #---------------------------------------------------------------
@@ -226,7 +226,7 @@ keys_group.extend([
 @hook.subscribe.startup
 def _():
     for i in range(len(qtile.screens)):
-        qtile.groups_map[str(i) + "1"].cmd_toscreen(i, toggle=False)
+        qtile.groups_map[str(i) + "1"].toscreen(i, toggle=False)
 
 
 #---------------------------------------------------------------
@@ -236,4 +236,4 @@ def _():
 @hook.subscribe.screens_reconfigured
 def _():
     for i in range(len(qtile.screens)):
-        qtile.groups_map[str(i) + "1"].cmd_toscreen(i, toggle=False)
+        qtile.groups_map[str(i) + "1"].toscreen(i, toggle=False)

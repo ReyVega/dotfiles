@@ -2,7 +2,7 @@
 
 # Variables
 # us, es, latam
-k_layout="latam"
+k_layout="us"
 
 # Automatically setup dual setup when plugging/unplugging HDMI
 monitor-setup &

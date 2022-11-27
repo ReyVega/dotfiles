@@ -30,8 +30,8 @@ def primary_widgets(visible_groups):
 
         widget.GroupBox(
             **base(fg='color15'),
-            font="Hack Nerd Font",
-            fontsize=28,
+            font="Hack Nerd Font Bold",
+            fontsize=16,
             padding_x=7,
             disable_drag=True,
             rounded=True,
@@ -100,9 +100,9 @@ def primary_widgets(visible_groups):
             fontsize=26,
         ),
 
-        widget.GenPollText(
+        widget.GenPollCommand(
             **base(fg='color3'),
-            func=lambda: subprocess.check_output(["arch-updates"], encoding="utf-8"),
+            cmd="arch-updates",
             mouse_callbacks={
                 'Button1': lazy.spawn("arch-updates action"),
             },
@@ -112,9 +112,9 @@ def primary_widgets(visible_groups):
 
         separator(),
 
-        widget.GenPollText(
+        widget.GenPollCommand(
             **base(fg='color4'),
-            func=lambda: subprocess.check_output(["brightness"], encoding="utf-8"),
+            cmd="brightness",
             mouse_callbacks={
                 'Button4': lazy.spawn("brightness down"),
                 'Button5': lazy.spawn("brightness up"),
@@ -125,9 +125,9 @@ def primary_widgets(visible_groups):
 
         separator(),
 
-        widget.GenPollText(
+        widget.GenPollCommand(
             **base(fg='color5'),
-            func=lambda: subprocess.check_output(["volume"], encoding="utf-8"),
+            cmd="volume",
             mouse_callbacks={
                 'Button1': lazy.spawn("volume mute"),
                 'Button4': lazy.spawn("volume down"),
@@ -140,18 +140,18 @@ def primary_widgets(visible_groups):
 
         separator(),
 
-        widget.GenPollText(
+        widget.GenPollCommand(
             **base(fg='color6'),
-            func=lambda: subprocess.check_output(["hour"], encoding="utf-8"),
+            cmd="hour",
             update_interval=1,
             font="Hack Nerd Font Bold"
         ),
 
         separator(),
 
-        widget.GenPollText(
+        widget.GenPollCommand(
             **base(fg='color10'),
-            func=lambda: subprocess.check_output(["calendar"], encoding="utf-8"),
+            cmd="calendar",
             mouse_callbacks={
                 'Button1': lazy.spawn("calendar curr"),
                 'Button5': lazy.spawn("calendar next"),
@@ -163,9 +163,9 @@ def primary_widgets(visible_groups):
 
         separator(),
 
-        widget.GenPollText(
+        widget.GenPollCommand(
             **base(fg='color15'),
-            func=lambda: subprocess.check_output(["battery"], encoding="utf-8"),
+            cmd="battery",
             update_interval=1,
             font="Hack Nerd Font Bold"
         ),
@@ -195,8 +195,8 @@ def secondary_widgets(visible_groups):
 
         widget.GroupBox(
             **base(fg='color15'),
-            font="Hack Nerd Font",
-            fontsize=28,
+            font="Hack Nerd Font Bold",
+            fontsize=16,
             padding_x=7,
             disable_drag=True,
             rounded=True,
@@ -260,9 +260,9 @@ def secondary_widgets(visible_groups):
             fontsize=26,
         ),
 
-        widget.GenPollText(
+        widget.GenPollCommand(
             **base(fg='color5'),
-            func=lambda: subprocess.check_output(["volume"], encoding="utf-8"),
+            cmd="volume",
             mouse_callbacks={
                 'Button1': lazy.spawn("volume mute"),
                 'Button4': lazy.spawn("volume down"),
@@ -275,18 +275,18 @@ def secondary_widgets(visible_groups):
 
         separator(),
 
-        widget.GenPollText(
+        widget.GenPollCommand(
             **base(fg='color6'),
-            func=lambda: subprocess.check_output(["hour"], encoding="utf-8"),
+            cmd="hour",
             update_interval=1,
             font="Hack Nerd Font Bold"
         ),
 
         separator(),
 
-        widget.GenPollText(
+        widget.GenPollCommand(
             **base(fg='color10'),
-            func=lambda: subprocess.check_output(["calendar"], encoding="utf-8"),
+            cmd="calendar",
             update_interval=1,
             font="Hack Nerd Font Bold",
         ),

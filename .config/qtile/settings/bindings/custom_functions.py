@@ -11,7 +11,7 @@ from libqtile.config import Screen
 @lazy.function
 def kill_all_windows(qtile):
     for window in qtile.current_group.windows:
-        window.cmd_kill()
+        window.kill()
 
 
 #---------------------------------------------------------------
@@ -21,7 +21,7 @@ def kill_all_windows(qtile):
 def kill_all_windows_except_current(qtile):
     for window in qtile.current_group.windows:
         if window != qtile.current_window:
-            window.cmd_kill()
+            window.kill()
 
 
 #---------------------------------------------------------------
@@ -31,7 +31,7 @@ def kill_all_windows_except_current(qtile):
 def float_to_front(qtile):
     for window in qtile.current_group.windows:
         if window.floating:
-            window.cmd_bring_to_front()
+            window.bring_to_front()
 
 
 #---------------------------------------------------------------
@@ -145,7 +145,7 @@ def up(qtile):
     if layout_name == "floating":
         focus_window(qtile, -1, 'y')
     else:
-        qtile.current_layout.cmd_up()
+        qtile.current_layout.up()
 
 
 @lazy.function
@@ -155,7 +155,7 @@ def down(qtile):
     if layout_name == "floating":
         focus_window(qtile, 1, 'y')
     else:
-        qtile.current_layout.cmd_down()
+        qtile.current_layout.down()
 
 
 @lazy.function
@@ -165,9 +165,9 @@ def left(qtile):
     if layout_name == "floating":
         focus_window(qtile, -1, 'x')
     elif layout_name == "stack":
-        qtile.current_layout.cmd_previous()
+        qtile.current_layout.previous()
     else:
-        qtile.current_layout.cmd_left()
+        qtile.current_layout.left()
 
 
 @lazy.function
@@ -177,6 +177,6 @@ def right(qtile):
     if layout_name == "floating":
         focus_window(qtile, 1, 'x')
     elif layout_name == "stack":
-        qtile.current_layout.cmd_next()
+        qtile.current_layout.next()
     else:
-        qtile.current_layout.cmd_right()
+        qtile.current_layout.right()
