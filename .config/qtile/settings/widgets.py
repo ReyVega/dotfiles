@@ -31,7 +31,7 @@ def primary_widgets(visible_groups):
         widget.GroupBox(
             **base(fg='color15'),
             font="Hack Nerd Font Bold",
-            fontsize=16,
+            fontsize=14,
             padding_x=7,
             disable_drag=True,
             rounded=True,
@@ -45,6 +45,7 @@ def primary_widgets(visible_groups):
             urgent_border=colors['color6'],
             other_current_screen_border=colors['color9'],
             other_screen_border=colors['color9'],
+            toggle=False,
             visible_groups=visible_groups
         ),
 
@@ -196,7 +197,7 @@ def secondary_widgets(visible_groups):
         widget.GroupBox(
             **base(fg='color15'),
             font="Hack Nerd Font Bold",
-            fontsize=16,
+            fontsize=14,
             padding_x=7,
             disable_drag=True,
             rounded=True,
@@ -210,6 +211,7 @@ def secondary_widgets(visible_groups):
             urgent_border=colors['color6'],
             other_current_screen_border=colors['color9'],
             other_screen_border=colors['color9'],
+            toggle=False,
             visible_groups=visible_groups
         ),
 

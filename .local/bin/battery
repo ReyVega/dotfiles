@@ -46,7 +46,7 @@ function get_battery_level {
 
         printf "%s" "$status_icon $level%"
     else
-        printf "%s" "Battery was not found"
+        printf "%s" " PC"
     fi
 }
 
