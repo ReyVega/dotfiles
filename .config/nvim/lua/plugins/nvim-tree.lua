@@ -12,7 +12,6 @@ if not nvim_tree_ok then return end
 
 nvim_tree.setup {
     auto_reload_on_write = true,
-    create_in_closed_folder = false,
     disable_netrw = false,
     hijack_cursor = true,
     hijack_netrw = true,
@@ -20,8 +19,6 @@ nvim_tree.setup {
     ignore_buffer_on_setup = false,
     open_on_setup = false,
     open_on_setup_file = false,
-    open_on_tab = false,
-    ignore_buf_on_tab_change = {},
     sort_by = "name",
     root_dirs = {},
     prefer_startup_root = false,
@@ -91,9 +88,12 @@ nvim_tree.setup {
         vim.bo[bufnr].path = "/tmp"
     end,
     remove_keymaps = true,
+    select_prompts = false,
     view = {
         adaptive_size = false,
         centralize_selection = false,
+        cursorline = true,
+        debounce_delay = 15,
         width = 30,
         hide_root_folder = false,
         side = "left",
@@ -101,8 +101,15 @@ nvim_tree.setup {
         number = false,
         relativenumber = false,
         signcolumn = "yes",
+        mappings = {
+            custom_only = false,
+            list = {
+            -- user mappings go here
+            },
+        },
         float = {
             enable = false,
+            quit_on_focus_loss = true,
             open_win_config = {
                 relative = "editor",
                 border = "rounded",
@@ -119,7 +126,8 @@ nvim_tree.setup {
         highlight_git = true,
         full_name = false,
         highlight_opened_files = "icon",
-        root_folder_modifier = ":~",
+        highlight_modified = "none",
+        root_folder_label = ":~:s?$?/..?",
         indent_width = 2,
         indent_markers = {
             enable = true,
@@ -135,6 +143,7 @@ nvim_tree.setup {
         icons = {
             webdev_colors = true,
             git_placement = "before",
+            modified_placement = "after",
             padding = " ",
             symlink_arrow = " ➛ ",
             show = {
@@ -142,11 +151,13 @@ nvim_tree.setup {
                 folder = true,
                 folder_arrow = true,
                 git = true,
+                modified = true,
             },
             glyphs = {
                 default = "",
                 symlink = "",
                 bookmark = "",
+                modified = "●",
                 folder = {
                     arrow_closed = "",
                     arrow_open = "",
@@ -188,9 +199,14 @@ nvim_tree.setup {
     diagnostics = {
         enable = true,
         show_on_dirs = false,
+        show_on_open_dirs = true,
         debounce_delay = 50,
+        severity = {
+            min = vim.diagnostic.severity.HINT,
+            max = vim.diagnostic.severity.ERROR,
+        },
         icons = {
-            hint = " ",
+            hint = "",
             info = " ",
             warning = " ",
             error = " ",
@@ -198,18 +214,27 @@ nvim_tree.setup {
     },
     filters = {
         dotfiles = true,
+        git_clean = false,
+        no_buffer = false,
         custom = {},
         exclude = {},
     },
     filesystem_watchers = {
         enable = true,
         debounce_delay = 50,
+        ignore_dirs = {},
     },
     git = {
         enable = true,
         ignore = true,
         show_on_dirs = true,
+        show_on_open_dirs = true,
         timeout = 400,
+    },
+    modified = {
+        enable = false,
+        show_on_dirs = true,
+        show_on_open_dirs = true,
     },
     actions = {
         use_system_clipboard = true,
@@ -236,6 +261,7 @@ nvim_tree.setup {
             resize_window = true,
             window_picker = {
                 enable = true,
+                picker = "default",
                 chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                 exclude = {
                     filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
@@ -249,11 +275,26 @@ nvim_tree.setup {
     },
     trash = {
         cmd = "trash",
-        require_confirm = true,
     },
     live_filter = {
         prefix = "[FILTER]: ",
         always_show_folders = true,
+    },
+    tab = {
+        sync = {
+            open = false,
+            close = false,
+            ignore = {},
+        },
+    },
+    notify = {
+        threshold = vim.log.levels.INFO,
+    },
+    ui = {
+        confirm = {
+            remove = true,
+            trash = true,
+        },
     },
     log = {
         enable = false,

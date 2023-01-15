@@ -226,6 +226,7 @@ return packer.startup({
         use {
             "glepnir/lspsaga.nvim",
             branch = "main",
+            event = 'BufRead',
             config = Get_setup("lspsaga")
         }
 

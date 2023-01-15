@@ -10,66 +10,124 @@
 local saga_ok, saga = pcall(require, 'lspsaga')
 if not saga_ok then return end
 
-saga.init_lsp_saga({
-    border_style = "rounded",
-    saga_winblend = 0,
-    move_in_saga = { prev = '<C-p>',next = '<C-n>'},
-    diagnostic_header = { " ", " ", " ", "ﴞ " },
-    max_preview_lines = 10,
-    code_action_icon = "💡",
-    code_action_num_shortcut = true,
-    code_action_lightbulb = {
-        enable = true,
-        enable_in_insert = true,
-        cache_code_action = true,
-        sign = true,
-        update_time = 150,
-        sign_priority = 20,
-        virtual_text = true,
+saga.setup({
+    preview = {
+        lines_above = 0,
+        lines_below = 10,
     },
-    finder_icons = {
-        def = '  ',
-        ref = '諭 ',
-        link = '  ',
+    scroll_preview = {
+        scroll_down = '<C-f>',
+        scroll_up = '<C-b>',
     },
-    finder_request_timeout = 1500,
-    finder_action_keys = {
-        open = "o",
-        vsplit = "s",
-        split = "i",
-        tabe = "t",
-        quit = "q",
+    request_timeout = 2000,
+    finder = {
+        edit = { 'o', '<CR>' },
+        vsplit = 's',
+        split = 'i',
+        tabe = 't',
+        quit = { 'q', '<ESC>' },
     },
-    code_action_keys = {
-        quit = "q",
-        exec = "<CR>",
-    },
-    definition_action_keys = {
+    definition = {
         edit = '<C-c>o',
         vsplit = '<C-c>v',
         split = '<C-c>i',
         tabe = '<C-c>t',
         quit = 'q',
+        close = '<Esc>',
     },
-    rename_action_quit = "<C-c>",
-    rename_in_select = true,
-    symbol_in_winbar = {
-        in_custom = false,
-        enable = false,
-        separator = ' ',
-        show_file = true,
-        click_support = false,
+    code_action = {
+        num_shortcut = true,
+        keys = {
+            quit = 'q',
+            exec = '<CR>',
+        },
     },
-    show_outline = {
+    lightbulb = {
+        enable = true,
+        enable_in_insert = true,
+        sign = true,
+        sign_priority = 40,
+        virtual_text = true,
+    },
+    diagnostic = {
+        twice_into = false,
+        show_code_action = true,
+        show_source = true,
+        keys = {
+            exec_action = 'o',
+            quit = 'q',
+            go_action = 'g'
+        },
+    },
+    rename = {
+        quit = '<C-c>',
+        exec = '<CR>',
+        in_select = true,
+    },
+    outline = {
         win_position = 'right',
         win_with = '',
         win_width = 30,
-        auto_enter = true,
+        show_detail = true,
         auto_preview = true,
-        virt_text = '┃',
-        jump_key = 'o',
         auto_refresh = true,
+        auto_close = true,
+        custom_sort = nil,
+        keys = {
+            jump = 'o',
+            expand_collapse = 'u',
+            quit = 'q',
+        },
     },
-    custom_kind = {},
-    server_filetype_map = {}
+    callhierarchy = {
+        show_detail = false,
+        keys = {
+            edit = 'e',
+            vsplit = 's',
+            split = 'i',
+            tabe = 't',
+            jump = 'o',
+            quit = 'q',
+        expand_collapse = 'u',
+        },
+    },
+    symbol_in_winbar = {
+        enable = true,
+        separator = ' ',
+        hide_keyword = true,
+        show_file = false,
+        folder_level = 2,
+        respect_root = false,
+    },
+    ui = {
+        -- currently only round theme
+        theme = 'round',
+        -- border type can be single,double,rounded,solid,shadow.
+        border = 'rounded',
+        winblend = 0,
+        expand = '',
+        collapse = '',
+        preview = ' ',
+        code_action = '💡',
+        diagnostic = '🐞',
+        incoming = ' ',
+        outgoing = ' ',
+        colors = {
+            --float window normal bakcground color
+            normal_bg = '#3B4252',
+            --title background color
+            title_bg = '#afd700',
+            red = '#BF616A',
+            magenta = '#B48EAD',
+            orange = '#D08770',
+            yellow = '#EBCB8B',
+            green = '#A3BE8C',
+            cyan = '#88C0D0',
+            blue = '#5E81AC',
+            purple = '#CBA6F7',
+            white = '#d1d4cf',
+            black = '#1c1c19',
+        },
+        kind = {},
+    },
 })
