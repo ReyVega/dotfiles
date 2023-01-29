@@ -72,12 +72,10 @@ return packer.startup({
         }
 
         -- Markdown
-        use {
+        use({
             "iamcco/markdown-preview.nvim",
-            ft = "markdown",
-            run = "cd app && yarn install",
-            cmd = {"MarkdownPreview"}
-        }
+            run = function() vim.fn["mkdp#util#install"]() end,
+        })
 
         -- Indent line
         use {

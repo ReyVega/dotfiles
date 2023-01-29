@@ -5,8 +5,7 @@ send_notification() {
 	HEAD=$(cal "$1" | head -n1)
 	BODY=$(cal "$1" | tail -n7 | sed -z "s|$TODAY|<u><b>$TODAY</b></u>|1")
 	FOOT="\n<i>       ~ calendar</i>  "
-	dunstify -h -h string:x-dunst-stack-tag:widget \
-		"$HEAD" "$BODY$FOOT" -u NORMAL
+	dunstify -a "widget" -h string:x-dunst-stack-tag:widget "$HEAD" "$BODY$FOOT" -u low
 }
 
 handle_action() {
