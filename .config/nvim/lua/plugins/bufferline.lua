@@ -88,19 +88,19 @@ bufferline.setup {
                 local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
 
                 if error ~= 0 then
-                    table.insert(result, {text = "  " .. error, guifg = "#BF616A"})
+                    table.insert(result, {text = "  " .. error, fg = "#BF616A"})
                 end
 
                 if warning ~= 0 then
-                    table.insert(result, {text = "  " .. warning, guifg = "#EBCB8B"})
+                    table.insert(result, {text = "  " .. warning, fg = "#EBCB8B"})
                 end
 
                 if hint ~= 0 then
-                    table.insert(result, {text = "  " .. hint, guifg = "#A3BE8C"})
+                    table.insert(result, {text = "  " .. hint, fg = "#A3BE8C"})
                 end
 
                 if info ~= 0 then
-                    table.insert(result, {text = "  " .. info, guifg = "#88C0D0"})
+                    table.insert(result, {text = "  " .. info, fg = "#88C0D0"})
                 end
                 return result
             end,
