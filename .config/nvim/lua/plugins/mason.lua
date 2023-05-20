@@ -26,8 +26,29 @@ lsp_installer.setup({
 })
 
 mason.setup({
+    install_root_dir = vim.fn.stdpath("data").."/mason",
+    PATH = "prepend",
+    log_level = vim.log.levels.INFO,
+    max_concurrent_installers = 4,
+    registries = {
+        "github:mason-org/mason-registry",
+    },
+    providers = {
+        "mason.providers.registry-api",
+        "mason.providers.client",
+    },
+    github = {
+        download_url_template = "https://github.com/%s/releases/download/%s/%s",
+    },
+    pip = {
+        upgrade_pip = false,
+        install_args = {},
+    },
     ui = {
+        check_outdated_packages_on_open = true,
         border = "rounded",
+        width = 0.8,
+        height = 0.9,
         icons = {
             package_installed = "◍",
             package_pending = "◍",
@@ -44,15 +65,6 @@ mason.setup({
             cancel_installation = "<C-c>",
             apply_language_filter = "<C-f>",
         },
-    },
-    install_root_dir = vim.fn.stdpath("data").."/mason",
-    pip = {
-        install_args = {},
-    },
-    log_level = vim.log.levels.INFO,
-    max_concurrent_installers = 4,
-    github = {
-        download_url_template = "https://github.com/%s/releases/download/%s/%s",
     },
 })
 

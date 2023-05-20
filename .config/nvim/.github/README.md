@@ -17,7 +17,6 @@
 │   ├── 📂 plugins
 │   │   ├── 🌑 alpha.lua
 │   │   ├── 🌑 bufferline.lua
-│   │   ├── 🌑 filetype.lua
 │   │   ├── 🌑 gitsigns.lua
 │   │   ├── 🌑 impatient.lua
 │   │   ├── 🌑 indent-blankline.lua
@@ -195,7 +194,6 @@
         <th>Performance</th>
         <td>
             <a href="https://github.com/lewis6991/impatient.nvim">impatient.nvim</a> <br>
-            <a href="https://github.com/nathom/filetype.nvim">filetype.nvim</a> <br>
         </td>
     </tr>
  </table>

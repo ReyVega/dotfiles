@@ -16,9 +16,6 @@ nvim_tree.setup {
     hijack_cursor = true,
     hijack_netrw = true,
     hijack_unnamed_buffer_when_opening = false,
-    ignore_buffer_on_setup = false,
-    open_on_setup = false,
-    open_on_setup_file = false,
     sort_by = "name",
     root_dirs = {},
     prefer_startup_root = false,
@@ -90,7 +87,6 @@ nvim_tree.setup {
     remove_keymaps = true,
     select_prompts = false,
     view = {
-        adaptive_size = false,
         centralize_selection = false,
         cursorline = true,
         debounce_delay = 15,
@@ -191,7 +187,6 @@ nvim_tree.setup {
         update_root = false,
         ignore_list = {},
     },
-    ignore_ft_on_setup = {},
     system_open = {
         cmd = "",
         args = {},
@@ -294,6 +289,11 @@ nvim_tree.setup {
         confirm = {
             remove = true,
             trash = true,
+        },
+    },
+    experimental = {
+        git = {
+            async = true,
         },
     },
     log = {

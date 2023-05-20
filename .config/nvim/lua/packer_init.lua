@@ -48,7 +48,6 @@ return packer.startup({
         -- Improve performace
         use {
             "lewis6991/impatient.nvim",
-            "nathom/filetype.nvim"
         }
 
         -- Themes for neovim editor
@@ -217,7 +216,8 @@ return packer.startup({
         use {
             "williamboman/mason.nvim",
             requires = {"williamboman/mason-lspconfig.nvim"},
-            config = Get_setup("mason")
+            config = Get_setup("mason"),
+            run = ":MasonUpdate"
         }
 
         -- LSP better actions

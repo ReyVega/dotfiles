@@ -60,7 +60,7 @@ bufferline.setup {
             text = " File Explorer",
             highlight = "Directory",
             text_align = "center",
-            padding = 1
+            padding = 0
         }},
         color_icons = true, -- whether or not to add the filetype icon highlights
         show_buffer_icons = true, -- disable filetype icons for buffers
