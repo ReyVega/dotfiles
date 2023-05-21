@@ -179,8 +179,7 @@ def primary_widgets(visible_groups):
             mouse_callbacks={
                 'Button3': lazy.prev_layout()
             },
-            padding=-6,
-            scale=0.6,
+            scale=0.66,
             font="Hack Nerd Font Bold"
         ),
         separator()
@@ -301,8 +300,7 @@ def secondary_widgets(visible_groups):
             mouse_callbacks={
                 'Button3': lazy.prev_layout()
             },
-            padding=-6,
-            scale=0.6,
+            scale=0.66,
             font="Hack Nerd Font Bold",
         ),
 
