@@ -2,7 +2,6 @@ betterlockscreen
 brave-bin
 cava
 fnm-bin
-libreoffice-dev-bin
 minecraft-launcher
 mpdris2
 mycli
@@ -11,8 +10,6 @@ nvim-packer-git
 paru
 postman-bin
 protonvpn-cli
-sddm-sugar-candy-git
-teams
-woeusb-ng
+qtile-git
 xidlehook
 zoom
