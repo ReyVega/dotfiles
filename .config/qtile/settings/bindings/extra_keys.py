@@ -67,6 +67,13 @@ extra_keys = [
         desc="Starts rofi powermenu"
     ),
 
+    # Lock screen (Betterlockscreen)
+    Key(
+        [mod, "shift"], "q",
+        lazy.spawn("betterlockscreen -l"),
+        desc="Locks screen"
+    ),
+
     # Wi-fi
     Key(
         [mod, "shift"], "n",
