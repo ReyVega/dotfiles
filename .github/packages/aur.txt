@@ -8,8 +8,10 @@ mycli
 notion-app
 nvim-packer-git
 paru
+picom-git
 postman-bin
 protonvpn-cli
 qtile-git
+sddm-sugar-dark
 xidlehook
 zoom

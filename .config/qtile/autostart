@@ -14,7 +14,7 @@ lxsession &
 setxkbmap $k_layout
 
 # picom
-picom --experimental-backends -b
+picom &
 
 # Suspend laptop after certain time
 xset -dpms
