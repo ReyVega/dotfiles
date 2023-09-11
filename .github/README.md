@@ -135,3 +135,17 @@ bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/
 bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/nvidia)"
 ```
 
+## Paru
+
+### Installation
+
+```
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/paru_install)"
+```
+
+### AUR Packages
+
+```
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/aur)"
+```
+

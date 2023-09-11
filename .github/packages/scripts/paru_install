@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Directory where you want to install paru
+install_dir="/opt/paru-install"
+
+# Create the installation directory
+mkdir -p "$install_dir"
+
+# Change to the installation directory
+cd "$install_dir"
+
+# Clone paru from the GitHub repository
+git clone https://aur.archlinux.org/paru.git
+
+# Change into the paru directory
+cd paru
+
+# Build and install paru using makepkg
+makepkg -si
+
+# Go back to the installation directory
+cd ..
+
+# Remove the paru directory
+rm -rf paru
+
