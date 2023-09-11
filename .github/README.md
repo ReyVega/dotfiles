@@ -106,3 +106,30 @@
 ```
 bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/install)"
 ```
+
+## Packages installation
+
+### Main
+
+```
+bash -c "pacman -S < $(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/main)"
+```
+
+### Intel
+
+```
+bash -c "pacman -S < $(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/xorg_packages/intel)"
+```
+
+### AMD
+
+```
+bash -c "pacman -S < $(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/xorg_packages/amd)"
+```
+
+### Nvidia
+
+```
+bash -c "pacman -S < $(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/xorg_packages/nvidia)"
+```
+
