@@ -115,7 +115,7 @@ bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/
 bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/main)"
 ```
 
-### Drivers
+## Xorg Drivers
 
 ### Intel
 
@@ -132,6 +132,6 @@ bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/
 ### Nvidia
 
 ```
-bash -c 'pacman -S - < '$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/xorg_packages/nvidia)
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/nvidia)"
 ```
 
