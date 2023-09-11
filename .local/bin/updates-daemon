@@ -1,5 +1,5 @@
 #!/bin/bash
-TIME=1200s
+TIME=1800s
 DAEMON_PATH=/tmp/arch-updates
 mkdir -p $DAEMON_PATH
 UPDATES_FILE=$DAEMON_PATH/updates

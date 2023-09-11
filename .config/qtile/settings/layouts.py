@@ -8,7 +8,7 @@ from .theme import colors
 layout_defaults = {
     'border_focus': colors['color9'],
     'border_normal': colors['color1'],
-    'border_width': 3,
+    'border_width': 2,
     'margin': 10
 }
 

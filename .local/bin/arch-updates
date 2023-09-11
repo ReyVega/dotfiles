@@ -5,7 +5,7 @@ TERMINAL=kitty
 
 case $1 in
     action)
-        $TERMINAL -e sh -c 'paru; echo $? > '$STATUS_FILE
+        $TERMINAL -e bash -c 'paru; echo $? > '$STATUS_FILE
         [ $(cat $STATUS_FILE) -eq 0 ] && echo 0 > $UPDATES_FILE
         ;;
     *) echo -n " $(cat $UPDATES_FILE | tr -d '\n')" ;;
