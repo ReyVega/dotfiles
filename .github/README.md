@@ -112,24 +112,26 @@ bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/
 ### Main
 
 ```
-bash -c "pacman -S < $(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/main)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/main)"
 ```
+
+### Drivers
 
 ### Intel
 
 ```
-bash -c "pacman -S < $(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/xorg_packages/intel)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/intel)"
 ```
 
 ### AMD
 
 ```
-bash -c "pacman -S < $(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/xorg_packages/amd)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/amd)"
 ```
 
 ### Nvidia
 
 ```
-bash -c "pacman -S < $(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/xorg_packages/nvidia)"
+bash -c 'pacman -S - < '$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/xorg_packages/nvidia)
 ```
 

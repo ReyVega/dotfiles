@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# URL of the GitHub file containing the list of package names
+github_url="https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/arch_packages/main"
+
+# Fetch the list of package names from GitHub
+package_list=$(curl -s "$github_url")
+
+# Install packages using pacman
+if [ -n "$package_list" ]; then
+    pacman -S $package_list
+else
+    echo "Failed to fetch the package list from GitHub."
+fi
+
