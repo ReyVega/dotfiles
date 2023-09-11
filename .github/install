@@ -1,5 +1,16 @@
 #!/bin/bash
 
+[ ! command -v git &> /dev/null ] && \
+pacman -S archlinux-keyring && \
+pacman -S git || \
+exit
+
+[ -d $HOME/.dotfiles ] && \
+read -p "Would you like upgrade current dotfiles? [Y/n]: " input && \
+[[ "$input" == "y" || "$input" == "Y" ]] && \
+rm -rf $HOME/.dotfiles
+
+[ ! -d $HOME/.dotfiles ] && \
 git clone --bare git@github.com:ReyVega/dotfiles.git $HOME/.dotfiles && \
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout -f && \
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME push --set-upstream origin main && \
