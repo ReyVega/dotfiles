@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # URL of the GitHub file containing the list of package names
-github_url="https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/packages/arch_packages/main"
+github_url="https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/packages/arch/main"
 
 # Fetch the list of package names from GitHub
 package_list=$(curl -s "$github_url")
