@@ -7,36 +7,52 @@
 -- https://github.com/lukas-reineke/indent-blankline.nvim
 
 
-local indent_ok, indent = pcall(require, "indent_blankline")
+local indent_ok, indent = pcall(require, "ibl")
 if not indent_ok then return end
 
 -- Current context indent blankline color
 vim.cmd[[highlight IndentBlanklineContextChar guifg=#5E81AC gui=nocombine]]
 
 indent.setup {
-    char = "▏",
-    show_first_indent_level = true,
-    filetype_exclude = {
-        'help',
-        'lspinfo',
-        'lsp-installer',
-        'terminal',
-        'alpha',
-        'packer',
-        'NvimTree',
-        'dashboard',
-        'startify'
+    enabled = true,
+    indent = {
+        char = "▏",
+        smart_indent_cap = true,
+        highlight = "IndentBlanklineChar",
     },
-    buftype_exclude = {
-        'terminal',
-        'nofile',
-        'help'
+    whitespace = {
+        remove_blankline_trail = true,
+        highlight = "IndentBlanklineSpaceChar",
     },
-    use_treesitter = true,
-    char_highlight = 'LineNr',
-    show_trailing_blankline_indent = false,
-    show_end_of_line = true,
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = false,
+    scope = {
+        enabled = true,
+        char = "▏",
+        show_start = false,
+        show_end = false,
+        injected_languages = true,
+        highlight = "IndentBlanklineContextChar",
+        include = {
+            node_type = {
+                ["*"] = { "*" },
+            },
+        }
+    },
+    exclude = {
+        filetypes = {
+            'help',
+            'lspinfo',
+            'lsp-installer',
+            'terminal',
+            'alpha',
+            'packer',
+            'NvimTree',
+            'dashboard',
+            'startify'
+        },
+        buftypes = {
+            'terminal',
+            'nofile',
+            'help'
+        }
+    }
 }
