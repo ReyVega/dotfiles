@@ -58,6 +58,7 @@ pulsemixer
 pyenv
 python-pip
 qemu-base
+qtile
 ripgrep
 rofi
 sddm
