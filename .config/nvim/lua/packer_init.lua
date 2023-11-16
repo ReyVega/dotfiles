@@ -237,7 +237,7 @@ return packer.startup({
 
         -- Http Client
         use {
-            "NTBBloodbath/rest.nvim",
+            "rest-nvim/rest.nvim",
             config = Get_setup("rest")
         }
 
