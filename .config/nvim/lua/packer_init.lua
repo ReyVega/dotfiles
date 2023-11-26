@@ -222,10 +222,9 @@ return packer.startup({
 
         -- LSP better actions
         use {
-            "glepnir/lspsaga.nvim",
-            branch = "main",
-            event = 'BufRead',
-            config = Get_setup("lspsaga")
+             "nvimdev/lspsaga.nvim",
+             after = 'nvim-lspconfig',
+             config = Get_setup("lspsaga")
         }
 
         -- Zen Mode
