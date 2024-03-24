@@ -93,7 +93,7 @@
 | ------------ | ---------------------------------------------------------------------- |
 | GTK Theme    | [Orchis-dark](https://www.gnome-look.org/p/1357889/)                   |
 | GTK Icons    | [Tela-dark](https://www.pling.com/p/1279924/)                          |
-| GTK Mouse    | [Bibata Modern Ice](https://www.gnome-look.org/p/1197198)              |
+| GTK Mouse    | [Bibata Modern Ice](https://www.bibata.live/studio)                    |
 | GTK Grub     | [Tela](https://www.gnome-look.org/p/1307852)                           |
 | SDDM Theme   | [Sugar Candy](https://aur.archlinux.org/packages/sddm-sugar-candy-git) |
 | Font         | [Hack Nerd Font](https://www.nerdfonts.com/)                           |
@@ -148,4 +148,3 @@ bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/
 ```
 bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/aur)"
 ```
-
