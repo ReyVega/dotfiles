@@ -112,7 +112,7 @@ bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/
 ### Main
 
 ```
-bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/main)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/main)"
 ```
 
 ## Xorg Drivers
@@ -120,19 +120,19 @@ bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/
 ### Intel
 
 ```
-bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/intel)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/intel)"
 ```
 
 ### AMD
 
 ```
-bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/amd)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/amd)"
 ```
 
 ### Nvidia
 
 ```
-bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/nvidia)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/nvidia)"
 ```
 
 ## Paru
@@ -140,11 +140,11 @@ bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/
 ### Installation
 
 ```
-bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/paru_install)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/paru_install)"
 ```
 
 ### AUR Packages
 
 ```
-bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/packages/scripts/aur)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/aur)"
 ```
