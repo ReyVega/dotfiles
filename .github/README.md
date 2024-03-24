@@ -103,16 +103,30 @@
 
 ## Installation
 
+### Dotfiles
+
 ```
 bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/install)"
 ```
 
-## Packages installation
+## Packages
 
-### Main
+### Pacman
 
 ```
-bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/main)"
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/pacman)"
+```
+
+### Paru
+
+```
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/paru_install)"
+```
+
+### Aur
+
+```
+bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/aur)"
 ```
 
 ## Xorg Drivers
@@ -133,18 +147,4 @@ bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/
 
 ```
 bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/nvidia)"
-```
-
-## Paru
-
-### Installation
-
-```
-bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/paru_install)"
-```
-
-### AUR Packages
-
-```
-bash -c "$(curl https://raw.githubusercontent.com/ReyVega/dotfiles/main/.github/repos/scripts/aur)"
 ```

@@ -2,4 +2,4 @@
 
 # Arch Linux
 pacman -Qqem > aur
-pacman -Qqen > main
+pacman -Qqen > pacman
