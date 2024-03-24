@@ -83,6 +83,7 @@ xorg-xinput
 xorg-xkill
 xorg-xprop
 xorg-xrandr
+xorg-xrdb
 xorg-xset
 xorg-xsetroot
 zathura
