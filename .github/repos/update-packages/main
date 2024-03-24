@@ -75,6 +75,7 @@ pyenv
 python-pip
 python-pylint
 qemu-base
+qtile
 ripgrep
 rofi
 sddm
@@ -102,6 +103,7 @@ xorg-xinput
 xorg-xkill
 xorg-xprop
 xorg-xrandr
+xorg-xrdb
 xorg-xset
 xorg-xsetroot
 zathura
