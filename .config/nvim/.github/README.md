@@ -90,9 +90,7 @@
     <tr>
         <th>Formatter</th>
         <td>
-            <a href="https://github.com/stevearc/conform.nvim">conform.nvim</a>
-        </td>
-        <td>
+            <a href="https://github.com/stevearc/conform.nvim">conform.nvim</a><br>
             <a href="https://github.com/rcarriga/nvim-notify">nvim-notify</a>
         </td>
     </tr>
