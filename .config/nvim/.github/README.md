@@ -17,6 +17,7 @@
 │   ├── 📂 plugins
 │   │   ├── 🌑 alpha.lua
 │   │   ├── 🌑 bufferline.lua
+│   │   ├── 🌑 conform.lua
 │   │   ├── 🌑 gitsigns.lua
 │   │   ├── 🌑 impatient.lua
 │   │   ├── 🌑 indent-blankline.lua
@@ -89,7 +90,8 @@
     <tr>
         <th>Formatter</th>
         <td>
-            <a href="https://github.com/jose-elias-alvarez/null-ls.nvim">null-ls</a>
+            <a href="https://github.com/stevearc/conform.nvim">conform.nvim</a>
+            <a href="https://github.com/rcarriga/nvim-notify">nvim-notify</a>
         </td>
     </tr>
     <tr>

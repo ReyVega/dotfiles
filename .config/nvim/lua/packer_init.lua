@@ -71,8 +71,10 @@ return packer.startup({
 
         -- Formatter
         use({
-            "jose-elias-alvarez/null-ls.nvim",
-            config = Get_setup("null_ls"),
+            "stevearc/conform.nvim",
+            event = { "BufReadPre", "BufNewFile" },
+            requires = { "rcarriga/nvim-notify" },
+            config = Get_setup("conform"),
         })
 
         -- Markdown

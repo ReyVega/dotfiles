@@ -131,14 +131,8 @@ key("n", "K", "<cmd>Lspsaga hover_doc<CR>", default_opts)
 -- Markdown preview
 key("n", "<leader>m", "<Cmd>MarkdownPreview<CR>", { noremap = true, silent = true, desc = "Open Markdown Preview" })
 
--- Formatting
-key("n", "F", "<Cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true, desc = "Format" })
-
 -- Zen Mode
 key("n", "<leader>zm", "<Cmd>ZenMode<CR>", { noremap = true, silent = true, desc = "Toggle Zen Mode" })
-
--- Rest
-key("n", "<leader>r", "<Plug>RestNvim", default_opts)
 
 -- Custom
 -- When deleting empty line with "dd" it won"t override your last yank
