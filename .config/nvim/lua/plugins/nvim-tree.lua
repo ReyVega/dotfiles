@@ -6,11 +6,12 @@
 
 -- https://github.com/kyazdani42/nvim-tree.lua
 
-
 local nvim_tree_ok, nvim_tree = pcall(require, "nvim-tree")
-if not nvim_tree_ok then return end
+if not nvim_tree_ok then
+    return
+end
 
-nvim_tree.setup {
+nvim_tree.setup({
     auto_reload_on_write = true,
     disable_netrw = false,
     hijack_cursor = true,
@@ -23,16 +24,16 @@ nvim_tree.setup {
     reload_on_bufenter = false,
     respect_buf_cwd = false,
     on_attach = function(bufnr)
-        local api = require('nvim-tree.api')
+        local api = require("nvim-tree.api")
         local default_opts = { buffer = bufnr, noremap = true, silent = true }
 
         local bufmap = function(lhs, rhs, opts, desc)
             if type(x) == "table" then
                 for _, value in ipairs(lhs) do
-                    vim.keymap.set('n', value, rhs, opts, desc)
+                    vim.keymap.set("n", value, rhs, opts, desc)
                 end
             else
-                vim.keymap.set('n', lhs, rhs, opts, desc)
+                vim.keymap.set("n", lhs, rhs, opts, desc)
             end
         end
 
@@ -302,4 +303,4 @@ nvim_tree.setup {
             watcher = false,
         },
     },
-}
+})

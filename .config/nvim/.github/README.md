@@ -33,7 +33,6 @@
 │   │   ├── 🌑 nvim-tree.lua
 │   │   ├── 🌑 nvim-treesitter.lua
 │   │   ├── 🌑 nvim-ts-autotag.lua
-│   │   ├── 🌑 rest.lua
 │   │   ├── 🌑 telescope.lua
 │   │   ├── 🌑 which-key.lua
 │   │   └── 🌑 zen-mode.lua
@@ -166,7 +165,6 @@
             <a href="https://github.com/hrsh7th/cmp-nvim-lua">cmp-nvim-lua</a> <br>
             <a href="https://github.com/hrsh7th/cmp-cmdline">cmp-cmdline</a> <br>
             <a href="https://github.com/saadparwaiz1/cmp_luasnip">cmp-luasnip</a> <br>
-            <a href="https://github.com/lukas-reineke/cmp-rg">cmp-rg</a> <br>
             <a href="https://github.com/David-Kunz/cmp-npm">cmp-npm</a> <br>
             <a href="https://github.com/lukas-reineke/cmp-under-comparator">cmp-under-comparator</a> <br>
             <a href="https://github.com/onsails/lspkind.nvim">lspkind.nvim</a>
@@ -182,12 +180,6 @@
             <a href="https://github.com/folke/which-key.nvim">which-key</a> <br>
             <a href="https://github.com/folke/zen-mode.nvim">zen-mode</a> <br>
             <a href="https://github.com/folke/twilight.nvim">twilight</a> <br>
-        </td>
-    </tr>
-     <tr>
-        <th>Web Development</th>
-        <td>
-            <a href="https://github.com/rest-nvim/rest.nvim">rest.nvim</a> <br>
         </td>
     </tr>
     <tr>

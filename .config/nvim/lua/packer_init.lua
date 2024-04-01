@@ -6,29 +6,34 @@
 
 -- https://github.com/wbthomason/packer.nvim
 
-
 local fn = vim.fn
-local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-	Packer_bootstrap = fn.system({
-		"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim",
-		install_path
-	})
+    Packer_bootstrap = fn.system({
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path,
+    })
 end
 
-vim.cmd [[
+vim.cmd([[
     augroup packer_user_config
         autocmd!
         autocmd BufWritePost packer_init.lua source <afile> | PackerSync
     augroup end
-]]
+]])
 
 local packer_ok, packer = pcall(require, "packer")
-if not packer_ok then return end
+if not packer_ok then
+    return
+end
 
 function Get_setup(name)
-  return string.format('require("plugins/%s")', name)
+    return string.format('require("plugins/%s")', name)
 end
 
 return packer.startup({
@@ -37,208 +42,203 @@ return packer.startup({
             compile_path = vim.fn.stdpath("config") .. "/plugin/packer_compiled.lua",
             open_fn = function()
                 return require("packer.util").float({ border = "rounded" })
-            end
-        }
+            end,
+        },
     },
 
     function(use)
         -- Packer can manage itself
-        use "wbthomason/packer.nvim"
+        use("wbthomason/packer.nvim")
 
         -- Improve performace
-        use {
+        use({
             "lewis6991/impatient.nvim",
-        }
+        })
 
         -- Themes for neovim editor
-        use {"rmehri01/onenord.nvim", as = "onenord" }
-        use {"folke/tokyonight.nvim", as = "tokyonight"}
-        use {"olimorris/onedarkpro.nvim", as = "onedarkpro"}
+        use({ "rmehri01/onenord.nvim", as = "onenord" })
+        use({ "folke/tokyonight.nvim", as = "tokyonight" })
+        use({ "olimorris/onedarkpro.nvim", as = "onedarkpro" })
 
         -- Icons
-        use {"kyazdani42/nvim-web-devicons"}
+        use({ "kyazdani42/nvim-web-devicons" })
 
         -- Corroutines
-        use {"nvim-lua/plenary.nvim"}
+        use({ "nvim-lua/plenary.nvim" })
 
         -- Matchup functions, conditions, etc.
-        use {"andymass/vim-matchup"}
+        use({ "andymass/vim-matchup" })
 
         -- Formatter
-        use {
+        use({
             "jose-elias-alvarez/null-ls.nvim",
-            config = Get_setup("null_ls")
-        }
+            config = Get_setup("null_ls"),
+        })
 
         -- Markdown
         use({
             "iamcco/markdown-preview.nvim",
-            run = function() vim.fn["mkdp#util#install"]() end,
+            run = function()
+                vim.fn["mkdp#util#install"]()
+            end,
         })
 
         -- Indent line
-        use {
+        use({
             "lukas-reineke/indent-blankline.nvim",
-            config = Get_setup("indent-blankline")
-        }
+            config = Get_setup("indent-blankline"),
+        })
 
         -- Autocloses for tags
-        use {
-            ft = {"html", "tsx", "vue", "svelte", "php"},
+        use({
+            ft = { "html", "tsx", "vue", "svelte", "php" },
             "windwp/nvim-ts-autotag",
-            config = Get_setup("nvim-ts-autotag")
-        }
+            config = Get_setup("nvim-ts-autotag"),
+        })
 
         -- Surround everything
-        use {"kylechui/nvim-surround"}
+        use({ "kylechui/nvim-surround" })
 
         -- Keybindings menu
-        use {
+        use({
             "folke/which-key.nvim",
-            config = Get_setup("which-key")
-        }
+            config = Get_setup("which-key"),
+        })
 
         -- Comments
-        use {
+        use({
             "b3nj5m1n/kommentary",
-            config = Get_setup("kommentary")
-        }
+            config = Get_setup("kommentary"),
+        })
 
         -- Autocloses for pairing parenthesis, brackets, etc
-        use {
+        use({
             "windwp/nvim-autopairs",
             after = "nvim-cmp",
-            config = Get_setup("nvim-autopairs")
-        }
+            config = Get_setup("nvim-autopairs"),
+        })
 
         -- Neovim Colorizer
-        use {
+        use({
             "norcalli/nvim-colorizer.lua",
             event = "BufReadPre",
             config = Get_setup("nvim-colorizer"),
-        }
+        })
 
         -- Snippet Engine
-        use {
+        use({
             "L3MON4D3/LuaSnip",
-            requires = {"rafamadriz/friendly-snippets"},
-            config = Get_setup("luasnip")
-        }
+            requires = { "rafamadriz/friendly-snippets" },
+            config = Get_setup("luasnip"),
+        })
 
         -- Nvim cmp for autocompletion
-        use {
+        use({
             "hrsh7th/nvim-cmp",
             requires = {
                 "onsails/lspkind.nvim",
                 "hrsh7th/cmp-nvim-lsp",
-                {"hrsh7th/cmp-nvim-lua", ft = "lua"},
+                { "hrsh7th/cmp-nvim-lua", ft = "lua" },
                 "hrsh7th/cmp-buffer",
                 "hrsh7th/cmp-path",
                 "saadparwaiz1/cmp_luasnip",
                 "hrsh7th/cmp-cmdline",
-                "lukas-reineke/cmp-rg",
                 "lukas-reineke/cmp-under-comparator",
                 "David-Kunz/cmp-npm",
             },
-            config = Get_setup("nvim-cmp")
-        }
+            config = Get_setup("nvim-cmp"),
+        })
 
         -- File explorer
-        use {
+        use({
             "kyazdani42/nvim-tree.lua",
             event = "UIEnter",
             after = "alpha-nvim",
             config = Get_setup("nvim-tree"),
-            cmd = {"NvimTreeToggle", "NvimTreeFindFileToggle"}
-        }
+            cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle" },
+        })
 
         -- Treesitter for Syntax (Languages Analyzer)
-        use {
+        use({
             "nvim-treesitter/nvim-treesitter",
             run = ":TSUpdate",
-            config = Get_setup("nvim-treesitter")
-        }
+            config = Get_setup("nvim-treesitter"),
+        })
 
         -- Treesitter extension
-        use {
+        use({
             "nvim-treesitter/nvim-treesitter-textobjects",
-            after = "nvim-treesitter"
-        }
+            after = "nvim-treesitter",
+        })
 
         -- Bufferline and nvim-bufdel (Utility to mantain bufferline layout when closing tabs)
-        use {
+        use({
             "akinsho/bufferline.nvim",
             event = "UIEnter",
             after = "alpha-nvim",
-            requires = {"ojroques/nvim-bufdel"},
-            config = Get_setup("bufferline")
-        }
+            requires = { "ojroques/nvim-bufdel" },
+            config = Get_setup("bufferline"),
+        })
 
         -- Status line
-        use {
+        use({
             "nvim-lualine/lualine.nvim",
             event = "UIEnter",
-            config = Get_setup("lualine")
-        }
+            config = Get_setup("lualine"),
+        })
 
         -- Git Signs
-        use {
+        use({
             "lewis6991/gitsigns.nvim",
             event = "BufReadPre",
             config = Get_setup("gitsigns"),
-        }
+        })
 
         -- Telescope
-        use {
+        use({
             "nvim-telescope/telescope.nvim",
             requires = {
-                {"nvim-lua/popup.nvim"},
-                {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
-                {"nvim-telescope/telescope-ui-select.nvim"},
+                { "nvim-lua/popup.nvim" },
+                { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+                { "nvim-telescope/telescope-ui-select.nvim" },
             },
-            config = Get_setup("telescope")
-        }
+            config = Get_setup("telescope"),
+        })
 
         -- Alpha-Nvim
-        use {
+        use({
             "goolord/alpha-nvim",
-            config = Get_setup("alpha")
-        }
+            config = Get_setup("alpha"),
+        })
 
         -- LSP
-        use {
+        use({
             "neovim/nvim-lspconfig",
             event = "BufEnter",
-            config = Get_setup("nvim-lspconfig")
-        }
+            config = Get_setup("nvim-lspconfig"),
+        })
 
         -- LSP support and installer (To detect programming languages and other functionalities)
-        use {
+        use({
             "williamboman/mason.nvim",
-            requires = {"williamboman/mason-lspconfig.nvim"},
+            requires = { "williamboman/mason-lspconfig.nvim" },
             config = Get_setup("mason"),
-            run = ":MasonUpdate"
-        }
+            run = ":MasonUpdate",
+        })
 
         -- LSP better actions
-        use {
-             "nvimdev/lspsaga.nvim",
-             after = 'nvim-lspconfig',
-             config = Get_setup("lspsaga")
-        }
+        use({
+            "nvimdev/lspsaga.nvim",
+            after = "nvim-lspconfig",
+            config = Get_setup("lspsaga"),
+        })
 
         -- Zen Mode
-        use {
+        use({
             "folke/zen-mode.nvim",
-            requires = {"folke/twilight.nvim"},
-	        config = Get_setup("zen-mode")
-        }
-
-        -- Http Client
-        use {
-            "rest-nvim/rest.nvim",
-            config = Get_setup("rest")
-        }
+            requires = { "folke/twilight.nvim" },
+            config = Get_setup("zen-mode"),
+        })
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins

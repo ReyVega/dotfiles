@@ -6,14 +6,15 @@
 
 -- https://github.com/lukas-reineke/indent-blankline.nvim
 
-
 local indent_ok, indent = pcall(require, "ibl")
-if not indent_ok then return end
+if not indent_ok then
+    return
+end
 
 -- Current context indent blankline color
-vim.cmd[[highlight IndentBlanklineContextChar guifg=#5E81AC gui=nocombine]]
+vim.cmd([[highlight IndentBlanklineContextChar guifg=#5E81AC gui=nocombine]])
 
-indent.setup {
+indent.setup({
     enabled = true,
     indent = {
         char = "▏",
@@ -35,24 +36,24 @@ indent.setup {
             node_type = {
                 ["*"] = { "*" },
             },
-        }
+        },
     },
     exclude = {
         filetypes = {
-            'help',
-            'lspinfo',
-            'lsp-installer',
-            'terminal',
-            'alpha',
-            'packer',
-            'NvimTree',
-            'dashboard',
-            'startify'
+            "help",
+            "lspinfo",
+            "lsp-installer",
+            "terminal",
+            "alpha",
+            "packer",
+            "NvimTree",
+            "dashboard",
+            "startify",
         },
         buftypes = {
-            'terminal',
-            'nofile',
-            'help'
-        }
-    }
-}
+            "terminal",
+            "nofile",
+            "help",
+        },
+    },
+})

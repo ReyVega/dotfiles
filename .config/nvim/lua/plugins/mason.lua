@@ -6,19 +6,25 @@
 
 -- https://github.com/williamboman/mason.nvim
 
+local mason_ok, mason = pcall(require, "mason")
+if not mason_ok then
+    return
+end
 
-local mason_ok, mason = pcall(require, 'mason')
-if not mason_ok then return end
+local lsp_installer_ok, lsp_installer = pcall(require, "mason-lspconfig")
+if not lsp_installer_ok then
+    return
+end
 
-local lsp_installer_ok, lsp_installer = pcall(require, 'mason-lspconfig')
-if not lsp_installer_ok then return end
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_ok then
+    return
+end
 
-local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
-if not lspconfig_ok then return end
-
-local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-if not cmp_nvim_lsp_ok then return end
-
+local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_ok then
+    return
+end
 
 lsp_installer.setup({
     ensure_installed = {},
@@ -26,7 +32,7 @@ lsp_installer.setup({
 })
 
 mason.setup({
-    install_root_dir = vim.fn.stdpath("data").."/mason",
+    install_root_dir = vim.fn.stdpath("data") .. "/mason",
     PATH = "prepend",
     log_level = vim.log.levels.INFO,
     max_concurrent_installers = 4,
@@ -52,7 +58,7 @@ mason.setup({
         icons = {
             package_installed = "◍",
             package_pending = "◍",
-            package_uninstalled = "◍"
+            package_uninstalled = "◍",
         },
         keymaps = {
             toggle_package_expand = "<CR>",
@@ -82,12 +88,12 @@ local on_attach = function(client)
     end
 end
 
-lsp_installer.setup_handlers {
-    function (server_name)
+lsp_installer.setup_handlers({
+    function(server_name)
         local opts = {
             capabilities = capabilities,
-            on_attach = on_attach
+            on_attach = on_attach,
         }
         lspconfig[server_name].setup(opts)
-    end
-}
+    end,
+})
