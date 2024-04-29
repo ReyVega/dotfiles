@@ -1,5 +1,5 @@
 #!/bin/bash
-icon_path="~/.local/bin/icons/"
+icon_path="$HOME/.local/bin/icons/"
 timeout=1500
 
 function get_volume {

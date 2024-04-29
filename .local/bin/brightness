@@ -1,5 +1,5 @@
 #!/bin/bash
-icon="~/.local/bin/icons/brightnesssettings.svg"
+icon="$HOME/.local/bin/icons/brightnesssettings.svg"
 timeout=1500
 icon_bar=""
 
