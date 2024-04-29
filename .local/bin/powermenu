@@ -33,7 +33,8 @@ case $chosen in
             ans=$(confirm_exit)
             if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
             then
-			    systemctl poweroff
+                systemctl poweroff
+                exit 0
 		    elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]
             then
 			    exit 0
@@ -52,6 +53,7 @@ case $chosen in
             if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
             then
                 systemctl reboot
+                exit 0
             elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]
             then
                 exit 0
@@ -70,6 +72,8 @@ case $chosen in
             if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
             then
                 systemctl suspend
+                betterlockscreen -l
+                exit 0
             elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]
             then
                 exit 0
@@ -87,7 +91,8 @@ case $chosen in
             ans=$(confirm_exit)
             if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
             then
-                loginctl terminate-session ${XDG_SESSION_ID-}
+                kill $(ps -ef | grep "/usr/bin/qtile start" | grep -v grep | awk '{print $2}')
+                exit 0
             elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]
             then
                 exit 0
