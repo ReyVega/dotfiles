@@ -206,7 +206,7 @@ def scroll_screen(qtile, direction):
     current = qtile.groups.index(qtile.current_group)
     screen = qtile.screens.index(qtile.current_screen)
 
-    destination = ((current - (9 * screen) + direction) % 9) + (9 * screen)
+    destination = ((current + direction) % 9) + (9 * screen)
     qtile.groups[destination].toscreen()
 
 
