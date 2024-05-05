@@ -44,8 +44,8 @@ local function footer()
     local total_plugins = #vim.tbl_keys(packer_plugins)
     local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
     local version = vim.version()
-    local nvim_version_info = "   " .. version.major .. "." .. version.minor .. "." .. version.patch
-    return datetime .. "   " .. total_plugins .. " plugins" .. nvim_version_info
+    local nvim_version_info = "   " .. version.major .. "." .. version.minor .. "." .. version.patch
+    return datetime .. "   " .. total_plugins .. " plugins" .. nvim_version_info
 end
 
 -- Header
@@ -78,13 +78,13 @@ end
 
 -- Menu
 dashboard.section.buttons.val = {
-    button("n", "  New file", "<Cmd>ene <BAR> startinsert<CR>"),
+    button("n", "  New file", "<Cmd>ene <BAR> startinsert<CR>"),
     button("f", "  Find file", "<Cmd>Telescope find_files<CR>"),
-    button("r", "  Recently used files", "<Cmd>Telescope oldfiles<CR>"),
-    button("u", "  Update plugins", "<Cmd>PackerSync<CR>"),
-    button("a", "力 LSP servers", "<Cmd>Mason<CR>"),
-    button("s", "漣 Settings", "<Cmd>e $MYVIMRC | :cd %:p:h | NvimTreeFocus<CR>"),
-    button("q", "  Quit", "<Cmd>qa!<CR>"),
+    button("r", "  Recently used files", "<Cmd>Telescope oldfiles<CR>"),
+    button("u", "  Update plugins", "<Cmd>PackerSync<CR>"),
+    button("a", "  LSP servers", "<Cmd>Mason<CR>"),
+    button("s", "  Settings", "<Cmd>e $MYVIMRC | :cd %:p:h | NvimTreeFocus<CR>"),
+    button("q", "  Quit", "<Cmd>qa!<CR>"),
 }
 
 -- Footer

@@ -1,6 +1,6 @@
 #!/bin/bash
 ACTION="$HOME/.local/bin/calendar-notification"
-icon=""
+icon="󰃵"
 hour=$(date +"%H:%M")
 date=$(date +"%b %d %Y")
 

@@ -9,44 +9,44 @@ function get_battery_level {
         status=$(cat $battery_path/status)
 
         case $status in
-            "Full") status_icon="" ;;
+            "Full") status_icon="󰂄" ;;
             "Discharging")
                 case $level in
-                    100) status_icon="" ;;
-                    9?) status_icon="" ;;
-                    8?) status_icon="" ;;
-                    7?) status_icon="" ;;
-                    6?) status_icon="" ;;
-                    5?) status_icon="" ;;
-                    4?) status_icon="" ;;
-                    3?) status_icon="" ;;
-                    2?) status_icon="" ;;
-                    1?) status_icon="" ;;
-                    ?) status_icon="" ;;
+                    100) status_icon="󰁹" ;;
+                    9?) status_icon="󰂂" ;;
+                    8?) status_icon="󰂁" ;;
+                    7?) status_icon="󰂀" ;;
+                    6?) status_icon="󰁿" ;;
+                    5?) status_icon="󰁾" ;;
+                    4?) status_icon="󰁽" ;;
+                    3?) status_icon="󰁼" ;;
+                    2?) status_icon="󰁻" ;;
+                    1?) status_icon="󰁺" ;;
+                    ?) status_icon="󰁺" ;;
                 esac
                 ;;
             "Charging")
                 case $level in
-                    100) status_icon="" ;;
-                    9?) status_icon="" ;;
-                    8?) status_icon="" ;;
-                    7?) status_icon="" ;;
-                    6?) status_icon="" ;;
-                    5?) status_icon="" ;;
-                    4?) status_icon="" ;;
-                    3?) status_icon="" ;;
-                    2?) status_icon="" ;;
-                    1?) status_icon="" ;;
-                    ?) status_icon="" ;;
+                    100) status_icon="󰂄" ;;
+                    9?) status_icon="󰂋" ;;
+                    8?) status_icon="󰂊" ;;
+                    7?) status_icon="󰢞" ;;
+                    6?) status_icon="󰂉" ;;
+                    5?) status_icon="󰢝" ;;
+                    4?) status_icon="󰂈" ;;
+                    3?) status_icon="󰂇" ;;
+                    2?) status_icon="󰂆" ;;
+                    1?) status_icon="󰢜" ;;
+                    ?) status_icon="󰢜" ;;
                 esac
                 ;;
-            "Not charging") status_icon="" ;;
-            "Unknown") status_icon="" ;;
+            "Not charging") status_icon="󰂃" ;;
+            "Unknown") status_icon="󰂑" ;;
         esac
 
         printf "%s" "$status_icon $level%"
     else
-        printf "%s" " PC"
+        printf "%s" " PC"
     fi
 }
 

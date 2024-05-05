@@ -34,7 +34,7 @@ bufferline.setup({
             style = "icon",
             indicator_icon = "▎",
         },
-        buffer_close_icon = "",
+        buffer_close_icon = "",
         modified_icon = "●",
         close_icon = "",
         left_trunc_marker = "",
@@ -52,7 +52,7 @@ bufferline.setup({
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
             local s = " "
             for e, n in pairs(diagnostics_dict) do
-                local sym = e == "error" and " " or (e == "warning" and " " or " ")
+                local sym = e == "error" and " " or (e == "warning" and " " or " ")
                 s = s .. n .. sym
             end
             return s
@@ -86,25 +86,30 @@ bufferline.setup({
             right = function()
                 local result = {}
                 local seve = vim.diagnostic.severity
-                local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
-                local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
-                local info = #vim.diagnostic.get(0, { severity = seve.INFO })
-                local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
+                local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
+                local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
+                local info = #vim.diagnostic.get(0, {severity = seve.INFO})
+                local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
+
+                table.insert(result, {text = "", fg = "#BF616A"})
+                table.insert(result, {text = "", fg = "#D08F70"})
+                table.insert(result, {text = "", fg = "#B988B0"})
+                table.insert(result, {text = "", fg = "#A3BE8C"})
 
                 if error ~= 0 then
-                    table.insert(result, { text = "  " .. error, fg = "#BF616A" })
+                    result[1].text = error .. " "
                 end
 
                 if warning ~= 0 then
-                    table.insert(result, { text = "  " .. warning, fg = "#EBCB8B" })
+                    result[2].text = warning .. " "
                 end
 
                 if hint ~= 0 then
-                    table.insert(result, { text = "  " .. hint, fg = "#A3BE8C" })
+                    result[3].text = hint .. " "
                 end
 
                 if info ~= 0 then
-                    table.insert(result, { text = "  " .. info, fg = "#88C0D0" })
+                    result[4].text = info .. " "
                 end
                 return result
             end,

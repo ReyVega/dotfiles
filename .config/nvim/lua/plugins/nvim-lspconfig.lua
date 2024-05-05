@@ -12,7 +12,7 @@ if not lspconfig_ok then
 end
 
 -- Customizing gutter signs
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type

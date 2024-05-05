@@ -1,7 +1,7 @@
 #!/bin/bash
 icon="$HOME/.local/bin/icons/brightnesssettings.svg"
 timeout=1500
-icon_bar=""
+icon_bar="󰃞"
 
 function get_brightness {
     brightnessctl i | grep % | awk "{print \$4}" | tr -d '()'

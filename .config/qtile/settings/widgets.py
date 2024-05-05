@@ -1,7 +1,6 @@
 from libqtile import bar, widget
 from libqtile.command import lazy
 from os import path
-import subprocess
 from .theme import colors
 
 #---------------------------------------------------------------
@@ -32,7 +31,7 @@ def primary_widgets(visible_groups):
             **base(fg='color15'),
             font="Hack Nerd Font Bold",
             fontsize=14,
-            padding_x=7,
+            padding_x=9,
             disable_drag=True,
             rounded=True,
             active=colors['color17'],

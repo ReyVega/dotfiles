@@ -13,6 +13,7 @@ dust
 edk2-ovmf
 efibootmgr
 eza
+fastfetch
 fd
 feh
 fish
@@ -37,7 +38,6 @@ mariadb
 mpd
 mpv
 ncmpcpp
-neofetch
 neovim
 network-manager-applet
 networkmanager
