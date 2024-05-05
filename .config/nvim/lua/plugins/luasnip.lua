@@ -8,18 +8,18 @@
 
 local luasnip_ok, ls = pcall(require, "luasnip")
 if not luasnip_ok then
-    return
+	return
 end
 
 local friendly_snippets_ok, friendly_snippets = pcall(require, "luasnip.loaders.from_vscode")
 if not friendly_snippets_ok then
-    return
+	return
 end
 
 ls.config.set_config({
-    history = false,
-    updateevents = "TextChanged,TextChangedI",
-    region_check_events = "CursorMoved",
+	history = false,
+	updateevents = "TextChanged,TextChangedI",
+	region_check_events = "CursorMoved",
 })
 
 -- enable html snippets in javascript/javascript(REACT)

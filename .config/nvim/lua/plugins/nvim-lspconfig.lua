@@ -8,24 +8,24 @@
 
 local lspconfig_ok, _ = pcall(require, "lspconfig")
 if not lspconfig_ok then
-    return
+	return
 end
 
 -- Customizing gutter signs
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 -- Customizing how diagnostics are displayed
 vim.diagnostic.config({
-    virtual_text = false,
-    signs = true,
-    underline = true,
-    update_in_insert = false,
-    severity_sort = false,
+	virtual_text = false,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = false,
 })
 
 -- Colors and type of underline for diagnostics

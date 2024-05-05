@@ -59,5 +59,3 @@ local function smart_dd()
 end
 
 key("n", "dd", smart_dd, { noremap = true, expr = true, desc = "Cut Current Line" })
-
-
