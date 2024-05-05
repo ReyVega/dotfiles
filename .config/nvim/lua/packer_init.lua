@@ -178,7 +178,7 @@ return packer.startup({
             "akinsho/bufferline.nvim",
             event = "UIEnter",
             after = "alpha-nvim",
-            requires = { "ojroques/nvim-bufdel" },
+            requires = { "famiu/bufdelete.nvim" },
             config = Get_setup("bufferline"),
         })
 

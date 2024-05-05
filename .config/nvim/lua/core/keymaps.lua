@@ -149,7 +149,7 @@ key("n", "dd", smart_dd, { noremap = true, expr = true, desc = "Cut Current Line
 -- BufDel (Delete buffers without messing the layout)
 local function BufDel()
 	if vim.bo.filetype ~= "NvimTree" then
-		return "<Cmd>BufDel!<CR>"
+		return "<Cmd>Bdelete!<CR>"
 	end
 end
 
