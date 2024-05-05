@@ -85,7 +85,7 @@ bufferline.setup({
 			delay = 200,
 			reveal = { "close" },
 		},
-		sort_by = "insert_at_end",
+		sort_by = "directory",
 		custom_areas = {
 			right = function()
 				local result = {}
@@ -120,3 +120,37 @@ bufferline.setup({
 		},
 	},
 })
+
+-----------------------------------------------------------
+-- Keymaps:
+-----------------------------------------------------------
+local key = vim.keymap.set
+local default_opts = { noremap = true, silent = true }
+
+-- Move to next/prev buffer
+key("n", "<TAB>", "<Cmd>BufferLineCycleNext<CR>", default_opts)
+key("n", "<S-TAB>", "<Cmd>BufferLineCyclePrev<CR>", default_opts)
+
+-- Move current buffer to next/prev position
+key("n", "<PageUp>", "<Cmd>BufferLineMoveNext<CR>", default_opts)
+key("n", "<PageDown>", "<Cmd>BufferLineMovePrev<CR>", default_opts)
+
+-- Move to buffer position
+key("n", "<A-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", default_opts)
+key("n", "<A-2>", "<Cmd>BufferLineGoToBuffer 2<CR>", default_opts)
+key("n", "<A-3>", "<Cmd>BufferLineGoToBuffer 3<CR>", default_opts)
+key("n", "<A-4>", "<Cmd>BufferLineGoToBuffer 4<CR>", default_opts)
+key("n", "<A-5>", "<Cmd>BufferLineGoToBuffer 5<CR>", default_opts)
+key("n", "<A-6>", "<Cmd>BufferLineGoToBuffer 6<CR>", default_opts)
+key("n", "<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>", default_opts)
+key("n", "<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>", default_opts)
+key("n", "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", default_opts)
+
+-- BufDel (Delete buffers without messing the layout and disable nvim tree deletion)
+local function BufDel()
+	if vim.bo.filetype ~= "NvimTree" then
+		return "<Cmd>Bdelete!<CR>"
+	end
+end
+
+key({ "n", "v" }, "<leader>w", BufDel, { noremap = true, expr = true, desc = "Delete Current Buffer" })

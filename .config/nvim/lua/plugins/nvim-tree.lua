@@ -342,3 +342,11 @@ nvim_tree.setup(settings)
 vim.cmd([[
     hi NvimTreeOpenedHL guifg=#88C0D0
 ]])
+
+-----------------------------------------------------------
+-- Keymaps:
+-----------------------------------------------------------
+local key = vim.keymap.set
+
+-- Open/Close nvim tree
+key("n", "<leader>b", "<Cmd>NvimTreeFindFileToggle<CR>", { noremap = true, silent = true, desc = "Open nvim tree" })
