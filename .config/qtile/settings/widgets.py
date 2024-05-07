@@ -51,14 +51,13 @@ def primary_widgets(visible_groups):
         widget.TextBox(
             text="",
             foreground=colors["color1"],
-            padding=-1,
             font="Hack Nerd Font Bold",
-            fontsize=26,
+            fontsize=30,
         ),
 
         widget.Systray(
-             padding=10,
              icon_size=16,
+             padding=8
         ),
 
         widget.Spacer(),
@@ -66,9 +65,8 @@ def primary_widgets(visible_groups):
         widget.TextBox(
             text="",
             foreground=colors["color1"],
-            padding=-1,
             font="Hack Nerd Font Bold",
-            fontsize=26,
+            fontsize=30,
         ),
 
         widget.WindowName(
@@ -83,21 +81,17 @@ def primary_widgets(visible_groups):
         widget.TextBox(
             text="",
             foreground=colors["color1"],
-            padding=-1,
             font="Hack Nerd Font Bold",
-            fontsize=26,
+            fontsize=30,
         ),
 
         widget.Spacer(),
 
-        widget.Sep(linewidth=0, padding=14, size_percent=40),
-
         widget.TextBox(
             text="",
             foreground=colors["color1"],
-            padding=-1,
             font="Hack Nerd Font Bold",
-            fontsize=26,
+            fontsize=30,
         ),
 
         widget.GenPollCommand(
@@ -216,9 +210,8 @@ def secondary_widgets(visible_groups):
         widget.TextBox(
             text="",
             foreground=colors["color1"],
-            padding=-1,
             font="Hack Nerd Font Bold",
-            fontsize=26,
+            fontsize=30,
         ),
 
         widget.Spacer(),
@@ -226,9 +219,8 @@ def secondary_widgets(visible_groups):
         widget.TextBox(
             text="",
             foreground=colors["color1"],
-            padding=-1,
             font="Hack Nerd Font Bold",
-            fontsize=26,
+            fontsize=30,
         ),
 
         widget.WindowName(
@@ -243,21 +235,17 @@ def secondary_widgets(visible_groups):
         widget.TextBox(
             text="",
             foreground=colors["color1"],
-            padding=-1,
             font="Hack Nerd Font Bold",
-            fontsize=26,
+            fontsize=30,
         ),
 
         widget.Spacer(),
 
-        widget.Sep(linewidth=0, padding=14, size_percent=40),
-
         widget.TextBox(
             text="",
             foreground=colors["color1"],
-            padding=-1,
             font="Hack Nerd Font Bold",
-            fontsize=26,
+            fontsize=30,
         ),
 
         widget.GenPollCommand(
