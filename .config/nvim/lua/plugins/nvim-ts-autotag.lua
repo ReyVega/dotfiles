@@ -6,18 +6,21 @@
 
 -- https://github.com/windwp/nvim-ts-autotag
 
-local autotag_ok, autotag = pcall(require, "nvim-ts-autotag")
-if not autotag_ok then
-	return
-end
+return {
+	"windwp/nvim-ts-autotag",
+	ft = { "html", "tsx", "vue", "svelte", "php" },
+	config = function()
+		local autotag = require("nvim-ts-autotag")
 
-autotag.setup({
-	filetypes = {
-		"html",
-		"javascript",
-		"javascriptreact",
-		"typescriptreact",
-		"svelte",
-		"vue",
-	},
-})
+		autotag.setup({
+			filetypes = {
+				"html",
+				"javascript",
+				"javascriptreact",
+				"typescriptreact",
+				"svelte",
+				"vue",
+			},
+		})
+	end,
+}

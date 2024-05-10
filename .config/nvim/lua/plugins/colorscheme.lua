@@ -3,9 +3,13 @@
 -----------------------------------------------------------
 
 -- Default theme
-local status_ok, color_scheme = pcall(require, "onenord")
-if not status_ok then
-    return
-end
 
-color_scheme.load()
+return {
+	"rmehri01/onenord.nvim",
+	name = "onenord",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd([[colorscheme onenord]])
+	end,
+}

@@ -17,16 +17,16 @@
 │   ├── 📂 plugins
 │   │   ├── 🌑 alpha.lua
 │   │   ├── 🌑 bufferline.lua
+│   │   ├── 🌑 colorscheme.lua
 │   │   ├── 🌑 conform.lua
 │   │   ├── 🌑 gitsigns.lua
-│   │   ├── 🌑 impatient.lua
 │   │   ├── 🌑 indent-blankline.lua
 │   │   ├── 🌑 kommentary.lua
 │   │   ├── 🌑 lspsaga.lua
 │   │   ├── 🌑 lualine.lua
 │   │   ├── 🌑 luasnip.lua
 │   │   ├── 🌑 mason.lua
-│   │   ├── 🌑 null_ls.lua
+│   │   ├── 🌑 noconfig.lua
 │   │   ├── 🌑 nvim-autopairs.lua
 │   │   ├── 🌑 nvim-cmp.lua
 │   │   ├── 🌑 nvim-colorizer.lua
@@ -184,13 +184,7 @@
             <a href="https://github.com/folke/twilight.nvim">twilight</a> <br>
         </td>
     </tr>
-    <tr>
-        <th>Performance</th>
-        <td>
-            <a href="https://github.com/lewis6991/impatient.nvim">impatient.nvim</a> <br>
-        </td>
-    </tr>
- </table>
+    </table>
 
 ---
 

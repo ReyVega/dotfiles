@@ -6,20 +6,23 @@
 
 -- https://github.com/norcalli/nvim-colorizer.lua
 
-local colorizer_ok, colorizer = pcall(require, "colorizer")
-if not colorizer_ok then
-	return
-end
+return {
+	"norcalli/nvim-colorizer.lua",
+	event = "BufReadPre",
+	config = function()
+		local colorizer = require("colorizer")
 
-colorizer.setup({
-	"css",
-	"html",
-	"javascript",
-	"javascriptreact",
-	"typescript",
-	"typescriptreact",
-	"vim",
-	"dart",
-	"python",
-	"*",
-}, { mode = "background", names = true, css = true, css_fn = true })
+		colorizer.setup({
+			"css",
+			"html",
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"vim",
+			"dart",
+			"python",
+			"*",
+		}, { mode = "background", names = true, css = true, css_fn = true })
+	end,
+}

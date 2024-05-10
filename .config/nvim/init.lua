@@ -11,9 +11,7 @@
 -- Import Lua modules
 -----------------------------------------------------------
 
-require("plugins/impatient")
 require("core/options")
 require("core/keymaps")
 require("core/autocmds")
-require("packer_init")
-require("core/theme")
+require("lazy_init")
