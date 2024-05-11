@@ -39,7 +39,7 @@ key("n", "<leader>t", "<Cmd>te<CR>", { noremap = true, silent = true, desc = "Op
 key("t", "<ESC>", [[<C-\><C-n>]], default_opts)
 
 -- Open new buffer
-key("n", "<C-t>", "<Cmd>new | close<CR>", default_opts)
+key("n", "<C-t>", "<Cmd>enew<CR>", default_opts)
 
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:

@@ -24,8 +24,8 @@ return {
 				style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
 				themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
 				numbers = "none",
-				close_command = "Bdelete! %d", -- can be a string | function, | false see "Mouse actions"
-				right_mouse_command = "Bdelete! %d", -- can be a string | function | false, see "Mouse actions"
+				close_command = "Bwipeout! %d", -- can be a string | function, | false see "Mouse actions"
+				right_mouse_command = "Bwipeout! %d", -- can be a string | function | false, see "Mouse actions"
 				left_mouse_command = "buffer %d", -- can be a string | function, | false see "Mouse actions"
 				middle_mouse_command = nil, -- can be a string | function, | false see "Mouse actions"
 				indicator = {
@@ -86,7 +86,7 @@ return {
 					delay = 200,
 					reveal = { "close" },
 				},
-				sort_by = "directory",
+				sort_by = "insert_at_end",
 				custom_areas = {
 					right = function()
 						local result = {}
@@ -150,7 +150,7 @@ return {
 		-- BufDel (Delete buffers without messing the layout and disable nvim tree deletion)
 		local function BufDel()
 			if vim.bo.filetype ~= "NvimTree" and vim.bo.filetype ~= "alpha" then
-				return "<Cmd>Bdelete!<CR>"
+				return "<Cmd>Bwipeout!<CR>"
 			end
 		end
 

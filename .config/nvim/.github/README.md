@@ -37,7 +37,7 @@
 │   │   ├── 🌑 telescope.lua
 │   │   ├── 🌑 which-key.lua
 │   │   └── 🌑 zen-mode.lua
-│   └── 🌑 packer_init.lua
+│   └── 🌑 lazy_init.lua
 └── 🌑 init.lua
 ```
 
@@ -49,7 +49,7 @@
     <tr>
         <th>Plugin Manager</th>
         <td>
-            <a href="https://github.com/wbthomason/packer.nvim">packer</a>
+            <a href="https://github.com/folke/lazy.nvim">lazy</a>
         </td>
     </tr>
     <tr>

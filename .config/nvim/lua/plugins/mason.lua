@@ -12,6 +12,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 		"hrsh7th/cmp-nvim-lsp",
+		"nvimdev/lspsaga.nvim",
 	},
 	build = ":MasonUpdate",
 	config = function()
@@ -20,11 +21,7 @@ return {
 		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		lsp_installer.setup({
-			ensure_installed = {},
-			automatic_installation = false,
-		})
-
+		--Mason
 		mason.setup({
 			install_root_dir = vim.fn.stdpath("data") .. "/mason",
 			PATH = "prepend",
@@ -68,9 +65,11 @@ return {
 			},
 		})
 
+		-- LSP Implementations
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		local on_attach = function(client)
+			-- Highlight document depending on cursor position
 			if client.server_capabilities.documentHighlightProvider then
 				vim.cmd([[
             augroup document_highlight
@@ -80,16 +79,110 @@ return {
             augroup END
         ]])
 			end
+
+			-----------------------------------------------------------
+			-- Keymaps:
+			-----------------------------------------------------------
+			local key = vim.keymap.set
+			local default_opts = { noremap = true, silent = true }
+
+			-- LSP finder
+			key(
+				"n",
+				"gh",
+				"<cmd>Lspsaga finder<CR>",
+				{ noremap = true, silent = true, desc = "Find the Symbol Definition implement Reference" }
+			)
+
+			-- Go to next/prev LSP diagnostic
+			key("n", "<C-p>", "<cmd>Lspsaga diagnostic_jump_prev<CR>", default_opts)
+			key("n", "<C-n>", "<cmd>Lspsaga diagnostic_jump_next<CR>", default_opts)
+
+			-- Peek definition
+			key(
+				"n",
+				"gd",
+				"<cmd>Lspsaga peek_definition<CR>",
+				{ noremap = true, silent = true, desc = "Find Peek Definition" }
+			)
+
+			-- Hover doc
+			key("n", "K", "<cmd>Lspsaga hover_doc<CR>", default_opts)
+
+			-- Rename
+			key("n", "gr", "<cmd>Lspsaga rename<CR>", { noremap = true, silent = true, desc = "Rename" })
+
+			-- Call hierarcy
+			key(
+				"n",
+				"gi",
+				"<cmd>Lspsaga incoming_calls<CR>",
+				{ noremap = true, silent = true, desc = "Incoming calls" }
+			)
+			key(
+				"n",
+				"go",
+				"<cmd>Lspsaga outgoing_calls<CR>",
+				{ noremap = true, silent = true, desc = "Outgoing calls" }
+			)
+
+			-- Code actions
+			key(
+				{ "n", "v" },
+				"<leader>ca",
+				"<cmd>Lspsaga code_action<CR>",
+				{ noremap = true, silent = true, desc = "Show Code Actions" }
+			)
+
+			-- LSP outline
+			key(
+				"n",
+				"<leader>o",
+				"<cmd>Lspsaga outline<CR>",
+				{ noremap = true, silent = true, desc = "Toggle Outline Diagnostics" }
+			)
+
+			-- LSP show line diagnostics
+			key(
+				"n",
+				"<leader>cd",
+				"<cmd>Lspsaga show_line_diagnostics<CR>",
+				{ noremap = true, silent = true, desc = "Show Line Diagnostics" }
+			)
 		end
 
-		lsp_installer.setup_handlers({
+		local handlers = {
+			-- Handling all LSP
 			function(server_name)
-				local opts = {
+				lspconfig[server_name].setup({
 					capabilities = capabilities,
 					on_attach = on_attach,
-				}
-				lspconfig[server_name].setup(opts)
+				})
 			end,
+			--Overrding LSP
+			["lua_ls"] = function()
+				lspconfig.lua_ls.setup({
+					root_dir = function(fname)
+						return nil
+					end,
+					capabilities = capabilities,
+					on_attach = on_attach,
+				})
+			end,
+		}
+
+		lsp_installer.setup({
+			ensure_installed = {
+				"pyright",
+				"lua_ls",
+				"tsserver",
+				"cssls",
+				"jsonls",
+				"bashls",
+				"html",
+			},
+			automatic_installation = false,
+			handlers = handlers,
 		})
 	end,
 }
