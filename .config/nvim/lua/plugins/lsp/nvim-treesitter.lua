@@ -27,9 +27,6 @@ return {
 			indent = {
 				enable = false,
 			},
-			autotag = {
-				enable = true,
-			},
 			textobjects = {
 				select = {
 					enable = true,

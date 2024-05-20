@@ -19,7 +19,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins", {
+local plugins_paths = {
+	{ import = "plugins.lsp" },
+	{ import = "plugins.ui" },
+	{ import = "plugins.cmp" },
+	{ import = "plugins.extras" },
+}
+
+local lazy_opts = {
 	ui = {
 		-- a number <1 is a percentage., >1 is a fixed size
 		size = { width = 0.8, height = 0.8 },
@@ -62,4 +69,6 @@ require("lazy").setup("plugins", {
 		throttle = 20, -- how frequently should the ui process render events
 		custom_keys = {},
 	},
-})
+}
+
+require("lazy").setup(plugins_paths, lazy_opts)
