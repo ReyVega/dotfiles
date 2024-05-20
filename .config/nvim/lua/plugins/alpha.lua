@@ -30,14 +30,14 @@ return {
 		-- Setup button
 		local function button(sc, txt, keybind, keybind_opts)
 			local b = dashboard.button(sc, txt, keybind, keybind_opts)
-			b.opts.hl = { { "AlphaButton", 2, 3 } }
+			b.opts.hl = { { "AlphaButton", 0, 1 } }
 			b.opts.hl_shortcut = "AlphaButtonShortcut"
 			return b
 		end
 
 		-- Setup footer
 		local function footer()
-			local total_plugins = #vim.tbl_keys(require('lazy').plugins() )
+			local total_plugins = #vim.tbl_keys(require("lazy").plugins())
 			local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
 			local version = vim.version()
 			local nvim_version_info = "   " .. version.major .. "." .. version.minor .. "." .. version.patch
