@@ -22,9 +22,9 @@
 # file types (with matching order)
 ln             # LINK
 or             # ORPHAN
-tw             # STICKY_OTHER_WRITABLE
+tw      t       # STICKY_OTHER_WRITABLE
 ow             # OTHER_WRITABLE
-st             # STICKY
+st      t       # STICKY
 di             # DIR
 pi      p       # FIFO
 so      s       # SOCK
@@ -34,6 +34,22 @@ su      u       # SETUID
 sg      g       # SETGID
 ex             # EXEC
 fi             # FILE
+
+# disable some default filetype icons, let them choose icon by filename
+# ln             # LINK
+# or             # ORPHAN
+# tw              # STICKY_OTHER_WRITABLE
+# ow              # OTHER_WRITABLE
+# st              # STICKY
+# di             # DIR
+# pi              # FIFO
+# so              # SOCK
+# bd              # BLK
+# cd              # CHR
+# su              # SETUID
+# sg              # SETGID
+# ex              # EXEC
+# fi             # FILE
 
 # file extensions (vim-devicons)
 *.styl          
@@ -87,7 +103,7 @@ fi             # FILE
 *.cc            
 *.cp            
 *.c             
-*.cs            
+*.cs            󰌛
 *.h             
 *.hh            
 *.hpp           
@@ -148,14 +164,14 @@ fi             # FILE
 *.tsx           
 *.jl            
 *.pp            
-*.vue           ﵂
+*.vue           
 *.elm           
 *.swift         
 *.xcplayground  
-*.tex           ﭨ
-*.r             ﳒ
-*.rproj         鉶
-*.sol           ﲹ
+*.tex           󰙩
+*.r             󰟔
+*.rproj         󰗆
+*.sol           󰡪
 *.pem           
 
 # file names (vim-devicons) (case-insensitive not supported in lf)
@@ -180,7 +196,7 @@ fi             # FILE
 *.gvimrc                
 *_vimrc                 
 *_gvimrc                
-*.bashprofle           
+*.bashprofile           
 *favicon.ico            
 *license                
 *node_modules           
@@ -188,12 +204,15 @@ fi             # FILE
 *procfile               
 *dockerfile             
 *docker-compose.yml     
+*docker-compose.yaml    
+*compose.yml            
+*compose.yaml           
 *rakefile               
 *config.ru              
 *gemfile                
 *makefile               
 *cmakelists.txt         
-*robots.txt             ﮧ
+*robots.txt             󰚩
 
 # file names (case-sensitive adaptations)
 *Gruntfile.coffee       
@@ -209,6 +228,7 @@ fi             # FILE
 *Procfile               
 *Dockerfile             
 *Docker-compose.yml     
+*Docker-compose.yaml    
 *Rakefile               
 *Gemfile                
 *Makefile               
