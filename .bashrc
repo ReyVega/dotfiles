@@ -13,7 +13,6 @@ PS1='[\u@\h \W]\$ '
 
 # Alias
 alias ls='ls --color=auto'
-alias lf=lfrun
 
 # Starship
 eval "$(starship init bash)"

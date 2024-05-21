@@ -9,8 +9,8 @@ set drawbox
 
 # preview files
 set preview
-set previewer ~/.config/lf/preview/preview.sh
-set cleaner ~/.config/lf/preview/cleaner.sh
+set previewer ~/.config/lf/preview/lf_kitty_preview
+set cleaner ~/.config/lf/preview/lf_kitty_clean
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to

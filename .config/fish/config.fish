@@ -10,9 +10,6 @@ set -gx fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 # For managing dotfiles
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# Alias
-alias lf=lfrun
-
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end

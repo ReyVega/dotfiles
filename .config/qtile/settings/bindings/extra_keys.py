@@ -42,7 +42,7 @@ extra_keys = [
     # LF
     Key(
         [mod], "p",
-        lazy.spawn(f"{terminal} -e lfrun"),
+        lazy.spawn(f"{terminal} -e lf"),
         desc="Starts Lf"
     ),
 
