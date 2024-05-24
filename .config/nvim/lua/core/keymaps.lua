@@ -28,8 +28,8 @@ key("n", "<C-j>", "<C-w>j", default_opts)
 key("n", "<C-k>", "<C-w>k", default_opts)
 
 -- Close all windows and exit from neovim
-key("n", "<C-q>", "<Cmd>qa!<CR>", default_opts)
-key("i", "<C-q>", "<Esc><Cmd>qa!<CR>", default_opts)
+key("n", "<C-q>", "<Cmd>qa<CR>", default_opts)
+key("i", "<C-q>", "<Esc><Cmd>qa<CR>", default_opts)
 
 -- Clear search highlighting
 key("n", "<leader>cl", "<Cmd>nohl<CR>", { noremap = true, silent = true, desc = "Clear Filter Selection" })

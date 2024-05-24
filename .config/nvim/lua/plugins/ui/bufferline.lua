@@ -150,7 +150,7 @@ return {
 		-- BufDel (Delete buffers without messing the layout and disable nvim tree deletion)
 		local function BufDel()
 			if vim.bo.filetype ~= "NvimTree" and vim.bo.filetype ~= "alpha" then
-				return "<Cmd>Bwipeout!<CR>"
+				return "<Cmd>Bwipeout<CR>"
 			end
 		end
 

@@ -35,6 +35,7 @@ set.cmdheight = 2         -- more space for displaying messages
 set.signcolumn = "number" -- type of sign column
 set.cursorline = true     -- enable highlighting of the current line
 set.termguicolors = true  -- Enable 24-bit RGB colors
+set.confirm = true        -- Enable confirm dialogs
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -48,12 +49,12 @@ set.smarttab = true    -- tab new lines
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------
-set.hidden = true     -- enable background buffers
-set.history = 100     -- remember n lines in history
-set.lazyredraw = true -- faster scrolling
-set.synmaxcol = 240   -- max column for syntax highlight
-set.updatetime = 300  -- faster completion
-set.timeoutlen = 500  -- by default timeoutlen is 1000 ms
+set.hidden = true         -- enable background buffers
+set.history = 100         -- remember n lines in history
+set.lazyredraw = false    -- faster scrolling
+set.synmaxcol = 240       -- max column for syntax highlight
+set.updatetime = 300      -- faster completion
+set.timeoutlen = 500      -- by default timeoutlen is 1000 ms
 
 -----------------------------------------------------------
 -- Startup
