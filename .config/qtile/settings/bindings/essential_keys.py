@@ -1,5 +1,5 @@
 from libqtile.config import Key
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from .custom_functions import (
     kill_all_windows,

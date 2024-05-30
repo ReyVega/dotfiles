@@ -1,5 +1,4 @@
-from libqtile.command import lazy
-from libqtile.config import Screen
+from libqtile.lazy import lazy
 
 #---------------------------------------------------------------
 #-- Custom functions for bindings

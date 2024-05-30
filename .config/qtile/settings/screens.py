@@ -1,6 +1,6 @@
 from libqtile.config import Screen, Key
 from libqtile import bar
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 from .widgets import primary_widgets, secondary_widgets
 from .wallpaper import wallpaper
 from .theme import colors
