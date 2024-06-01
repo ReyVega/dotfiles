@@ -1,6 +1,8 @@
 from os import path
+
 from libqtile import bar, widget
 from libqtile.lazy import lazy
+
 from .theme import colors
 
 
@@ -122,11 +124,11 @@ def primary_widgets(visible_groups):
         separator(),
         widget.GenPollCommand(
             **base(fg="color10"),
-            cmd="calendar",
+            cmd="calendar-notification",
             mouse_callbacks={
-                "Button1": lazy.spawn("calendar curr"),
-                "Button5": lazy.spawn("calendar next"),
-                "Button4": lazy.spawn("calendar prev"),
+                "Button1": lazy.spawn("calendar-notification curr"),
+                "Button5": lazy.spawn("calendar-notification next"),
+                "Button4": lazy.spawn("calendar-notification prev"),
             },
             update_interval=1,
             font="Hack Nerd Font Bold",
@@ -234,7 +236,12 @@ def secondary_widgets(visible_groups):
         separator(),
         widget.GenPollCommand(
             **base(fg="color10"),
-            cmd="calendar",
+            cmd="calendar-notification",
+            mouse_callbacks={
+                "Button1": lazy.spawn("calendar-notification curr"),
+                "Button5": lazy.spawn("calendar-notification next"),
+                "Button4": lazy.spawn("calendar-notification prev"),
+            },
             update_interval=1,
             font="Hack Nerd Font Bold",
         ),

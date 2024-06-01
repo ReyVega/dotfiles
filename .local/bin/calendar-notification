@@ -1,33 +1,87 @@
 #!/bin/bash
 
-timeout=0
+TIMEOUT=0
+ICON="󰃵"
+CALENDAR_PATH=/tmp/calendar-notification
 
 send_notification() {
-	TODAY=$(date '+%-d')
-	HEAD=$(cal "$1" | head -n1)
-	BODY=$(cal "$1" | tail -n7 | sed -z "s|$TODAY|<u><b>$TODAY</b></u>|1")
-	FOOT="\n<i>       ~ calendar</i>  "
-	dunstify -a "widget" -h string:x-dunst-stack-tag:widget "$HEAD" "$BODY$FOOT" -u low --timeout $timeout
+    local month=$1
+    local year=$2
+    local today=$(date +%-d)
+    local current_month=$(date +%-m)
+    local current_year=$(date +%Y)
+
+    local head=$(cal $month $year | head -n1)
+
+    if [[ $month -eq $current_month && $year -eq $current_year ]]; then
+        local body=$(cal $month $year | tail -n7 | sed -z "s|$today|<u><b>$today</b></u>|1")
+    else
+        local body=$(cal $month $year | tail -n7)
+    fi
+
+    local foot="\n<i>       ~ calendar</i>  "
+    dunstify -a "widget" -h string:x-dunst-stack-tag:widget "$head" "$body$foot" -u low --timeout $TIMEOUT
+}
+
+initialize_calendar_file() {
+    local current_month=$(date +%-m)
+    local current_year=$(date +%Y)
+    update_calendar_file "$current_month" "$current_year"
+    send_notification "$current_month" "$current_year"
+}
+
+update_calendar_file() {
+    local month=$1
+    local year=$2
+    > "$CALENDAR_PATH"
+    echo "$month" >> "$CALENDAR_PATH"
+    echo "$year" >> "$CALENDAR_PATH"
+}
+
+adjust_month() {
+    local increment=$1
+    local current_month
+    local current_year
+
+    if [[ ! -f $CALENDAR_PATH ]]; then
+        initialize_calendar_file
+    fi
+
+    {
+        read -r current_month
+        read -r current_year
+    } < "$CALENDAR_PATH"
+
+    current_month=$((current_month + increment))
+
+    if [[ $current_month -ge 13 ]]; then
+        current_year=$((current_year + 1))
+        current_month=1
+    elif [[ $current_month -le 0 ]]; then
+        current_year=$((current_year - 1))
+        current_month=12
+    fi
+
+    update_calendar_file "$current_month" "$current_year"
+    send_notification "$current_month" "$current_year"
 }
 
 handle_action() {
-	echo "$DIFF" > "$TMP"
-	if [ "$DIFF" -ge 0 ]; then
-		send_notification "+$DIFF months"
-	else
-		send_notification "$((-DIFF)) months ago"
-	fi
+    local action=$1
+    if [[ $action -eq 0 ]]; then
+        initialize_calendar_file
+    else
+        adjust_month "$action"
+    fi
 }
 
-TMP=${XDG_RUNTIME_DIR:-/tmp}/"$UID"_calendar_notification_month
-touch "$TMP"
-
-DIFF=$(<"$TMP")
-
 case $1 in
-	"curr") DIFF=0;;
-	"next") DIFF=$((DIFF+1));;
-	"prev") DIFF=$((DIFF-1));;
+    curr) handle_action 0;;
+    next) handle_action 1;;
+    prev) handle_action -1;;
+    *)
+        date=$(date +"%b %d %Y")
+        printf "%s" "$ICON $date"
+        ;;
 esac
 
-handle_action
