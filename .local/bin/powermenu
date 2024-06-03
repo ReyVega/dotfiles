@@ -91,7 +91,7 @@ case $chosen in
             ans=$(confirm_exit)
             if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]
             then
-                kill $(ps -ef | grep "/usr/bin/qtile start" | grep -v grep | awk '{print $2}')
+                qtile cmd-obj -o root -f shutdown
                 exit 0
             elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]
             then
