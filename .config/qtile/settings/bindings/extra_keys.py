@@ -67,6 +67,13 @@ extra_keys = [
         desc="Starts rofi powermenu"
     ),
 
+    # Rofi (Wallpaper)
+    Key(
+        [mod], "t",
+        lazy.spawn("wallpaper"),
+        desc="Starts rofi wallpaper menu"
+    ),
+
     # Lock screen (Betterlockscreen)
     Key(
         [mod, "shift"], "q",

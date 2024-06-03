@@ -1,0 +1,20 @@
+#!/bin/bash
+WALLPAPERS_DIR="$HOME/.config/qtile/wallpapers"
+
+MENU_ENTRIES=""
+for WALLPAPER_PATH in "$WALLPAPERS_DIR"/*; do
+    if file -i "$WALLPAPER_PATH" | grep -q 'image/'
+    then
+        WALLPAPER_NAME=$(basename "$WALLPAPER_PATH")
+        MENU_ENTRIES+="$WALLPAPER_NAME\0icon\x1f$WALLPAPER_PATH\n"
+    fi
+done
+
+SELECTED_WALLPAPER=$(echo -en "$MENU_ENTRIES" | rofi -dmenu -i)
+
+if [[ -n "$SELECTED_WALLPAPER" ]]
+then
+    echo '{"wallpaper": "'$SELECTED_WALLPAPER'"}' > "$HOME/.config/qtile/wallpaper.json"
+    qtile cmd-obj -o root -f reload_config
+fi
+
