@@ -1,12 +1,10 @@
 #!/bin/bash
-UPDATES_FILE=/tmp/arch-updates/updates
-STATUS_FILE=/tmp/arch-updates/status
+UPDATES_FILE=/tmp/arch-updates
 TERMINAL=kitty
 
 case $1 in
     action)
-        $TERMINAL -e bash -c 'paru; echo $? > '$STATUS_FILE
-        [ $(cat $STATUS_FILE) -eq 0 ] && echo 0 > $UPDATES_FILE
+        $TERMINAL -e bash -c 'paru && echo 0 > '$UPDATES_FILE
         ;;
     *) echo -n " $(cat $UPDATES_FILE | tr -d '\n')" ;;
 esac
