@@ -49,6 +49,7 @@ npm
 ntfs-3g
 os-prober
 pacman-contrib
+picom
 pipewire
 pipewire-alsa
 pipewire-jack
