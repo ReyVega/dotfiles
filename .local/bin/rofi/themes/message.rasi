@@ -1,7 +1,7 @@
 * {
     font:   "Montserrat Bold 12";
 
-    bg0:    #24242480;
+    bg0:    #212121;
     fg0:    #f5f5f5;
 
     background-color:   transparent;
@@ -9,10 +9,11 @@
 }
 
 window {
+    width:              8.2em;
+    padding:            0.7em;
     transparency:       "real";
     location:           center;
     anchor:             center;
-    fullscreen:         true;
     cursor:             "default";
     background-color:   @bg0;
 }
