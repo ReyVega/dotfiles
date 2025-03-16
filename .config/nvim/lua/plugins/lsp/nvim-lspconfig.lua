@@ -29,7 +29,7 @@ return {
 			signs = true,
 			underline = true,
 			update_in_insert = false,
-			severity_sort = false,
+			severity_sort = true,
 		})
 
 		-- Colors and type of underline for diagnostics
