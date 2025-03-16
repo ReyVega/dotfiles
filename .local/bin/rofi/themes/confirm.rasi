@@ -16,7 +16,7 @@ configuration {
 }
 
 window {
-    width:              8.2em;
+    width:              8.5em;
     padding:            0.7em;
     transparency:       "real";
     location:           center;
