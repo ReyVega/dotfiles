@@ -15,21 +15,20 @@ return {
 		-- Customize lsp ui windows
 		require("lspconfig.ui.windows").default_options.border = "rounded"
 
-		-- Customizing gutter signs
-		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-		end
-
 		-- Customizing how diagnostics are displayed
 		vim.diagnostic.config({
 			virtual_text = false,
-			signs = true,
 			underline = true,
 			update_in_insert = false,
 			severity_sort = true,
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = " ", -- Customize error sign
+					[vim.diagnostic.severity.WARN] = " ", -- Customize warning sign
+					[vim.diagnostic.severity.INFO] = " ", -- Customize info sign
+					[vim.diagnostic.severity.HINT] = " ", -- Customize hint sign
+				},
+			},
 		})
 
 		-- Colors and type of underline for diagnostics
