@@ -141,11 +141,12 @@ def primary_widgets(visible_groups):
             font="Hack Nerd Font Bold",
         ),
         separator(),
-        widget.CurrentLayoutIcon(
+        widget.CurrentLayout(
             **base(fg="color3"),
             custom_icon_paths=[
                 path.expanduser("~/.config/qtile/settings/layout_icons")
             ],
+            mode="icon",
             mouse_callbacks={"Button3": lazy.prev_layout()},
             scale=0.66,
             font="Hack Nerd Font Bold",
@@ -246,11 +247,12 @@ def secondary_widgets(visible_groups):
             font="Hack Nerd Font Bold",
         ),
         separator(),
-        widget.CurrentLayoutIcon(
+        widget.CurrentLayout(
             **base(fg="color3"),
             custom_icon_paths=[
                 path.expanduser("~/.config/qtile/settings/layout_icons")
             ],
+            mode="icon",
             mouse_callbacks={"Button3": lazy.prev_layout()},
             scale=0.66,
             font="Hack Nerd Font Bold",
